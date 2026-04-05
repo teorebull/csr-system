@@ -1,0 +1,4 @@
+llm_model_name: "gpt-4.1-mini"
+search_backend: "duckduckgo"
+max_queries_per_claim: 3
+max_results_per_query: 5
