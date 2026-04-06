@@ -42,3 +42,8 @@ Aquest repositori es troba encara en fase de disseny. La documentacio recull:
 
 - `scripts/agent_2/extract_claims_with_llm.py`
 - `docs/AGENT_2_claim_extractor_plan.md`
+
+## Agent 3
+
+- `scripts/agent_3/normalize_claims.py`
+- `docs/AGENT_3_claim_normalizer_plan.md`

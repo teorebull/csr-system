@@ -51,3 +51,21 @@ Choose one of these:
 1. `PyMuPDF` is enough
 2. `reportparse` is worth integrating
 3. `PyMuPDF` as base, `reportparse` only as reference
+
+## Current status
+
+Current decision:
+- `PyMuPDF` is enough for the Microsoft pilot document
+- `reportparse` is not being used for now
+
+What Document Loader currently does:
+- extracts text page by page
+- applies simple preprocessing
+- removes repeated lines when they look like page noise
+- saves processed text, page CSV, metadata CSV, and removed repeated lines
+
+What can still improve later:
+- better table handling
+- cleaner header/footer removal
+- section-level segmentation
+- support for more file formats

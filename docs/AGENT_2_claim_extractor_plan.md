@@ -21,7 +21,8 @@ Minimum columns:
 - `topic`
 - `is_future`
 - `is_verifiable`
-- `confidence`
+- `is_reporting_claim`
+- `claim_quality_score`
 - `source_excerpt`
 
 ## Flow
@@ -82,7 +83,7 @@ To reduce that noise, the prompt was tightened in several ways:
 2. it explicitly excludes vague marketing language, titles, footnotes, isolated keywords, and generic sustainability context
 3. it tells the model to be conservative: if unsure, do not extract
 4. it requires `source_excerpt` to be copied exactly from the page text
-5. it asks the model to output `is_verifiable` and `confidence`
+5. it asks the model to output `is_verifiable`, `is_reporting_claim`, and `claim_quality_score`
 
 This is important because prompt engineering helps narrow the answer space.
 
@@ -103,7 +104,7 @@ The current logic also filters low-quality claims after extraction.
 5. is `claim_type` useful?
 6. is `topic` useful or too noisy?
 7. is the `source_excerpt` enough to trace the origin?
-8. do `is_verifiable` and `confidence` help reduce noise?
+8. do `is_verifiable` and `claim_quality_score` help reduce noise?
 
 ## Current claim output fields
 
@@ -117,8 +118,32 @@ The current CSV should contain:
 - `topic`
 - `is_future`
 - `is_verifiable`
-- `confidence`
+- `is_reporting_claim`
+- `claim_quality_score`
 - `source_excerpt`
+
+## Current status of Claim Extractor
+
+### What it does now
+- reads the `pages.csv` created by Document Loader
+- makes one LLM call per page
+- extracts structured claims from each page
+- keeps provenance through `document_name`, `page_number`, and `source_excerpt`
+- classifies claims with fields such as `claim_type`, `topic`, `is_future`, `is_verifiable`, and `claim_quality_score`
+- writes the results to `claims.csv`
+
+### Why it is good enough for now
+- it already extracts real claims from the Microsoft pilot document
+- it is not limited to numeric claims only
+- future claims can be marked separately
+- the output is traceable and easy to inspect manually in CSV form
+
+### What can still improve later
+- better separation between substantive claims and reporting/methodology claims
+- cleaner topic labeling
+- better handling of table-heavy pages
+- more stable filtering for borderline claims
+- optional JSON or database storage if the project grows
 
 ## Storage recommendation
 

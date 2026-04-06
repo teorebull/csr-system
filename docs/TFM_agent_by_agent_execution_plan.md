@@ -89,6 +89,16 @@ Carregar el document corporatiu i convertir-lo en text usable.
 - nombre de pagines
 - metadata basica si esta disponible
 
+### Estat actual
+- `Document Loader` es considera validat per al MVP
+- el text i el `pages.csv` del document pilot son prou bons per alimentar el seguent agent
+
+### Millores futures possibles
+- millor neteja de soroll de pagina
+- millor tractament de taules
+- segmentacio per seccions
+- suport per altres formats
+
 ### Nota sobre metadata
 La metadata del PDF pot ser util, pero no es el centre del pipeline.
 
@@ -149,7 +159,8 @@ CSV amb com a minim aquestes columnes:
 - `topic`
 - `is_future`
 - `is_verifiable`
-- `confidence`
+- `is_reporting_claim`
+- `claim_quality_score`
 - `source_excerpt`
 
 ### Pipeline actual de l'Agent 2
@@ -165,6 +176,17 @@ L'ús de prompt engineering aqui es important per reduir soroll.
 El model pot al lucionar o extreure frases massa vagues si la instruccio es massa oberta. Per aixo s'ha restringit la definicio de claim, s'han afegit exclusions clares i s'ha obligat el model a ser mes conservador.
 
 La idea no es eliminar completament el risc, sino reduir-lo i deixar la sortida prou neta per al seguent agent.
+
+### Estat actual
+- `Claim Extractor` es considera suficient per continuar amb el MVP
+- ja produeix un `claims.csv` usable
+- encara hi ha una mica de soroll, sobretot en claims de reporting o metodologia, pero no bloqueja el pas al seguent agent
+
+### Millores futures possibles
+- separar millor reporting claims i claims substantius
+- fer el prompt encara mes fi
+- millorar el tractament de pagines amb molt format de taula
+- afegir una revisio o filtre extra si cal
 
 ### Emmagatzematge actual recomanat
 - `CSV` per al MVP, per simplicitat i facilitat d'inspeccio manual
@@ -189,6 +211,33 @@ Eliminar duplicats i unificar claims equivalents.
 ### Que s'ha de validar abans de passar al seguent agent
 1. claims repetits agrupats correctament
 2. claims diferents no fusionats per error
+
+### Decisio actual
+- fer una versio simple basada en text normalization + `SequenceMatcher`
+- separar els claims `FUTURE` en un fitxer a part
+- mantenir el codi senzill i facil d'entendre
+
+### Sortida actual recomanada del Claim Normalizer
+- `normalized_claims.csv`
+- `future_claims.csv`
+
+### Pipeline actual de l'Agent 3
+1. llegir el `claims.csv` generat pel `Claim Extractor`
+2. separar els claims futurs
+3. comparar els claims restants entre si
+4. fusionar duplicats o quasi duplicats obvis
+5. guardar una versio normalitzada per al seguent agent
+
+### Estat actual
+- `Claim Normalizer` ja te una primera implementacio funcional
+- fa deduplicacio simple i separa `FUTURE`
+- es suficient per continuar amb el MVP
+
+### Millores futures possibles
+- usar `RapidFuzz`
+- usar embeddings per similitud semantica
+- millorar l'eleccio de la forma canonica del claim
+- refinar el llindar de similitud segons resultats reals
 
 ## Agent 4. Query Generator
 

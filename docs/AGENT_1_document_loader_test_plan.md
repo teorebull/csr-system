@@ -142,6 +142,30 @@ Interpretacio:
 - ens quedem amb `PyMuPDF`
 - `reportparse` es descarta per ara per complexitat d'instal lacio i integracio
 
+## Estat actual de Document Loader
+
+### Que fa ara
+- obre el PDF pilot amb `PyMuPDF`
+- extreu text per pagina
+- fa una neteja basica de linies buides i espais
+- detecta i elimina linies repetides probables de header o footer
+- guarda una versio processada del text
+- guarda un `pages.csv` amb text per pagina
+- guarda metadata basica del PDF
+
+### Per que el donem per validat
+- el text del document pilot de Microsoft surt de forma prou llegible
+- es conserva la referencia de pagina
+- el `pages.csv` serveix com a input del seguent agent
+- la complexitat es baixa i el codi es senzill d'entendre
+
+### Que es podria millorar mes endavant
+- neteja millor de headers i footers repetits
+- tractament millor de pagines amb taules complexes
+- segmentacio per blocs o seccions, no nomes per pagina
+- suport addicional per altres formats de documents
+- guardar metadades una mica mes riques si realment aporten valor
+
 ## Resultat que volem tenir abans de passar a l'Agent 2
 
 Abans de passar al Claim Extractor, hem de poder dir una frase com aquesta:
