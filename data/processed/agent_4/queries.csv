@@ -1,0 +1,13 @@
+normalized_claim_id,query_type,query_text
+normalized_claim_1,core,Microsoft environmental metrics disclosure
+normalized_claim_1,verification,Microsoft independent verification environmental report
+normalized_claim_1,critical,Microsoft environmental claims criticism or controversy
+normalized_claim_2,core,Microsoft GHG emissions GHG Protocol
+normalized_claim_2,verification,Microsoft GHG emissions third-party verification
+normalized_claim_2,critical,Microsoft GHG emissions criticism or controversy
+normalized_claim_3,core,Microsoft Deloitte Touche FY24 environmental assertion
+normalized_claim_3,verification,Deloitte Touche Microsoft FY24 environmental report third-party confirmation
+normalized_claim_3,critical,Microsoft FY24 environmental claims criticism or controversy
+normalized_claim_4,core,Microsoft sustainability report data accuracy improvements
+normalized_claim_4,verification,Microsoft sustainability methodology updates independent verification
+normalized_claim_4,critical,Microsoft sustainability report criticism data accuracy

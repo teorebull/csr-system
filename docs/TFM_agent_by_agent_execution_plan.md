@@ -248,12 +248,60 @@ Generar consultes per buscar evidencia externa.
 - claim normalitzat
 
 ### Output
-- 2 o 3 queries utiles per claim
+- exactament 3 queries utiles per claim
 
 ### Eines candidates
 - LLM
 - `KeyBERT`
 - vocabulari de suport com `taxonomy4good`
+
+### Decisio actual
+- generar les queries automaticament
+- fer-ho claim per claim
+- usar sortida estructurada
+- generar exactament 3 queries per claim:
+  - `core`
+  - `verification`
+  - `critical`
+- usar un model local via `Ollama`
+- prioritzar baixa latencia i simplicitat sobre maxima potencia
+
+### Model local recomanat ara mateix
+- `mistral-nemo:latest`
+
+### Per que aquest model
+- es mes lleuger i rapid que `qwen2.5:14b`
+- per query generation no cal el model mes fort del pipeline
+- la tasca es mes simple: reformular i orientar la cerca
+- redueix temps total quan hi ha molts claims
+
+### Alternatives si cal
+- `qwen2.5:14b` si vols mes qualitat
+- `gemma3:12b` si el comportament del model et convenç mes
+
+### Sortida recomanada del Query Generator
+CSV amb com a minim aquestes columnes:
+- `normalized_claim_id`
+- `query_type`
+- `query_text`
+
+### Pipeline actual de l'Agent 4
+1. llegir el `normalized_claims.csv`
+2. per cada claim, fer una crida al model local
+3. generar exactament 3 queries:
+   - `core`
+   - `verification`
+   - `critical`
+4. afegir les queries a una taula temporal
+5. guardar un `queries.csv`
+
+### Nota metodologica
+El `Query Generator` no ha de ser creatiu de mes.
+
+La seva funcio no es trobar la contradiccio per si sol, sino generar consultes prou bones per donar al `Web Search` oportunitats reals de trobar:
+- suport
+- verificacio externa
+- critica o contradiccio
 
 ### Que s'ha de validar abans de passar al seguent agent
 1. les queries no son massa generiques
@@ -273,6 +321,20 @@ Buscar fonts externes candidates.
 ### Eines candidates
 - `ddgs`
 - `SearXNG` nomes si cal mes endavant
+
+### Decisio actual
+- usar `ddgs`
+- recuperar resultats candidats a partir de `queries.csv`
+- excloure dominis propietat de l'empresa
+- mantenir nomes resultats externs que segueixen mencionant l'empresa
+
+### Nota metodologica
+Per aquest TFM, els resultats de la mateixa empresa no compten com a evidencia externa principal.
+
+Per aixo, el `Web Search` aplica una politica simple:
+- buscar normalment
+- eliminar dominis corporatius propis
+- conservar nomes resultats externs pero encara relacionats amb l'empresa
 
 ### Que s'ha de validar abans de passar al seguent agent
 1. les fonts trobades son raonables
@@ -313,6 +375,43 @@ Ordenar la millor evidencia externa per a cada claim.
 - `FlagEmbedding`
 - `rerankers`
 
+### Decisio actual
+- usar una primera versio simple i open source
+- no introduir encara embeddings ni cross-encoders
+- puntuar la rellevancia amb heuristiques transparents i facils d'entendre
+
+### Pipeline actual de l'Agent 7
+1. llegir `normalized_claims.csv`
+2. llegir `evidence_candidates.csv`
+3. eliminar evidencies fallides o massa buides
+4. calcular una puntuacio de rellevancia per claim-evidence
+5. ordenar les evidencies dins de cada claim
+6. guardar `ranked_evidence.csv`
+
+### Sortida actual recomanada del Reranker
+- `ranked_evidence.csv`
+
+### Nota metodologica
+Per al MVP, el reranking actual no es semanticament sofisticat.
+
+Combina:
+- overlap del claim amb title
+- overlap del claim amb snippet
+- overlap del claim amb extracted text
+- un petit bonus pel rang original de cerca
+- un petit bonus segons el tipus de query
+
+### Estat actual
+- `Reranker` ja te una primera implementacio funcional
+- es suficient per prioritzar candidats abans de l'analisi final
+
+### Millores futures possibles
+- `RapidFuzz`
+- `sentence-transformers`
+- `rerankers`
+- cross-encoders
+- reranking per chunks en lloc de document complet
+
 ### Que s'ha de validar abans de passar al seguent agent
 1. la millor evidencia queda a dalt
 2. les fonts dubtoses baixen de prioritat
@@ -334,6 +433,38 @@ Comparar claim i evidencia per obtenir stance.
 - `MiniCheck`
 - `transformers` amb NLI
 - LLM com a consolidacio si cal
+
+### Decisio actual
+- usar un LLM local via `Ollama`
+- model recomanat ara mateix: `qwen2.5:14b`
+- analitzar cada claim amb les seves 3 millors evidencies
+- usar sortida estructurada i guardar un CSV final d'avaluacions
+
+### Pipeline actual de l'Agent 8
+1. llegir `normalized_claims.csv`
+2. llegir `ranked_evidence.csv`
+3. quedar-se amb el top 3 d'evidencia per claim
+4. construir un prompt estructurat per claim
+5. classificar el claim com `SUPPORTED`, `PARTIALLY_SUPPORTED`, `UNSUPPORTED` o `CONTRADICTED`
+6. guardar `claim_assessments.csv`
+
+### Sortida actual recomanada de l'Evidence Analyzer
+- `claim_assessments.csv`
+
+### Nota metodologica
+Per al MVP, l'analitzador actual utilitza un LLM i no un sistema NLI separat.
+
+La instruccio del prompt esta dissenyada per evitar contradiccions falses i forcar el model a preferir `UNSUPPORTED` quan l'evidencia es feble.
+
+### Estat actual
+- `Evidence Analyzer` ja te una primera implementacio funcional
+- es suficient per fer una primera avaluacio claim-evidence en el MVP
+
+### Millores futures possibles
+- afegir un camp de confiança
+- fer servir evidència per chunks en lloc de documents complets
+- comparar amb una baseline NLI
+- afegir evidència secundaria
 
 ### Que s'ha de validar abans de passar al seguent agent
 1. el label te sentit

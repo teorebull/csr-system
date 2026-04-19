@@ -8,6 +8,7 @@ Documents de treball actuals:
 - `docs/TFM_current_decisions_and_next_steps.md`
 - `docs/TFM_reusable_oss_repositories.md`
 - `docs/TFM_agent_by_agent_execution_plan.md`
+- `docs/LANGGRAPH_REALISTIC_INTEGRATION_PLAN.md`
 
 Aquest repositori es troba encara en fase de disseny. La documentacio recull:
 
@@ -47,3 +48,22 @@ Aquest repositori es troba encara en fase de disseny. La documentacio recull:
 
 - `scripts/agent_3/normalize_claims.py`
 - `docs/AGENT_3_claim_normalizer_plan.md`
+
+## Agent 4
+
+- `docs/AGENT_4_query_generator_plan.md`
+
+## Agent 6
+
+- `scripts/agent_6/evidence_checker.py`
+- `docs/AGENT_6_evidence_fetcher_plan.md`
+
+## Agent 7
+
+- `scripts/agent_7/reranker.py`
+- `docs/AGENT_7_reranker_plan.md`
+
+## Agent 8
+
+- `scripts/agent_8/evidence_analyzer.py`
+- `docs/AGENT_8_evidence_analyzer_plan.md`
