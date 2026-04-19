@@ -488,9 +488,37 @@ Construir la sortida final per a l'usuari.
 - `pandas`
 - LLM opcional per redactar el resum final
 
-### Nota actual
-- el score final no es prioritari ara mateix
-- ara ens centrarem primer en fer funcionar el pipeline
+### Decisio actual
+- usar una primera versio rule-based
+- no usar encara un LLM per al resum final
+- generar sortides finals estructurades i faciles d'inspeccionar
+
+### Pipeline actual de l'Agent 9
+1. llegir `claim_assessments.csv`
+2. comptar labels finals
+3. comptar claims futurs exclosos
+4. construir una conclusio global simple amb regles
+5. guardar `final_report.csv`, `final_report.json` i `final_summary.md`
+
+### Sortida actual recomanada del Judge / Aggregator
+- `final_report.csv`
+- `final_report.json`
+- `final_summary.md`
+
+### Nota metodologica
+Per al MVP, aquest ultim agent no reavalua els claims.
+
+La seva funcio es agregar i resumir els resultats ja produïts pels agents anteriors.
+
+### Estat actual
+- `Judge / Aggregator` ja te una primera implementacio funcional
+- el MVP del pipeline ja es pot considerar complet
+
+### Millores futures possibles
+- afegir un credibility score
+- afegir un greenwashing risk score
+- usar un LLM per escriure una conclusio final mes rica
+- incorporar evidència secundaria o cites addicionals al resum final
 
 ## Ordre real de treball a partir d'ara
 

@@ -1,0 +1,46 @@
+{
+  "company_name": "Microsoft",
+  "total_claims_analyzed": 4,
+  "future_claims_excluded": 0,
+  "label_counts": {
+    "SUPPORTED": 0,
+    "PARTIALLY_SUPPORTED": 2,
+    "UNSUPPORTED": 2,
+    "CONTRADICTED": 0
+  },
+  "final_conclusion": "The analyzed discourse is weakly substantiated by external evidence. A large share of claims remain unsupported, which suggests limited external confirmation of the company's sustainability narrative.",
+  "claims": [
+    {
+      "normalized_claim_id": "normalized_claim_1",
+      "claim_text": "As part of Microsoft’s commitment to disclose information about our environmental footprint, the following sections are a compilation of environmental metrics across greenhouse gas (GHG) emissions, energy, water, waste and circularity, and land.",
+      "final_label": "PARTIALLY_SUPPORTED",
+      "justification": "The evidence partially supports Microsoft's commitment to disclose environmental metrics but does not provide specific sections or data on GHG emissions, energy, water, waste and circularity, or land. The report outlines commitments and progress towards sustainability goals but lacks detailed disclosures.",
+      "top_evidence_url": "https://eecore.snau.edu.ua/en/in-depth-analysis-microsoft-environmental-sustainability-report-2025/",
+      "top_evidence_title": "In-Depth Analysis: Microsoft Environmental Sustainability Report 2025"
+    },
+    {
+      "normalized_claim_id": "normalized_claim_2",
+      "claim_text": "Section 1 presents our GHG emissions in accordance with the GHG Protocol and criteria selected or developed by management (“management’s criteria”).",
+      "final_label": "UNSUPPORTED",
+      "justification": "The evidence does not provide information about how Microsoft presents its GHG emissions in accordance with the GHG Protocol or management's criteria. It only discusses increases in emissions and challenges related to AI growth.",
+      "top_evidence_url": "https://stand.earth/press-releases/report-finds-microsofts-climate-action-conflicts-with-its-commitments-as-emissions-increase-46-since-2020/",
+      "top_evidence_title": "Report finds Microsoft's climate action conflicts with its commitments as emissions increase 46% since 2020"
+    },
+    {
+      "normalized_claim_id": "normalized_claim_3",
+      "claim_text": "Deloitte & Touche LLP performed a review engagement on management’s assertion relating to i) periods prior to the year ended June 30, 2024 (FY24),",
+      "final_label": "PARTIALLY_SUPPORTED",
+      "justification": "The evidence partially supports the claim as Deloitte & Touche LLP performed a review relating to specified information within Section 1 of Microsoft's Environmental Data Fact Sheet, but it does not provide detailed information about periods prior to the year ended June 30, 2024 (FY24).",
+      "top_evidence_url": "https://www.marketscreener.com/quote/stock/MICROSOFT-CORPORATION-4835/news/Microsoft-2025-report-50111971/",
+      "top_evidence_title": "Microsoft : 2025 report | MarketScreener"
+    },
+    {
+      "normalized_claim_id": "normalized_claim_4",
+      "claim_text": "All reported values represent the best available data at the time of publication. The data has been adjusted to incorporate updated methodologies, structural changes, and/or accuracy improvements per our recalculation policy described herein.",
+      "final_label": "UNSUPPORTED",
+      "justification": "The evidence does not provide specific information about data adjustment or recalculation policies. It is generally related to the importance of accuracy in sustainability reporting but does not support the claim's specifics.",
+      "top_evidence_url": "https://www.be-terna.com/insights/sustainability-reporting-and-compliance-with-microsofts-sustainability-manager",
+      "top_evidence_title": "Sustainability Reporting and Compliance with Microsoft's Sustainability Manager"
+    }
+  ]
+}

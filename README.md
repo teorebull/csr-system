@@ -67,3 +67,8 @@ Aquest repositori es troba encara en fase de disseny. La documentacio recull:
 
 - `scripts/agent_8/evidence_analyzer.py`
 - `docs/AGENT_8_evidence_analyzer_plan.md`
+
+## Agent 9
+
+- `scripts/agent_9/judge_aggregator.py`
+- `docs/AGENT_9_judge_aggregator_plan.md`
