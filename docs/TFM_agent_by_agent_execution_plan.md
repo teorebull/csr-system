@@ -23,7 +23,8 @@ Objectiu: treballar el TFM de forma seqüencial, agent per agent, sense barrejar
 ### Rúbrica actual
 - `SUPPORTED`
 - `PARTIALLY_SUPPORTED`
-- `UNSUPPORTED`
+- `UNVERIFIED`
+- `PARTIALLY_CONTRADICTED`
 - `CONTRADICTED`
 - `FUTURE`
 
@@ -215,10 +216,15 @@ Eliminar duplicats i unificar claims equivalents.
 ### Decisio actual
 - fer una versio simple basada en text normalization + `SequenceMatcher`
 - separar els claims `FUTURE` en un fitxer a part
+- prioritzar els claims amb mes valor analitic extern mitjancant `analytical_value_score`
+- limitar el main analysis amb `MAX_PRIORITIZED_CLAIMS_TOTAL`, per defecte `14`
+- deixar els claims exclosos visibles amb `exclusion_reason`, inclos `below_main_analysis_priority_cap`
 - mantenir el codi senzill i facil d'entendre
 
 ### Sortida actual recomanada del Claim Normalizer
 - `normalized_claims.csv`
+- `prioritized_claims.csv`
+- `excluded_claims.csv`
 - `future_claims.csv`
 
 ### Pipeline actual de l'Agent 3
@@ -226,11 +232,18 @@ Eliminar duplicats i unificar claims equivalents.
 2. separar els claims futurs
 3. comparar els claims restants entre si
 4. fusionar duplicats o quasi duplicats obvis
-5. guardar una versio normalitzada per al seguent agent
+5. assignar `evaluation_priority`, `main_analysis` i `exclusion_reason`
+6. calcular `analytical_value_score` i `analytical_value_reason`
+7. aplicar el cap `MAX_PRIORITIZED_CLAIMS_TOTAL`
+8. guardar una versio normalitzada completa
+9. guardar `prioritized_claims.csv` per al main analysis
+10. guardar `excluded_claims.csv` amb claims exclosos i motiu
 
 ### Estat actual
 - `Claim Normalizer` ja te una primera implementacio funcional
 - fa deduplicacio simple i separa `FUTURE`
+- genera `prioritized_claims.csv` amb 14 claims per defecte per reduir soroll downstream
+- demou claims massa tabulars o purament interns, com xifres puntuals d'aigua o taules d'emissions, quan tenen menys valor per evidencia externa
 - es suficient per continuar amb el MVP
 
 ### Millores futures possibles
@@ -248,7 +261,7 @@ Generar consultes per buscar evidencia externa.
 - claim normalitzat
 
 ### Output
-- exactament 3 queries utiles per claim
+- exactament 5 queries utiles per claim orientades a risc de greenwashing
 
 ### Eines candidates
 - LLM
@@ -259,10 +272,13 @@ Generar consultes per buscar evidencia externa.
 - generar les queries automaticament
 - fer-ho claim per claim
 - usar sortida estructurada
-- generar exactament 3 queries per claim:
-  - `core`
+- generar exactament 5 queries per claim:
   - `verification`
-  - `critical`
+  - `contradiction`
+  - `criticism`
+  - `methodology`
+  - `context`
+- afegir queries deterministes addicionals per casos dificils com Scope 2, especialment `location-based`, `market-based`, `RECs`, `GHG Protocol`, `CDP` i electricitat de datacenters
 - usar un model local via `Ollama`
 - prioritzar baixa latencia i simplicitat sobre maxima potencia
 
@@ -286,12 +302,14 @@ CSV amb com a minim aquestes columnes:
 - `query_text`
 
 ### Pipeline actual de l'Agent 4
-1. llegir el `normalized_claims.csv`
+1. llegir el `prioritized_claims.csv`
 2. per cada claim, fer una crida al model local
-3. generar exactament 3 queries:
-   - `core`
+3. generar exactament 5 queries:
    - `verification`
-   - `critical`
+   - `contradiction`
+   - `criticism`
+   - `methodology`
+   - `context`
 4. afegir les queries a una taula temporal
 5. guardar un `queries.csv`
 
@@ -302,6 +320,7 @@ La seva funcio no es trobar la contradiccio per si sol, sino generar consultes p
 - suport
 - verificacio externa
 - critica o contradiccio
+- metodologia, caveats i context que permetin raonar sobre risc de greenwashing
 
 ### Que s'ha de validar abans de passar al seguent agent
 1. les queries no son massa generiques
@@ -327,6 +346,9 @@ Buscar fonts externes candidates.
 - recuperar resultats candidats a partir de `queries.csv`
 - excloure dominis propietat de l'empresa
 - mantenir nomes resultats externs que segueixen mencionant l'empresa
+- excloure xarxes socials i fonts poc adequades per evidencia contrastable
+- afegir `source_quality_score` i `source_quality_label` per ajudar el reranking
+- ampliar progressivament la llista de dominis fiables o febles segons els resultats reals de prova/error
 
 ### Nota metodologica
 Per aquest TFM, els resultats de la mateixa empresa no compten com a evidencia externa principal.
@@ -359,6 +381,12 @@ Descarregar i netejar el text de les fonts recuperades.
 1. el text s'extreu be
 2. el boilerplate no domina el contingut
 
+### Decisio actual
+- preservar els camps `source_quality_score` i `source_quality_label` generats per l'Agent 5
+- filtrar, deduplicar i limitar URLs abans de l'extraccio per evitar centenars de descarregues
+- modes actuals: `fast` 50 URLs, `normal` 100 URLs, `strict` 50 URLs amb score minim `0.5`, `thorough` 150 URLs
+- mantenir les fonts `unknown` amb score `0.0` en modes `fast`, `normal` i `thorough` per no perdre fonts potencialment bones massa aviat
+
 ## Agent 7. Reranker
 
 ### Objectiu
@@ -381,7 +409,7 @@ Ordenar la millor evidencia externa per a cada claim.
 - puntuar la rellevancia amb heuristiques transparents i facils d'entendre
 
 ### Pipeline actual de l'Agent 7
-1. llegir `normalized_claims.csv`
+1. llegir `prioritized_claims.csv`
 2. llegir `evidence_candidates.csv`
 3. eliminar evidencies fallides o massa buides
 4. calcular una puntuacio de rellevancia per claim-evidence
@@ -400,10 +428,14 @@ Combina:
 - overlap del claim amb extracted text
 - un petit bonus pel rang original de cerca
 - un petit bonus segons el tipus de query
+- un bonus o penalitzacio segons qualitat de font generada per l'Agent 5
+- un senyal simple de context de greenwashing-risk
+- diversificacio per tipus de query i URL abans de passar el top 3 a l'Agent 8
 
 ### Estat actual
-- `Reranker` ja te una primera implementacio funcional
-- es suficient per prioritzar candidats abans de l'analisi final
+- `Reranker` ja incorpora una primera logica orientada a greenwashing-risk analysis
+- es suficient per prioritzar candidats abans de l'analisi final, pero encara depen molt de la qualitat de cerca de l'Agent 5
+- la validacio actual mostra millora en Scope 3 i total emissions, pero Scope 2 continua feble per manca de bones fonts recuperades
 
 ### Millores futures possibles
 - `RapidFuzz`
@@ -428,6 +460,9 @@ Comparar claim i evidencia per obtenir stance.
 ### Output
 - label de la rúbrica
 - justificacio curta
+- nivell de risc de greenwashing
+- rellevancia de l'evidencia respecte al claim
+- raonament curt sobre el risc
 
 ### Eines candidates
 - `MiniCheck`
@@ -439,22 +474,39 @@ Comparar claim i evidencia per obtenir stance.
 - model recomanat ara mateix: `qwen2.5:14b`
 - analitzar cada claim amb les seves 3 millors evidencies
 - usar sortida estructurada i guardar un CSV final d'avaluacions
+- separar suport factual i risc de greenwashing
+- separar tambe rellevancia de l'evidencia per evitar que context massa generic inflï el risc
+- reutilitzar cache quan el claim i les evidencies top no han canviat
 
 ### Pipeline actual de l'Agent 8
-1. llegir `normalized_claims.csv`
+1. llegir `prioritized_claims.csv`
 2. llegir `ranked_evidence.csv`
 3. quedar-se amb el top 3 d'evidencia per claim
 4. construir un prompt estructurat per claim
-5. classificar el claim com `SUPPORTED`, `PARTIALLY_SUPPORTED`, `UNSUPPORTED` o `CONTRADICTED`
-6. guardar `claim_assessments.csv`
+5. mirar si existeix una assessment cachejada per al mateix claim i evidencies
+6. classificar el suport factual com `SUPPORTED`, `PARTIALLY_SUPPORTED`, `UNVERIFIED`, `PARTIALLY_CONTRADICTED` o `CONTRADICTED` quan no hi ha cache
+7. classificar la rellevancia de l'evidencia com `DIRECT`, `INDIRECT`, `BACKGROUND` o `UNRELATED`
+8. classificar el risc de greenwashing com `LOW`, `MEDIUM`, `HIGH` o `UNCLEAR`
+9. aplicar guardrails deterministes: `UNRELATED` força risc `UNCLEAR`, i `BACKGROUND` no pot ser `HIGH`
+10. netejar camps generats per evitar contaminacio runtime
+11. guardar `claim_assessments.csv` i actualitzar `assessment_cache.json`
 
 ### Sortida actual recomanada de l'Evidence Analyzer
 - `claim_assessments.csv`
 
+Campos clau actuals:
+- `final_label`
+- `greenwashing_risk_level`
+- `evidence_relevance`
+- `justification`
+- `risk_reasoning`
+
 ### Nota metodologica
 Per al MVP, l'analitzador actual utilitza un LLM i no un sistema NLI separat.
 
-La instruccio del prompt esta dissenyada per evitar contradiccions falses i forcar el model a preferir `UNSUPPORTED` quan l'evidencia es feble.
+La instruccio del prompt esta dissenyada per evitar contradiccions falses i forcar el model a preferir `UNVERIFIED` quan l'evidencia es feble.
+
+Per a claims numerics, el suport factual continua sent estricte: el context de risc no confirma automaticament una xifra. Una claim pot quedar `UNVERIFIED` i alhora tenir risc `MEDIUM` o `HIGH` si l'evidencia externa aporta caveats o indicis rellevants. El risc `HIGH` queda limitat a evidencia directa o indirecta forta, no a context generic.
 
 ### Estat actual
 - `Evidence Analyzer` ja te una primera implementacio funcional
@@ -489,16 +541,23 @@ Construir la sortida final per a l'usuari.
 - LLM opcional per redactar el resum final
 
 ### Decisio actual
-- usar una primera versio rule-based
-- no usar encara un LLM per al resum final
+- mantenir agregacio i comptadors rule-based
+- usar un LLM local nomes per redactar una analisi final mes profunda a partir dels resultats estructurats
+- passar al LLM final resums per tema i exemples seleccionats, no els 30 claims en brut
+- mantenir fallback determinista si l'LLM no respon
 - generar sortides finals estructurades i faciles d'inspeccionar
 
 ### Pipeline actual de l'Agent 9
 1. llegir `claim_assessments.csv`
 2. comptar labels finals
-3. comptar claims futurs exclosos
-4. construir una conclusio global simple amb regles
-5. guardar `final_report.csv`, `final_report.json` i `final_summary.md`
+3. comptar nivells de risc de greenwashing
+4. comptar nivells de rellevancia de l'evidencia
+5. comptar claims de baixa prioritat exclosos del main analysis
+6. comptar claims futurs exclosos
+7. construir una conclusio global simple amb regles
+8. agrupar claims per tema per sintetitzar patrons
+9. generar una seccio d'analisi mes profunda amb LLM local o fallback determinista
+10. guardar `final_report.csv`, `final_report.json` i `final_summary.md`
 
 ### Sortida actual recomanada del Judge / Aggregator
 - `final_report.csv`
@@ -510,14 +569,19 @@ Per al MVP, aquest ultim agent no reavalua els claims.
 
 La seva funcio es agregar i resumir els resultats ja produïts pels agents anteriors.
 
+L'LLM final no reavalua claims ni canvia labels. Nomes explica patrons agregats: on hi ha millor suport, on hi ha risc, quines limitacions tenen les evidencies i com interpretar el resultat global.
+
 ### Estat actual
 - `Judge / Aggregator` ja te una primera implementacio funcional
 - el MVP del pipeline ja es pot considerar complet
+- ara separa suport factual i risc de greenwashing en el report final
+- ara mostra tambe la rellevancia de l'evidencia en el report final
+- ara incorpora una seccio d'analisi final mes explicativa generada amb LLM local
 
 ### Millores futures possibles
 - afegir un credibility score
 - afegir un greenwashing risk score
-- usar un LLM per escriure una conclusio final mes rica
+- fer que l'analisi final citi multiples fonts per tema
 - incorporar evidència secundaria o cites addicionals al resum final
 
 ## Ordre real de treball a partir d'ara

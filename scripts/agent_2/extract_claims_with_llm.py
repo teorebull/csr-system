@@ -1,6 +1,10 @@
 import csv
+import hashlib
+import json
+import os
 from pathlib import Path
 from typing import Literal
+from urllib import request
 
 from pydantic import BaseModel
 from langchain_ollama import ChatOllama
@@ -8,9 +12,17 @@ from langchain_core.messages import HumanMessage
 
 
 MODEL_NAME = "qwen2.5:14b"
-INPUT_CSV = "data/processed/agent_1/pymupdf/2025-Microsoft-Environmental-Data-Fact-Sheet-PDF_pages.csv"
-OUTPUT_CSV = "data/processed/agent_2/claims.csv"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+INPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_1" / "pymupdf" / "pages.csv"
+LEGACY_INPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_1" / "pymupdf" / "2025-Microsoft-Environmental-Data-Fact-Sheet-PDF_pages.csv"
+OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_2" / "claims.csv"
+CACHE_JSON = PROJECT_ROOT / "data" / "processed" / "agent_2" / "claim_extraction_cache.json"
 DOCUMENT_NAME = "Microsoft Environmental Sustainability Report"
+DEFAULT_DOCUMENT_ID = "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf"
+PROMPT_SCHEMA_VERSION = "claim_extractor_v3_multi_document"
+OLLAMA_TAGS_URL = "http://localhost:11434/api/tags"
+MAX_PAGES_PER_DOCUMENT = int(os.environ.get("MAX_PAGES_PER_DOCUMENT", "9"))
+SKIP_FIRST_PAGE_PER_DOCUMENT = os.environ.get("SKIP_FIRST_PAGE_PER_DOCUMENT", "true").strip().lower() == "true"
 
 
 class Claim(BaseModel):
@@ -41,7 +53,7 @@ class ClaimList(BaseModel):
     claims: list[Claim]
 
 
-def load_pages(csv_path: str) -> list[dict]:
+def load_pages(csv_path: Path) -> list[dict]:
     """Load the pages from the CSV file."""
     pages = []
 
@@ -51,6 +63,9 @@ def load_pages(csv_path: str) -> list[dict]:
         for row in reader:
             pages.append(
                 {
+                    "document_id": row.get("document_id", DEFAULT_DOCUMENT_ID),
+                    "document_name": row.get("document_name", DOCUMENT_NAME),
+                    "document_path": row.get("document_path", ""),
                     "page_number": row["page_number"],
                     "text": row["text"],
                 }
@@ -59,11 +74,94 @@ def load_pages(csv_path: str) -> list[dict]:
     return pages
 
 
-def build_prompt(page_number: str, page_text: str) -> str:
+def is_ollama_available() -> bool:
+    """Check whether Ollama is reachable before making uncached LLM calls."""
+    try:
+        with request.urlopen(OLLAMA_TAGS_URL, timeout=5):
+            return True
+    except Exception:
+        return False
+
+
+def load_claim_cache(cache_path: Path) -> dict:
+    """Load cached page-level claim extraction results."""
+    if not cache_path.exists():
+        return {}
+
+    try:
+        return json.loads(cache_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def save_claim_cache(cache: dict, cache_path: Path) -> None:
+    """Persist page-level claim extraction cache."""
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_path.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def build_cache_key(document_id: str, document_name: str, page_number: str, page_text: str) -> str:
+    """Build a stable cache key for one document page."""
+    payload = {
+        "document_id": document_id,
+        "document_name": document_name,
+        "page_number": str(page_number),
+        "page_text_hash": hashlib.sha256(page_text.encode("utf-8")).hexdigest(),
+        "model_name": MODEL_NAME,
+        "prompt_schema_version": PROMPT_SCHEMA_VERSION,
+    }
+    serialized = json.dumps(payload, sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+
+def claim_to_cache_row(claim: Claim) -> dict:
+    """Convert a parsed claim into a JSON-serializable cache row."""
+    return {
+        "claim_text": claim.claim_text,
+        "claim_type": claim.claim_type,
+        "is_verifiable": claim.is_verifiable,
+        "claim_quality_score": claim.claim_quality_score,
+        "is_reporting_claim": claim.is_reporting_claim,
+        "topic": claim.topic,
+        "is_future": claim.is_future,
+        "source_excerpt": claim.source_excerpt,
+    }
+
+
+def select_pages_for_extraction(pages: list[dict]) -> list[dict]:
+    """Apply simple per-document page limits before LLM extraction."""
+    grouped_pages = {}
+
+    for page in pages:
+        document_id = page.get("document_id", DEFAULT_DOCUMENT_ID)
+
+        if document_id not in grouped_pages:
+            grouped_pages[document_id] = []
+
+        grouped_pages[document_id].append(page)
+
+    selected_pages = []
+
+    for document_id, document_pages in grouped_pages.items():
+        sorted_pages = sorted(document_pages, key=lambda row: int(row.get("page_number", "0")))
+
+        if SKIP_FIRST_PAGE_PER_DOCUMENT and len(sorted_pages) > 1:
+            sorted_pages = sorted_pages[1:]
+
+        if MAX_PAGES_PER_DOCUMENT > 0:
+            sorted_pages = sorted_pages[:MAX_PAGES_PER_DOCUMENT]
+
+        selected_pages.extend(sorted_pages)
+        print(f"Pages selected for {document_id}: {len(sorted_pages)}")
+
+    return selected_pages
+
+
+def build_prompt(document_name: str, page_number: str, page_text: str) -> str:
     """Build the prompt for claim extraction."""
     return f"""
 You are extracting CSR claims from an official corporate document.
-Document: {DOCUMENT_NAME}
+Document: {document_name}
 Page number: {page_number}
 
 Your goal:
@@ -192,11 +290,11 @@ Page text:
 """.strip()
 
 
-def extract_claims_from_page(llm, page_number: str, page_text: str) -> list[Claim]:
+def extract_claims_from_page(llm, document_name: str, page_number: str, page_text: str) -> list[Claim]:
     """Extract claims from one page."""
     structured_llm = llm.with_structured_output(ClaimList)
 
-    prompt = build_prompt(page_number, page_text)
+    prompt = build_prompt(document_name, page_number, page_text)
 
     response = structured_llm.invoke(
         [HumanMessage(content=prompt)]
@@ -205,45 +303,73 @@ def extract_claims_from_page(llm, page_number: str, page_text: str) -> list[Clai
     return response.claims
 
 
-def extract_claims_from_pages(pages: list[dict]) -> list[dict]:
+def extract_claims_from_pages(pages: list[dict], cache: dict) -> tuple[list[dict], dict]:
     """Run the model page by page and collect all claims."""
-    llm = ChatOllama(
-        model=MODEL_NAME,
-        temperature=0.1,
-    )
+    llm = None
 
     all_claims = []
     claim_id = 1
+    cache_hits = 0
+    cache_misses = 0
 
     for page in pages:
+        document_id = page.get("document_id", DEFAULT_DOCUMENT_ID)
+        document_name = page.get("document_name", DOCUMENT_NAME)
         page_number = page["page_number"]
         page_text = page["text"].strip()
 
         if not page_text or len(page_text) < 40:
             continue
 
-        print(f"Processing page {page_number}...")
+        cache_key = build_cache_key(document_id, document_name, page_number, page_text)
 
-        try:
-            claims = extract_claims_from_page(llm, page_number, page_text)
-        except Exception as e:
-            print(f"Error on page {page_number}: {e}")
-            continue
+        if cache_key in cache:
+            page_claims = cache[cache_key].get("claims", [])
+            cache_hits += 1
+            print(f"Using cached claims for page {page_number}...")
+        else:
+            if llm is None:
+                llm = ChatOllama(
+                    model=MODEL_NAME,
+                    temperature=0.1,
+                )
 
-        for claim in claims:
+            print(f"Processing page {page_number}...")
+            cache_misses += 1
+
+            try:
+                claims = extract_claims_from_page(llm, document_name, page_number, page_text)
+            except Exception as e:
+                print(f"Error on page {page_number}: {e}")
+                continue
+
+            page_claims = [claim_to_cache_row(claim) for claim in claims]
+            cache[cache_key] = {
+                "document_id": document_id,
+                "document_name": document_name,
+                "document_path": page.get("document_path", ""),
+                "page_number": str(page_number),
+                "model_name": MODEL_NAME,
+                "prompt_schema_version": PROMPT_SCHEMA_VERSION,
+                "claims": page_claims,
+            }
+
+        for claim in page_claims:
             all_claims.append(
                 {
                     "claim_id": f"claim_{claim_id}",
-                    "document_name": DOCUMENT_NAME,
+                    "document_id": document_id,
+                    "document_name": document_name,
+                    "document_path": page.get("document_path", ""),
                     "page_number": page_number,
-                    "claim_text": claim.claim_text,
-                    "claim_type": claim.claim_type,
-                    "is_verifiable": claim.is_verifiable,
-                    "claim_quality_score": claim.claim_quality_score,
-                    "is_reporting_claim": claim.is_reporting_claim,
-                    "topic": claim.topic,
-                    "is_future": claim.is_future,
-                    "source_excerpt": claim.source_excerpt,
+                    "claim_text": claim["claim_text"],
+                    "claim_type": claim["claim_type"],
+                    "is_verifiable": claim["is_verifiable"],
+                    "claim_quality_score": claim["claim_quality_score"],
+                    "is_reporting_claim": claim["is_reporting_claim"],
+                    "topic": claim["topic"],
+                    "is_future": claim["is_future"],
+                    "source_excerpt": claim["source_excerpt"],
                 }
             )
             claim_id += 1
@@ -262,10 +388,13 @@ def extract_claims_from_pages(pages: list[dict]) -> list[dict]:
 
         
 
-    return filtered_claims
+    print(f"Claim extraction cache hits: {cache_hits}")
+    print(f"Claim extraction cache misses: {cache_misses}")
+
+    return filtered_claims, cache
 
 
-def save_claims_csv(claims: list[dict], output_path: str) -> None:
+def save_claims_csv(claims: list[dict], output_path: Path) -> None:
     """Save the extracted claims to a CSV file."""
     output_file = Path(output_path)
     output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -275,7 +404,9 @@ def save_claims_csv(claims: list[dict], output_path: str) -> None:
             file,
             fieldnames=[
                 "claim_id",
+                "document_id",
                 "document_name",
+                "document_path",
                 "page_number",
                 "claim_text",
                 "claim_type",
@@ -294,20 +425,49 @@ def save_claims_csv(claims: list[dict], output_path: str) -> None:
 
 
 def main() -> None:
-    if not Path(INPUT_CSV).exists():
+    input_csv = INPUT_CSV if INPUT_CSV.exists() else LEGACY_INPUT_CSV
+
+    if not input_csv.exists():
         print(f"Input CSV not found: {INPUT_CSV}")
+        print(f"Legacy input CSV also not found: {LEGACY_INPUT_CSV}")
         return
 
     print("Loading pages...")
-    pages = load_pages(INPUT_CSV)[1:4]
+    pages = load_pages(input_csv)
+    pages = select_pages_for_extraction(pages)
+
+    cache = load_claim_cache(CACHE_JSON)
+    pages_requiring_model = []
+
+    for page in pages:
+        page_text = page["text"].strip()
+
+        if not page_text or len(page_text) < 40:
+            continue
+
+        if build_cache_key(
+            page.get("document_id", DEFAULT_DOCUMENT_ID),
+            page.get("document_name", DOCUMENT_NAME),
+            page["page_number"],
+            page_text,
+        ) not in cache:
+            pages_requiring_model.append(page)
+
+    if pages_requiring_model and not is_ollama_available():
+        print("Ollama is not reachable and some pages are not cached.")
+        print("Start Ollama with `ollama serve` or rerun after cache has been populated.")
+        print("Existing claims CSV was left unchanged.")
+        return
 
     print("Extracting claims...")
-    claims = extract_claims_from_pages(pages)
+    claims, cache = extract_claims_from_pages(pages, cache)
+    save_claim_cache(cache, CACHE_JSON)
 
     save_claims_csv(claims, OUTPUT_CSV)
 
     print(f"Claims extracted: {len(claims)}")
     print(f"Saved to: {OUTPUT_CSV}")
+    print(f"Saved cache to: {CACHE_JSON}")
 
 
 if __name__ == "__main__":

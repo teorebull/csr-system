@@ -1,16 +1,21 @@
 import csv
+import os
 import re
 from difflib import SequenceMatcher
 from pathlib import Path
 
 
-INPUT_CSV = "data/processed/agent_2/claims.csv"
-NORMALIZED_OUTPUT_CSV = "data/processed/agent_3/normalized_claims.csv"
-FUTURE_OUTPUT_CSV = "data/processed/agent_3/future_claims.csv"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+INPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_2" / "claims.csv"
+NORMALIZED_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_3" / "normalized_claims.csv"
+PRIORITIZED_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_3" / "prioritized_claims.csv"
+EXCLUDED_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_3" / "excluded_claims.csv"
+FUTURE_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_3" / "future_claims.csv"
 SIMILARITY_THRESHOLD = 0.88
+MAX_PRIORITIZED_CLAIMS_TOTAL = int(os.environ.get("MAX_PRIORITIZED_CLAIMS_TOTAL", "14"))
 
 
-def load_claims(csv_path: str) -> list[dict]:
+def load_claims(csv_path: Path) -> list[dict]:
     """Load extracted claims from Agent 2."""
     claims = []
 
@@ -69,15 +74,25 @@ def merge_claim_group(group: list[dict], normalized_id: int) -> dict:
     first_claim = group[0]
 
     original_ids = []
+    document_ids = []
+    document_names = []
     page_numbers = []
+    source_locations = []
     excerpts = []
 
     for claim in group:
         original_ids.append(claim["claim_id"])
+        document_id = claim.get("document_id", "")
+        document_ids.append(document_id)
+        document_names.append(claim.get("document_name", ""))
         page_numbers.append(str(claim["page_number"]))
+        source_locations.append(f"{document_id}:p{claim['page_number']}" if document_id else f"p{claim['page_number']}")
         excerpts.append(claim["source_excerpt"])
 
     unique_page_numbers = sorted(set(page_numbers), key=lambda x: int(x))
+    unique_document_ids = sorted(set(item for item in document_ids if item))
+    unique_document_names = sorted(set(item for item in document_names if item))
+    unique_source_locations = sorted(set(source_locations))
     unique_excerpts = []
 
     for excerpt in excerpts:
@@ -86,12 +101,14 @@ def merge_claim_group(group: list[dict], normalized_id: int) -> dict:
 
     return {
         "normalized_claim_id": f"normalized_claim_{normalized_id}",
-        "document_name": first_claim["document_name"],
+        "document_id": "; ".join(unique_document_ids),
+        "document_name": "; ".join(unique_document_names) if unique_document_names else first_claim["document_name"],
         "claim_text": first_claim["claim_text"],
         "claim_type": first_claim["claim_type"],
         "topic": first_claim["topic"],
         "original_claim_ids": "; ".join(original_ids),
         "page_numbers": "; ".join(unique_page_numbers),
+        "source_locations": "; ".join(unique_source_locations),
         "source_excerpts": " || ".join(unique_excerpts),
         "group_size": len(group),
     }
@@ -127,7 +144,204 @@ def normalize_claims(claims: list[dict]) -> list[dict]:
     return normalized_claims
 
 
-def save_csv(rows: list[dict], output_path: str, fieldnames: list[str]) -> None:
+def count_numbers(text: str) -> int:
+    """Count numeric fragments in a claim."""
+    return len(re.findall(r"\d+(?:[,.]\d+)*", text))
+
+
+def score_analytical_value(claim: dict) -> tuple[int, str]:
+    """Score how useful a claim is for the main greenwashing-risk analysis."""
+    claim_text = claim.get("claim_text", "")
+    lowered = claim_text.lower()
+    score = 0
+    reasons = []
+
+    strong_patterns = [
+        ("carbon neutrality", 35, "carbon_neutrality"),
+        ("carbon neutral", 35, "carbon_neutral"),
+        ("carbon negative", 35, "carbon_negative"),
+        ("renewable electricity", 34, "renewable_electricity"),
+        ("100%", 28, "absolute_100_percent_claim"),
+        ("scope 3", 30, "scope_3"),
+        ("supply chain", 26, "supply_chain"),
+        ("supplier", 24, "supplier"),
+        ("annual spend", 30, "supplier_spend_methodology"),
+        ("response-derived factor", 30, "supplier_response_factor"),
+        ("carbon removal", 28, "carbon_removal"),
+        ("high-quality carbon dioxide removal", 34, "high_quality_carbon_dioxide_removal"),
+        ("carbon dioxide removal criteria", 30, "carbon_dioxide_removal_criteria"),
+        ("carbon credit", 24, "carbon_credit"),
+        ("offset", 22, "offset"),
+        ("ppa", 18, "ppa"),
+        ("recs", 18, "renewable_certificate"),
+        ("eac", 18, "energy_attribute_certificate"),
+        ("water", 24, "water"),
+        ("water inventory", 28, "water_inventory"),
+        ("operational control", 24, "operational_control"),
+        ("data center", 22, "data_center"),
+    ]
+
+    for pattern, weight, reason in strong_patterns:
+        if pattern in lowered:
+            score += weight
+            reasons.append(reason)
+
+    if re.search(r"\bfy\d{2}\b", lowered) or re.search(r"\b20\d{2}\b", lowered):
+        score += 8
+        reasons.append("specific_year")
+
+    if re.search(r"\d+(?:\.\d+)?\s?%", lowered):
+        score += 8
+        reasons.append("specific_percentage")
+
+    if count_numbers(claim_text) >= 6:
+        score -= 25
+        reasons.append("dense_internal_metric_table")
+
+    if "as follows" in lowered:
+        score -= 20
+        reasons.append("table_style_claim")
+
+    if lowered.startswith("microsoft reports") and count_numbers(claim_text) >= 4:
+        score -= 15
+        reasons.append("internal_reporting_numbers")
+
+    if "microsoft reports that its total water" in lowered:
+        score -= 18
+        reasons.append("internal_water_metric")
+
+    if "operational control approach" in lowered:
+        score -= 20
+        reasons.append("internal_operational_control_methodology")
+
+    if "market-based approach" in lowered:
+        score -= 18
+        reasons.append("internal_market_based_methodology")
+
+    if "purchased eacs include" in lowered and claim_text.count(",") >= 4:
+        score -= 18
+        reasons.append("long_certificate_list")
+
+    if "percentage of direct renewable electricity" in lowered:
+        score -= 18
+        reasons.append("direct_renewable_electricity_percentage")
+
+    if "scope 3 emissions for fy" in lowered and count_numbers(claim_text) >= 2:
+        score -= 18
+        reasons.append("single_year_internal_scope_metric")
+
+    if "percentage of renewable electricity consumption" in lowered:
+        score -= 30
+        reasons.append("internal_renewable_percentage_table")
+
+    if len(claim_text) < 60:
+        score -= 20
+        reasons.append("low_information")
+
+    if not reasons:
+        reasons.append("generic_medium_value")
+
+    return score, "; ".join(reasons)
+
+
+def prioritize_claim(claim: dict) -> dict:
+    """Add simple, transparent evaluation-priority fields."""
+    claim_text = claim.get("claim_text", "")
+    lowered = claim_text.lower()
+    topic = claim.get("topic", "").lower()
+
+    priority = "MEDIUM"
+    main_analysis = "false"
+    exclusion_reason = "medium_priority_excluded_from_main_analysis"
+
+    reporting_patterns = [
+        "following sections",
+        "compilation of environmental metrics",
+        "this report",
+        "this data fact sheet",
+        "we report",
+    ]
+    high_value_terms = [
+        "carbon neutral",
+        "carbon neutrality",
+        "carbon negative",
+        "renewable electricity",
+        "100%",
+        "scope 3",
+        "supplier",
+        "supply chain",
+        "water",
+        "withdrawal",
+        "consumption",
+        "discharge",
+        "data center",
+        "offset",
+        "carbon removal",
+        "ppa",
+        "recs",
+        "eac",
+    ]
+
+    analytical_value_score, analytical_value_reason = score_analytical_value(claim)
+    is_metric_table = " as follows" in lowered and count_numbers(claim_text) >= 6
+    is_meta_reporting = any(pattern in lowered for pattern in reporting_patterns)
+    is_high_value = any(term in lowered or term in topic for term in high_value_terms)
+
+    if is_metric_table:
+        priority = "LOW"
+        main_analysis = "false"
+        exclusion_reason = "internal_metric_table_difficult_to_verify_externally"
+    elif is_meta_reporting:
+        priority = "LOW"
+        main_analysis = "false"
+        exclusion_reason = "meta_or_reporting_claim_not_substantive"
+    elif is_high_value:
+        priority = "HIGH"
+        main_analysis = "true"
+        exclusion_reason = ""
+    elif len(claim_text) < 60:
+        priority = "LOW"
+        main_analysis = "false"
+        exclusion_reason = "too_short_or_low_information"
+
+    enriched_claim = dict(claim)
+    enriched_claim["evaluation_priority"] = priority
+    enriched_claim["main_analysis"] = main_analysis
+    enriched_claim["exclusion_reason"] = exclusion_reason
+    enriched_claim["analytical_value_score"] = analytical_value_score
+    enriched_claim["analytical_value_reason"] = analytical_value_reason
+    return enriched_claim
+
+
+def prioritize_claims(claims: list[dict]) -> tuple[list[dict], list[dict], list[dict]]:
+    """Split normalized claims into main-analysis and excluded rows."""
+    enriched_claims = [prioritize_claim(claim) for claim in claims]
+    candidate_claims = [claim for claim in enriched_claims if claim["main_analysis"] == "true"]
+    sorted_candidates = sorted(
+        candidate_claims,
+        key=lambda row: (int(row.get("analytical_value_score", 0)), row.get("normalized_claim_id", "")),
+        reverse=True,
+    )
+    prioritized_claims = sorted_candidates[:MAX_PRIORITIZED_CLAIMS_TOTAL]
+    prioritized_ids = {claim["normalized_claim_id"] for claim in prioritized_claims}
+    excluded_claims = []
+
+    for claim in enriched_claims:
+        if claim["normalized_claim_id"] in prioritized_ids:
+            claim["main_analysis"] = "true"
+            claim["exclusion_reason"] = ""
+            continue
+
+        if claim["main_analysis"] == "true":
+            claim["main_analysis"] = "false"
+            claim["exclusion_reason"] = "below_main_analysis_priority_cap"
+
+        excluded_claims.append(claim)
+
+    return enriched_claims, prioritized_claims, excluded_claims
+
+
+def save_csv(rows: list[dict], output_path: Path, fieldnames: list[str]) -> None:
     """Save rows to CSV."""
     output_file = Path(output_path)
     output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -141,7 +355,7 @@ def save_csv(rows: list[dict], output_path: str, fieldnames: list[str]) -> None:
 
 
 def main() -> None:
-    if not Path(INPUT_CSV).exists():
+    if not INPUT_CSV.exists():
         print(f"Input CSV not found: {INPUT_CSV}")
         return
 
@@ -153,21 +367,43 @@ def main() -> None:
 
     print("Normalizing current claims...")
     normalized_claims = normalize_claims(current_claims)
+    enriched_claims, prioritized_claims, excluded_claims = prioritize_claims(normalized_claims)
+
+    normalized_fieldnames = [
+        "normalized_claim_id",
+        "document_id",
+        "document_name",
+        "claim_text",
+        "claim_type",
+        "topic",
+        "original_claim_ids",
+        "page_numbers",
+        "source_locations",
+        "source_excerpts",
+        "group_size",
+        "evaluation_priority",
+        "main_analysis",
+        "exclusion_reason",
+        "analytical_value_score",
+        "analytical_value_reason",
+    ]
 
     save_csv(
-        normalized_claims,
+        enriched_claims,
         NORMALIZED_OUTPUT_CSV,
-        [
-            "normalized_claim_id",
-            "document_name",
-            "claim_text",
-            "claim_type",
-            "topic",
-            "original_claim_ids",
-            "page_numbers",
-            "source_excerpts",
-            "group_size",
-        ],
+        normalized_fieldnames,
+    )
+
+    save_csv(
+        prioritized_claims,
+        PRIORITIZED_OUTPUT_CSV,
+        normalized_fieldnames,
+    )
+
+    save_csv(
+        excluded_claims,
+        EXCLUDED_OUTPUT_CSV,
+        normalized_fieldnames,
     )
 
     save_csv(
@@ -175,7 +411,9 @@ def main() -> None:
         FUTURE_OUTPUT_CSV,
         [
             "claim_id",
+            "document_id",
             "document_name",
+            "document_path",
             "page_number",
             "claim_text",
             "claim_type",
@@ -191,7 +429,12 @@ def main() -> None:
     print(f"Current claims loaded: {len(current_claims)}")
     print(f"Future claims separated: {len(future_claims)}")
     print(f"Normalized claims saved: {len(normalized_claims)}")
+    print(f"Prioritized claims for main analysis: {len(prioritized_claims)}")
+    print(f"Max prioritized claims total: {MAX_PRIORITIZED_CLAIMS_TOTAL}")
+    print(f"Claims excluded from main analysis: {len(excluded_claims)}")
     print(f"Saved normalized claims to: {NORMALIZED_OUTPUT_CSV}")
+    print(f"Saved prioritized claims to: {PRIORITIZED_OUTPUT_CSV}")
+    print(f"Saved excluded claims to: {EXCLUDED_OUTPUT_CSV}")
     print(f"Saved future claims to: {FUTURE_OUTPUT_CSV}")
 
 

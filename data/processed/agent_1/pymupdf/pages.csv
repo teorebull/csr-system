@@ -1,0 +1,799 @@
+document_id,document_name,document_path,page_number,text
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,1,"2025 Environmental
+Sustainability Report
+Accelerating progress to 2030
+Data Fact Sheet
+Reporting on our 2024 fiscal year"
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,2,"2025 Environmental Data Fact Sheet                                                                                                                                                               02
+Environmental data contentsOur environmental data                                                                                                                  Section 1: Our environmental data
+1.1 Greenhouse gas (GHG) emissions
+Table 1A GHG emissions by scope (mtCO2e)                                                 03
+As part of Microsoft’s commitment to disclose information about our environmental footprint, the following                                                                                                            Table 1B GHG emissions by scope (mtCO2e) with management’s criteria                          04
+sections are a compilation of environmental metrics across greenhouse gas (GHG) emissions, energy, water,                                                                                                            Table 2  GHG emissions by type                                                        04
+waste and circularity, and land. Section 1 presents our GHG emissions in accordance with the GHG Protocol and                                                                                                            Table 3  GHG emissions by region (mtCO2e)                                                05
+criteria selected or developed by management (“management’s criteria”). It also presents select environmental                                                                                                            Table 4  GHG emissions intensity (mtCO2e/revenue $M)                                       05metrics that both reference the Global Reporting Initiative (GRI) Standards and are reported in accordance with                                                                                                            Table 5  Carbon credits (mtCO2e)                                                        05management’s criteria. Deloitte & Touche LLP performed a review engagement on management’s assertion
+1.2 Energyrelated to the specified information presented in Section 1 of this Environmental Data Fact Sheet as of and for the
+Table 6  Energy consumption within the organization (MWh)                                  06fiscal year (FY) ended June 30, 2024 (FY24) and includes their review report in Section 1.11. Information relating to
+Table 7  Renewable energy metrics                                                     06i) periods prior to the year ended June 30, 2024 (FY24), and ii) forward-looking statements, goals, and progress
+against goals, were not subject to the review and, accordingly, Deloitte & Touche LLP does not express a conclusion    Table 8  Energy intensity (MWh/revenue $M)                                              06
+or any form of assurance on such information. Section 2 presents additional environmental metrics that show          1.3 Water
+detail and breakdowns and was not subject to Deloitte & Touche LLP’s review.                                      Table 9  Water and effluents (ML)                                                       06
+1.4 Waste and circularity
+All reported values represent the best available data at the time of publication. The data has been adjusted to                                                                                                            Table 10 Operational waste generated, diverted, and directed to off-site disposal (mt)               07
+incorporate updated methodologies, structural changes, and/or accuracy improvements per our recalculation                                                                                                            Table 11  Product packaging circularity metrics                                              07
+policy described herein. Microsoft’s structural changes policy is to begin including data associated with a merger                                                                                                                                        1.5 Ecosystems
+and/or acquisition in the year following the close of the transaction. Divestments are reflected in data for the                                                                                                            Table 12 Land protection                                                               07
+year when they occurred. Additional detail on these changes is included as footnotes where applicable.                                                                                                                                          1.6 Management’s assertion                                                              08
+1.7 Description of the company and inventory boundary                                           08
+1.8 Information on metrics                                                               08
+1.9 Methodologies and emission factors                                                              10
+1.10 Reporting criteria                                                                               17
+1.11 Independent accountant’s review report                                                          21
+Section 2: Additional environmental metrics
+Table 13 Other emissions (mt)                                                           22
+Table 14  Electricity consumption by region (MWh)                                           22
+Table 15 Renewable electricity consumption by region (MWh)                                  22
+Table 16 Non-renewable energy consumption by region (MWh)                                 22
+Table 17 Water withdrawal, consumption, and discharge detail (ML)                             23
+Table 18 Operational waste on-site prevention activities (mt)                                   23
+Table 19  Verification/assurance                                                         24   Read our 2025 Environmental Sustainability Report"
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,3,"2025 Environmental Data Fact Sheet                                                                                                                                                                03
+1.1 Greenhouse gas (GHG) emissionsSection 1:                                                                        Table 1A – GHG emissions by scope (mtCO e)
+FY20       FY21       FY22       FY23       FY24Our environmental data                                             Scope 1                                           118,100     123,704      139,413     144,960      143,510
+Scope 2
+Location-based                            4,328,916    5,010,667    6,381,250    8,077,403   9,955,368
+Market-based                                 456,119     429,405     288,029      393,134     259,090
+Subtotal emissions (Scope 1 + 2 market-         574,219      553,109     427,442     538,094     402,600
+based)
+Scope 31
+Category 1 – Purchased Goods and         4,415,000   4,930,000    5,164,000   5,564,000    5,057,000
+Services2,3
+Category 2 – Capital Goods 3,105,000    3,916,000   4,447,000   5,645,000   6,066,000
+Category 3 – Fuel- and Energy-             300,000     350,000     450,000     521,000     653,000
+Related Activities
+Category 4 – Upstream Transportation      243,000     225,000     371,000     318,000     419,000
+and Distribution 3
+Category 5 – Waste Generated                9,500       5,700       8,000       8,000       8,000
+in Operations
+Category 6 – Business Travel                329,356       21,901     139,000     133,000     260,000
+Category 7 – Employee Commuting          317,000      80,000      141,000     187,000     208,000
+Category 9 – Downstream                   65,000      69,000      69,000      69,000      43,000
+Transportation and Distribution3
+Category 11 – Use of Sold Products 2,983,000   3,950,000    5,101,000    3,941,000    2,417,000
+Category 12 – End-of-Life Treatment of         17,000      19,000      18,000       4,000       3,000
+Sold Products3
+Category 13 – Downstream                     11,800       9,600       8,000       7,000       6,0001.  For FY20 and FY21 values have been rounded except for Category 6 – Business Travel. Starting in FY22, all reported Scope 3
+values are rounded to the nearest thousand mtCO e.                                                         Leased Assets
+2. Reported emissions for these categories now incorporate emissions calculated using a life cycle assessment (LCA) approach      Subtotal emissions (Scope 3)4                11,796,000   13,576,000   15,916,000   16,397,000   15,140,000
+for the portion associated with the purchase of cloud hardware as outlined in Section 1.9. Values for prior years have been        Total emissions (Scope 1 + 2 + 3)4            12,370,000   14,129,000  16,343,000   16,935,000  15,543,000   adjusted to reflect this methodology update.
+3.  Starting in FY24, reported emissions for these categories no longer reflect emissions from PC accessories that are no longer
+sold by Microsoft.
+4. These values reflect market-based emissions. Values rounded to nearest thousand mtCO e.                                 FY = fiscal year; GHG = greenhouse gas; mtCO e = metric tons of carbon dioxide equivalent."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,4,"2025 Environmental Data Fact Sheet                                                                                                                                                             04
+Table 1B – GHG emissions by scope (mtCO e) with management’s criteria                         Table 2 – GHG emissions by type
+FY20       FY21       FY22       FY23       FY24                                            FY20       FY21       FY22       FY23       FY24
+Scope 1 + 2 574,219      553,109     427,442     538,094     402,600    Scope 1 (mt)
+Scope 1 – CO2                              96,700      94,292       99,123      92,466      82,872Scope 3
+Scope 1 – CH4                                2          3          2          3          2
+Management’s criteria2
+Scope 1 – N O                                             1              1              1              1             1
+Category 4 – Upstream Transportation      243,000     225,000     371,000     305,000     400,000                                                                                             Scope 1 – HFCs                                    19         27         37         49         58 and Distribution with Sustainable
+Fuel Certificates                                                                               Scope 1 – SF6                                 0          0          0          0          0
+Scope 2 (location-based) (mt) Category 6 – Business Travel with SAFc 385,000      23,000      157,000     124,000     253,000
+Scope 2 – CO2                                4,305,119   4,984,442    6,349,431   8,034,943   9,904,643 Category 11 – Use of Sold Products 2,600,000   2,622,000    1,332,000    2,158,000    1,757,000
+Scope 2 – CH4                              283        330        382         515        599GHGP-aligned
+Scope 2 – N O                              56         60         75         99         120 Rest of the categories1, 8,240,000   9,379,000  10,305,000  12,005,000  12,044,000
+Scope 2 (market-based) (mt)
+Subtotal emissions                         11,468,000   12,249,000   12,165,000  14,592,000  14,454,000
+Scope 2 – CO2                            454,034     427,606     286,992     390,884     258,217Total emissions (Scope 1 + 2 + 3)1             12,042,000  12,802,000   12,592,000   15,130,000   14,857,000
+Scope 2 – CH4                                     19           18           10         23          6
+FY = fiscal year; GHG = greenhouse gas; GHGP = Greenhouse Gas Protocol; mtCO e = metric tons of carbon dioxide equivalent.     Scope 2 – N O                               5          5          3          6          2
+Scope 1 (mtCO e)                                118,100     123,704      139,413     144,960      143,510
+Scope 1 – CO2                              96,700      94,292       99,123      92,466      82,872
+Scope 1 – CH4                                53         63         62         63         57
+1.  These values reflect market-based emissions.
+Scope 1 – N O                             236         150        209        292          3112. Emissions for these categories are reported per the reporting criteria defined in Section 1.10 of this fact sheet and per the
+methodologies outlined in Section 1.9. All values have been rounded to the nearest thousand mtCO e.                    Scope 1 – HFCs                               21,070       29,177      39,993      52,087      60,220
+3.  Per the reporting criteria defined in Section 1.10 of this fact sheet, reported values are gross emissions net of sustainable       Scope 1 – SF6                                     41         22         26         52         50
+fuel certificates. Gross emissions without the impact of sustainable fuel certificates are as follows: 419,000 mtCO e (FY24),      Scope 2 (location-based) (mtCO e)            4,328,916   5,010,667   6,381,250   8,077,403   9,955,368   318,000 mtCO e (FY23), 371,000 mtCO e (FY22), 225,000 mtCO e (FY21), 243,000 mtCO e (FY20). Starting in FY23 reported values
+include the impact of Sustainable Aviation Fuel Certificates (SAFc). Starting in FY24 reported values include the impact of       Scope 2 – CO2                                4,305,119   4,984,442    6,349,431   8,034,943   9,904,643
+both Sustainable Marine Fuel Certificates (SMFc) and SAFc.                                                  Scope 2 – CH4                                 7,063       8,248       9,543       12,868       14,969
+4. Per the reporting criteria defined in Section 1.10 of this fact sheet, reported values are gross emissions net of SAFc.           Scope 2 – N O                                16,734       17,977      22,276      29,592      35,756   Gross emissions without the impact of SAFc are as follows: 301,000 mtCO e (FY24), 149,000 mtCO e (FY23), 157,000 mtCO e
+(FY22), 23,000 mtCO e (FY21), 385,000 mtCO e (FY20).                                                          Scope 2 (market-based) (mtCO e)                456,119    429,405    288,029     393,134     259,090
+5.  Per the reporting criteria defined in Section 1.10 of this fact sheet, reported values are gross emissions net of renewable        Scope 2 – CO2                            454,034     427,606     286,992     390,884     258,217
+electricity. Gross emissions without the impact of renewable electricity are as follows: 1,757,000 mtCO e (FY24),              Scope 2 – CH4                             483        456        243         571          141   2,158,000 mtCO e (FY23), 2,207,000 mtCO e (FY22), 2,622,000 mtCO e (FY21), 2,600,000 mtCO e (FY20).
+6. Reported value represents a sum of Category 1 – Purchased Goods and Services, Category 2 – Capital Goods, Category         Scope 2 – N O                                  1,602        1,343        794        1,679        732
+3 – Fuel- and Energy-Related Activities, Category 5 – Waste Generated in Operations, Category 7 – Employee Commuting,
+Category 9 – Downstream Transportation and Distribution, Category 12 – End-of-Life Treatment of Sold Products, and        CH = methane; CO = carbon dioxide; FY = fiscal year; GHG = greenhouse gas; HFCs = hydrofluorocarbons; mt = metric tons;
+Category 13 – Downstream Leased Assets. All values have been rounded to the nearest thousand mtCO e.                 mtCO e = metric tons of carbon dioxide equivalent; N O = nitrous oxide; SF = sulfur hexafluoride."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,5,"2025 Environmental Data Fact Sheet                                                                                                                                                               05
+Table 3 – GHG emissions by region (mtCO e)                                                   Table 4 – GHG emissions intensity (mtCO   subscriptrevenue $M)
+FY20       FY21       FY22       FY23       FY24                                            FY20       FY21       FY22       FY23       FY24
+Scope 1                                                                                             Revenue ($M)                                   143,015     168,088     198,270       211,915      245,122
+Asia                                         8,650       9,664       13,532       18,529      21,803     Scope 1                                            0.8           0.7           0.7           0.7          0.6
+Europe, Middle East, Africa                      61,719       69,251       68,181      51,866        41,411     Scope 2 (location-based)                       30.3         29.8         32.2          38.1         40.6
+Latin America                                  3,871       4,403       4,522       4,604       3,988     Scope 2 (market-based)                           3.2          2.6            1.5            1.9              1.1
+North America                             43,860      40,386       53,178       69,961      76,308     Scope 3 (market-based) 82.5        80.8        80.3         77.4         61.8
+Subtotal                                      118,100     123,704      139,413     144,960      143,510     Scope 1 + 2 (location-based)                          31.1        30.5         32.9        38.8         41.2
+Scope 1 + 2 (market-based)                       4.0          3.3          2.2          2.6            1.7Scope 2 (location-based)
+Scope 1 + 2 + 3 (market-based)1                 86.5          84.1         82.5        80.0         63.5 Asia                                     905,585    1,082,697     1,660,153   2,044,242    2,512,311
+Europe, Middle East, Africa                 902,859       916,141    1,252,717    1,547,728    2,247,711   $M = million dollars; FY = fiscal year; GHG = greenhouse gas; mtCO e = metric tons of carbon dioxide equivalent.
+Latin America                                16,022       16,479       51,328      45,038      60,297       1.  Emission values (numerator) for all years prior to FY24 have been adjusted to reflect the incorporation of life cycle assessment
+North America                           2,504,450   2,995,350    3,417,052   4,440,395    5,135,049        (LCA) methodology for cloud hardware purchases.
+Subtotal                                  4,328,916   5,010,667   6,381,250   8,077,403   9,955,368   Table 5 – Carbon credits (mtCO e)
+FY20       FY21       FY22       FY23       FY24Scope 2 (market-based)
+GHG emissions within carbon                 612,927     292,106      514,156     605,354     595,922 Asia                                     320,449     297,646     274,585     369,346     232,566                                                                                                               neutral boundary1
+Europe, Middle East, Africa                   49,377      54,805        13,167      22,775      25,052                                                                                            Carbon credits applied to reporting year       612,927     292,106      514,156     605,354     595,922
+Latin America                              594        708        247        202         147                                                                                             Net GHG emissions within carbon neutral           –           –           –           –            –
+North America                             85,699      76,246         30          811        1,325    boundary1,2
+Subtotal                                     456,119    429,405    288,029     393,134     259,090    Total carbon removal credits contracted –     1,391,187    1,443,981    5,015,019   21,927,370
+FY = fiscal year; mtCO e = metric tons of carbon dioxide equivalent.                                                                                                                  FY = fiscal year; GHG = greenhouse gas; mtCO e = metric tons of carbon dioxide equivalent.
+1.  This data supports Microsoft’s target to be carbon neutral every year since FY13. Microsoft defines carbon neutrality as
+matching the emissions within the carbon neutrality boundary with an equivalent amount of carbon credits as shown in this
+table. The boundary for this carbon neutral target includes global Scope 1, Scope 2 market-based, and Scope 3 business air
+travel emissions. Starting in FY23, values for Scope 3 business air travel emissions follow management’s criteria as reported
+under Category 6 – Business Travel with SAFc. For more detail on carbon removal credits that we purchase and our emissions
+methodology, please see Sections 1.8 and 1.9 of this Environmental Data Fact Sheet. As we have made progress towards our
+carbon negative commitment, which includes purchasing carbon removal credits, we have also maintained carbon neutrality.
+2.  Values reflect Microsoft’s carbon neutrality at the time of reporting. By 2050 we expect to have removed from the environment
+all the carbon the company has emitted either directly or by electrical consumption since it was founded in 1975.
+3.  Values reported represent carbon removal credits contracted to be delivered in the current or a future fiscal year.
+Contracted removal values only include carbon removal credits that have been evaluated as consistent with Microsoft’s quality
+removal criteria. This number might change based on actual versus projected outcomes related to contract fulfillment (delivery
+of credits). We only apply carbon removal credits against our carbon neutral boundary if they have been retired and delivered."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,6,"2025 Environmental Data Fact Sheet                                                                                                                                                            06
+1.2 Energy                                                                                Table 8 – Energy intensity
+FY20        FY21       FY22       FY23       FY24
+Table 6 – Energy consumption within the organization (MWh)
+Electricity consumed within the           10,770,714     13,621,517    18,153,454   23,567,502  29,829,540
+FY20        FY21       FY22       FY23        FY24    organization (MWh)
+Total energy consumption1               11,283,502    14,133,987   18,644,872   24,007,868   30,207,220   Revenue ($M)                               143,015      168,088      198,270        211,915      245,122
+Non-renewable fuel consumed            449,304      446,417      473,137      413,955     355,273     Electricity consumption normalized            75           81          92              111         122
+Natural gas                             218,557      249,443      273,964      150,972       78,536    by revenue (MWh/$M)
+Crude oil/diesel                          147,297       143,370         117,195      160,754       167,731   $M = million dollars; FY = fiscal year; MWh = megawatt-hours.
+LPG/propane/jet fuel                    40,450        4,245        34,152       54,239       66,624   1.3 Water
+Gasoline                               43,000       49,359       47,826       47,990      42,382                                                                                            Table 9 – Water and effluents (ML)1,2
+Electricity, heating, cooling, and steam     10,834,198   13,687,570    18,171,735   23,593,913   29,851,947                                                                                                                               FY20        FY21       FY22       FY23        FY24
+Electricity                              10,770,714     13,621,517    18,153,454   23,567,502   29,829,540                                                                                                                           Total water withdrawals 7,936       8,068       10,706        12,951       10,377
+Cooling (chilled water)                     51,026       54,953         7,393        12,090        6,777                                                                                                              Third-party water                            7,831          8,011        10,665        12,926       10,287
+Hot water/steam                          12,458         11,100       10,888        14,321       15,630                                                                                                          Surface water                            89            41          39           21          53
+Total renewable10,244,377electricity                            12,969,393    18,153,454   23,567,502   29,829,540    Ground water                                 16            16           2           4          37consumption
+Total water discharges3,4                      3,740        3,295        4,307         5,107        4,570
+EACs and PPAs                       10,244,059    12,969,246     18,153,218    23,564,161   29,826,689
+Third-party water                          3,740        3,295        4,307         5,107        4,570
+On-site renewable energy                   318          147         236         3,341        2,851                                                                                                                           Total water consumption 4,196        4,773        6,399        7,844        5,807
+EAC = energy attribute certificate; FY = fiscal year; LPG = liquified petroleum gas; MWh = megawatt-hours;                       FY = fiscal year; ML = megaliters.
+PPA = power purchase agreement.
+1.  Starting in FY24, reported values incorporate an updated estimation approach for water withdrawals and consumption for1.  Only reported categories and values are applicable to Microsoft’s energy consumption. Renewable fuels, electricity sold,
+datacenter locations where data actuals are not available, as outlined in Section 1.9. Prior years were not adjusted to reflect   heating sold, cooling sold, and steam sold categories are currently not applicable. Reported values for FY24 expressed in                                                                                                                                                     this change due to data availability limitations.   gigajoules (GJ): total energy consumption equals 108,745,992 GJ, and total non-renewable fuel consumed equals 1,278,983 GJ.
+2.  For FY24, total water withdrawals from areas with water stress were 4,747 ML (46% of total water withdrawals) and were
+2. Reported values represent Microsoft’s total renewable electricity consumption expressed in MWh from on-site generation,                                                                                                                                        primarily sourced from third-party water; total water discharges to areas with water stress were 2,323 ML (51% of total water
+EACs, PPAs, and green power tariff programs. Values reflect Microsoft’s renewable electricity consumption data at the time                                                                                                                                        discharges); and total water consumption from areas with water stress was 2,423 ML (42% of total water consumption).
+of reporting.                                                                                                                        This annual water risk assessment was conducted using the World Resources Institute (WRI)’s Aqueduct tool for areas in high
+or extremely high baseline water stress.
+Table 7 – Renewable energy metrics                                                                                                   3.  Brackish surface water/seawater and produced water categories are not relevant to Microsoft since there is no direct
+withdrawal or discharge of water from or to these sources. For withdrawals, a data breakdown between “freshwater” and
+FY20        FY21       FY22       FY23       FY24        “other water” categories and data for third-party withdrawal sources for areas with water stress are currently unavailable and
+Percentage of renewable electricity 100          100          100          100         100          will be part of data improvements going forward. For the periods presented, we are not gathering data around water storage                                                                                                                                     since it is not a significant portion of our water inventory.
+Percentage of direct                           –           –          62          59         78     4. Only discharges to third parties are relevant since water that is not consumed at Microsoft sites is discharged to local
+renewable electricity                                                                                                      municipal treatment plants. Discharges to surface water, groundwater, seawater, and volumes sent for use to other
+organizations are not applicable. For discharges, a data breakdown between “freshwater” and “other water” categories is
+FY = fiscal year.                                                                                                                        currently unavailable and will be part of data improvements going forward. Water treatment is not relevant based on our
+business operations. Currently, a de minimis volume of water is treated on-site at some of our office locations to a tertiary1.  Values reflect data on Microsoft’s percentage of renewable electricity consumption at the time of reporting.                                                                                                                                                  level prior to being reused on-site and/or being discharged through municipal drains."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,7,"2025 Environmental Data Fact Sheet                                                                                                                                                                07
+1.4 Waste and circularity                                                               Table 11 – Product packaging circularity metrics
+FY22       FY23       FY24Table 10 – Operational waste generated, diverted, and directed to off-site disposal (mt)1
+Percentage of product packaging recyclability                             94.4         93.9        94.8                                        FY20       FY21       FY22       FY23       FY24
+Percentage of single-use plastics in product packaging                        3.3           2.7          4.0Non-hazardous                                  31,102      20,768      28,715      36,197      41,205
+Diverted            Reused                      1,136         2,171        2,931       3,788        5,841    FY = fiscal year.
+Recycled                8,452       9,589       10,233       14,512       15,347   1.5 Ecosystems
+Composted              10,104        1,776        3,106        6,170        7,052
+Table 12 – Land protection                        Subtotal                19,692      13,536      16,270      24,470      28,240
+Status       Country           FY21       FY22       FY23       FY24Directed to disposal   Landfilled               10,848       6,957      12,204        11,510       12,637
+Incinerated 562        275         241         217        328    Total acres categorized at  Funded     US                4,998       4,998        5,169        5,169
+the close of the reporting                        Subtotal                  11,410       7,232      12,445       11,727       12,965                                                Belize             12,270       12,270       12,270       12,270                                                                                                      period as either (1)
+Hazardous                                     9,469        1,750         881         195         85    funded or (2) protected                   Subtotal           17,268      17,268       17,439       17,439
+Diverted             Recycled                  7,581         1,742        879         193         45                              Protected   US                   –           –       3,579       3,579
+Reused                   1,880          0          0          0          0                                                Belize                –       12,270       12,270       12,270
+Subtotal                 9,461        1,742        879         193         45                                                Subtotal              –      12,270      15,849       15,849
+Directed to disposal   Other 8          8          2          2         40    Partnerships through       Since announcing this commitment in April 2020, Microsoft has identified
+which contributions were   two leading land protection organizations, the National Fish and WildlifeDiverted subtotal                               29,153      15,278       17,149     24,663      28,285                                                                                made to third parties to    Foundation (NFWF) within the United States and The Nature Conservancy
+Directed to disposal subtotal                       11,418       7,240      12,447       11,729       13,005    protect habitat areas       (TNC) globally, to partner with on our land protection journey. A data-informed
+Total waste generated                         40,571      22,518     29,596     36,392      41,290                            approach to identify ecosystems most at risk was used, using TNC’s Last
+Chance Ecosystem Framework and NFWF’s National Landscape Conservation
+FY = fiscal year; mt = metric tons.                                                                                                 Framework. Within each of the two partnerships the following organizations
+will hold the conservation easement/own the protected land:
+• TNC: Belize Maya Forest Trust
+• NFWF: Montana Department of Fish, Wildlife, and Parks; New Mexico Land
+Conservancy; Rocky Mountain Elk Foundation.
+FY = fiscal year.
+1.  Other disposal operations besides landfilled and incinerated for non-hazardous waste and reuse or other diversion methods
+besides recycling for hazardous waste are currently not applicable. The reported data reflects waste that is mainly directed
+for disposal off-site.
+2.  This category includes incineration with and without energy recovery.
+3.  This category includes landfilled and incinerated with and without energy recovery."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,8,"2025 Environmental Data Fact Sheet                                                                                                                                                            08
+1.6 Management’s assertion                                                                minor errors that together are significant and/or updates to available supplier reported data. Footnotes under each
+table highlight when specific adjustments are made. Microsoft’s GHG inventory includes five of the seven GHGs
+Management of Microsoft Corporation is responsible for the completeness, accuracy, and validity of the                                                                                                       addressed by the Kyoto Protocol—carbon dioxide (CO2), methane (CH4), nitrous oxide (N O), hydrofluorocarbons
+disclosures included in Section 1 of this Environmental Data Fact Sheet. Management is also responsible for the                                                                                                                       (HFCs), and sulfur hexafluoride (SF6). Microsoft does not currently use or emit perfluorocarbons (PFCs) and nitrogen
+collection, quantification, and presentation of the specified information included in Section 1 and for the selection                                                                                                                                     trifluoride (NF3). This carbon inventory reflects what is in scope for our carbon negative commitment.
+or development of the criteria, which management believes provide an objective basis for measuring and reporting                                                                                               The following provides a detailed list of activities included in our GHG inventory:on the specified information. Management of Microsoft Corporation asserts that the specified information included
+in Section 1 as of and for the fiscal year ended June 30, 2024 (FY24) is presented in accordance with the criteria set     •  Scope 1 direct GHG emissions from on-site fossil fuel combustion (including natural gas, propane, fuel
+forth in Section 1.10, Reporting criteria.                                                                                                                oil, and diesel), executive air travel, ground transportation (Microsoft owned and directly leased), HFC
+refrigerants, and SF6 used at some facilities.
+1.7 Description of the company and inventory boundary                                                                                                                             •  Scope 2 indirect GHG emissions from purchased electricity, chilled water, and steam. The location-based
+Microsoft’s environmental sustainability data, which includes GHG emissions, energy, water, waste and circularity,      method is based on average emission factors for the electricity grids that provide electricity to our
+and ecosystem metrics, has been prepared using Microsoft’s fiscal year as the basis for the reporting period,             datacenters, buildings, and campuses. The market-based method includes consideration of contractual
+from July 1 to June 30. The Corporate, External and Legal Affairs (CELA) Environmental Sustainability team within        arrangements under which Microsoft procures power from specific suppliers or sources, such as renewable
+Microsoft under the leadership of the Chief Sustainability Officer (CSO) is responsible for monitoring and reporting      energy. In the market-based method, we capture the impact of on-site renewable energy generation,
+environmental sustainability data. Microsoft uses an operational control approach for setting organizational           power purchase agreements (PPAs), the purchase of unbundled energy attribute certificates (EACs), and the
+boundaries and for corporate reporting of GHG emissions, energy, water, waste and circularity, and ecosystem          purchase of green power products.
+metrics in the preceding Tables 1–12. This includes global wholly owned and partially owned subsidiaries over which   •  Scope 3 indirect GHG emissions for the following categories identified as relevant for Microsoft:
+Microsoft has management and operational control, including Microsoft-owned and Microsoft-leased real estate
+• Category 1 – Purchased Goods and Servicesfacilities and datacenters.
+• Category 2 – Capital Goods
+1.8 Information on metrics                                                                                                                                               • Category 3 – Fuel- and Energy-Related Activities (market-based)
+Microsoft announced in January 2020 that we aim to be carbon negative by 2030 and that by 2050 we aim to                                                                                                                                               • Category 4 – Upstream Transportation and Distribution (reported both under the GHG Protocol and
+remove from the atmosphere an equivalent amount of all the carbon dioxide our company has emitted either            per management’s criteria; see Section 1.10)
+directly or by our electricity consumption since we were founded in 1975. We plan to achieve this commitment by
+• Category 5 – Waste Generated in Operationsreducing our Scope 1 and 2 (market-based) emissions to near zero by increasing energy efficiency, decarbonizing
+our operations, and reaching 100% direct renewable electricity by 2025 and reducing Scope 3 emissions (market-          • Category 6 – Business Travel (reported both under the GHG Protocol and per management’s criteria; see
+based and management’s criteria) by more than half by 2030. The baseline year is 2020, which was the year when          Section 1.10)
+the announcement was made.                                                                                                                                               • Category 7 – Employee Commuting
+Microsoft has a metrics recalculation policy for historical data to help ensure consistency whenever year-over-year         • Category 9 – Downstream Transportation and Distribution
+structural changes, methodology changes, or other accuracy improvements are significant. Structural changes             • Category 11 – Use of Sold Products (reported both under the GHG Protocol and per management’s criteria;
+include mergers, acquisitions, and divestitures. Microsoft will begin to include data associated with any merger or         see Section 1.10)
+acquisition the year following the close of the transaction. Divestments will be reflected in data for the year when                                                                                                                                               • Category 12 – End-of-Life Treatment of Sold Productsthe transaction occurred. Methodology changes include changes in a calculation methodology or new activity
+types for greater data granularity. Accuracy improvements include the correction of significant errors or cumulative        • Category 13 – Downstream Leased Assets"
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,9,"2025 Environmental Data Fact Sheet                                                                                                                                                             09
+For carbon removal, we have published the criteria we use to help ensure that the carbon removal credits that we     For product packaging, both recyclability and single-use plastics metrics cover all Microsoft hardware packaging
+contract are high quality: Microsoft Criteria for High-Quality Carbon Dioxide Removal. We purchase both third-         (retail and commercial) and consumer software packaging of the products available to be sold during the reporting
+party certified and uncertified tons in an effort to help develop the market, but we only apply the certified tons to      year. Similarly, these metrics support our product packaging targets: to make fully recyclable product packaging
+the emissions within our carbon neutrality boundary (Scope 1, Scope 2 market-based, and Scope 3 business air      by 2030 and to eliminate single-use plastics in product packaging by the end of 2025. The calculations exclude the
+travel). For the certified portion, the following validation and verification bodies have provided the certification:       impact from inks, adhesives, coatings, label liner material that is removed before a label is applied, and electrostatic
+Verified Carbon Standard (VCS), American Carbon Registry (ACR), Climate Action Reserve (CAR), and California Air    discharge (ESD) packaging components.
+Resources Board (CARB). The reported carbon removal contracted value total also includes future tons that will be
+delivered in subsequent years.                                                                           Reported data for ecosystems includes the total area of land that has been funded and protected based on the
+definition presented in the table in Section 1.10 for reporting criteria. Microsoft’s land protection commitment was
+Microsoft procures renewable energy from on-site generation, unbundled EACs, PPAs, and green power              established in FY20.
+products. Purchased EACs include renewable energy certificates (RECs) (Green-e certified), guarantees of origin
+(GOs), renewable energy GOs (REGOs), International RECs (I-RECs), Tradable Instruments for Global Renewables      Reported data represents progress through the end of FY24.
+(TIGRs), New Zealand Energy Certificate System (NZECS) certificates, J-Credits, Non-Fossil Fuel Certificates
+(NFCs), large-scale generation certificates (LGC), Green Electricity Certificates (GECs), Taiwan Renewable Energy
+Certificates (T-RECs), and PowerPlus. For unbundled EAC purchases, in some cases, Microsoft receives the
+certificates after our inventory has been compiled and assured, given the timing that certificate registry processes
+follow. Microsoft procures enough renewable electricity to match 100% of our global electricity consumption.
+To calculate Scope 2 emissions from a market-based approach, Microsoft captures the impact across all renewable
+electricity purchases and matches that with the markets where we operate, aligned with the GHG Protocol. If we
+are not able to procure renewable electricity in a market where we operate, we purchase an equivalent volume
+of renewable electricity from nearby markets to ensure that we maintain our 100% renewable electricity target.
+Microsoft captures the impact from on-site generation, PPAs, and green power products to support our progress
+against our target to have 100% direct renewable electricity by 2025.
+Microsoft’s water inventory includes withdrawal, consumption, and discharge volumes associated with assets
+under our operational control. These volumes represent global enterprise-wide operations including owned and
+leased offices, datacenters, labs, and retail stores. This data supports tracking progress against our current water
+positive commitment.
+We include operational waste, product packaging recyclability, and single-use plastics in our waste and circularity
+metrics. The operational waste inventory includes the mass of waste generated from operations within Microsoft’s
+operational control that is landfilled, incinerated, recycled, reused, or composted for both non-hazardous and
+hazardous categories, for both owned and leased facilities. We report data from our operational waste generated,
+diverted, and directed to off-site disposal. Currently, the waste inventory does not include waste from construction
+and deconstruction activities."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,10,"2025 Environmental Data Fact Sheet                                                                                                                                                                                       10
+1.9 Methodologies and emission factors                                       Carbon - Scope 3
+Microsoft calculates and reports Scope 3 emissions for all relevant categories. The following table summarizesCarbon - Scopes 1 and 2
+which categories are relevant and describes the methodologies and emission factors used.We use primary data to calculate emissions for both Scope 1 and Scope 2 emissions. Where primary data is not
+available, we use estimates. Depending on the type of facility, our estimation methodology uses coefficients                                                             % of emissions
+based on capacity (megawatts [MW]) or floorspace (square feet [ft2]) to extrapolate emissions. Activity data is     Scope 3                                                                                                calculated using
+collected internally and stored in an internally developed data platform, which then applies the corresponding     category         Emissions calculation methodology                                                  supplier data
+emission factors to calculate emissions. Microsoft uses the 100-year Intergovernmental Panel on Climate Change
+Purchased                                                                                                                                               This                                                                                                                                    category                                                                                                                                                       includes                                                                                                                                                        emissions                                                                                                                                                   from                                                                                                                                                         upstream                                                                                                                                                                            purchasing                                                                                                                                                                                                         of                                                                                                                                                                   goods(IPCC) Fourth Assessment Report for global warming potential values.                                                                    1.                                                                                                                                                                         and services,  61%                                                                                              Goods                                                                                                       and                                                                                                                                          including                                                                                                                                                             direct                                                                                                                              and indirect                                                                                                                                                      goods.                                                                                                                                                                       Microsoft                                                                                                                                                                       has                                                                                                                                                         been using                                                                                                                                                                         an                                                                                                                                                                                                                   International
+Scope and source          Emission factors source                                                               Services          Organization for Standardization (ISO) 14040/ISO 14044–compliant life cycle
+assessment (LCA) approach for many years to track the emissions associated
+Scope 1 (All fuels)         GHG Emission Factors Hub, U.S. Environmental Protection Agency (EPA), March 2018.                        with our devices. In FY23, Microsoft started using LCAs to calculate the emissions
+associated with the manufacture of devices that we sold during the reporting year,Scope 2                      Year 2022 eGRID subregion emission factors from eGRID 2022, U.S. EPA, January 2024.
+including Xbox devices and accessories (for example, controllers and headsets),Electricity (US)
+Surface devices and accessories (for example, keyboards and mice), and HoloLens.
+Scope 2                      Year 2024 factors from “Table 1: Indirect (scope 2 and scope 3) emission factors from                         Microsoft used Makersite, a cloud-based tool with AI and third-party datasets, and
+Electricity (Australia)          consumption of purchased or acquired electricity,” Australian National Greenhouse                         other internal software engineering systems to automate and scale the modeling
+Accounts Factors, Australian Government Department of Climate Change, Energy, the                         of complex electronic products. To ensure a more supply chain–specific accounting
+Environment and Water, August 2024.                                                                       process, the system analyzes the bill of materials and material composition
+Scope 2                      Year 2023 factors from Fator médio - Inventários corporativos, Brazilian Ministry of                       from full material declarations collected from suppliers, resulting in LCA-based
+Electricity (Brazil)               Science, Technology, and Innovation.                                                                   emissions data that has increased accuracy, transparency, and representativeness.
+In FY24, we improved our LCAs by integrating Interuniversity Microelectronics
+Scope 2                      Year 2022 factors from “Annex 13,” National Inventory Report 1990-2022: Greenhouse                       Centre (IMEC) data when modeling the impact from semiconductors and increased
+Electricity (Canada)          Gas Sources and Sinks in Canada, 2024.                                                                  the integration of supplier data into our assessments. Global warming potentials
+Scope 2                CO2 factors from Electricity Grid Emissions Factors and Upstream Fugitive Methane                       (GWPs) are from the Intergovernmental Panel on Climate Change (IPCC) Fourth
+Electricity (Singapore)          Emission Factor 2005-2022, Singapore Energy Market Authority, September 2023.                         Assessment Report (AR4), 100-year average. For the rest of the emissions,
+CH4 and N O Year 2021 factors from Emission Factors 2023, International Energy                             Microsoft requests carbon emissions data from our suppliers and uses the
+Agency (IEA), 2023.                                                                                                    latest available responses to determine Scope 1, Scope 2, and upstream Scope 3
+emission factors (metric tons of carbon dioxide equivalent [mtCO   subscript$ revenue).
+Scope 2                      Year 2022 factors from 2024 Government Greenhouse Gas Conversion Factors for                           Microsoft estimates emissions for suppliers who submitted data by multiplying
+Electricity (UK)             company reporting: Methodology Paper for Conversion Factors, June 2024.                                      their response-derived factor by the annual spend with the supplier. All other
+Scope 2                     Emission Factors 2023, IEA, 2023                                                                spend is mapped to corresponding industry sectors and then multiplied by cradle-
+Electricity (Rest of world)                                                                                                               to-gate emission factors by sector from UK Department for Environment, Food and
+Rural Affairs (DEFRA)’s “UK DEFRA, Table 13 – Indirect emissions from the supply
+chain. March 2014”—updated per the latest inflation and currency conversion
+Emission factors from the sources presented in the preceding table apply to the current reporting year and                               rates. Corporate-wide expense data for all company divisions is obtained from
+are used for location-based accounting. For market-based accounting, Microsoft uses a zero-emission factor                         the finance department. Activities already included in Scope 1 and Scope 2 (such
+for procured renewable electricity. In the locations where Microsoft did not procure renewable electricity,                             as electricity purchases) and other Scope 3 categories (such as capital goods) are
+utility-based and residual emission factors were mostly unavailable; therefore we used the average grid factors                   removed to prevent double counting. GWP values are derived from the underlying
+presented previously. The electricity consumption not covered by renewable electricity for the regions where                          supplier responses and DEFRA data sources.
+residual emission factors were available was de minimis."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,11,"2025 Environmental Data Fact Sheet                                                                                                                                                                                                                            11
+% of emissions                                                           % of emissions
+Scope 3                                                                                                calculated using   Scope 3                                                                                                calculated using
+category         Emissions calculation methodology                                                  supplier data      category         Emissions calculation methodology                                                  supplier data
+2.  Capital          This                     category                                includes                                       emissions                                            from                                                 upstream purchasing                                                                               of capital                                                                              goods,
+Goods                   including                            server                             equipment                                      and other                                                   long-term                                                                        assets. In FY24,                                                                               Microsoft                                                                                            started  72%            4.TransportationUpstream       Thisof goods,categoryincludingincludesall transportationemissions fromofupstreamgoods thattransportationMicrosoft finances.and distributionIn FY23,   99%
+using an LCA-based approach to quantify the cradle-to-gate emissions of cloud                    and Distribution   Microsoft started calculating emissions for this category following the Global
+hardware (server equipment). The methodology uses Makersite, a cloud-based tool                                         Logistics Emissions Council (GLEC) Framework for Logistics Emissions Accounting
+with AI and third-party datasets including Ecoinvent and IMEC data, to automate                                  and Reporting Version 2.0 using data inputs from Microsoft’s third-party logistics
+and scale LCAs based on the materials and design of the cloud hardware. To help                                          service provider, TMC. Our Devices business group applies this calculation,
+ensure coverage, we perform a statistical analysis of representativeness to select                                          factoring in the shipment weight, distance traveled, and the corresponding
+cloud hardware to model with LCA. These results are then used for unmodeled                                          well-to-wheel (WTW) fuel emission factor appropriate for each mode or vehicle
+parts and components present in the rest of the portfolio. GWPs are from the IPCC                                        type. In addition to these inputs, our Cloud business group uses the EcoTransIT
+Fourth Assessment Report (AR4), 100-year average. For the rest of the emissions,                                           tool which identifies the mode of transportation on each leg by breaking down
+Microsoft requests carbon emissions data from our suppliers and uses the latest                                        the route through milestones, and incorporates more granular location data,
+available responses to determine Scope 1, Scope 2, and upstream Scope 3 emission                                 equipment data, and WTW emissions factors. Starting in FY24, our Cloud business
+factors (mtCO   subscript$ revenue). Microsoft estimates emissions for suppliers who                                       group started accounting for the impact of low-carbon fuels and electric vehicles
+submitted data by multiplying their response-derived factor by the annual spend                                            (EVs) as part of the fleets supporting this activity. For the rest of the emissions,
+with the supplier. All other spend is mapped to corresponding industry sectors                                          Microsoft requests carbon emissions data from our suppliers and uses the latest
+and then multiplied by cradle-to-gate emission factors by sector from UK DEFRA’s                                          available responses to determine Scope 1, Scope 2, and upstream Scope 3 emission
+“UK DEFRA, Table 13 – Indirect emissions from the supply chain. March 2014”—                                             factors (mtCO   subscript$ revenue). Microsoft estimates emissions for suppliers who
+updated per the latest inflation and currency conversion rates. Corporate-wide                                       submitted data by multiplying their response-derived factor by the annual spend
+expense data for all company divisions is obtained from the finance department.                                        with the supplier. All other spend is mapped to corresponding industry sectors
+Activities already included in Scope 1 and Scope 2 (such as electricity purchases)                                  and then multiplied by cradle-to-gate emission factors by sector from UK DEFRA’s
+and other Scope 3 categories (such as purchased goods and services) are removed                                 “UK DEFRA, Table 13 – Indirect emissions from the supply chain. March 2014”—
+to prevent double counting. GWP values are derived from the underlying supplier                                   updated per the latest inflation and currency conversion rates. Corporate-wide
+responses and DEFRA data sources.                                                                          expense data for all company divisions is obtained from the finance department.
+Spend data associated with our upstream transportation and distribution activities3. Fuel- and       Starting in FY23, Microsoft reports this category using a market-based approach
+is then isolated within the corporate spend report. GWP values are derived fromEnergy-Related    only, which has been the approach used to track progress against our carbon    95%
+the underlying supplier responses and DEFRA data sources.Activities (not     negative commitment. Fuel- and energy-related activities (not included in Scope
+1                   or 2) include                                three emission                                                sources.                                                                        First, we                                                                    calculate                                                                upstream                                                                               emissions                                                                                                of                            5.                                                                                                    Waste                                                                                                                     The                                                                                                                               waste figure                                                                                                                                                      represents                                                                                                                                                             emissions                                                                                                                                                       from                                                                                                                                                                  waste disposed                                                                                                                                                                                                                       via                                                                                                                                                                                                                                               landfilling,included          in
+purchased                                 electricity                                  by multiplying                                                              electricity                                                          use                                                          by emission                                                                                   factors                                                                           from life                                                                                                        Generated                                                                                                                                                in                                                                                                                                                    incineration,                                                                                                                                                                  recycling,                                                                                                                                    and compost.                                                                                                                 We                                                                                                                                                                                           calculate                                                                                                                                                                                  emissions                                                                                                                                                                          from                                                                                                                                                                                     waste using   35%Scope 1 or           2)
+cycle analysis tools for the United States and UK DEFRA 2015 Guidelines for non-US                   Operations       methodologies and emission factors from the EPA’s Waste Reduction Model
+countries. When calculating the market-based approach and including the impact                                 (WARM), version 16. This model uses waste mass as the data input and bases its
+from purchased renewable electricity, the upstream emissions associated with                                         emissions calculations on a life cycle analysis, including emissions from the long-
+fuel are zero. Second, we multiply fuel consumption by emission factors from the                                    term decomposition of waste in landfills or from upstream sources/sinks. GWPs are
+Greenhouse gases, Regulated Emissions and Energy in Transportation (GREET)                                      from the IPCC AR4, 100-year average.
+and Ecoinvent life cycle analysis tools. And third, we calculate transmission and
+distribution (T&D) losses (by energy use type) by using loss percentage rates
+from the U.S. Environmental Protection Agency (EPA)’s eGRID2022 database for
+the United States and from the International Energy Agency (IEA) (2023) for other
+countries. GWPs are from the IPCC AR4, 100-year average."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,12,"2025 Environmental Data Fact Sheet                                                                                                                                                                                            12
+% of emissions                                                           % of emissions
+Scope 3                                                                                                calculated using   Scope 3                                                                                                calculated using
+category         Emissions calculation methodology                                                  supplier data      category         Emissions calculation methodology                                                  supplier data
+6.  Business        This                     category                                includes                                       emissions                                            from                                                  commercial                                                                                    air travel,                                                                              hotel                                                                                  night stays,
+Travel                      travel,                       reimbursed                                    mileage,                                                 rental                                                          cars,                                               and taxi/rideshares.                                                                          For                                                                       commercial                                                                                                                 air                                                                                                                              rail  85%          SustainableFuel              ForreductionsCategoryfrom4 emissionsthe volumewithof sustainablesustainable fuelaviationcertificates,fuel (SAF)weand,applystartingthe emissionsin    100%
+and rail travel, Microsoft Corporate Travel provides flight/ride-level airport codes                        Certificates       FY24, we also apply reductions from sustainable marine fuel (SMF) associated with
+and cabin class data. We use the airport/rail station codes to calculate distances to                   (management’s    SAF certificates (SAFc) and SMF certificates (SMFc) purchased for the reporting
+determine whether the flights/rides were short, medium, or long haul. Using the                               criteria)           year against air cargo emissions and ocean freight emissions, respectively,
+distance-based method, we use flight distances and cabin class to calculate carbon                                       calculated using the previously stated methodology for Category 4 – Upstream
+dioxide equivalent emissions, using the appropriate tank-to-wake emission factors                                      Transportation and Distribution to derive the reported annual emissions figure.
+from DEFRA’s 2022 Government GHG Conversion Factors for Company Reporting.
+For Category 6 emissions with SAFc, we apply the emissions reductions from the                  For hotel night stays, Microsoft’s preferred hotel vendors provided emissions
+volume of SAF associated with SAFc purchased for the reporting year against air                 per hotel night stay coefficients. For other hotel chains, we estimated emissions
+travel emissions calculated using the previously stated methodology for Category                based on nights stayed and the emission factors from the EPA’s Greenhouse Gas
+6 – Business Travel, inclusive of well-to-tank and tank-to-wake emissions, using the                  Inventory Guidance: Indirect Emissions from Events and Conferences (Dec 2018).
+appropriate factors from DEFRA’s 2022 Government GHG Conversion Factors for                  For rental cars, each rental car company provided mileage, fuel, and emission
+Company Reporting to derive the reported annual emissions figure.                   data. For taxi/rideshare and reimbursed mileage, we estimated emissions based
+on spend using emission factors from the EPA Emission Factor Hub. March 2018.                           We allocate the total emissions reductions from the volume of SAF associated with
+GWPs are from the IPCC AR4, 100-year average.                                                               SAFc purchased centrally for the reporting year between Category 4 and Category
+6 based on an internal determination by management on where the SAFc should
+be applied.
+Management’s methodology for reporting SAFc in these categories was informed
+by the approach outlined in the World Economic Forum Sustainable Aviation
+Fuel Certificate Emissions Accounting and Reporting Guidelines (WEF Accounting
+and Reporting Guidelines). These guidelines informed our approach for both
+calculating and reporting the well-to-wake emissions and attributing the benefits
+associated with SAFc for corporate travel and air freight shipments. Management’s
+methodology approach for reporting SMFc in category 4 was informed by the
+Smart Freight Centre’s Global Logistics Emissions Council (GLEC) Framework and is
+consistent with our approach to SAFc.
+The SAFc and SMFc that we purchase are required to include details about the SAF
+and SMF characteristics, origin and chain-of-custody, and third-party certification.
+The certificates, which are certified prior to delivery to Microsoft, must be
+certified by an independent third party that they align with the requirements
+of an internationally recognized sustainability certification scheme such as the
+International Sustainability and Carbon Certification scheme or the Roundtable
+on Sustainable Biomaterials including batch number and fuel/material type.
+These sustainable fuel certificate requirements were also informed by the WEF
+Accounting and Reporting Guidelines."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,13,"2025 Environmental Data Fact Sheet                                                                                                                                                                                             13
+% of emissions                                                           % of emissions
+Scope 3                                                                                                calculated using   Scope 3                                                                                                calculated using
+category         Emissions calculation methodology                                                  supplier data      category         Emissions calculation methodology                                                  supplier data
+7.  Employee       This                     category                               captures                                       emissions                                            from                                             commuting                                                          by all                                                               employees                                                                      and
+Commuting                  contractors                               that                             work in                                         Microsoft                                                       buildings.                                                            Microsoft                                                              conducted                                                                           a survey                                                                                                        in    17%            8.LeasedUpstreamAssets    Notemissionsrelevant.reportingMicrosoftboundary.includes leased assets in our Scope 1 and Scope 2          –
+2023 to capture detailed commuting habits from employees and vendors at our
+Puget Sound campus, representing about 38% of global Microsoft headcount.
+The survey is typically conducted annually. We scale the results based on employee
+attendance records to estimate global commuting emissions for Microsoft.
+Carbon dioxide emission rates for passenger vehicles (single occupancy vehicle
+[SOV] and carpool) are based on fuel consumption and miles travelled. We derived
+9.                                                                                                    Downstream    Included                                                                                                                                                                      in this                                                                                                                                              category                                                                                                                                                                are                                                                                                                                                              the                                                                                                                                                                 emissions                                                                                                                                                           from                                                                                                                                                                                      transporting                                                                                                                                                                  and                                                                                                                                                                                  warehousing                 a                  weighted                           average                                          fuel economy                                                 using the 2012                                                       EPA Fuel Economy                                                                               Trends                                                                                                                                                                                                                            of  0%                                                                                                                       Transportation                                                                                                                                      devices that                                                                                                                                                 Microsoft                                                                                                                                                             sold                                                                                                                                                                                           in                                                                                                                                                               the                                                                                                                                                                      reporting                                                                                                                                                                               year                                                                                                                                                                                               (including Xbox                                                                                                                                                                                                               devices,                                                                                                                                                                                                         Surface                 Report                         1975–2012,                                which                                         provides combined                                                                    fuel economy                                                                                  for cars and                                                                                         trucks
+by year, and a set of car and truck age fractions provided by the Puget Sound                      and Distribution   devices, HoloLens, keyboards, mice, and other peripherals) from retail distribution
+Regional Council. We used this data to develop a weighted average fuel economy                                        centers to retailers and between retail outlets and customers. Calculations are
+for the Puget Sound area. Emission factors are derived from the Inventory of                                       based on internal Microsoft sales data and use standard assumptions of distance
+U.S. Greenhouse Gas Emissions and Sinks: 1990–2010, Annex 2 (Methodology                                     between retailers and their distribution centers and warehouse floorspace from
+for estimating CO2 emissions from fossil fuel combustion). Carbon dioxide rates                                    an MWPVL International analysis of Walmart’s distribution center network.
+per passenger mile are based on Federal Transit Administration, 2010 (Public                                        Assumptions about the energy intensity of warehouses come from the EIA’s
+Transportation’s Role in Responding to Climate Change, US Department of                                         Commercial Buildings Energy Consumption Survey (2012). All transportation data
+Transportation, Federal Transit Administration, January 2010). GWPs are from the                                                         is kept consistent with the GLEC Framework for Logistics Emissions Accounting and
+IPCC AR4, 100-year average.                                                                                          Reporting, Version 2.0. GWPs are from the IPCC AR4, 100-year average.
+10. Processing    Not relevant. Microsoft did not have any physical intermediate products in the      –                As nearly all Microsoft employees worked from home during the COVID-19
+of Sold           years reported.                pandemic, FY20 was the first year to include emission impacts from telework,
+Products               and we have continued to include them in the subsequent years. We assume
+telework energy consumption to include workstation/plug-load energy usage,
+additional lighting, and household cooling/heating consumption. We assume one
+laptop, two monitors, and three lightbulbs for each employee; other assumptions
+include 8 work hours/day and 250 days/year using the devices. We assume office/
+workspace floor area and cooling/heating intensity based on Energy Information
+Administration (EIA)’s 2015 Residential Energy Consumption Survey (RECS) data.
+From these assumptions, we calculate a carbon emission intensity per employee,
+and then calculate total emissions by multiplying the intensity by number of
+employees working from home."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,14,"2025 Environmental Data Fact Sheet                                                                                                                                                                                           14
+% of emissions                                                           % of emissions
+Scope 3                                                                                                calculated using   Scope 3                                                                                                calculated using
+category         Emissions calculation methodology                                                  supplier data      category         Emissions calculation methodology                                                  supplier data
+11.  Use of Sold    Included                               in                                  this category                                                           is                                           the lifetime                                                                 electricity                                                            use                                                                        of devices that                                                                                   Microsoft
+Products                  sold in the                            reporting                                      year                                            including                                            Xbox                                                         devices and                                                                       accessories                                                                                                 (for                                                                               example,   0%                11.SoldUseProductsof          Thisthe reportingcategory year,includesusingthea emissionstelemetry-basedof all Surfacemethodologyand Xboxto devicesaccountactivefor theirduring  0%
+controllers and headsets), Surface devices and accessories (for example, keyboards                   (management’s     electricity usage. We use telemetry-based measurements in addition to telemetry-
+and mice), and HoloLens. We calculate lifetime electricity use per device based                                 criteria)           informed extrapolations to produce regional electricity consumption and
+on standard product-use assumptions as included in our ISO 14040– and ISO                                           emissions associated with the use of devices in scope. For Xbox devices, we gather
+14044–compliant LCAs. Calculations include energy use assumptions that are                                           telemetry data for all units still in use in relation to console mode, which is then
+derived from various guidance documents, studies, and telemetry data. We use                                           multiplied by laboratory-controlled or real-world measured power coefficients to
+assumptions about total lifetime expected use (years). We use the sales geography                                         calculate electricity use. For Surface devices, we gather energy telemetry data from
+for the products sold to determine the electricity emission factor used to calculate                                    a representative sample of devices that are grouped based on the device model
+emissions. Emissions from third-party devices running Microsoft software are                                    and location and then extrapolate the average energy per device sampled to the
+currently outside of the scope of our carbon targets and therefore not included.                                          respective full daily active device population group based on a rolling seven-day
+GWPs are from the IPCC AR4, 100-year average.                                                                       average. Emissions values from HoloLens, keyboards, mice, and other peripherals
+currently fall under our significance threshold and are not included. Emissions from
+third-party devices running Microsoft software are currently outside of the scope
+of our carbon targets and therefore not included. We estimate electricity usage
+by country, and we use regional average emission factors from the same sources
+highlighted for Scope 2 to estimate emissions. GWPs are from the IPCC AR4, 100-
+year average.
+12.                                                                                                    End of Life                                                                                                                                   Included                                                                                                                                                                      in this                                                                                                                                              category is                                                                                                                                                             the                                                                                                                                                                                  end-of-life                                                                                                                                                                        treatment                                                                                                                                                                                                  of                                                                                                                                                                                          devices                                                                                                                                                                                                               that Microsoft
+Treatment                                                                                                                                of                                                                                                                                        sold during                                                                                                                                              the reporting                                                                                                                                                              year                                                                                                                                                                        including                                                                                                                                                  Xbox                                                                                                                                                                                 devices                                                                                                                                                            and                                                                                                                                                                                                   accessories                                                                                                                                                                                                                                                   (for     0%
+Sold Products    example, controllers and headsets), Surface devices and accessories (for example,
+keyboards and mice), and HoloLens. Microsoft has been using an ISO 14040/ ISO
+14044-compliant LCA approach for many years to track the end-of-life emissions
+for our devices. To generate an estimate for this category, the model assumes
+that materials from devices are recycled, landfilled, or incinerated at the end of
+their useful life using material-specific European collection and disposition rates
+for electronic devices. In FY23, we revised our LCA process to use Makersite, a
+cloud-based tool with AI and third-party datasets, and other internal software
+engineering systems to automate and scale the modelling of complex electronic
+products. GWPs are from the IPCC AR4, 100-year average."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,15,"2025 Environmental Data Fact Sheet                                                                                                                                                                                            15
+% of emissions   Energy
+Scope 3                                                                                                calculated using                                                                                              As part of our carbon negative commitment, Microsoft set a target to procure enough direct renewable electricity
+category         Emissions calculation methodology                                                  supplier data                                                                                                                  to cover 100% of our electricity usage by 2025, meaning that we will have PPAs or other long-term contracts for
+13.   Downstream                  Microsoft                              calculates                                     emissions                                               associated                                                          with                                                                 sublets                                                                    using the                                                                                           intensities derived 91%         green power products for 100% of carbon-emitting electricity consumed by all our datacenters, buildings, andLeased       Assets                from data                             collected for                                       the primary                                                   leased                                                      space                                                                              (for example,                                                                                kilowatt-hours/                                                                                                     campuses. To calculate this percentage of direct renewable electricity, Microsoft developed a methodology that
+square foot [ kWh persquare]) and prorated for the square footage of the sublet space.                                                                                                                      divides the total direct renewable electricity consumption by the total electricity consumption and multiplies by                     In this way, it is assumed that the emissions intensities of the leased spaces are
+the same as the overall buildings in which they reside. We calculate emissions                          100. The total direct renewable electricity consumption is the sum of renewable electricity that the entity directly
+from refrigerants using the same methodology and intensity as used to calculate                    produced, the renewable electricity purchased via renewable PPAs and/or green power products, and the
+refrigerant intensities for assets occupied by Microsoft. Electricity emission factors                  renewable portion of the electricity grid mix. We use primary data to represent the contracted renewable electricity
+used are those appropriate to each location, consistent with our Scope 1 and Scope                 based on reports produced and submitted by the contracted assets in our portfolio. The renewable portion of the
+2 location-based inventory. GWPs are from the IPCC AR4, 100-year average.                               electricity grid mix is the amount of renewable electricity that is on the power grid in the region of the Microsoft
+14. Franchises    Not relevant. Microsoft did not operate franchises in the years reported.           –                    facility that can be claimed as going into the electricity that our operations consume. The renewable portion of
+the electricity grid mix used in the calculation is based on publicly available data for regions in which we have15. Investments   Not relevant for reported years.                                            –
+determined the region’s grid mix has defensible claims, which is defined as regions where either (1) EACs are retired
+by a utility or government entity on behalf of all utility/grid ratepayers, or (2) no EAC or customer-specific claims
+exist. For geographies where publicly available data is incomplete or nonexistent, we apply assumptions based
+on historical data or trends, or assume zero renewable electricity by default in their grid mix. Microsoft uses an
+internally developed renewable electricity grid mix policy to support and govern the process for determining the
+renewable electricity grid mix that can be counted toward our target.
+Additionally, as part of our carbon neutral target, Microsoft achieved 100% renewable electricity this year through
+a combination of both direct renewable electricity and the purchase of unbundled EACs. For this metric, the
+renewable portion of the electricity grid mix is excluded from the calculation. The type of unbundled EACs included
+are listed in Section 1.8 of this fact sheet. To calculate the percentage of renewable electricity, we add up our
+renewable electricity consumption from the various sources, divide it by Microsoft’s total electricity consumption,
+and multiply by 100. We use standard conversion factors for all energy metrics.
+Water
+We use primary data to calculate water withdrawal, discharge, and consumption volumes where Microsoft
+operates. We use estimates where primary data is not available. Water withdrawal volumes are based on data from
+utility bills from our largest sites and, in some cases, estimations. We have developed an internal water withdrawal
+estimation methodology for sites where primary data is unavailable; this methodology considers square footage,
+electricity consumption, and datacenter cooling technology type. Where discharges and consumption are not
+metered, we estimate volumes annually as part of the global water inventory aggregation process. Most of our
+sites do not currently have discharge meters. For office buildings without discharge meters, we assume water
+consumption to be 10% of withdrawals unless there is landscaping that requires irrigation. For datacenters, we have"
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,16,"2025 Environmental Data Fact Sheet                                                                                                                                                                                        16
+updated our estimation approach for withdrawals and consumption starting in FY24. Under this new approach, we  We use product packaging recyclability and the single-use plastics metrics to track our progress against our zero
+use water use efficiency metrics to estimate how much we withdraw and consume. Across all sites, it is estimated     waste commitment. The design of all Microsoft product packaging is to be 100% recyclable in OECD (Organization
+that discharge equals the difference between withdrawals and consumption.                                             for Economic Cooperation and Development) countries by 2030 and contain 0% single-use plastic by the end of
+2025. In both cases, we use primary data from the bill of materials associated with the product packaging units
+Microsoft continues to work on improvements for water data collection, including data on the sources of our water    in scope. For product packaging recyclability, at the product packaging unit level, we assign an end-of-life (EOL)
+withdrawals. This will allow us to know whether water is coming directly from freshwater sources (groundwater                                                                                                               score to each packaging component based on publicly available information regarding the existing recovery
+and surface water), or from alternative water sources (reclaimed water procured from a water utility or harvested                                                                                                                           infrastructure in the OECD markets. Currently, our methodology is primarily based on publicly available information
+rainwater). Knowing the source of water withdrawals helps us incentivize the use of alternative water sources                                                                                                  from the United States which is one of our biggest markets. Scores indicate relative acceptance of materials to
+through our replenishment and reduction targets.                                                                                                                             recycling, and range from 1 to 5, where a score of 1 means up to 20% recyclable (not generally accepted) and a
+Waste and circularity                                                                                       score of 5 means 100% recyclable (widely accepted to be recycled). A recyclability percentage is computed for each
+packaging unit by adding the product of each component’s weight and EOL scores and dividing by the maximumWe use primary data to calculate waste generation where Microsoft operates. Operational waste mass (including
+score value of 5. The reported enterprise-wide level metric is the simple average of all product packaginge-waste) is based on data from invoices and/or vendor and third-party reports. For locations where primary data
+recyclability percentages in scope. For the single-use plastics metric, the percentage by weight of single-useis unavailable, we have an extrapolation methodology that uses capacity (MW)-based coefficients by region or
+plastics is calculated for each packaging unit. The enterprise-wide level metric is the simple average of all single-attendance, depending on the type of site. The extrapolation excludes e-waste, and we assume all extrapolated
+use plastics percentages for all product packaging in scope. Both metrics consider packaging units for productswaste to be landfilled in cases where the disposal or diversion method is unknown. In FY23, we updated the
+available to be sold during the fiscal year. The calculations exclude the impact from inks, adhesives, coatings, andextrapolation approach for non-campus workplace locations not providing data in our portfolio. Under this
+label liner material that is removed before a label is applied. Starting in FY24, packaging for repair and replacementapproach we apply an attendance-based global operational waste mass coefficient, as well as recycling and
+parts were made available to be sold and therefore included in the scope. With this scope expansion, we addedcompost diversion rates from applicable reported workplace data (derived from actuals). Since most of the non-
+electrostatic discharge (ESD) packaging components to our exclusion list because they are critical to protectingcampus workplace sites are leased spaces within a larger building, obtaining actual waste data can be challenging.
+high risk repair and replacement parts during shipment.This updated approach represents an improvement that more accurately reflects waste diversion practices that are
+in place at non-campus workplace sites."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,17,"2025 Environmental Data Fact Sheet                                                                                                                                                                                            17
+1.10 Reporting criteria                                                                                             Specified
+Area          Information            Criteria                                                   Tables
+The following summary table defines the criteria for each specified metric included in Section 1 of this
+Scope 3 Category      Management’s criteria:                                      1BEnvironmental Data Fact Sheet. Management is responsible for the selection or development of the criteria                                                                                                                                                              11 — Use of
+(“management’s criteria”), which management believes provide an objective basis for measuring and reporting                       Sold Products        The Company shall disclose emissions from the use of sold                                                                                                                                       products in the reporting year in metric tons of carbonon the specified information referenced in this table.                                                                            (management’s                                                                                                                                                 dioxide equivalent (mtCO e), reported as:                                                                                                                                                                                  criteria)
+We have reported the information cited in this GRI content index for the fiscal year ended June 30, 2024 (FY24)                                                       a. Gross emissions.
+with reference to the GRI Standards using GRI 1: Foundation 2021.
+b. Gross emissions, net of renewable electricity.
+Specified                                                                                                                                       Gross emissions are calculated by multiplying a) the directArea          Information            Criteria                                                   Tables                                                                                                                                    use-phase energy, which is derived from data gathered
+Carbon        The statement of     The Greenhouse Gas Protocol: A Corporate Accounting      1A, 1B,                                     by the Company using telemetry and calculations used
+GHG emissions      and Reporting Standard (Revised Edition) and The             2, 3,                                             to measure energy usage from Xbox consoles and Surface
+Greenhouse Gas Protocol: Corporate Value Chain              4, 5                                             devices sold by Microsoft at any point in time since
+(Scope 3) Accounting and Reporting Standard published                                                 product launch and which are still in use by end users
+by the World Resources Institute/World Business                                                          during the fiscal year being reported on and b) location-
+Council for Sustainable Development (collectively                                                    based emissions factors.
+the “GHG Protocol”).                                                                                                                                             For the purposes of this metric, renewable electricity is
+defined as the purchase of contractual instruments that
+meet the “quality criteria” according to table 7.1 in the
+GHG Protocol Scope 2 Guidance.
+Microsoft shall disclose:
+a. A description of the types and sources of data,
+including telemetry activity data, emission factors,
+and global warming potentials (GWP) values, used
+to calculate emissions, and a description of the data
+quality of reported emissions data.
+b. A description of the methodologies, allocation
+methods, and assumptions used to calculate
+Scope 3 emissions and any exclusions."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,18,"2025 Environmental Data Fact Sheet                                                                                                                                                                                        18
+Specified                                                                                                   Specified
+Area          Information            Criteria                                                   Tables    Area          Information            Criteria                                                   Tables
+Carbon         Sustainable Fuel       Management’s criteria:                                      1B         Energy         Energy consumption    “Disclosure 302-1: Energy consumption within the organization”    6,7
+Certificates                                                                                                          within the             from GRI 302: Energy 2016
+The Company shall disclose:                (management’s                                                                                                     organization
+criteria)                           1.  Scope 3 Category 4 – Upstream Transportation &                                                                                                                         Energy intensity         “Disclosure 302-3: Energy intensity” from GRI 302: Energy 2016    8
+Distribution with sustainable fuel certificates in the reporting
+year in metric tons of CO e reported as:                                                                            1. Renewable          Management’s criteria:                                          6,7
+electricity
+This category is calculated as total Category 4 life cycle                                                     The Company shall disclose:
+emissions as disclosed under the Greenhouse Gas Protocol:                                        2. Direct renewable                                                                                                                                                                                                                                                   1.  Renewable electricity                                        Corporate Value Chain (Scope 3) Accounting and Reporting                                          electricity
+Standard less the emissions reduction benefit from purchased                                                                          a. Total renewable electricity consumption
+sustainable aviation fuel (SAF) certificates (SAFc) applied only
+Total renewable electricity consumption is the sum                                             to air cargo emissions, and sustainable marine fuel (SMF)
+of renewable electricity the entity directly produced,                                                    certificates (SMFc) applied only to ocean freight emissions.
+renewable electricity purchased via renewable power
+2. Scope 3 Category 6 – Business Travel with SAFc in the                                                              purchase agreement (PPAs) or green power products,
+reporting year in metric tons of CO e reported as:                                                           and renewable electricity purchased via energy attribute
+certificates (EACs) that are paired with grid electricity; but
+This category is calculated as the sum of the total Category 6                                                                                                                                                             excludes the renewable portion of t he electricity grid mix.
+emissions as disclosed under the Greenhouse Gas Protocol:
+Corporate Value Chain (Scope 3) Accounting and Reporting                                                                      b. Percentage of renewable electricity
+Standard and the w ell-to-tank emissions associated only
+The percentage of renewable electricity is calculated as                                           with air travel less the emission reduction benefit from
+total renewable electricity consumption divided by total                                        purchased SAFc applied only to air travel emissions.
+electricity consumption.
+SAFc and SMFc are required to include details about the SAF and
+2.  Direct renewable electricity                               SMF characteristics, origin and chain-of-custody, and third-party
+certification. SAFc and SMFc, which are certified by an independent                                                                          a. Percentage of direct renewable electricity
+third party prior to delivery to Microsoft, must align with the
+The percentage of direct renewable electricity shall be                                        requirements of an internationally recognized sustainability
+calculated as total direct renewable electricity consumption,                                                 certification scheme such as the International Sustainability and
+defined as the sum of renewable electricity the entity                                    Carbon Certification scheme or the Roundtable on Sustainable
+directly produced, renewable electricity purchased                                            Biomaterials including batch number and fuel/material type.
+via renewable PPAs or green power products, and the
+Microsoft shall disclose:                                                                                         renewable portion of the electricity grid mix, divided by
+total electricity consumption.                              A description of the methodologies, allocation methods,
+and assumptions used to calculate Scope 3 Category 4 with                                                              Additional notes and definitions:
+sustainable fuel certificates emissions and Scope 3 Category
+•  Total electricity consumption is the same as the criteria                                    6 with sustainable aviation fuel certificates emissions and
+“Disclosure 302-1(c)(i) Electricity consumption” from GRI                                     any exclusions.
+302: Energy 2016."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,19,"2025 Environmental Data Fact Sheet                                                                                                                                                                                         19
+Specified                                                                                                   Specified
+Area          Information            Criteria                                                   Tables    Area          Information            Criteria                                                   Tables
+Energy            2. Direct renewable            •  Renewable electricity is defined as electricity that comes     6, 7       Water         Water withdrawal       “Disclosure 303-3: Water withdrawal” from GRI 303: Water and    9
+electricity                from sources that are replenished at a rate greater than                                                              Effluents 2018
+(continued)                  or equal to their rate of depletion, such as geothermal,                                                                                                                   Water discharge         “Disclosure 303-4: Water discharge” from GRI 303:             9                                              wind, solar, hydro, and biomass.                                                                                                                                 Water and Effluents 2018
+•  Renewable PPAs are contracts for renewable electricity                                                                                                                   Water consumption     “Disclosure 303-5: Water consumption” from GRI 303:           9                                                  that Microsoft purchased where the contracts explicitly                                                                                                                                 Water and Effluents 2018
+include EACs (RECs and GOs).
+Waste &       Waste generated        “Disclosure 306-3: Waste generated” from GRI 306: Waste 2020    10
+•  Green power products are Green-e Energy certified utility                 Circularity
+or supplier programs, or other green power products that
+explicitly include EACs.                                                       Waste diverted from    “Disclosure 306-4: Waste diverted from disposal” from GRI 306:   10
+disposal             Waste 2020
+•  For any renewable electricity directly produced and
+Waste directed to       “Disclosure 306-5: Waste directed to disposal” from GRI 306:      10                                           generated on-site, any EACs must be retained (that is, not
+disposal             Waste 2020                                                  sold) and retired or cancelled on behalf of Microsoft for
+Microsoft to claim them as renewable electricity.                                      Percentage of         Management’s criteria:                                               11
+product packaging                                                           •  For renewable PPAs and green power products, the                                                      The Company shall disclose the percentage of product                                                                                                                                                     recyclability                                         agreement must explicitly include and convey that                                                          packaging recyclability for the packaging of products available
+EACs be retained or replaced and retired or cancelled                                                             to be sold as of the fiscal year end.
+on behalf of Microsoft for Microsoft to claim them as
+The percentage of product packaging recyclability is an                                           renewable electricity.
+enterprise-wide average, where each product packaging unit’s
+•  The renewable portion of the electricity grid mix is                                                             percent recyclability is weighted equally.
+the portion that is outside of the control or influence
+Each product type sold by the Company has a product                                                 of Microsoft.
+packaging unit percent recyclability.
+•  The renewable portion of the electricity grid mix used
+Each product packaging unit’s percent recyclability is calculated                                                      in the calculation is based on publicly available data in
+by dividing (1) the sum of the product of each individual                                              regions in which we have determined that the region’s
+component’s weight and end-of-life (EOL) scores, by (2) the                                                 grid mix has defensible claims, defined as regions where
+maximum EOL score of 5.                                                   either (1) EACs are retired by a utility or government
+entity on behalf of all utility/grid ratepayers, or (2) no EAC                                              EOL scores are assigned to each component of a packaging
+or customer-specific claims exist. Microsoft shall report                                                               unit based on publicly available information regarding the
+a description of the methodologies and assumptions                                                                      relative acceptance of materials for recycling based on existing
+used to calculate the renewable portion of the electricity                                                        recovery infrastructure data. Scores range from 1 to 5, where
+grid mix.                                                                                                                               1 means up to 20% recyclability acceptance and 5 means 100%
+recyclability acceptance.
+Microsoft shall report a description of data sources and
+assumptions used to calculate the metric."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,20,"2025 Environmental Data Fact Sheet                                                                                                                                                              20
+Specified                                                                                                   Specified
+Area          Information            Criteria                                                   Tables    Area          Information            Criteria                                                   Tables
+Waste &        Percentage of single-   Management’s criteria:                                               11         Ecosystems     Land protection       Management’s criteria:                                        12
+Circularity      use plastics (SUP) in
+The Company shall disclose the percentage of SUP in product                                                  The Company shall disclose:               product packaging
+packaging by weight used in the packaging of products
+a. The total size in acres, as well as by country location of all                                            available to be sold as of the fiscal year end.
+funded land as of the fiscal year ended.
+Each product type sold by the Company has a packaging unit
+b. The total size in acres, as well as by country location of all                                 SUP percentage. Each packaging unit’s SUP percentage is
+protected land as of the fiscal year ended.                                          calculated by dividing its weight of SUP by its total weight.
+c. A description of the agreements with the third parties                                   The percentage of SUP in product packaging reported is an
+related to funded land.                                         enterprise-wide average, where each packaging unit’s SUP
+percentage is weighted equally.                                                                         Funded land is defined as land for which the Company has
+entered into agreements and made monetary contributions to                                 SUP is defined as plastic items designed to be used once by the
+third parties to begin the process of designating the land as                                   consumer before they are disposed.
+protected land (that is, the legal status as protected land is not
+Microsoft shall disclose a description of data sources used to                                                       obtained yet).
+calculate the metric.
+Protected land is defined as funded land that has become
+legally designated as being permanently protected by
+government regulation.
+Total size in acres is calculated as the sum of Microsoft’s total
+monetary contribution amount for each executed agreement
+divided by the cost per acre as determined by the third-party
+organization within each executed agreement. These amounts
+are net of overhead costs."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,21,"2025 Environmental Data Fact Sheet                                                                                                                                                                                     21
+1.11 Independent accountant’s review report                                                                                                                                 Deloitte & Touche LLP
+1015 Second Avenue, Suite 500
+Seattle, WA 98104-1126
+USA
+To the Board of Directors of Microsoft Corporation
+We have reviewed management of Microsoft Corporation’s (the “Company”) assertion that the specified information included in Section 1 of the 2025 Environmental Data Fact Sheet (“Fact Sheet”) as of and for the fiscal year
+ended June 30, 2024 is presented in accordance with the criteria set forth in Section 1.10, Reporting criteria in the Fact Sheet. The Company’s management is responsible for its assertion. Our responsibility is to express a
+conclusion on management’s assertion based on our review.
+Our review was conducted in accordance with attestation standards established by the American Institute of Certified Public Accountants (AICPA) in AT-C Section 105, Concepts Common to All Attestation Engagements, and
+AT-C Section 210, Review Engagements. Those standards require that we plan and perform the review to obtain limited assurance about whether any material modifications should be made to management’s assertion in order
+for it to be fairly stated. The procedures performed in a review vary in nature and timing from and are substantially less in extent than, an examination, the objective of which is to obtain reasonable assurance about whether
+management’s assertion is fairly stated, in all material respects, in order to express an opinion. Accordingly, we do not express such an opinion. Because of the limited nature of the engagement, the level of assurance obtained in
+a review is substantially lower than the assurance that would have been obtained had an examination been performed. We believe that the review evidence obtained is sufficient and appropriate to provide a reasonable basis for
+our conclusion.
+We are required to be independent and to meet our other ethical responsibilities in accordance with relevant ethical requirements in accordance with the AICPA Code of Professional Conduct. We applied the Statements on
+Quality Control Standards established by the AICPA and, accordingly, maintain a comprehensive system of quality control.
+The procedures we performed were based on our professional judgment. In performing our review, we performed analytical procedures, inquiries, and other procedures as we considered necessary in the circumstances. For a
+selection of the specified information included in the Fact Sheet, we performed tests of mathematical accuracy of computations, compared the specified information to underlying records, or observed the data collection process.
+The preparation of the specified information included in the Fact Sheet requires management to establish and interpret the criteria, make determinations as to the relevancy of information to be included, and make estimates
+and assumptions that affect the reported information. Measurement of certain amounts includes estimates and assumptions that are subject to substantial inherent measurement uncertainty, including for example, the accuracy
+and precision of conversion factors or estimation methodologies used by management. Obtaining sufficient appropriate review evidence to support our conclusion does not reduce the inherent uncertainty in the specified
+information included in the Fact Sheet. The selection by management of different but acceptable measurement methods, input data, or assumptions, may have resulted in materially different amounts for the specified information
+being reported.
+Information outside of the specified information included in Section 1 of the 2025 Environmental Data Fact Sheet was not subject to our review and, accordingly, we do not express a conclusion or any form of assurance on such
+information. Further, any information relating to: i) periods prior to the year-ended June 30, 2024 or ii) information relating to forward looking statements, targets, goals, and progress against goals, was not subject to our review
+and, accordingly, we do not express a conclusion or any form of assurance on such information.
+Based on our review, we are not aware of any material modifications that should be made to management of Microsoft Corporation’s assertion that the specified information included in Section 1 of the 2025 Environmental Data
+Fact Sheet as of and for the fiscal year ended June 30, 2024 is presented in accordance with the criteria set forth in Section 1.10, Reporting criteria in the Fact Sheet, in order for it to be fairly stated.
+May 29, 2025"
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,22,"2025 Environmental Data Fact Sheet                                                                                                                                                               22
+Table 13 – Other emissions (mt)
+FY20        FY21       FY22       FY23       FY24Section 2:
+NOx emissions                            202         284         259         273        250
+SOx emissions                                    12            18            16          20         20Additional environmental metrics
+VOC emissions                                170         248          221         232         210
+PM emissions                               8               11            10            10          9
+CO emissions                                 1,584        2,392         2,074         2,148         1,910
+Ozone depleting substances                  0           0           0           0          0
+Table 14 – Electricity consumption by region (MWh)
+FY20        FY21       FY22       FY23       FY24
+Total electricity consumed              10,770,714    13,621,517    18,153,454   23,567,502  29,829,540
+Asia                                     1,376,247     1,686,032    2,629,500     3,580,261   4,365,404
+Europe, Middle East, Africa             2,236,689    2,999,880     4,226,715    5,730,263    8,272,154
+Latin America                                114,199       179,197      330,254      481,758     592,903
+North America                         7,043,579    8,756,408    10,966,985    13,775,220   16,599,079
+Table 15 – Renewable electricity consumption by region (MWh)1,2
+FY20        FY21       FY22       FY23       FY24
+Total renewable                      10,244,377   12,969,393    18,153,454   23,567,502  29,829,540
+electricity purchased
+Asia                                    1,225,534     1,473,254    2,629,500     3,580,261   4,365,404
+Europe, Middle East, Africa              2,102,486     2,801,332     4,226,715    5,730,263    8,272,154
+Latin America                              113,456       174,762      330,254      481,758     592,903
+North America                         6,802,901    8,520,045    10,966,985    13,775,220   16,599,079
+Table 16 – Non-renewable energy consumption by region (MWh)
+FY20        FY21       FY22       FY23       FY24
+Total non-renewable energy             1,039,125     1,164,594      491,417     440,366     377,680
+purchased and consumed
+CO = carbon monoxide; FY = fiscal year; mt = metric tons; MWh = megawatt-hours; NO = nitrogen oxide; PM = particulate
+matter; SO = sulfur oxide; VOC = volatile organic compound.                                                            Asia                                     175,589      239,490        29,351       39,756      44,938
+1.  Reported values represent Microsoft’s total renewable electricity consumption expressed in MWh from on-site generation,      Europe, Middle East, Africa              422,093      522,878        311,751      205,932      119,896
+energy attribute certificates (EACs), power purchase agreements (PPAs), and green power tariff programs. Values reflect          Latin America                                14,651        19,586        13,823        12,457       8,750
+Microsoft’s renewable electricity data at the time of reporting.
+North America                         426,792     382,640      136,492       182,221     204,0962.  For a breakdown on renewable electricity by technology type, see our latest CDP response."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,23,"2025 Environmental Data Fact Sheet                                                                                                                                                              23
+Table 17 – Water withdrawal, consumption, and discharge detail (ML)1                            Table 18 – Operational waste on-site prevention activities (mt)1
+FY20       FY21       FY22       FY23       FY24                                                                                       FY24
+Total water withdrawal                          7,936       8,068      10,706       12,951       10,377    Non-hazardous                                                                            5,382
+By region     Asia                                 1,681        2,051       2,858        3,616       3,370                       Reused                                                              4,949
+Europe, Middle East, Africa          1,514        1,294       2,264        2,971         1,197                      Reduced                                                         433
+Latin America                        110         183        325       484          21     Total waste prevented                                                                       5,382
+North America                    4,631       4,540       5,259       5,880       5,789
+FY = fiscal year; mt = metric tons.
+Total water consumption                          4,196       4,773       6,399       7,844       5,807
+By region     Asia                               1,042        1,285        1,872       2,463        1,953
+Europe, Middle East, Africa         752        697        1,227        1,700         710
+Latin America                      74         128         231         351          8
+North America                   2,328       2,663       3,069       3,330        3,136
+By source     Third-party                        4,169       4,764       6,394        7,841       5,775
+Surface water                    25          4          4          2           19
+Ground water                     2          5              1              1           13
+Total water discharges                           3,740       3,295       4,307        5,107       4,570
+By region     Asia                           639        766        985          1,153         1,417
+Europe, Middle East, Africa         762        598        1,037         1,271        486
+Latin America                    36         55         94         133           14
+North America                   2,303        1,876         2,191       2,550       2,653
+FY = fiscal year; ML = megaliters.
+1.  Starting in FY24, we report data associated with the impact of waste prevention activities, including on-site reuse and
+reduction. Reuse activities occur when a material or product is used on-site or between Microsoft sites more than once.
+For example, when accounting for the reuse of durable food ware, which is when a durable good is used in place of a non-
+durable good within a single site boundary. The impact of this reuse activity is calculated by measuring the weight of the
+durable good multiplied by the number of reuses in a fiscal year period. Reduction activities occur when a process eliminates
+or reduces a material from the waste stream within a single site boundary. The impact of a reduction activity is calculated
+by taking the difference in waste generated from the old waste generating activity and the new waste reduction activity
+adjusted for natural fluctuation in the business. The methodologies used to calculate these metrics align with the TRUE and
+UL Zero Waste (UL 2799 Environmental Claim Validation Procedure [ECVP]) certification frameworks, which are third-party
+1.  Starting in FY24, reported values incorporate an updated estimation approach for water withdrawals and consumption for         standards used by Microsoft for certification of zero waste sites. Reported data reflects the impact of waste prevention
+datacenter locations where data actuals are not available, as outlined in Section 1.9. Prior years were not adjusted to reflect          activities only for reported site actuals from on-site reused and reduced waste. Reused or reduced waste data is excluded
+this change considering data availability limitations.                                                                   from extrapolation across other sites for operational waste stream accounting."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,24,"2025 Environmental Data Fact Sheet                                                                                                                                                               24
+Table 19 – Verification/assurance                                                                             To explore our Environmental, Social, and Governance (ESG) reports in detail, please visit our Reports Hub.
+FY20                                                          FY21-FY24                                 This fact sheet is for informational purposes only and includes estimates, projections, and other “forward-looking statements”
+within the meaning of the Private Securities Litigation Reform Act of 1995, Section 27A of the Securities Act of 1933, and Section 21E
+Data for FY20 was third-party verified by APEX using a limited level         Microsoft obtains limited               of the Securities Exchange Act of 1934. These forward-looking statements generally are identified by the words “believe,” “project,”
+of assurance. The following criteria were used to measure the carbon,       third-party assurance for                “expect,” “anticipate,” “estimate,” “intend,” “strategy,” “future,” “opportunity,” “plan,” “may,” “should,” “will,” “would,” “will be,” “will
+energy, and water information:                                        the most recent year (FY24)             continue,” “will likely result,” “target,” “efforts,” “goal,” “commitment,” “committed to,” and similar expressions. Forward-looking
+prior to the issuance of the            statements are based on current expectations and assumptions that are subject to risks and uncertainties that may cause actual
+For carbon and energy                                             Environmental Data Fact Sheet.         results to differ materially. We describe risks and uncertainties that could cause actual results and events to differ materially in our
+The limited assurance reviews          reports filed with the Securities and Exchange Commission, though there may be other unknown or unexpected risks that may also World Resources Institute (WRI)/World Business Council for                                                        impact these results. We undertake no obligation to update or revise publicly any forward-looking statements, whether because                                                              performed by Deloitte & Touche Sustainable Development (WBCSD) Greenhouse Gas Protocol: A                                                           of new information, future events, or otherwise.                                                                  LLP in FY21, FY22, and FY23 do
+Corporate Accounting and Reporting Standard (Revised Edition),          not contemplate the revisions
+including the Scope 2 Guidance amendment (Scopes 1 and 2); WRI/        to the prior year metrics, and
+WBCSD Greenhouse Gas Protocol: Corporate Value Chain (Scope 3)        therefore Deloitte & Touche LLP
+Accounting and Reporting Standard (Scope 3)                           provides no assurance related to
+the revisions consistent with our
+For water                                                                   policies disclosed in Section 1.8
+CDP Water Security Reporting Guidance
+The scope of the verification included GHG emissions for Scope 1,
+Scope 2, relevant Scope 3 categories, total energy consumption,
+total electricity consumption, total renewable electricity consumption,
+total carbon credits purchased, total water withdrawals, total water
+consumption, and total water discharges. The adjustments made to
+historic data highlighted in this report were outside of the scope of
+the FY20 review.
+Any revisions made to FY20 reported values in this report were outside
+of the limited assurance review done by APEX."
+doc_1_2025-microsoft-environmental-data-fact-sheet-pdf,2025 Microsoft Environmental Data Fact Sheet,data\raw\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf,25,"Stay up to
+date on our
+progress
+Learn more about our sustainability journey
+and sign up for news and updates here.
+2025 Microsoft Environmental Sustainability Report"

@@ -1,0 +1,8 @@
+Loading normalized claims...
+Loading evidence candidates...
+Reranking evidence...
+Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 20766.88it/s]
+Usable evidence rows: 38
+Ranked evidence rows: 38
+Saved to: C:\Users\teore\Documents\csr-system\data\processed\agent_7\ranked_evidence.csv

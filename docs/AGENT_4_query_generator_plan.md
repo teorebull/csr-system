@@ -2,51 +2,43 @@
 
 ## Goal
 
-Take each normalized claim and generate a small set of focused web search queries.
+Take each prioritized normalized claim and generate focused web search queries for external evidence and greenwashing-risk analysis.
 
 ## Current decision
 
-For the MVP, the agent will generate exactly 3 queries per claim:
+For the MVP, the agent reads `prioritized_claims.csv`, not the full `normalized_claims.csv`. This keeps the main analysis focused on high-priority claims that are more substantive and externally assessable.
 
-1. `core`
-2. `verification`
-3. `critical`
+It generates exactly 5 query types per claim:
 
-This will be done automatically, claim by claim.
+1. `verification`
+2. `contradiction`
+3. `criticism`
+4. `methodology`
+5. `context`
+
+For known hard cases such as Scope 2 accounting, it can add deterministic supplemental queries.
 
 ## Why this design
 
-The purpose of this agent is not to be highly creative.
+The purpose is to create direct and useful searches while avoiding time spent on low-priority reporting or internal metric-table claims.
 
-Its purpose is to create direct and useful queries that can later be sent to the web search agent.
-
-This is important because a raw claim is often not enough to retrieve:
+The query generator should retrieve:
 - independent verification
 - external reporting
 - criticism or contradiction
-
-So the query generator creates three evidence-seeking angles for the same claim.
-
-## Query types
-
-### `core`
-- direct search version of the claim
-- captures the main content of the claim in concise web-search form
-
-### `verification`
-- aimed at retrieving independent or third-party evidence
-- should favor terms like review, verification, audit, external, independent, report when relevant
-
-### `critical`
-- aimed at retrieving criticism, controversy, contradiction, complaint, investigation, lawsuit, or greenwashing signals
+- methodology and accounting caveats
+- broader context relevant to greenwashing risk
 
 ## Input
 
+- `prioritized_claims.csv`
+
+Important columns:
 - `normalized_claim_id`
 - `claim_text`
 - `claim_type`
 - `topic`
-- optionally `document_name`
+- `evaluation_priority`
 
 ## Output
 
@@ -59,58 +51,29 @@ Minimum columns:
 
 ## Model choice
 
-The current recommendation is to use a local model through `Ollama`.
+- `mistral-nemo:latest` via Ollama
 
-### Recommended model
-- `mistral-nemo:latest`
-
-### Why
-- lower latency
-- easier to run repeatedly across many claims
-- good enough for controlled query generation
-- query generation is simpler than claim extraction or evidence analysis
-
-### Alternative
-- `qwen2.5:14b` if you later want to compare quality
+This is lower latency and good enough for controlled query generation.
 
 ## Pipeline for this agent
 
-1. read `normalized_claims.csv`
-2. take one normalized claim
+1. read `prioritized_claims.csv`
+2. take one prioritized claim
 3. send that claim to the LLM
-4. receive exactly 3 structured queries
-5. store them in a list of rows
-6. repeat for all claims
-7. save everything to `queries.csv`
-
-## Why claim by claim
-
-This is better than sending all claims in one prompt because:
-- easier to debug
-- easier to keep query-to-claim alignment
-- easier to store clean outputs
-- less risk of skipped or merged claims
-
-## Prompting strategy
-
-The prompt should ask the model to:
-- include the company name in every query
-- keep each query short and natural for web search
-- avoid being too broad
-- generate exactly one query per query type
-- return structured output
+4. receive exactly 5 structured queries
+5. add deterministic supplemental queries for known hard cases when useful
+6. store all rows in `queries.csv`
 
 ## What to validate after running it
 
-1. does each claim get exactly 3 queries?
-2. are the `core` queries direct and concise?
-3. do the `verification` queries actually invite third-party evidence?
-4. do the `critical` queries create a real chance to retrieve criticism or contradiction?
-5. are the queries short enough to work well in web search?
+1. does each prioritized claim get useful queries?
+2. are excluded low-priority claims absent from `queries.csv`?
+3. do the `verification` queries invite third-party evidence?
+4. do the `criticism` and `contradiction` queries create a real chance to retrieve risk evidence?
+5. are methodology/context queries specific enough to avoid generic noise?
 
 ## What can improve later
 
-- topic-aware critical query vocabulary
-- richer verification terms depending on claim type
+- topic-aware query templates
 - optional rationale field
 - model comparison between `mistral-nemo` and `qwen2.5`

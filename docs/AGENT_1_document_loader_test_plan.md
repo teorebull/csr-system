@@ -5,6 +5,11 @@ Objectiu: decidir quina eina farem servir per al primer agent del pipeline per c
 Document pilot:
 - Microsoft Environmental Sustainability Report
 
+Current input behavior:
+- reads PDF files from `data/raw`
+- limits the number of documents with `MAX_DOCUMENTS`
+- optionally limits pages per document with `MAX_PAGES_PER_DOCUMENT`
+
 Eines a comparar:
 1. `PyMuPDF`
 2. `reportparse`
@@ -146,12 +151,14 @@ Interpretacio:
 
 ### Que fa ara
 - obre el PDF pilot amb `PyMuPDF`
+- pot processar diversos PDFs de `data/raw` amb limits senzills
 - extreu text per pagina
 - fa una neteja basica de linies buides i espais
 - detecta i elimina linies repetides probables de header o footer
 - guarda una versio processada del text
-- guarda un `pages.csv` amb text per pagina
+- guarda CSVs per document i un `pages.csv` consolidat amb `document_id`, `document_name`, `document_path`, `page_number` i `text`
 - guarda metadata basica del PDF
+- guarda `documents_metadata.csv` amb una fila per document
 
 ### Per que el donem per validat
 - el text del document pilot de Microsoft surt de forma prou llegible

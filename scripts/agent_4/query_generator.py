@@ -7,15 +7,22 @@ from langchain_ollama import ChatOllama
 from pydantic import BaseModel
 
 
-INPUT_CSV = "../../data/processed/agent_3/normalized_claims.csv"
-OUTPUT_CSV = "../../data/processed/agent_4/queries.csv"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+INPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_3" / "prioritized_claims.csv"
+OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_4" / "queries.csv"
 LOCAL_MODEL = "mistral-nemo:latest"
 DOCUMENT_NAME = "Microsoft Environmental Sustainability Report"
 
 
 class QueryItem(BaseModel):
     normalized_claim_id: str
-    query_type: Literal["core", "verification", "critical"]
+    query_type: Literal[
+        "verification",
+        "contradiction",
+        "criticism",
+        "methodology",
+        "context",
+    ]
     query_text: str
 
 
@@ -23,8 +30,8 @@ class QueryList(BaseModel):
     queries: list[QueryItem]
 
 
-def load_claims(csv_path: str) -> list[dict]:
-    """Load normalized claims from Agent 3."""
+def load_claims(csv_path: Path) -> list[dict]:
+    """Load prioritized normalized claims from Agent 3."""
     claims = []
 
     with open(csv_path, "r", encoding="utf-8") as file:
@@ -39,26 +46,34 @@ def load_claims(csv_path: str) -> list[dict]:
 def build_prompt(claim: dict) -> str:
     """Build a simple prompt for one normalized claim."""
     return f"""
-You are generating web search queries for external evidence retrieval.
+You are generating web search queries for greenwashing-risk analysis.
 
 Your task:
-Given one corporate CSR claim, generate exactly 3 search queries.
+Given one corporate CSR claim, generate exactly 5 search queries.
 
-The 3 query types must be:
-1. core
-2. verification
-3. critical
+The 5 query types must be:
+1. verification
+2. contradiction
+3. criticism
+4. methodology
+5. context
 
 Definitions:
 
-- core:
-  a direct search query that captures the main content of the claim in a concise way
-
 - verification:
-  a query designed to retrieve independent or third-party evidence that could confirm, validate, or discuss the claim
+  finds factual evidence, datasets, reports, assurance statements, or independent discussion that can check the claim
 
-- critical:
-  a query designed to retrieve criticism, controversy, contradiction, lawsuits, investigations, complaints, or possible greenwashing signals related to the claim
+- contradiction:
+  finds evidence that could directly or indirectly challenge the claim, including rising emissions, missed targets, conflicting data, or weak performance
+
+- criticism:
+  finds credible external criticism, investigations, NGO analysis, media analysis, controversy, complaints, or greenwashing concerns
+
+- methodology:
+  finds information about accounting choices, boundaries, offsets, renewable energy certificates, market-based vs location-based emissions, scope exclusions, assurance, or measurement caveats
+
+- context:
+  finds broader context that helps a reasoning model judge whether the claim is complete or potentially misleading, such as trends over time, AI/datacenter growth, supply chain impacts, water use, waste, or absolute vs relative changes
 
 Rules:
 - include the company name in every query
@@ -66,10 +81,23 @@ Rules:
 - do not make the queries too broad
 - do not simply copy the full claim if it is too long
 - focus on the key searchable concepts
-- the verification query should favor third-party or independent evidence
-- the critical query should explicitly search for possible challenge or criticism
+- prefer useful, contrastable sources over exact-number-only fact checking
+- for quantitative claims, keep the metric, scope, year range, and unit if useful
+- for qualitative claims, search for external assessment, controversy, implementation evidence, and limitations
+- do not assert a trend such as "rising" or "falling" unless it is clearly present in the claim
+- if the claim is about market-based Scope 2 emissions, include accounting caveats such as location-based emissions, RECs, or renewable energy certificates
+- if the claim is about total emissions or Scope 3 emissions, include supply chain, cloud, AI, or data center growth when useful
+- for criticism queries, prefer concrete terms such as investigation, analysis, report, criticism, controversy, greenwashing, NGO, or media analysis
+- do not use social media as a target source
+- do not target company-owned pages only, but company reports may be useful when searching for methodology or assurance
 - generate exactly one query for each type
 - return the result in structured format
+
+Good query style examples:
+- Microsoft Scope 2 market-based emissions renewable energy certificates criticism
+- Microsoft carbon negative claim data center AI emissions criticism
+- Microsoft Scope 3 emissions supply chain growth sustainability analysis
+- Microsoft emissions methodology market-based location-based assurance
 
 Claim information:
 - normalized_claim_id: {claim['normalized_claim_id']}
@@ -81,11 +109,60 @@ Claim information:
 
 
 def generate_queries_for_claim(llm, claim: dict) -> list[QueryItem]:
-    """Generate 3 queries for one claim."""
+    """Generate 5 queries for one claim."""
     structured_llm = llm.with_structured_output(QueryList)
     prompt = build_prompt(claim)
     response = structured_llm.invoke([HumanMessage(content=prompt)])
     return response.queries
+
+
+def build_supplemental_queries(claim: dict) -> list[dict]:
+    """Add deterministic searches for known hard cases."""
+    claim_id = claim["normalized_claim_id"]
+    claim_text = claim["claim_text"].lower()
+
+    if "scope 2" not in claim_text:
+        return []
+
+    supplemental_queries = [
+        (
+            "verification",
+            "Microsoft Scope 2 location-based market-based emissions FY20 FY24 data",
+        ),
+        (
+            "verification",
+            "Microsoft greenhouse gas emissions Scope 2 data Tracenable",
+        ),
+        (
+            "verification",
+            "Microsoft CDP Scope 2 location-based market-based emissions",
+        ),
+        (
+            "methodology",
+            "Microsoft Scope 2 market-based location-based emissions renewable energy certificates RECs",
+        ),
+        (
+            "methodology",
+            "Microsoft Scope 2 emissions GHG Protocol market-based location-based accounting",
+        ),
+        (
+            "criticism",
+            "Microsoft renewable energy certificates Scope 2 emissions greenwashing criticism",
+        ),
+        (
+            "context",
+            "Microsoft data centers electricity demand Scope 2 emissions location-based",
+        ),
+    ]
+
+    return [
+        {
+            "normalized_claim_id": claim_id,
+            "query_type": query_type,
+            "query_text": query_text,
+        }
+        for query_type, query_text in supplemental_queries
+    ]
 
 
 def generate_queries_for_all_claims(claims: list[dict]) -> list[dict]:
@@ -117,10 +194,12 @@ def generate_queries_for_all_claims(claims: list[dict]) -> list[dict]:
                 }
             )
 
+        all_queries.extend(build_supplemental_queries(claim))
+
     return all_queries
 
 
-def save_queries_csv(queries: list[dict], output_path: str) -> None:
+def save_queries_csv(queries: list[dict], output_path: Path) -> None:
     """Save generated queries to CSV."""
     output_file = Path(output_path)
     output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -141,7 +220,7 @@ def save_queries_csv(queries: list[dict], output_path: str) -> None:
 
 
 def main() -> None:
-    if not Path(INPUT_CSV).exists():
+    if not INPUT_CSV.exists():
         print(f"Input CSV not found: {INPUT_CSV}")
         return
 

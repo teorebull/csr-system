@@ -27,6 +27,8 @@ Minimum columns:
 - `title`
 - `url`
 - `source`
+- `source_quality_score`
+- `source_quality_label`
 - `snippet`
 - `content_type`
 - `extracted_text`
@@ -35,16 +37,34 @@ Minimum columns:
 
 ## Current extraction rule
 
+- search results are filtered and selected before extraction according to `PIPELINE_MODE`
+- low-quality sources are skipped using `source_quality_score`
+- URLs are deduplicated globally before extraction
+- total URLs and URLs per claim are capped to keep runs practical
 - if the URL ends with `.pdf`, treat it as a PDF
 - otherwise, treat it as an article or web page
+
+Current modes:
+- `fast`: max 50 total URLs, max 3 URLs per claim, keep score `>= 0.0`
+- `normal`: max 100 total URLs, max 5 URLs per claim, keep score `>= 0.0`
+- `strict`: max 50 total URLs, max 3 URLs per claim, keep score `>= 0.5`
+- `thorough`: max 150 total URLs, max 6 URLs per claim, keep score `>= 0.0`
 
 ## Pipeline for this agent
 
 1. read `search_results.csv`
-2. inspect each URL
-3. if it is a PDF, use `PyMuPDF`
-4. otherwise, use `trafilatura`
-5. save one row per URL with extracted text and extraction status
+2. skip clearly low-quality sources using Agent 5's quality score
+3. deduplicate URLs globally
+4. select the best URLs using source quality, query type, and search rank
+5. cap total URLs and URLs per claim according to the pipeline mode
+6. inspect each remaining URL
+7. if it is a PDF, use `PyMuPDF`
+8. otherwise, use `trafilatura`
+9. save one row per URL with extracted text and extraction status
+
+The agent now preserves the source-quality fields created by Agent 5 so Agent 7 can use them during reranking.
+
+The default quality filter is intentionally conservative: `unknown` sources with score `0.0` still pass in `fast`, `normal`, and `thorough`, while sources explicitly marked as low quality with negative scores are skipped. `strict` mode keeps only sources with score `>= 0.5`.
 
 ## Why this is enough for now
 

@@ -5,11 +5,63 @@ from urllib.parse import urlparse
 from ddgs import DDGS
 
 
-INPUT_CSV = "../../data/processed/agent_4/queries.csv"
-OUTPUT_CSV = "../../data/processed/agent_5/search_results.csv"
-MAX_RESULTS = 5
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+INPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_4" / "queries.csv"
+OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_5" / "search_results.csv"
+MAX_RESULTS = 8
 COMPANY_NAME = "Microsoft" # Later we will use this as teh company variabel used by user
-EXTRA_EXCLUDED_DOMAINS = []
+EXTRA_EXCLUDED_DOMAINS = [
+    "youtube.com",
+    "youtu.be",
+    "linkedin.com",
+    "facebook.com",
+    "x.com",
+    "twitter.com",
+    "instagram.com",
+    "tiktok.com",
+    "reddit.com",
+    "news.ycombinator.com",
+]
+
+HIGH_QUALITY_DOMAINS = {
+    "npr.org",
+    "wired.com",
+    "theverge.com",
+    "trellis.net",
+    "theregister.com",
+    "businessgreen.com",
+    "reuters.com",
+    "apnews.com",
+    "carbonbrief.org",
+    "iea.org",
+    "sec.gov",
+    "cdp.net",
+    "ghgprotocol.org",
+    "theconversation.com",
+    "stand.earth",
+    "computerweekly.com",
+    "datacenterdynamics.com",
+    "grist.org",
+    "greenbiz.com",
+    "esgdive.com",
+    "policyreview.info",
+    "enabledemissions.com",
+    "theguardian.com",
+    "cleantechnica.com",
+    "renewableenergyworld.com",
+}
+
+LOW_QUALITY_DOMAIN_HINTS = {
+    "windowsforum.com",
+    "websitehostingreview.org",
+    "bot.to",
+    "tipranks.com",
+    "allaboutai.com",
+    "hashlytics.io",
+    "poniaktimes.com",
+    "richardhartley.com",
+    "the-14.com",
+}
 
 
 def normalize_company_name(company_name: str) -> list[str]:
@@ -63,6 +115,29 @@ def get_domain(url: str) -> str:
         return ""
 
 
+def score_source_quality(url: str) -> tuple[float, str]:
+    """Give a simple source-quality signal for later reranking."""
+    domain = get_domain(url).removeprefix("www.")
+
+    if not domain:
+        return 0.0, "unknown"
+
+    if domain in HIGH_QUALITY_DOMAINS:
+        return 1.0, "high"
+
+    for weak_hint in LOW_QUALITY_DOMAIN_HINTS:
+        if weak_hint in domain:
+            return -0.5, "low"
+
+    if domain.endswith(".gov") or domain.endswith(".edu"):
+        return 1.0, "high"
+
+    if domain.endswith(".org"):
+        return 0.5, "medium"
+
+    return 0.0, "unknown"
+
+
 def is_company_owned_domain(url: str, company_keywords: list[str]) -> bool:
     """Check whether the URL looks company-owned.
 
@@ -93,6 +168,9 @@ def mentions_company(result: dict, company_keywords: list[str]) -> bool:
     url = result.get("href", "").lower()
     combined_text = f"{title} {snippet} {url}"
 
+    if "microsoft word" in title and "microsoft" not in snippet and "microsoft" not in url:
+        return False
+
     for keyword in company_keywords:
         if keyword in combined_text:
             return True
@@ -119,7 +197,7 @@ def filter_external_results(results: list[dict], company_name: str) -> list[dict
     return filtered_results
 
 
-def load_queries(csv_path: str) -> list[dict]:
+def load_queries(csv_path: Path) -> list[dict]:
     """Load generated queries from Agent 4."""
     queries = []
 
@@ -150,6 +228,8 @@ def search_query(query: dict, ddgs_client: DDGS) -> list[dict]:
     formatted_results = []
 
     for index, result in enumerate(results, start=1):
+        source_quality_score, source_quality_label = score_source_quality(result.get("href", ""))
+
         formatted_results.append(
             {
                 "normalized_claim_id": query["normalized_claim_id"],
@@ -160,6 +240,8 @@ def search_query(query: dict, ddgs_client: DDGS) -> list[dict]:
                 "url": result.get("href", ""),
                 "snippet": result.get("body", ""),
                 "source": result.get("source", ""),
+                "source_quality_score": source_quality_score,
+                "source_quality_label": source_quality_label,
             }
         )
 
@@ -184,7 +266,7 @@ def search_all_queries(queries: list[dict]) -> list[dict]:
     return all_results
 
 
-def save_results_csv(results: list[dict], output_path: str) -> None:
+def save_results_csv(results: list[dict], output_path: Path) -> None:
     """Save search results to CSV."""
     output_file = Path(output_path)
     output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -201,6 +283,8 @@ def save_results_csv(results: list[dict], output_path: str) -> None:
                 "url",
                 "snippet",
                 "source",
+                "source_quality_score",
+                "source_quality_label",
             ],
         )
         writer.writeheader()
@@ -210,7 +294,7 @@ def save_results_csv(results: list[dict], output_path: str) -> None:
 
 
 def main() -> None:
-    if not Path(INPUT_CSV).exists():
+    if not INPUT_CSV.exists():
         print(f"Input CSV not found: {INPUT_CSV}")
         return
 

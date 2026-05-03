@@ -8,13 +8,18 @@ Take the page-level CSV from Agent 1 and create a new CSV with extracted claims.
 
 - `pages.csv` from Agent 1
 
+Preferred input: `data/processed/agent_1/pymupdf/pages.csv`, the consolidated multi-document page file. The script still falls back to the original single-document pages CSV if needed.
+
 ## Output
 
 - `claims.csv`
+- `claim_extraction_cache.json`
 
 Minimum columns:
 - `claim_id`
+- `document_id`
 - `document_name`
+- `document_path`
 - `page_number`
 - `claim_text`
 - `claim_type`
@@ -28,15 +33,17 @@ Minimum columns:
 ## Flow
 
 1. read the page CSV
-2. send each useful page to the LLM
-3. ask for structured JSON
-4. collect the claims returned for that page
-5. append those claims to an in-memory table / list of rows
-6. after all page calls are finished, save everything in a CSV
+2. check whether each useful page already has a valid cache entry
+3. send only uncached useful pages to the LLM
+4. ask for structured JSON
+5. collect the claims returned for that page
+6. update the page-level cache
+7. append claims to an in-memory table / list of rows
+8. after all page calls are finished, save everything in a CSV
 
 In other words, the pipeline for this agent is:
 
-`pages.csv -> one LLM call per page -> claim rows -> one final claims.csv`
+`pages.csv -> cache lookup -> LLM call only for cache misses -> claim rows -> one final claims.csv`
 
 ## Why this is reasonable
 
@@ -91,6 +98,20 @@ There is always some risk of hallucinations or borderline claims when using an L
 
 The current logic also filters low-quality claims after extraction.
 
+## Cache
+
+Agent 2 writes a page-level cache at `data/processed/agent_2/claim_extraction_cache.json`.
+
+The cache key is based on:
+- `document_id`
+- `document_name`
+- `page_number`
+- hash of the page text
+- model name
+- prompt/schema version
+
+This avoids repeated local LLM calls when the source page and extraction prompt have not changed. If Ollama is unavailable and some pages are not cached, the agent stops without overwriting the existing `claims.csv`.
+
 ## Script created
 
 - `scripts/agent_2/extract_claims_with_llm.py`
@@ -111,7 +132,9 @@ The current logic also filters low-quality claims after extraction.
 The current CSV should contain:
 
 - `claim_id`
+- `document_id`
 - `document_name`
+- `document_path`
 - `page_number`
 - `claim_text`
 - `claim_type`
@@ -126,9 +149,11 @@ The current CSV should contain:
 
 ### What it does now
 - reads the `pages.csv` created by Document Loader
+- preserves `document_id`, `document_name`, and `document_path`
 - makes one LLM call per page
+- reuses cached page-level extraction when available
 - extracts structured claims from each page
-- keeps provenance through `document_name`, `page_number`, and `source_excerpt`
+- keeps provenance through `document_id`, `document_name`, `document_path`, `page_number`, and `source_excerpt`
 - classifies claims with fields such as `claim_type`, `topic`, `is_future`, `is_verifiable`, and `claim_quality_score`
 - writes the results to `claims.csv`
 
@@ -143,6 +168,7 @@ The current CSV should contain:
 - cleaner topic labeling
 - better handling of table-heavy pages
 - more stable filtering for borderline claims
+- cache metadata in final run reports
 - optional JSON or database storage if the project grows
 
 ## Storage recommendation

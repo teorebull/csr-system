@@ -1,4 +1,5 @@
 import csv
+import os
 from io import BytesIO
 from pathlib import Path
 from urllib.parse import urlparse
@@ -8,12 +9,46 @@ import requests
 import trafilatura
 
 
-INPUT_CSV = "../../data/processed/agent_5/search_results.csv"
-OUTPUT_CSV = "../../data/processed/agent_6/evidence_candidates.csv"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+INPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_5" / "search_results.csv"
+OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_6" / "evidence_candidates.csv"
 REQUEST_TIMEOUT = 20
+PIPELINE_MODE = os.environ.get("PIPELINE_MODE", "normal").strip().lower()
+
+MODE_SETTINGS = {
+    "fast": {
+        "min_source_quality_score": 0.0,
+        "max_total_urls": 50,
+        "max_urls_per_claim": 3,
+    },
+    "normal": {
+        "min_source_quality_score": 0.0,
+        "max_total_urls": 100,
+        "max_urls_per_claim": 5,
+    },
+    "strict": {
+        "min_source_quality_score": 0.5,
+        "max_total_urls": 50,
+        "max_urls_per_claim": 3,
+    },
+    "thorough": {
+        "min_source_quality_score": 0.0,
+        "max_total_urls": 150,
+        "max_urls_per_claim": 6,
+    },
+}
+
+MODE_CONFIG = MODE_SETTINGS.get(PIPELINE_MODE, MODE_SETTINGS["normal"])
+QUERY_TYPE_PRIORITY = {
+    "verification": 1.0,
+    "methodology": 0.95,
+    "criticism": 0.9,
+    "contradiction": 0.9,
+    "context": 0.75,
+}
 
 
-def load_search_results(csv_path: str) -> list[dict]:
+def load_search_results(csv_path: Path) -> list[dict]:
     """Load search results from Agent 5."""
     results = []
 
@@ -24,6 +59,121 @@ def load_search_results(csv_path: str) -> list[dict]:
             results.append(row)
 
     return results
+
+
+def parse_source_quality_score(value: str) -> float:
+    """Parse Agent 5 source-quality score safely."""
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def filter_low_quality_sources(results: list[dict]) -> list[dict]:
+    """Skip clearly low-quality sources before expensive extraction."""
+    filtered_results = []
+    skipped_count = 0
+    min_source_quality_score = MODE_CONFIG["min_source_quality_score"]
+
+    for result in results:
+        quality_score = parse_source_quality_score(result.get("source_quality_score", "0"))
+
+        if quality_score < min_source_quality_score:
+            skipped_count += 1
+            continue
+
+        filtered_results.append(result)
+
+    print(f"Search results loaded: {len(results)}")
+    print(f"Pipeline mode: {PIPELINE_MODE}")
+    print(f"Low-quality results skipped: {skipped_count}")
+    print(f"Results kept before URL selection: {len(filtered_results)}")
+
+    return filtered_results
+
+
+def normalize_url(url: str) -> str:
+    """Normalize URL enough to dedupe repeated search results."""
+    parsed = urlparse(str(url).strip())
+    scheme = parsed.scheme.lower() or "https"
+    netloc = parsed.netloc.lower().removeprefix("www.")
+    path = parsed.path.rstrip("/")
+    return f"{scheme}://{netloc}{path}"
+
+
+def parse_result_rank(value: str) -> int:
+    """Parse search rank safely."""
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return 999
+
+
+def selection_score(result: dict) -> tuple[float, float, int]:
+    """Score search results before expensive extraction."""
+    source_quality_score = parse_source_quality_score(result.get("source_quality_score", "0"))
+    query_priority = QUERY_TYPE_PRIORITY.get(result.get("query_type", ""), 0.5)
+    rank = parse_result_rank(result.get("result_rank", ""))
+    return source_quality_score, query_priority, -rank
+
+
+def select_best_results(results: list[dict]) -> list[dict]:
+    """Dedupe and cap URLs globally and per claim."""
+    sorted_results = sorted(results, key=selection_score, reverse=True)
+    selected_results = []
+    seen_urls = set()
+    per_claim_counts = {}
+    max_total_urls = MODE_CONFIG["max_total_urls"]
+    max_urls_per_claim = MODE_CONFIG["max_urls_per_claim"]
+
+    # First pass: keep at least one strong candidate per claim when possible.
+    for result in sorted_results:
+        claim_id = result.get("normalized_claim_id", "")
+        url_key = normalize_url(result.get("url", ""))
+
+        if not claim_id or not url_key:
+            continue
+
+        if claim_id in per_claim_counts:
+            continue
+
+        if url_key in seen_urls:
+            continue
+
+        selected_results.append(result)
+        seen_urls.add(url_key)
+        per_claim_counts[claim_id] = 1
+
+        if len(selected_results) >= max_total_urls:
+            break
+
+    # Second pass: fill remaining capacity by quality, respecting per-claim caps.
+    for result in sorted_results:
+        claim_id = result.get("normalized_claim_id", "")
+        url_key = normalize_url(result.get("url", ""))
+
+        if not url_key:
+            continue
+
+        if url_key in seen_urls:
+            continue
+
+        if per_claim_counts.get(claim_id, 0) >= max_urls_per_claim:
+            continue
+
+        selected_results.append(result)
+        seen_urls.add(url_key)
+        per_claim_counts[claim_id] = per_claim_counts.get(claim_id, 0) + 1
+
+        if len(selected_results) >= max_total_urls:
+            break
+
+    print(f"Duplicate/capped results removed: {len(results) - len(selected_results)}")
+    print(f"Results selected for extraction: {len(selected_results)}")
+    print(f"Max total URLs: {max_total_urls}")
+    print(f"Max URLs per claim: {max_urls_per_claim}")
+
+    return selected_results
 
 
 def is_pdf_url(url: str) -> bool:
@@ -96,6 +246,8 @@ def extract_evidence(result: dict) -> dict:
         "title": result["title"],
         "url": url,
         "source": result["source"],
+        "source_quality_score": result.get("source_quality_score", "0"),
+        "source_quality_label": result.get("source_quality_label", "unknown"),
         "snippet": result["snippet"],
         "content_type": content_type,
         "extracted_text": extracted_text,
@@ -119,7 +271,7 @@ def extract_all_evidence(results: list[dict]) -> list[dict]:
     return all_evidence
 
 
-def save_evidence_csv(rows: list[dict], output_path: str) -> None:
+def save_evidence_csv(rows: list[dict], output_path: Path) -> None:
     """Save extracted evidence to CSV."""
     output_file = Path(output_path)
     output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -135,6 +287,8 @@ def save_evidence_csv(rows: list[dict], output_path: str) -> None:
                 "title",
                 "url",
                 "source",
+                "source_quality_score",
+                "source_quality_label",
                 "snippet",
                 "content_type",
                 "extracted_text",
@@ -149,12 +303,14 @@ def save_evidence_csv(rows: list[dict], output_path: str) -> None:
 
 
 def main() -> None:
-    if not Path(INPUT_CSV).exists():
+    if not INPUT_CSV.exists():
         print(f"Input CSV not found: {INPUT_CSV}")
         return
 
     print("Loading search results...")
     results = load_search_results(INPUT_CSV)
+    results = filter_low_quality_sources(results)
+    results = select_best_results(results)
 
     print("Extracting article and PDF text...")
     evidence_rows = extract_all_evidence(results)
