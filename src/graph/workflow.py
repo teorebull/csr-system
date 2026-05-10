@@ -11,6 +11,7 @@ from src.graph.nodes import (
     run_judge,
     run_query_generator,
     run_reranker,
+    run_vector_retrieval,
     run_web_search,
 )
 from src.schemas.state import PipelineState
@@ -35,6 +36,16 @@ def run_pipeline(state: PipelineState) -> PipelineState:
     for node in WORKFLOW_NODES:
         current_state = node(current_state)
     return current_state
+
+
+def run_workflow(state: PipelineState) -> PipelineState:
+    """Run the graph if available, otherwise fall back to the sequential runner."""
+    try:
+        workflow = build_workflow()
+    except RuntimeError:
+        return run_pipeline(state)
+
+    return workflow.invoke(state)
 
 
 def build_workflow() -> Any:

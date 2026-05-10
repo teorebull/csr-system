@@ -4,10 +4,61 @@ set -euo pipefail
 SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPTS_DIR/.." && pwd)"
 LOG_DIR="$PROJECT_ROOT/logs"
-START_AGENT="${1:-2}"
-PIPELINE_MODE="${2:-normal}"
+START_AGENT=2
+PIPELINE_MODE="normal"
+NO_CACHE="0"
+COMPANY_NAME="Microsoft"
+
+POSITIONAL_ARGS=()
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --company)
+      COMPANY_NAME="${2:-}"
+      shift 2
+      ;;
+    --mode)
+      PIPELINE_MODE="${2:-normal}"
+      shift 2
+      ;;
+    --start-agent)
+      START_AGENT="${2:-2}"
+      shift 2
+      ;;
+    --no-cache)
+      NO_CACHE="1"
+      shift
+      ;;
+    --help)
+      cat <<'EOF'
+Usage: ./scripts/run_pipeline.sh [--company NAME] [--mode MODE] [--start-agent N] [--no-cache]
+EOF
+      exit 0
+      ;;
+    --*)
+      echo "Unknown flag: $1"
+      exit 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+if [ "${#POSITIONAL_ARGS[@]}" -gt 0 ]; then
+  START_AGENT="${POSITIONAL_ARGS[0]}"
+fi
+if [ "${#POSITIONAL_ARGS[@]}" -gt 1 ]; then
+  PIPELINE_MODE="${POSITIONAL_ARGS[1]}"
+fi
+if [ "${#POSITIONAL_ARGS[@]}" -gt 2 ]; then
+  NO_CACHE="${POSITIONAL_ARGS[2]}"
+fi
 
 export PIPELINE_MODE
+export PIPELINE_DISABLE_CACHE="$NO_CACHE"
+export COMPANY_NAME
 
 mkdir -p "$LOG_DIR"
 
@@ -48,6 +99,8 @@ echo "Project root: $PROJECT_ROOT"
 echo "Logs: $LOG_DIR"
 echo "Starting from Agent $START_AGENT"
 echo "Pipeline mode: $PIPELINE_MODE"
+echo "Disable cache: $NO_CACHE"
+echo "Company: $COMPANY_NAME"
 echo ""
 
 run_step 2 "claim_extractor" "scripts/agent_2/extract_claims_with_llm.py"

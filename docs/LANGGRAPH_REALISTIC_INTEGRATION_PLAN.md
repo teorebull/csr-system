@@ -229,3 +229,58 @@ The answer is:
 ### Later
 - connect those functions through LangGraph
 - keep CSV and JSON outputs as optional artifacts for debugging and thesis traceability
+
+## Migration checklist
+
+### Phase 0. Lock the contracts
+- define one shared in-memory state shape for the pipeline
+- keep these fields stable: `document_id`, `document_name`, `page_number`, `claim_id`, `normalized_claim_id`, `source_locations`, `top_evidence_url`
+- keep CSV column names aligned with the future state fields
+- decide which outputs remain persisted for traceability
+
+### Phase 1. Bridge Agent 1
+- extract reusable functions from `scripts/agent_1/test_pymupdf_loader.py`
+- return pages and document metadata in memory
+- keep the current CSV export as an optional debug step
+- validate that page ordering and provenance stay identical
+
+### Phase 2. Bridge Agent 2
+- extract claim extraction into a reusable function
+- accept page objects or page rows directly
+- preserve future-claim flags and source excerpts
+- keep the page-level cache behavior unchanged
+
+### Phase 3. Bridge Agent 3
+- extract normalization and prioritization into reusable functions
+- preserve duplicate merging, future split, analytical scoring, and priority cap logic
+- keep `prioritized_claims.csv`, `excluded_claims.csv`, and `future_claims.csv` as optional exports
+- validate that the capped 14-claim main analysis stays stable
+
+### Phase 4. Bridge Agents 4 to 6
+- make query generation pure and state-driven
+- make search and evidence fetching consume in-memory queries/results
+- keep domain filtering, caps, and extraction rules unchanged
+
+### Phase 5. Bridge Agents 7 to 9
+- keep reranking, evidence analysis, and aggregation as pure functions over state
+- preserve cache keys and output labels
+- keep final CSV/JSON/MD exports for auditability
+
+### Phase 6. Wire LangGraph
+- replace placeholder `src/agents/*` nodes with adapters that call the extracted functions
+- run the graph sequentially first
+- keep a fallback sequential runner for environments without LangGraph
+- only add branching or retries after the straight-line graph matches the script pipeline
+
+## Recommended order to implement
+1. Agent 1 and Agent 2 contracts
+2. Agent 3 contract
+3. Agent 4 to Agent 6 contracts
+4. Agent 7 to Agent 9 contracts
+5. LangGraph node wiring
+
+## Migration success criteria
+- the LangGraph version produces the same or better outputs as the script pipeline
+- provenance stays intact end to end
+- CSV/JSON artifacts remain available for inspection
+- each node can be run and tested independently

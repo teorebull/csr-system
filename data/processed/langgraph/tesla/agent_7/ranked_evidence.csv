@@ -1,0 +1,279 @@
+normalized_claim_id,claim_text,query_type,query_text,result_rank,title,url,source,source_quality_score,source_quality_label,snippet,content_type,semantic_similarity_score,specificity_score,specificity_notes,final_rerank_score,relevance_score,extraction_notes,extracted_text,evidence_rank
+normalized_claim_52,"In 2021, the global fleet of Tesla vehicles, energy storage and solar panels enabled our customers to avoid emitting 8.4 million metric tons of CO2e.",criticism,Microsoft-Tesla partnership environmental impact concerns,1,How Microsoft can help Tesla define the future of sustainable ...,https://cache.krop.com/chrisdwilson-6014b6f3276bbf2.pdf,,0.0,unknown,"We’ve identified three key areas—Customer Experience, Trust, and Hybrid Cloud Operations—whereMicrosoftcan helpTeslabecome more agile and reduce risk while driving innovation to deliver best-in-class customer experiences.",pdf,0.4461,0.49,matched_company; missing_year,0.5849,0.5849,pdf extracted,"[Page 1]
+ACCELERATING
+INNOVATION
+AT TESLA
+How Microsoft can help
+Tesla define the future of
+sustainable energy
+
+[Page 2]
+If something is important
+enough, even if the odds
+are against you, you
+should still do it.
+
+
+
+
+                           Elon Musk
+                           CEO, Tesla
+
+[Page 3]
+MAKING THE IMPOSSIBLE          TESLA STRATEGIC
+POSSIBLE                         PRIORITIES
+
+
+
+
+In the pursuit of becoming the driving innovator behind the world’s transition to
+sustainable energy, Tesla has shown it’s a visionary company like no other.
+
+Azero-emissionscarthatacceleratesliterally,ludicrouslyfast.
+Reinventmasstransportationfromthegroundup—anddown.
+Aroofthatpowersthehousebeneathit.                                   Grow profits and                 Increase security
+Amachinedesignedtobuildothermachines.                                           cost efficiencies               and reduce risk
+
+With ambition and vision like this, Tesla is light-years beyond “moon shot” projects.
+Tesla conceives the inconceivable and then makes it a reality through inspired thinking,
+collaboration, and sheer force of will.
+
+Even as Tesla achieves milestone after milestone, recent events show the company
+must focus more on resolving the challenges of daily operations. And, with the
+constant threat of hacks and IP leaks, Tesla needs more robust security measures to                   Improve                     Expand
+protect its innovative technology.                                                   gross margins                       services
+
+How can Microsoft help? First let’s state why Microsoft is the ideal partner for Tesla.
+We may not have a long history of working with Tesla, but we do share your values
+for responsibility, sustainability, and driving innovation. We believe companies—and
+the people who power them—should embrace future-centric technologies to drive
+innovation and make the world a better place.
+
+We also understand your challenges because here at Microsoft we’ve faced—and
+overcome and learned from—many of the challenges facing Tesla today. Together, we                  Improve
+can deploy a best-in-class environment that keeps Tesla at the forefront of the green              customer experience
+energy revolution.
+
+[Page 4]
+DRIVING CUSTOMER
+SATISFACTION, SECURITY,
+AND AGILITY AT TESLA
+
+
+
+
+We’ve identified three key areas—Customer Experience, Trust, and Hybrid Cloud
+Operations—where Microsoft can help Tesla become more agile and reduce risk
+while driving innovation to deliver best-in-class customer experiences.
+
+
+
+
+
+      My top concern from a
+          security standpoint is that
+          Tesla is making sure that
+         a fleet-wide hack or any
+          vehicle-specific hack
+          can’t occur.
+
+
+
+                                         Elon Musk
+                                        CEO, Tesla
+
+[Page 5]
+CUSTOMER EXPERIENCE
+
+Outpace accelerating
+customer demands
+
+Tesla’s current technology solutions need an upgrade to deliver consistently
+high-quality customer experiences. CRM system outages and siloed data have
+caused problems in the past. Attempts to scale solutions not fit-for-purpose
+have exacerbated service center issues and complaints. Marketing software
+failures have resulted in additional suboptimal customer experiences and
+negative press coverage.
+
+Our analysis
+
+Tesla has long benefited from a “first mover” advantage in electric vehicles, but
+increasing competition has made CX a critical component of customer retention
+and growth. Just like Microsoft, the foundation of Tesla’s success is built on
+building and maintaining trust between the company and its customers.
+
+Consolidating data and IT systems on a hybrid Cloud platform will give you
+a 360-degree view of the customer, which in turn improves your ability to
+deliver customized experiences. A best-in-class CRM strategy and completely
+integrated relationship management platform will help Tesla deliver on your
+promise to your customers and increase customer retention.
+
+You’ve heard about blockchain, a powerful tool that’s transforming the
+way companies conduct business. When used in combination with sensor
+technologies such as IoT and RFID, blockchain promises network participants
+unprecedented visibility into even the most complex supply chains.
+
+ This can help Tesla can proactively work to ensure a predictable, uninterrupted
+flow of parts and services. In turn, Tesla can deliver more consistently high
+customer experiences.
+
+[Page 6]
+TRUST
+
+Protect Tesla’s IP and brand
+through increased security
+
+Strengthening data and systems security is a top priority for Tesla’s senior
+management, after a series of attention-grabbing hacks on Tesla vehicles,
+batteries, and an unprotected app management portal. Phishing and IP leaks
+have also highlighted the importance of proactive monitoring and a cohesive,
+company-wide security strategy.
+
+
+Our analysis
+
+As an energy technology business seeking to disrupt the market, Tesla has
+a strong commitment to on-premises systems that are managed in-house.
+Knowing when to partner with external security experts is difficult when you’ve
+relied on a culture of absolute trust and secrecy.                              140+ daysA hybrid Cloud solution can complement Tesla’s proprietary approach. Our
+leading-edge solutions have been proven real-world effective by Microsoft and                                             Industry median that an attacker is on a victim’s
+the many government entities and Fortune 500 businesses we call partners.                                           network before they are detected. Microsoft’s
+                                                                                                        Cloud and security software tools reduce this
+                                                                                                   median time down to a few days or minutes
+                                                                                                           (depending on the type of attack).
+                                       $1.8 million
+                                                                                                         Average cost of a spear-phishing attack for
+                                                                                                                                     U.S. businesses in 2016.
+
+[Page 7]
+CLOUD
+
+Innovate faster and more
+securely in the Cloud
+
+We understand that the majority of Tesla’s IT environment, including
+your data centers, is internally built and controlled. Selective use of Cloud
+solutions to complement on-premises systems for certain functions such as
+app development, CRM, and Marketing has delivered mixed results. Poor
+experiences with security and reliability make Tesla naturally cautious about
+where to integrate hybrid Cloud solutions.
+
+Our analysis
+
+Tesla data centers are critical to the company’s research and operations. With
+Microsoft, Tesla can continue to use these data centers, while Microsoft can
+help Tesla expand beyond them, extend to places Tesla currently doesn’t
+operate. In short, we can help Tesla become a truly global enterprise.
+
+Within Tesla, certain functions such as Finance, Sales, Service, and Marketing
+will benefit from the scalability of a hybrid Cloud solution. Microsoft can
+support Tesla with a balanced, bi-modal IT strategy, where risks are effectively
+managed to deliver greater agility and scalability to drive innovation.
+
+Our own experiences of transitioning business functions to the Cloud will
+demonstrate to Tesla how secure, multifaceted platforms are critical to
+improving margins and retaining your market leadership position.
+
+[Page 8]
+EMPOWERING
+NEXT-GENERATION ENERGY
+WITH HYBRID CLOUD
+
+
+
+
+
+Microsoft can help Tesla develop and deliver an assessment, migration, and flexible cost
+management plan that empowers you to transition to hybrid Cloud operations at your
+own pace. Microsoft hybrid Cloud solutions are easily integrated and controlled, so you
+can scale the benefits of consolidation, automation, and responsive business intelligence
+on the Cloud platform that’s trusted by 90 percent of Fortune 500 companies.
+
+Seamlessly unify Finance with the frontline
+Inside Tesla, Finance is successfully using Microsoft Cloud solutions to improve efficiency.
+With Microsoft hybrid Cloud solutions deployed throughout the enterprise, you can break
+down informational siloes between CRM, ERP, and all key parts of the business. Every
+employee stays connected, communicating, and collaborating—around the office, across
+the country, and around the world.
+
+Co-create a holistic security strategy with Microsoft
+Invest in your platform, instrumentation and people for a best-practice security framework
+that will become embedded in Tesla culture. At Microsoft, we’ve overcome many of the
+same security challenges. Our solutions and recommendations are based—and proven
+effective against—real-world threats.
+
+Move Tesla forward with greater visibility and control
+Working together, we can create world-leading hybrid infrastructure that gives you
+complete control over Cloud and on-premises systems that impact every Tesla
+interaction, everywhere.
+
+[Page 9]
+THE MICROSOFT CLOUD
+
+
+         $15 billion+ (USD)
+          invested
+                 on Cloud infrastructure
+
+
+        100+ datacenters with more
+         than 1 million physical servers
+                        in a globally distributed Cloud infrastructure
+
+
+         35,000+
+          security-focused
+          professionals
+
+
+         $1 billion+ (USD)
+          invested
+                   each year on security
+
+[Page 10]
+DEFINING THE FUTURE
+OF CLEAN ENERGY
+
+
+
+
+Tesla’s goals and ambitions—and record of achieving them—set the
+company apart from the crowd. But just like space exploration, no one
+gets there alone.
+
+Moving forward, Tesla will rely on a small circle of trusted partners who
+share your vison for making a difference to life on Earth. As Elon Musk
+recently tweeted: “We’ve shown that we can make great sustainable
+energy products, and we now need to show that we can be
+sustainably profitable.”
+
+At Microsoft, it’s also our mission to empower every person on the
+planet to achieve more. Working in partnership, we can remodel your
+infrastructure to create an environment for Tesla that fuels inspiration
+and drives increased profitability and security.
+
+Tesla has the ambition, drive, and vision to make every one of its ideas a
+reality, delivering the products that will make life—on earth, and off—
+better for everyone. We’re excited to partner with Tesla and deliver the
+hybrid Cloud services, insights, and guidance to make it happen.
+
+[Page 11]
+Get in touch to find out how Microsoft can help Tesla
+            accelerate the world’s transition to a sustainable future.
+
+          Leigh Kinnish
+            Senior Account Executive
+           lkinnish@microsoft.com
+           425.706.7590
+
+         Chuck Wong
+          Account Technology Strategist
+          chuck.wong@microsoft.com
+            415.839.7613
+
+
+
+
+
+Microsoft
+555 California Street, San Francisco, CA 94104",1

@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+from typing import Any
+
 from pydantic import BaseModel, Field
 
-from .claim import Claim, ClaimCandidate
+from .claim import ClaimCandidate
 from .evidence import EvidenceDocument, EvidenceSnippet
 from .query import SearchQuery, SearchResult
-from .report import ClaimAssessment, FinalReport
+from .report import FinalReport
 
 
 class DocumentRecord(BaseModel):
@@ -27,13 +29,21 @@ class PipelineState(BaseModel):
     user_query: str = Field(..., description="Natural language request provided by the user.")
     company_name: str = Field(..., description="Target company for the analysis.")
     document_paths: list[str] = Field(default_factory=list)
+    max_pages_per_document: int = Field(default=0, ge=0)
+    max_page_chars: int = Field(default=0, ge=0)
     documents: list[DocumentRecord] = Field(default_factory=list)
-    claims_candidates: list[ClaimCandidate] = Field(default_factory=list)
-    normalized_claims: list[Claim] = Field(default_factory=list)
-    search_queries: list[SearchQuery] = Field(default_factory=list)
-    search_results: list[SearchResult] = Field(default_factory=list)
+    pages: list[dict[str, Any]] = Field(default_factory=list)
+    claims: list[dict[str, Any]] = Field(default_factory=list)
+    future_claims: list[dict[str, Any]] = Field(default_factory=list)
+    claims_candidates: list[dict[str, Any]] = Field(default_factory=list)
+    normalized_claims: list[dict[str, Any]] = Field(default_factory=list)
+    queries: list[dict[str, Any]] = Field(default_factory=list)
+    search_queries: list[dict[str, Any]] = Field(default_factory=list)
+    search_results: list[dict[str, Any]] = Field(default_factory=list)
+    vector_chunks: list[dict[str, Any]] = Field(default_factory=list)
     evidence_documents: list[EvidenceDocument] = Field(default_factory=list)
     evidence_snippets: list[EvidenceSnippet] = Field(default_factory=list)
-    claim_assessments: list[ClaimAssessment] = Field(default_factory=list)
-    final_report: FinalReport | None = Field(default=None)
+    ranked_evidence: list[dict[str, Any]] = Field(default_factory=list)
+    claim_assessments: list[dict[str, Any]] = Field(default_factory=list)
+    final_report: dict[str, Any] | None = Field(default=None)
     logs: list[RunLogEntry] = Field(default_factory=list)

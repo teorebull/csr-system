@@ -1,0 +1,111 @@
+normalized_claim_id,claim_text,query_type,query_text
+normalized_claim_60,"We must also improve every metric, including the energy and water used to make our products, how safe our customers and employees are and the affordability and accessibility of our products.",verification,Microsoft product energy water usage improvement verification
+normalized_claim_60,"We must also improve every metric, including the energy and water used to make our products, how safe our customers and employees are and the affordability and accessibility of our products.",contradiction,Microsoft environmental claims criticized
+normalized_claim_60,"We must also improve every metric, including the energy and water used to make our products, how safe our customers and employees are and the affordability and accessibility of our products.",criticism,Microsoft product safety accessibility criticism
+normalized_claim_60,"We must also improve every metric, including the energy and water used to make our products, how safe our customers and employees are and the affordability and accessibility of our products.",methodology,Microsoft environmental improvement methodology assessment
+normalized_claim_60,"We must also improve every metric, including the energy and water used to make our products, how safe our customers and employees are and the affordability and accessibility of our products.",context,Microsoft environmental performance compared competitors
+normalized_claim_4,"We reaffirm our commitment to Diversity, Equity and Inclusion (DEI).",verification,Microsoft DEI initiatives verification
+normalized_claim_4,"We reaffirm our commitment to Diversity, Equity and Inclusion (DEI).",contradiction,Microsoft DEI controversies or criticisms
+normalized_claim_4,"We reaffirm our commitment to Diversity, Equity and Inclusion (DEI).",criticism,Microsoft DEI initiatives criticism
+normalized_claim_4,"We reaffirm our commitment to Diversity, Equity and Inclusion (DEI).",methodology,Microsoft DEI initiative methodology assessment
+normalized_claim_4,"We reaffirm our commitment to Diversity, Equity and Inclusion (DEI).",context,Microsoft DEI initiatives compared to industry peers
+normalized_claim_4,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_4,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_4,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_4,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_4,,context,Microsoft responsible AI report ethics governance
+normalized_claim_35,Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain.,verification,Tesla Human Rights Policy implementation Microsoft
+normalized_claim_35,Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain.,contradiction,Tesla supply chain human rights controversies Microsoft
+normalized_claim_35,Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain.,criticism,Critiques of Tesla's Human Rights Policy implementation Microsoft
+normalized_claim_35,Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain.,methodology,Tesla Human Rights Policy methodology assessment Microsoft
+normalized_claim_35,Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain.,context,Tesla supply chain human rights context compared to industry peers Microsoft
+normalized_claim_44,This statement sets out our evaluation of risks of modern slavery in our business and the actions taken during the financial year to address these risks and prevent modern slavery and human trafficking in our operations and supply chains.,verification,Microsoft modern slavery risk evaluation verification
+normalized_claim_44,This statement sets out our evaluation of risks of modern slavery in our business and the actions taken during the financial year to address these risks and prevent modern slavery and human trafficking in our operations and supply chains.,contradiction,Microsoft modern slavery risks contradicted
+normalized_claim_44,This statement sets out our evaluation of risks of modern slavery in our business and the actions taken during the financial year to address these risks and prevent modern slavery and human trafficking in our operations and supply chains.,criticism,Criticism of Microsoft's modern slavery prevention efforts
+normalized_claim_44,This statement sets out our evaluation of risks of modern slavery in our business and the actions taken during the financial year to address these risks and prevent modern slavery and human trafficking in our operations and supply chains.,methodology,Microsoft modern slavery risk assessment methodology
+normalized_claim_44,This statement sets out our evaluation of risks of modern slavery in our business and the actions taken during the financial year to address these risks and prevent modern slavery and human trafficking in our operations and supply chains.,context,Microsoft modern slavery risks in supply chains context
+normalized_claim_44,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_44,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_44,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_44,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_44,,context,Microsoft responsible AI report ethics governance
+normalized_claim_58,Tesla solar panels have generated more electricity than has been consumed by our vehicles and factories between 2012 and 2021.,verification,Tesla solar panel electricity generation Microsoft verification
+normalized_claim_58,Tesla solar panels have generated more electricity than has been consumed by our vehicles and factories between 2012 and 2021.,contradiction,Tesla solar panels vs vehicle consumption contradiction
+normalized_claim_58,Tesla solar panels have generated more electricity than has been consumed by our vehicles and factories between 2012 and 2021.,criticism,Criticism of Tesla's environmental claims Microsoft
+normalized_claim_58,Tesla solar panels have generated more electricity than has been consumed by our vehicles and factories between 2012 and 2021.,methodology,Methodology behind Tesla solar panel electricity calculation
+normalized_claim_58,Tesla solar panels have generated more electricity than has been consumed by our vehicles and factories between 2012 and 2021.,context,Context of Tesla's environmental claims in Microsoft report
+normalized_claim_67,We both develop the technology behind this ecosystem and focus on the affordability of the products that comprise it.,verification,Microsoft affordability products ecosystem fact check
+normalized_claim_67,We both develop the technology behind this ecosystem and focus on the affordability of the products that comprise it.,contradiction,Microsoft affordable products criticism
+normalized_claim_67,We both develop the technology behind this ecosystem and focus on the affordability of the products that comprise it.,criticism,Microsoft affordability products ecosystem controversy
+normalized_claim_67,We both develop the technology behind this ecosystem and focus on the affordability of the products that comprise it.,methodology,Microsoft affordability products ecosystem methodology assessment
+normalized_claim_67,We both develop the technology behind this ecosystem and focus on the affordability of the products that comprise it.,context,Microsoft affordability products ecosystem comparison competitors
+normalized_claim_67,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_67,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_67,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_67,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_67,,context,Microsoft responsible AI report ethics governance
+normalized_claim_40,"Tesla implements appropriate disciplinary action, including potential termination of contract, for those suppliers who do not comply with our Human Rights and Conflict Minerals Policy.",verification,Tesla supplier non-compliance disciplinary action verification
+normalized_claim_40,"Tesla implements appropriate disciplinary action, including potential termination of contract, for those suppliers who do not comply with our Human Rights and Conflict Minerals Policy.",contradiction,Tesla suppliers human rights violations despite policy
+normalized_claim_40,"Tesla implements appropriate disciplinary action, including potential termination of contract, for those suppliers who do not comply with our Human Rights and Conflict Minerals Policy.",criticism,Criticism of Tesla's supply chain human rights management
+normalized_claim_40,"Tesla implements appropriate disciplinary action, including potential termination of contract, for those suppliers who do not comply with our Human Rights and Conflict Minerals Policy.",methodology,Tesla supplier non-compliance disciplinary action methodology
+normalized_claim_40,"Tesla implements appropriate disciplinary action, including potential termination of contract, for those suppliers who do not comply with our Human Rights and Conflict Minerals Policy.",context,Tesla supply chain human rights context industry standards
+normalized_claim_10,"Focus on sustainable solutions that solve problems at the root cause and reimagine new programs with diversity, equity and inclusion principles embedded in the design.",verification,Microsoft sustainability programs diversity equity inclusion implementation
+normalized_claim_10,"Focus on sustainable solutions that solve problems at the root cause and reimagine new programs with diversity, equity and inclusion principles embedded in the design.",contradiction,Microsoft criticized sustainable solutions claims
+normalized_claim_10,"Focus on sustainable solutions that solve problems at the root cause and reimagine new programs with diversity, equity and inclusion principles embedded in the design.",criticism,Microsoft root cause problem solving criticism
+normalized_claim_10,"Focus on sustainable solutions that solve problems at the root cause and reimagine new programs with diversity, equity and inclusion principles embedded in the design.",methodology,Microsoft sustainability program methodology diversity equity inclusion
+normalized_claim_10,"Focus on sustainable solutions that solve problems at the root cause and reimagine new programs with diversity, equity and inclusion principles embedded in the design.",context,Microsoft sustainability programs context industry comparison
+normalized_claim_10,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_10,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_10,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_10,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_10,,context,Microsoft responsible AI report ethics governance
+normalized_claim_65,And the world cannot address its energy habits without first directly reducing emissions in the transportation and energy sectors.,verification,Microsoft transportation emissions reduction initiatives
+normalized_claim_65,And the world cannot address its energy habits without first directly reducing emissions in the transportation and energy sectors.,contradiction,Microsoft criticized for not doing enough to reduce transportation emissions
+normalized_claim_65,And the world cannot address its energy habits without first directly reducing emissions in the transportation and energy sectors.,criticism,Critics of Microsoft's approach to reducing transportation emissions
+normalized_claim_65,And the world cannot address its energy habits without first directly reducing emissions in the transportation and energy sectors.,methodology,Microsoft methodology for calculating and reducing transportation emissions
+normalized_claim_65,And the world cannot address its energy habits without first directly reducing emissions in the transportation and energy sectors.,context,Microsoft's role in addressing global energy habits compared to other tech companies
+normalized_claim_32,All of our recruitment procedures comply with the relevant local regulations and standards; we adopt a fair and equitable approach when scouting for talent; and all wages are compliant with local laws and regulations.,verification,Microsoft recruitment compliance with local regulations
+normalized_claim_32,All of our recruitment procedures comply with the relevant local regulations and standards; we adopt a fair and equitable approach when scouting for talent; and all wages are compliant with local laws and regulations.,contradiction,Microsoft criticized for fair wages implementation
+normalized_claim_32,All of our recruitment procedures comply with the relevant local regulations and standards; we adopt a fair and equitable approach when scouting for talent; and all wages are compliant with local laws and regulations.,criticism,Microsoft's labor practices controversy
+normalized_claim_32,All of our recruitment procedures comply with the relevant local regulations and standards; we adopt a fair and equitable approach when scouting for talent; and all wages are compliant with local laws and regulations.,methodology,Microsoft recruitment compliance methodology
+normalized_claim_32,All of our recruitment procedures comply with the relevant local regulations and standards; we adopt a fair and equitable approach when scouting for talent; and all wages are compliant with local laws and regulations.,context,Microsoft labor practices compared to industry standards
+normalized_claim_32,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_32,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_32,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_32,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_32,,context,Microsoft responsible AI report ethics governance
+normalized_claim_38,"Tesla recognizes, however, that due to the unavoidable realities of our global supply chain, we may in some instances be indirectly exposed to modern slavery risks.",verification,Tesla modern slavery risk exposure verification
+normalized_claim_38,"Tesla recognizes, however, that due to the unavoidable realities of our global supply chain, we may in some instances be indirectly exposed to modern slavery risks.",contradiction,Tesla modern slavery risk exposure controversies
+normalized_claim_38,"Tesla recognizes, however, that due to the unavoidable realities of our global supply chain, we may in some instances be indirectly exposed to modern slavery risks.",criticism,Criticism of Tesla's supply chain slavery risks
+normalized_claim_38,"Tesla recognizes, however, that due to the unavoidable realities of our global supply chain, we may in some instances be indirectly exposed to modern slavery risks.",methodology,Tesla modern slavery risk assessment methodology
+normalized_claim_38,"Tesla recognizes, however, that due to the unavoidable realities of our global supply chain, we may in some instances be indirectly exposed to modern slavery risks.",context,Tesla supply chain slavery risks compared to industry peers
+normalized_claim_21,Women represent 17% of Directors and Vice Presidents in the U.S.,verification,Microsoft women directors vice presidents percentage US
+normalized_claim_21,Women represent 17% of Directors and Vice Presidents in the U.S.,contradiction,Microsoft gender diversity criticism
+normalized_claim_21,Women represent 17% of Directors and Vice Presidents in the U.S.,criticism,Microsoft women in leadership lack of progress
+normalized_claim_21,Women represent 17% of Directors and Vice Presidents in the U.S.,methodology,Microsoft gender diversity reporting methodology
+normalized_claim_21,Women represent 17% of Directors and Vice Presidents in the U.S.,context,Microsoft women in leadership industry comparison
+normalized_claim_21,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_21,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_21,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_21,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_21,,context,Microsoft responsible AI report ethics governance
+normalized_claim_62,"Our products and services are focused on transportation, energy production and storage.",verification,Microsoft products services transportation energy production storage verification
+normalized_claim_62,"Our products and services are focused on transportation, energy production and storage.",contradiction,Microsoft greenwashing transportation energy contradiction
+normalized_claim_62,"Our products and services are focused on transportation, energy production and storage.",criticism,Microsoft environmental sustainability criticism
+normalized_claim_62,"Our products and services are focused on transportation, energy production and storage.",methodology,Microsoft transportation energy methodology assessment
+normalized_claim_62,"Our products and services are focused on transportation, energy production and storage.",context,Microsoft environmental impact context comparison competitors
+normalized_claim_20,"Women represent 23% of all promotions, which is a 5% increase from the previous year.",verification,Microsoft women promotions percentage increase 2019-2020
+normalized_claim_20,"Women represent 23% of all promotions, which is a 5% increase from the previous year.",contradiction,Microsoft gender diversity criticism
+normalized_claim_20,"Women represent 23% of all promotions, which is a 5% increase from the previous year.",criticism,Microsoft women promotions progress critique
+normalized_claim_20,"Women represent 23% of all promotions, which is a 5% increase from the previous year.",methodology,Microsoft gender promotion tracking methodology
+normalized_claim_20,"Women represent 23% of all promotions, which is a 5% increase from the previous year.",context,Microsoft women promotions comparison tech industry
+normalized_claim_20,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_20,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_20,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_20,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_20,,context,Microsoft responsible AI report ethics governance
+normalized_claim_36,Tesla is committed to ensuring that our suppliers do not use modern slavery or child labour or engage in human trafficking.,verification,Tesla supplier audits for labor practices
+normalized_claim_36,Tesla is committed to ensuring that our suppliers do not use modern slavery or child labour or engage in human trafficking.,contradiction,Tesla suppliers criticized labor conditions
+normalized_claim_36,Tesla is committed to ensuring that our suppliers do not use modern slavery or child labour or engage in human trafficking.,criticism,Critics of Tesla's supply chain labor practices
+normalized_claim_36,Tesla is committed to ensuring that our suppliers do not use modern slavery or child labour or engage in human trafficking.,methodology,Tesla supplier audit methodology and frequency
+normalized_claim_36,Tesla is committed to ensuring that our suppliers do not use modern slavery or child labour or engage in human trafficking.,context,Labor conditions in Tesla's supply chain compared to industry peers

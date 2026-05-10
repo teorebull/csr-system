@@ -19,6 +19,7 @@ class ClaimTopic(str, Enum):
     CLIMATE = "climate"
     SUPPLY_CHAIN = "supply_chain"
     LABOR = "labor"
+    HUMAN_RIGHTS = "human_rights"
     ETHICS = "ethics"
     GOVERNANCE = "governance"
     BIODIVERSITY = "biodiversity"

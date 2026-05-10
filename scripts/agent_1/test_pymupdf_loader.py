@@ -2,12 +2,19 @@ import csv
 import os
 from pathlib import Path
 
-import pymupdf
+from src.utils.company import raw_dir_for_company, company_to_slug
+
+from src.pipeline.document_loader import (
+    extract_pdf_pages,
+    join_pages,
+    preprocess_pages,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-RAW_DIR = PROJECT_ROOT / "data" / "raw"
-OUTPUT_DIR = PROJECT_ROOT / "data" / "processed" / "agent_1" / "pymupdf"
+COMPANY_NAME = os.environ.get("COMPANY_NAME", "Microsoft")
+RAW_DIR = raw_dir_for_company(COMPANY_NAME)
+OUTPUT_DIR = PROJECT_ROOT / "data" / "processed" / company_to_slug(COMPANY_NAME) / "agent_1" / "pymupdf"
 COMBINED_PAGES_CSV = OUTPUT_DIR / "pages.csv"
 COMBINED_METADATA_CSV = OUTPUT_DIR / "documents_metadata.csv"
 MAX_DOCUMENTS = int(os.environ.get("MAX_DOCUMENTS", "5"))
@@ -46,125 +53,6 @@ def infer_document_name(pdf_path: Path, metadata: dict) -> str:
         return title
 
     return pdf_path.stem.replace("-", " ").replace("_", " ").strip()
-
-
-def clean_page_text(text: str) -> str:
-    """Remove empty lines and extra spaces."""
-    lines = text.splitlines()
-    cleaned_lines = []
-
-    for line in lines:
-        line = line.strip()
-        if line:
-            cleaned_lines.append(line)
-
-    return "\n".join(cleaned_lines)
-
-
-def extract_pdf_pages(pdf_path: str) -> tuple[list[dict], dict]:
-    """Read the PDF and return pages plus basic metadata."""
-    pages = []
-
-    with pymupdf.open(pdf_path) as document:
-        metadata = document.metadata
-
-        for page in document:
-            text = page.get_text("text", sort=True)
-            text = clean_page_text(text)
-
-            pages.append(
-                {
-                    "page_number": page.number + 1,
-                    "text": text,
-                }
-            )
-
-        pdf_metadata = {
-            "title": metadata.get("title", ""),
-            "author": metadata.get("author", ""),
-            "subject": metadata.get("subject", ""),
-            "creation_date": metadata.get("creationDate", ""),
-            "page_count": document.page_count,
-        }
-
-    return pages, pdf_metadata
-
-
-def find_repeated_lines(pages: list[dict]) -> set[str]:
-    """Find short lines repeated across pages.
-
-    These are often headers or footers.
-    """
-    line_counts = {}
-
-    for page in pages:
-        lines = page["text"].splitlines()
-
-        if not lines:
-            continue
-
-        possible_repeated_lines = [lines[0], lines[-1]]
-
-        for line in possible_repeated_lines:
-            if len(line) > 120:
-                continue
-
-            if line not in line_counts:
-                line_counts[line] = 0
-
-            line_counts[line] += 1
-
-    repeated_lines = set()
-
-    for line, count in line_counts.items():
-        if count >= 3:
-            repeated_lines.add(line)
-
-    return repeated_lines
-
-
-def preprocess_pages(pages: list[dict]) -> tuple[list[dict], set[str], int]:
-    """Apply simple preprocessing to the extracted pages."""
-    repeated_lines = find_repeated_lines(pages)
-    processed_pages = []
-    low_text_pages = 0
-
-    for page in pages:
-        lines = page["text"].splitlines()
-        cleaned_lines = []
-
-        for line in lines:
-            if line in repeated_lines:
-                continue
-
-            cleaned_lines.append(line)
-
-        processed_text = "\n".join(cleaned_lines).strip()
-
-        if len(processed_text) < 40:
-            low_text_pages += 1
-
-        processed_pages.append(
-            {
-                "page_number": page["page_number"],
-                "text": processed_text,
-            }
-        )
-
-    return processed_pages, repeated_lines, low_text_pages
-
-
-def join_pages(pages: list[dict]) -> str:
-    """Join processed pages into a single text."""
-    all_pages_text = []
-
-    for page in pages:
-        if len(page["text"]) < 40:
-            continue
-
-        all_pages_text.append(f"[Page {page['page_number']}]\n{page['text']}")
-
-    return "\n\n".join(all_pages_text)
 
 
 def save_text_output(pdf_path: Path, full_text: str) -> Path:

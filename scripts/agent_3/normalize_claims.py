@@ -4,15 +4,20 @@ import re
 from difflib import SequenceMatcher
 from pathlib import Path
 
+from src.utils.company import company_to_slug
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-INPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_2" / "claims.csv"
-NORMALIZED_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_3" / "normalized_claims.csv"
-PRIORITIZED_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_3" / "prioritized_claims.csv"
-EXCLUDED_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_3" / "excluded_claims.csv"
-FUTURE_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / "agent_3" / "future_claims.csv"
+COMPANY_NAME = os.environ.get("COMPANY_NAME", "Microsoft")
+COMPANY_SLUG = company_to_slug(COMPANY_NAME)
+INPUT_CSV = PROJECT_ROOT / "data" / "processed" / COMPANY_SLUG / "agent_2" / "claims.csv"
+NORMALIZED_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / COMPANY_SLUG / "agent_3" / "normalized_claims.csv"
+PRIORITIZED_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / COMPANY_SLUG / "agent_3" / "prioritized_claims.csv"
+EXCLUDED_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / COMPANY_SLUG / "agent_3" / "excluded_claims.csv"
+FUTURE_OUTPUT_CSV = PROJECT_ROOT / "data" / "processed" / COMPANY_SLUG / "agent_3" / "future_claims.csv"
 SIMILARITY_THRESHOLD = 0.88
-MAX_PRIORITIZED_CLAIMS_TOTAL = int(os.environ.get("MAX_PRIORITIZED_CLAIMS_TOTAL", "14"))
+MAX_PRIORITIZED_CLAIMS_TOTAL = int(os.environ.get("MAX_PRIORITIZED_CLAIMS_TOTAL", "15"))
+MAX_PRIORITIZED_CLAIMS_PER_DOCUMENT = int(os.environ.get("MAX_PRIORITIZED_CLAIMS_PER_DOCUMENT", "3"))
 
 
 def load_claims(csv_path: Path) -> list[dict]:
@@ -69,6 +74,35 @@ def split_future_claims(claims: list[dict]) -> tuple[list[dict], list[dict]]:
     return current_claims, future_claims
 
 
+def classify_claim_family(claim: dict) -> str:
+    topic = str(claim.get("topic", "")).lower().strip()
+    document_name = str(claim.get("document_name", "")).lower()
+    claim_text = str(claim.get("claim_text", "")).lower()
+
+    governance_topics = {"ethics", "governance", "labor", "social_impact"}
+    governance_markers = {
+        "responsible ai",
+        "generative ai",
+        "frontier model",
+        "frontier models",
+        "transparency note",
+        "ai risk management framework",
+        "responsible ai standard",
+        "azure openai",
+        "ai safety",
+    }
+
+    if topic in governance_topics:
+        return "governance_ai"
+    if "responsible ai" in document_name or "ai transparency" in document_name:
+        return "governance_ai"
+    if any(marker in claim_text for marker in governance_markers):
+        return "governance_ai"
+    if topic in {"environment", "climate", "emissions", "energy", "water", "waste", "supply_chain"}:
+        return "environmental"
+    return "other"
+
+
 def merge_claim_group(group: list[dict], normalized_id: int) -> dict:
     """Create one normalized row from a group of similar claims."""
     first_claim = group[0]
@@ -106,6 +140,7 @@ def merge_claim_group(group: list[dict], normalized_id: int) -> dict:
         "claim_text": first_claim["claim_text"],
         "claim_type": first_claim["claim_type"],
         "topic": first_claim["topic"],
+        "claim_family": classify_claim_family(first_claim),
         "original_claim_ids": "; ".join(original_ids),
         "page_numbers": "; ".join(unique_page_numbers),
         "source_locations": "; ".join(unique_source_locations),
@@ -179,6 +214,15 @@ def score_analytical_value(claim: dict) -> tuple[int, str]:
         ("water inventory", 28, "water_inventory"),
         ("operational control", 24, "operational_control"),
         ("data center", 22, "data_center"),
+        ("responsible ai", 32, "responsible_ai"),
+        ("transparency note", 24, "transparency_note"),
+        ("ai risk management framework", 28, "ai_risk_management_framework"),
+        ("responsible ai standard", 28, "responsible_ai_standard"),
+        ("frontier models", 22, "frontier_models"),
+        ("governing generative ai", 26, "generative_ai_governance"),
+        ("generative ai releases", 24, "generative_ai_releases"),
+        ("transparency", 16, "transparency"),
+        ("safety", 14, "safety"),
     ]
 
     for pattern, weight, reason in strong_patterns:
@@ -280,6 +324,16 @@ def prioritize_claim(claim: dict) -> dict:
         "ppa",
         "recs",
         "eac",
+        "responsible ai",
+        "frontier model",
+        "frontier models",
+        "transparency note",
+        "responsible ai standard",
+        "ai risk management framework",
+        "governing generative ai",
+        "generative ai",
+        "safety",
+        "transparency",
     ]
 
     analytical_value_score, analytical_value_reason = score_analytical_value(claim)
@@ -313,6 +367,42 @@ def prioritize_claim(claim: dict) -> dict:
     return enriched_claim
 
 
+def get_claim_document_ids(claim: dict) -> list[str]:
+    document_id = str(claim.get("document_id", "")).strip()
+    if not document_id:
+        return []
+    return [part.strip() for part in document_id.split(";") if part.strip()]
+
+
+def get_primary_document_id(claim: dict) -> str:
+    document_ids = get_claim_document_ids(claim)
+    return document_ids[0] if document_ids else "unknown_document"
+
+
+def select_prioritized_claims(sorted_candidates: list[dict]) -> list[dict]:
+    grouped_candidates: dict[str, list[dict]] = {}
+    document_order: list[str] = []
+
+    for claim in sorted_candidates:
+        document_id = get_primary_document_id(claim)
+        if document_id not in grouped_candidates:
+            grouped_candidates[document_id] = []
+            document_order.append(document_id)
+        grouped_candidates[document_id].append(claim)
+
+    prioritized_claims = []
+    for round_index in range(MAX_PRIORITIZED_CLAIMS_PER_DOCUMENT):
+        for document_id in document_order:
+            document_claims = grouped_candidates[document_id]
+            if round_index >= len(document_claims):
+                continue
+            prioritized_claims.append(document_claims[round_index])
+            if len(prioritized_claims) >= MAX_PRIORITIZED_CLAIMS_TOTAL:
+                return prioritized_claims
+
+    return prioritized_claims
+
+
 def prioritize_claims(claims: list[dict]) -> tuple[list[dict], list[dict], list[dict]]:
     """Split normalized claims into main-analysis and excluded rows."""
     enriched_claims = [prioritize_claim(claim) for claim in claims]
@@ -322,8 +412,12 @@ def prioritize_claims(claims: list[dict]) -> tuple[list[dict], list[dict], list[
         key=lambda row: (int(row.get("analytical_value_score", 0)), row.get("normalized_claim_id", "")),
         reverse=True,
     )
-    prioritized_claims = sorted_candidates[:MAX_PRIORITIZED_CLAIMS_TOTAL]
+    prioritized_claims = select_prioritized_claims(sorted_candidates)
     prioritized_ids = {claim["normalized_claim_id"] for claim in prioritized_claims}
+    selected_counts_by_document: dict[str, int] = {}
+    for claim in prioritized_claims:
+        document_id = get_primary_document_id(claim)
+        selected_counts_by_document[document_id] = selected_counts_by_document.get(document_id, 0) + 1
     excluded_claims = []
 
     for claim in enriched_claims:
@@ -334,7 +428,11 @@ def prioritize_claims(claims: list[dict]) -> tuple[list[dict], list[dict], list[
 
         if claim["main_analysis"] == "true":
             claim["main_analysis"] = "false"
-            claim["exclusion_reason"] = "below_main_analysis_priority_cap"
+            document_id = get_primary_document_id(claim)
+            if selected_counts_by_document.get(document_id, 0) >= MAX_PRIORITIZED_CLAIMS_PER_DOCUMENT:
+                claim["exclusion_reason"] = "below_per_document_priority_cap"
+            else:
+                claim["exclusion_reason"] = "below_main_analysis_priority_cap"
 
         excluded_claims.append(claim)
 

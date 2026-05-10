@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\teore\Documents\csr-system\scripts\agent_2\extract_claims_with_llm.py", line 7, in <module>
+    from src.pipeline.claim_extractor import (
+ModuleNotFoundError: No module named 'src'

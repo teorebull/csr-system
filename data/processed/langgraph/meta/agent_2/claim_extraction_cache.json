@@ -1,0 +1,1251 @@
+{
+  "b310845bab4f0cc38293ef0dbe1931f08fe1f5b5d5d723e2d6838a673aadd3cb": {
+    "document_id": "doc_2_meta-2021-sustainability-report",
+    "document_name": "Meta 2021 Sustainability Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta-2021-Sustainability-Report.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "216 million people could be forced to migrate within their own countries by 2050 because of climate change.",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 1,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": true,
+        "source_excerpt": "216­ million people could be forced to migrate within their own countries by 2050 because of climate change."
+      }
+    ]
+  },
+  "f938681429cb577d3fe0822edc980acb879e6efeae5fbe3bd15684c4f96e57df": {
+    "document_id": "doc_2_meta-2021-sustainability-report",
+    "document_name": "Meta 2021 Sustainability Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta-2021-Sustainability-Report.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "\"The possibilities our technology will unlock for people only matter if we have a safe and thriving planet.\"",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "\"The possibilities our technology will unlock for people only matter if we have a safe and thriving planet.\" — Mark Zuckerberg"
+      }
+    ]
+  },
+  "663b8cc84b6c7b5e62b8da2a0bea6855504543086ef5e9ae267c6ca634cadb5c": {
+    "document_id": "doc_2_meta-2021-sustainability-report",
+    "document_name": "Meta 2021 Sustainability Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta-2021-Sustainability-Report.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We’ve achieved net zero emissions in our global operations.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "We’ve achieved net zero emissions in our global operations and set a goal to reach net zero emissions across our value chain in 2030."
+      },
+      {
+        "claim_text": "We’ve set an ambitious goal for our global operations to be water positive by 2030.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "We’ve also set an ambitious goal for our global operations to be water positive by 2030, meaning we’ll restore more water than we consume."
+      },
+      {
+        "claim_text": "We’re committed to the UN Global Compact’s Ten Principles and advancing the Sustainable Development Goals.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "We’re committed to the UN Global Compact’s Ten Principles and advancing the Sustainable Development Goals."
+      },
+      {
+        "claim_text": "We’ve also set an ambitious goal for our global operations to be water positive by 2030.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "We’ve also set an ambitious goal for our global operations to be water positive by 2030, meaning we’ll restore more water than we consume."
+      },
+      {
+        "claim_text": "Meta has committed a joint $925 million commitment alongside Stripe, Shopify, McKinsey, and Alphabet to accelerate the development of carbon removal technologies over the next 9 years.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": true,
+        "source_excerpt": "We recently announced a joint $925 million commitment alongside Stripe, Shopify, McKinsey, and Alphabet to accelerate the development of carbon removal technologies over the next 9 years."
+      }
+    ]
+  },
+  "95124ad9c53d234f41e90f2963bdbc47cea42c9fc19af5adbb55f3ec61fa2e81": {
+    "document_id": "doc_2_meta-2021-sustainability-report",
+    "document_name": "Meta 2021 Sustainability Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta-2021-Sustainability-Report.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Our global operations reached net zero emissions as of 2020 and are supported by 100% renewable energy.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "As of 2020, our global operations reached net zero emissions and are supported by 100% renewable energy."
+      },
+      {
+        "claim_text": "We aim to achieve both water positive and net zero emissions across our value chain in 2030.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "We are now reaching toward the goals of net zero emissions across our value chain and becoming water positive throughout our operations, aiming to achieve both of these milestones in 2030."
+      },
+      {
+        "claim_text": "Our Scope 3 emissions are increasing and will continue to increase as we grow.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "We know our Scope 3 emissions are increasing—and will continue to increase in the near term—as we grow to support the global demand for the services we provide."
+      },
+      {
+        "claim_text": "We aim to be water and energy-efficient with a focus on sustainable solutions.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "we aim to use less—less water and less energy—and to reduce unnecessary waste."
+      }
+    ]
+  },
+  "cee0d34060fde5b31783a1673c4b2f614eeed0116ec540bd32650fdf7960ede7": {
+    "document_id": "doc_2_meta-2021-sustainability-report",
+    "document_name": "Meta 2021 Sustainability Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta-2021-Sustainability-Report.pdf",
+    "page_number": "6",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Our recent investment in Frontier AMC is just one example of our belief that we can do far more for the climate through industry collaborations—and the ways we are working with corporate partners to push for faster advancement of technological carbon removals.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "Our recent investment in Frontier AMC is just one example of our belief that we can do far more for the climate through industry collaborations—and the ways we are working with corporate partners to push for faster advancement of technological carbon removals."
+      },
+      {
+        "claim_text": "We continue to partner with leading thinkers to develop new ways to accelerate adoption of sustainable materials and fuels for construction, hardware and transportation.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "We continue to partner with leading thinkers to develop new ways to accelerate adoption of sustainable materials and fuels for construction, hardware and transportation."
+      },
+      {
+        "claim_text": "Scope 3 emissions are difficult to measure and reduce. We remain committed to leading internal and external discussions and partnerships to drive industry standards and reductions throughout our value chain.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Scope 3 emissions are difficult to measure and reduce. We remain committed to leading internal and external discussions and partnerships to drive industry standards and reductions throughout our value chain."
+      },
+      {
+        "claim_text": "Switching to a clean economy could raise $2.8 trillion through carbon price revenues and the redirection of fossil fuel subsidies to public investments.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "emissions",
+        "is_future": false,
+        "source_excerpt": "Switching to a clean economy could raise $2.8 trillion through carbon price revenues and the redirection of fossil fuel subsidies to public investments."
+      }
+    ]
+  },
+  "8e0099beb482a05895bc38b016d092a3b8c4982df03b33b8f1b264c9ce1f745f": {
+    "document_id": "doc_2_meta-2021-sustainability-report",
+    "document_name": "Meta 2021 Sustainability Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta-2021-Sustainability-Report.pdf",
+    "page_number": "7",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We are focusing on reducing our Scope 3 emissions, which means radically changing the way we operate and helping our suppliers to set their own climate targets.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "We are focusing on reducing our Scope 3 emissions, which means radically changing the way we operate and helping our suppliers to set their own climate targets."
+      },
+      {
+        "claim_text": "At Meta, we are committed to building tools that make choosing to connect virtually easier than ever.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "At Meta, we are committed to building tools that make choosing to connect virtually easier than ever."
+      },
+      {
+        "claim_text": "Our strategy comes to life through three pillars: How We Operate—protecting the well-being of people and our planet through our processes, operations and global supply chain.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Our strategy comes to life through three pillars: How We Operate—protecting the well-being of people and our planet through our processes, operations and global supply chain."
+      },
+      {
+        "claim_text": "We are committed to building tools that make choosing options that have a smaller environmental impact.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "We are committed to building tools that make choosing options that have a smaller environmental impact."
+      },
+      {
+        "claim_text": "Our net zero goal is more than an announcement; it is a program designed to drive real emissions reductions.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "Our net zero goal is more than an announcement; it is a program designed to drive real emissions reductions."
+      }
+    ]
+  },
+  "1594b33f7046b962df35c9cf07038a61e1d35eb3719acf20046a596852583c5d": {
+    "document_id": "doc_2_meta-2021-sustainability-report",
+    "document_name": "Meta 2021 Sustainability Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta-2021-Sustainability-Report.pdf",
+    "page_number": "8",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We are working to support lower-emissions solutions across our business.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "We are working to support lower-emissions solutions across our business."
+      },
+      {
+        "claim_text": "1,200+ companies have set science-based targets in line with net zero emissions.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "1,200+ companies have set science-based targets in line with net zero emissions."
+      },
+      {
+        "claim_text": "Our people and our commitment to real impact at scale give me confidence.",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Our people and our commitment to real impact at scale give me confidence."
+      },
+      {
+        "claim_text": "Sustainability is not an add-on for us. It is a driving force in itself that motivates innovation in what we do and how we do it.",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Sustainability is not an add-on for us. It is a driving force in itself that motivates innovation in what we do and how we do it."
+      },
+      {
+        "claim_text": "We are working to support lower-emissions solutions across our business, which will translate to market availability for others.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": true,
+        "source_excerpt": "We are doing this through our own direct investments and partnerships (like our investments in renewable energy projects) and through capacity-building in our supply chain."
+      }
+    ]
+  },
+  "acf16405fd2753ea0d285f94c41e4dc08aa955cefe7a8cb1948e9a20e980fa44": {
+    "document_id": "doc_2_meta-2021-sustainability-report",
+    "document_name": "Meta 2021 Sustainability Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta-2021-Sustainability-Report.pdf",
+    "page_number": "9",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": []
+  },
+  "1b65a3f35f4da7de8bbe2f7afbcf4c260efc2f005c50ac7369abe85a8ddcca4f": {
+    "document_id": "doc_2_meta-2021-sustainability-report",
+    "document_name": "Meta 2021 Sustainability Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta-2021-Sustainability-Report.pdf",
+    "page_number": "10",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We updated our company values to reflect who Meta is as a global community with a wide-reaching impact.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We updated our company values to reflect who Meta is as a global community with a wide-reaching impact."
+      },
+      {
+        "claim_text": "Our four-point company plan drives the way we approach business strategy and our sustainability strategy.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "Our four-point company plan drives the way we approach business strategy and our sustainability strategy:"
+      },
+      {
+        "claim_text": "We are committed to creating a culture where we are straightforward and willing to have hard conversations with each other.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Your Colleagues is about creating a culture where we are straightforward and willing to have hard conversations with each other."
+      },
+      {
+        "claim_text": "We aim to build products that are useful to billions of people.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "We have already built products that are useful to billions of people"
+      }
+    ]
+  },
+  "0b69b197b76af1919d38eaff2f42eb02f11b9a4cfd11730e65dfc27e26145a58": {
+    "document_id": "doc_3_meta_embracing-change-through-inclusion_2022-diversity-report",
+    "document_name": "Embracing Change Through Inclusion: Meta’s 2022 Diversity Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Embracing-Change-Through-Inclusion_2022-Diversity-Report.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Meta is collaborating with companies, developers, experts and policymakers to build the metaverse — the next generation of digital experiences.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Meta is collaborating with companies, developers, experts and policymakers to build the metaverse — the next generation of digital experiences — to evolve the ways the world connects."
+      },
+      {
+        "claim_text": "We’re being proactive and aiming to make every component of the metaverse reflect everyone under the sun.",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": true,
+        "source_excerpt": "Although the full realization of this vision remains in the future, we’re being proactive and aiming to make every component of the metaverse reflect everyone under the sun."
+      },
+      {
+        "claim_text": "We’re seizing this opportunity to build the metaverse with diversity, equity and inclusion from the start.",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": true,
+        "source_excerpt": "In stark contrast to the way social media evolved, without being informed by broader societal considerations, we’re seizing this opportunity to build the metaverse with diversity, equity and inclusion from the start."
+      }
+    ]
+  },
+  "f8fad9392f5d6f7127a12b4d0a7e190a6ce39b69604f5e5302614ddc696bf840": {
+    "document_id": "doc_3_meta_embracing-change-through-inclusion_2022-diversity-report",
+    "document_name": "Embracing Change Through Inclusion: Meta’s 2022 Diversity Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Embracing-Change-Through-Inclusion_2022-Diversity-Report.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Meta’s newly improved Meta Avatars offer more than one quintillion different combinations of attributes, including new facial shapes and assistive devices such as cochlear implants, over-the-ear hearing aids, and wheelchairs for people with disabilities.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Meta’s newly improved Meta Avatars, for example, offer more than one quintillion different combinations of attributes, including new facial shapes and assistive devices such as cochlear implants, over-the-ear hearing aids, and wheelchairs for people with disabilities."
+      },
+      {
+        "claim_text": "We plan later this year to launch a web version of Horizon, the social VR platform for our Quest headset, that will allow people to step into virtual experiences from a lot more platforms, without needing a headset.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": true,
+        "source_excerpt": "We plan later this year to launch a web version of Horizon, the social VR platform for our Quest headset, that will allow people to step into virtual experiences from a lot more platforms, without needing a headset."
+      },
+      {
+        "claim_text": "Meta’s AI labs are focused on research and development that promotes diversity and inclusion.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Meta’s AI labs are focused on research and development that promotes diversity and inclusion."
+      },
+      {
+        "claim_text": "By increasing diversity among the creators of algorithms, we aim to produce AI models that deliver more inclusive and equitable experiences for all.",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": true,
+        "source_excerpt": "By increasing diversity among the creators of algorithms, we aim to produce AI models that deliver more inclusive and equitable experiences for all."
+      }
+    ]
+  },
+  "4cb0dcb671dd8df9e5ed974676c4fa3efd3639a2951cc87e6515f89a71fa079e": {
+    "document_id": "doc_3_meta_embracing-change-through-inclusion_2022-diversity-report",
+    "document_name": "Embracing Change Through Inclusion: Meta’s 2022 Diversity Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Embracing-Change-Through-Inclusion_2022-Diversity-Report.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Meta launched No Language Left Behind (NLLB), an AI-enabled system that can translate 200 languages, including 56 African languages.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Meta launched No Language Left Behind (NLLB), an AI-enabled system that so far can translate 200 languages, including 56 African languages, with state-of-the-art results."
+      },
+      {
+        "claim_text": "Universal Speech Translator is an AI system that provides instantaneous speech-to-speech translation across many under-resourced languages.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Universal Speech Translator, an AI system that provides instantaneous speech-to-speech translation across many under-resourced languages"
+      }
+    ]
+  },
+  "5d30931c808864c0a5d2d4eec7eb5053fcf9b32e5665cbc7bb623b831223462e": {
+    "document_id": "doc_3_meta_embracing-change-through-inclusion_2022-diversity-report",
+    "document_name": "Embracing Change Through Inclusion: Meta’s 2022 Diversity Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Embracing-Change-Through-Inclusion_2022-Diversity-Report.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We launched Meta Immersive Learning, a $150 million investment to help develop the next generation of creators, fund immersive experiences that transform the way we learn and increase access to learning through technology.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "That’s why we launched Meta Immersive Learning, a $150 million investment to help develop the next generation of creators, fund immersive experiences that transform the way we learn and increase access to learning through technology."
+      },
+      {
+        "claim_text": "Roughly 75% of Meta teams are working in a distributed-first approach.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Roughly 75% of Meta teams are working this way."
+      },
+      {
+        "claim_text": "Providing remote options increased the diversity of our workforce.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Over the past year, we’ve seen that providing remote options increased the diversity of the overall composition of our workforce."
+      },
+      {
+        "claim_text": "U.S. candidates who accepted remote job offers were substantially more likely to be Black, Hispanic, Native American, Alaskan Native, Pacific Islander, veterans and/or people with disabilities.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "U.S. candidates who accepted remote job offers were substantially more likely to be Black, Hispanic, Native American, Alaskan Native, Pacific Islander, veterans and/or people with disabilities."
+      },
+      {
+        "claim_text": "Globally, candidates who accepted remote job offers were more likely to be women.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Globally, candidates who accepted remote job offers were more likely to be women."
+      }
+    ]
+  },
+  "0629464daa6fd16bea00bf199236a0b08b6d2170a72686464cf6503a7ff31aa9": {
+    "document_id": "doc_3_meta_embracing-change-through-inclusion_2022-diversity-report",
+    "document_name": "Embracing Change Through Inclusion: Meta’s 2022 Diversity Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Embracing-Change-Through-Inclusion_2022-Diversity-Report.pdf",
+    "page_number": "6",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We committed to doubling the number of Black and Hispanic employees in the U.S. and the number of women in our global workforce by 2024.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "In 2019, we committed to doubling the number of Black and Hispanic employees in the U.S. and the number of women in our global workforce by 2024."
+      },
+      {
+        "claim_text": "We met and exceeded that goal for each of those groups – two years ahead of schedule.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "We met and exceeded that goal for each of those groups – two years ahead of schedule"
+      },
+      {
+        "claim_text": "People with disabilities now represent 6.2% of our U.S. workforce, up from 4.7% in 2021.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "People with disabilities now represent 6.2% of our U.S. workforce, up from 4.7% in 2021."
+      },
+      {
+        "claim_text": "Veterans represent 2.3% of our U.S. workforce.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Veterans represent 2.3% of our U.S. workforce"
+      },
+      {
+        "claim_text": "Members of the LGBTQ+ community make up 10.0% of our U.S. workforce.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "members of the LGBTQ+ community make up 10.0%."
+      }
+    ]
+  },
+  "b246cefb4d2ba1e2ce6cedd40ad7f817dc5dc7d0e6abb59d5865df16a68dcae6": {
+    "document_id": "doc_3_meta_embracing-change-through-inclusion_2022-diversity-report",
+    "document_name": "Embracing Change Through Inclusion: Meta’s 2022 Diversity Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Embracing-Change-Through-Inclusion_2022-Diversity-Report.pdf",
+    "page_number": "7",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Underrepresented people make up 46.7% of our global workforce, up from 45.6% in 2021.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Underrepresented people make up 46.7% of our global workforce, up from 45.6% in 2021."
+      },
+      {
+        "claim_text": "Through promotions and hiring, we are on track to achieve (and in some cases exceed) our ambitious goal to increase the representation of all people of color in leadership positions in the U.S. by 30% by 2025.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": true,
+        "source_excerpt": "Through promotions and hiring, we are on track to achieve (and in some cases exceed) our ambitious goal to increase the representation of all people of color in leadership positions in the U.S. by 30% by 2025."
+      },
+      {
+        "claim_text": "We have increased Black employee leadership by 44.1% since 2020.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "As an example, so far we have increased Black employee leadership by 44.1% since 2020."
+      },
+      {
+        "claim_text": "Women now represent 36.7% of our global leadership.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Women now represent 36.7% of our global leadership."
+      },
+      {
+        "claim_text": "Our latest pay equity analysis confirms that we continue to have pay equity across genders globally (and by race in the U.S.) for people in similar jobs.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "our latest analysis confirms that we continue to have pay equity across genders globally (and by race in the U.S.) for people in similar jobs"
+      },
+      {
+        "claim_text": "We exceeded our 2020 commitment to annually spend $1 billion with diverse suppliers, including at least $100 million with Black-owned businesses.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "We exceeded our 2020 commitment to annually spend $1 billion with diverse suppliers, including at least $100 million with Black-owned businesses."
+      },
+      {
+        "claim_text": "The company spent more than $306 million with Black-owned businesses and $1.26 billion with U.S. certified diverse companies in 2021 — nearly double the spend the year before.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "The company spent more than $306 million with Black-owned businesses and $1.26 billion with U.S. certified diverse companies in 2021 — nearly double the spend the year before."
+      }
+    ]
+  },
+  "5c4a217ec986e6592f12bcee1b58c909b4b37cf0be5ff007a9dd08d1ad4ad2bf": {
+    "document_id": "doc_3_meta_embracing-change-through-inclusion_2022-diversity-report",
+    "document_name": "Embracing Change Through Inclusion: Meta’s 2022 Diversity Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Embracing-Change-Through-Inclusion_2022-Diversity-Report.pdf",
+    "page_number": "8",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Meta will officially join the Billion Dollar Roundtable, a select group of only a few dozen companies recognized for spending at least $1 billion with minority and women-owned suppliers.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": true,
+        "source_excerpt": "Moreover, this summer Meta will officially join the Billion Dollar Roundtable, a select group of only a few dozen companies recognized for spending at least $1 billion with minority and women-owned suppliers"
+      },
+      {
+        "claim_text": "Under Jason's leadership, the company has spent a total of more than $3 billion with U.S. companies certified as minority, women, veteran, LGBTQ+, or disability-owned.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Under his leadership, the company has spent a total of more than $3 billion with U.S. companies certified as minority, women, veteran, LGBTQ+, or disability-owned"
+      },
+      {
+        "claim_text": "Meta partnered with some of Latin America’s biggest brands to create ad campaigns using two versions of the ads — with the second version featuring a protagonist from a traditionally underrepresented group.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Meta partnered with some of Latin America’s biggest brands to create ad campaigns using two versions of the ads — with the second version featuring a protagonist from a traditionally underrepresented group"
+      },
+      {
+        "claim_text": "Consumers were more likely to remember the ads with a diversity element and more likely to associate the messaging with the ad.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Meta was able to compare the performance of the brands' advertisements after analyzing 60 campaigns across industries and found consumers were more likely to remember the ads with a diversity element and more likely to associate the messaging with the ad"
+      }
+    ]
+  },
+  "f90e366efb28b8e4e120c6a63687e4cd4d203dc12a7e662bfe6061a040374e7f": {
+    "document_id": "doc_3_meta_embracing-change-through-inclusion_2022-diversity-report",
+    "document_name": "Embracing Change Through Inclusion: Meta’s 2022 Diversity Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Embracing-Change-Through-Inclusion_2022-Diversity-Report.pdf",
+    "page_number": "9",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Meta collaborated with the Asian American Journalists Association’s Asia Chapter (AAJA-Asia) to survey more than 1,200 journalists in Asia on how DEI is reported in the news — and how diversity impacts newsroom staffing.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Meta collaborated with the Asian American Journalists Association’s Asia Chapter (AAJA-Asia), to survey more than 1,200 journalists in Asia on how DEI is reported in the news — and how diversity impacts newsroom staffing."
+      },
+      {
+        "claim_text": "At Meta, we’ll continue to press for a more diverse and equitable workforce and world.",
+        "claim_type": "commitment",
+        "is_verifiable": false,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": true,
+        "source_excerpt": "At Meta, we’ll continue to press for a more diverse and equitable workforce and world."
+      }
+    ]
+  },
+  "462c48a203cfaf7cf91a191bce75ef56964593020c0b6db2b4e861c6cf8ebeb8": {
+    "document_id": "doc_4_meta_human-rights-report-july-2022",
+    "document_name": "Meta Human Rights Report July 2022",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Human-Rights-Report-July-2022.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Meta adopted its Human Rights Policy in March of 2021.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "In March of 2021, Meta adopted its Human Rights Policy"
+      },
+      {
+        "claim_text": "Meta commits to reporting annually on how it is addressing human rights impacts.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Meta adopted its Human Rights Policy in which we commit to reporting annually on how we are addressing our human rights impacts"
+      },
+      {
+        "claim_text": "This report covers Meta's learnings and progress from January 1, 2020 through December 31, 2021.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "This is our first annual report, covering our learnings and progress from January 1, 2020 through December 31, 2021"
+      },
+      {
+        "claim_text": "Meta's salience assessments are complemented by an additional materiality assessment.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Our salience assessments are complemented by an additional materiality assessment included in Meta’s 2021 Sustainability Report"
+      },
+      {
+        "claim_text": "This report is inspired by Principle 15 of the UN Guiding Principles on Business and Human Rights.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "This report is inspired by Principle 15 of the UN Guiding Principles on Business and Human Rights"
+      }
+    ]
+  },
+  "415205fe1b7eeecc09a0fd92fb1362fa160e20abb6c0edacc2bc7b7d056ba868": {
+    "document_id": "doc_4_meta_human-rights-report-july-2022",
+    "document_name": "Meta Human Rights Report July 2022",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Human-Rights-Report-July-2022.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Meta recognizes its potential to impact human rights and has taken steps to demonstrate our commitment to human rights principles.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Meta recognizes its potential to impact human rights and has taken steps to demonstrate our commitment to human rights principles."
+      },
+      {
+        "claim_text": "We joined the Global Network Initiative, and made commitments in our Corporate Human Rights Policy to respect human rights as set out in the United Nations Guiding Principles on Business and Human Rights (UNGP) and other international human rights standards.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We joined the Global Network Initiative, and made commitments in our Corporate Human Rights Policy to respect human rights as set out in the United Nations Guiding Principles on Business and Human Rights (UNGP) and other international human rights standards."
+      },
+      {
+        "claim_text": "This report provides an update on our progress.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "This report provides an update on our progress."
+      }
+    ]
+  },
+  "37a42adc74a47d99884048a5d85072b08a170b5fee0fb2ee4091f0eb28104c49": {
+    "document_id": "doc_4_meta_human-rights-report-july-2022",
+    "document_name": "Meta Human Rights Report July 2022",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Human-Rights-Report-July-2022.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Our human rights policy helps ensure that Meta's human rights agenda.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Our human rights policy helps ensure that Meta's human rights agenda."
+      },
+      {
+        "claim_text": "Our strategy leverages our mission and values.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Our strategy leverages our mission and values."
+      },
+      {
+        "claim_text": "We seek to translate human rights guidance into meaningful action, every day.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We seek to translate human rights guidance into meaningful action, every day."
+      }
+    ]
+  },
+  "04d27681414ddb45b21e217cd47c790fea11242cd6f7d5d8dcba3320b7501c4a": {
+    "document_id": "doc_4_meta_human-rights-report-july-2022",
+    "document_name": "Meta Human Rights Report July 2022",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Human-Rights-Report-July-2022.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Meta’s platforms advance freedom of expression — which is interdependent with all fundamental human rights.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Meta’s platforms advance freedom of expression — which is interdependent with all fundamental human rights."
+      },
+      {
+        "claim_text": "We manage risks related to balancing freedom of expression and other fundamental rights on our social media platforms through our Facebook Community Standards and Instagram Community Guidelines.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We manage risks related to balancing freedom of expression and other fundamental rights on our social media platforms through our Facebook Community Standards and Instagram Community Guidelines"
+      },
+      {
+        "claim_text": "During the reporting period, we updated our policies as part of our continuing effort to balance these rights in an increasingly dynamic world.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "During the reporting period, we updated our policies as part of our continuing effort to balance these rights in an increasingly dynamic world"
+      },
+      {
+        "claim_text": "Meta further provides users with a path to disagree with content policy decisions",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Meta further provides users with a path to disagree with content policy decisions"
+      },
+      {
+        "claim_text": "On WhatsApp, and expanding to our other messaging apps, we offer end-to-end encryption",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "On WhatsApp, and expanding to our other messaging apps, we offer end-to-end encryption"
+      },
+      {
+        "claim_text": "We protect users from unlawful or overbroad government data requests via our Meta Data Policy",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We protect users from unlawful or overbroad government data requests via our Meta Data Policy"
+      }
+    ]
+  },
+  "b89a3fabae27131f42ec2a51b4c25ba7da3628773bae457cb2af72a3542630d3": {
+    "document_id": "doc_4_meta_human-rights-report-july-2022",
+    "document_name": "Meta Human Rights Report July 2022",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Human-Rights-Report-July-2022.pdf",
+    "page_number": "6",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We respond to such requests for information that are consistent with internationally recognized standards on human rights, including due process, and the rule of law.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We respond to such requests for information that are consistent with internationally recognized standards on human rights, including due process, and the rule of law."
+      },
+      {
+        "claim_text": "If we determine that a government request is not consistent with applicable law or our policies, or unlawful (for example, overly broad, or legally deficient in any way), we do not provide governments with direct access or “back doors” to people’s information and we would challenge any order that sought to have us redesign our systems to undermine the encryption we provide to protect people’s data.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "If we determine that a government request is not consistent with applicable law or our policies, or unlawful (for example, overly broad, or legally deficient in any way), we do not provide governments with direct access or “back doors” to people’s information and we would challenge any order that sought to have us redesign our systems to undermine the encryption we provide to protect people’s data."
+      },
+      {
+        "claim_text": "Our Facebook Community Standards and Instagram Community Guidelines seek to protect freedom of expression and the salient risks to freedom of life, liberty, and security of the person.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Our Facebook Community Standards and Instagram Community Guidelines seek to protect freedom of expression and the salient risks to freedom of life, liberty, and security of the person."
+      },
+      {
+        "claim_text": "We manage human trafficking and exploitation risks in our supply chain through our Code of Conduct, our Responsible Supply Chain program, and our membership in the Responsible Business Alliance and the Responsible Labor Initiative.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "We manage human trafficking and exploitation risks in our supply chain through our Code of Conduct, our Responsible Supply Chain program, and our membership in the Responsible Business Alliance and the Responsible Labor Initiative."
+      }
+    ]
+  },
+  "5152e18b8bde26624bba86eda15963a750f57b0f073a2cdc2d6e7253196bffd7": {
+    "document_id": "doc_4_meta_human-rights-report-july-2022",
+    "document_name": "Meta Human Rights Report July 2022",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Human-Rights-Report-July-2022.pdf",
+    "page_number": "7",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We published a Parents Guide and other features to increase child and teen safety on Instagram, and continued our work to fight child exploitation on WhatsApp and Facebook and Instagram.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We published a Parents Guide and other features to increase child and teen safety on Instagram, and continued our work to fight child exploitation on WhatsApp and Facebook and Instagram."
+      },
+      {
+        "claim_text": "Meta is committed to protecting the right to public participation, giving everyone a voice through our products, and empowering people to vote.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Meta is committed to protecting the right to public participation, giving everyone a voice through our products, and empowering people to vote."
+      },
+      {
+        "claim_text": "Over the last few years, Meta has made significant investments in teams and technologies to better protect free and fair elections.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Over the last few years, Meta has made significant investments in teams and technologies to better protect free and fair elections"
+      }
+    ]
+  },
+  "b31391264d42a183eb1ad8e187285664b929d041067b1f982bb89798b5fcab8e": {
+    "document_id": "doc_4_meta_human-rights-report-july-2022",
+    "document_name": "Meta Human Rights Report July 2022",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Human-Rights-Report-July-2022.pdf",
+    "page_number": "8",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Meta’s respect for human rights — and their underlying principles of equality, safety, dignity, privacy and voice — is applied through existing policies across our company, including the Facebook Community Standards, Instagram Community Guidelines, WhatsApp Terms of Service, the Responsible Supply Chain program, Facebook’s Privacy Principles, our Law Enforcement Guidelines, our Data Policy, Responsible AI pillars, and our Diversity and Inclusion practices.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Meta’s respect for human rights — and their underlying principles of equality, safety, dignity, privacy and voice — is applied through existing policies across our company, including the Facebook Community Standards, Instagram Community Guidelines, WhatsApp Terms of Service, the Responsible Supply Chain program, Facebook’s Privacy Principles, our Law Enforcement Guidelines, our Data Policy, Responsible AI pillars, and our Diversity and Inclusion practices, among other policies."
+      },
+      {
+        "claim_text": "We endeavor to assess human rights impacts that may be linked directly to Meta, take appropriate action and implement findings, monitor implementation, and report annually on “relevant insights” and “actions” under UNGP 21 as defined in our Corporate Human Rights Policy.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We endeavor to assess human rights impacts that may be linked directly to Meta, take appropriate action and implement findings, monitor implementation, and report annually on “relevant insights” and “actions” under UNGP 21 as defined in our Corporate Human Rights Policy."
+      },
+      {
+        "claim_text": "From 2020 — 2021, our UNGP-informed diligence work included: Detailed human rights impact assessments, e.g., the Philippines and End-to-End Encryption; Human rights due diligence on rapidly evolving situations, e.g., Israel-Palestine (to be published in Q3 2022 in response to the Oversight Board), and product initiatives, e.g., Ray-Ban Stories.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": true,
+        "source_excerpt": "From 2020 — 2021, our UNGP-informed diligence work included: Detailed human rights impact assessments, e.g., the Philippines and End-to-End Encryption; Human rights due diligence on rapidly evolving situations, e.g., Israel-Palestine (to be published in Q3 2022 in response to the Oversight Board), and product initiatives, e.g., Ray-Ban Stories;"
+      }
+    ]
+  },
+  "db995faab9c61c78e1d462df845d713692af02a9a8d628a779485092add88064": {
+    "document_id": "doc_4_meta_human-rights-report-july-2022",
+    "document_name": "Meta Human Rights Report July 2022",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Human-Rights-Report-July-2022.pdf",
+    "page_number": "9",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Users can challenge some decisions regarding removal of their account or content via the help center, and appeal up to the Oversight Board.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Users can challenge some decisions regarding removal of their account or content via the help center, and appeal up to the Oversight Board."
+      },
+      {
+        "claim_text": "The Oversight Board consists of rights experts from a variety of cultural and professional backgrounds.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "The Oversight Board consists of rights experts from a variety of cultural and professional backgrounds."
+      },
+      {
+        "claim_text": "We are building on our existing work to protect human rights defenders and their accounts.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We are building on our existing work to protect human rights defenders and their accounts."
+      },
+      {
+        "claim_text": "In November 2021, we launched the Human Rights Defender Fund and Journalist Safety Initiative.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "In November 2021, we launched the Human Rights Defender Fund and Journalist Safety Initiative"
+      },
+      {
+        "claim_text": "Meta created a global Human Rights Policy Team tasked with guiding the implementation of the Human Rights Policy.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Meta created a global Human Rights Policy Team and tasked it with guiding the implementation of the Human Rights Policy"
+      },
+      {
+        "claim_text": "The Human Rights Policy Team is accountable to the Audit Risk and Oversight Committee of the Board of Directors.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "The Team is accountable to the Audit Risk and Oversight Committee of the Board of Directors."
+      }
+    ]
+  },
+  "34266e37f40b85809f6c2d921858a06b789cb44e7cfbcfcda66bf761754a95bc": {
+    "document_id": "doc_4_meta_human-rights-report-july-2022",
+    "document_name": "Meta Human Rights Report July 2022",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\meta\\Meta_Human-Rights-Report-July-2022.pdf",
+    "page_number": "10",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Our Human Rights Policy laid a strong basis for action.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Our Human Rights Policy laid a strong basis for action."
+      },
+      {
+        "claim_text": "In the coming years, we intend to build the maturity of our program, function, and reporting.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": true,
+        "source_excerpt": "In the coming years, we intend to build the maturity of our program, function, and reporting."
+      },
+      {
+        "claim_text": "Protecting rights in the digital space is one of the existential challenges for the human rights movement and for all who care about human rights.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Protecting rights in the digital space is one of the existential challenges for the human rights movement and for all who care about human rights."
+      },
+      {
+        "claim_text": "We continue to strive to better protect rights in countries in conflict and crisis, and for particularly disadvantaged groups.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We continue to strive to better protect rights in countries in conflict and crisis, and for particularly disadvantaged groups."
+      },
+      {
+        "claim_text": "Our work must address today’s technologies and look towards the future.",
+        "claim_type": "commitment",
+        "is_verifiable": false,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": true,
+        "source_excerpt": "Our work must address today’s technologies and look towards the future."
+      }
+    ]
+  }
+}

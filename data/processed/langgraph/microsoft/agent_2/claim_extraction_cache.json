@@ -1,0 +1,11 @@
+{
+  "6ef186078b817a586d27ff57abaa4b2cd92d5deed7e547b617a8113baf182e81": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "1",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": []
+  }
+}

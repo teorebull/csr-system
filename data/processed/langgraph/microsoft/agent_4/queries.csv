@@ -1,0 +1,116 @@
+normalized_claim_id,claim_text,query_type,query_text
+normalized_claim_62,Microsoft released the second version of its Responsible AI Standard in 2023.,verification,Microsoft Responsible AI Standard version 2 release date
+normalized_claim_62,Microsoft released the second version of its Responsible AI Standard in 2023.,contradiction,Criticisms of Microsoft's Responsible AI Standard
+normalized_claim_62,Microsoft released the second version of its Responsible AI Standard in 2023.,criticism,Microsoft AI ethics controversies
+normalized_claim_62,Microsoft released the second version of its Responsible AI Standard in 2023.,methodology,Microsoft Responsible AI Standard development process
+normalized_claim_62,Microsoft released the second version of its Responsible AI Standard in 2023.,context,Comparison Microsoft vs other tech companies AI ethics standards
+normalized_claim_62,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_62,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_62,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_62,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_62,,context,Microsoft responsible AI report ethics governance
+normalized_claim_37,We have published the criteria we use to help ensure that the carbon removal credits that we contract are high quality: Microsoft Criteria for High-Quality Carbon Dioxide Removal.,verification,Microsoft carbon removal criteria verification
+normalized_claim_37,We have published the criteria we use to help ensure that the carbon removal credits that we contract are high quality: Microsoft Criteria for High-Quality Carbon Dioxide Removal.,contradiction,Microsoft criticized carbon removal credits
+normalized_claim_37,We have published the criteria we use to help ensure that the carbon removal credits that we contract are high quality: Microsoft Criteria for High-Quality Carbon Dioxide Removal.,criticism,Critics of Microsoft's carbon removal policy
+normalized_claim_37,We have published the criteria we use to help ensure that the carbon removal credits that we contract are high quality: Microsoft Criteria for High-Quality Carbon Dioxide Removal.,methodology,Microsoft carbon removal methodology assessment
+normalized_claim_37,We have published the criteria we use to help ensure that the carbon removal credits that we contract are high quality: Microsoft Criteria for High-Quality Carbon Dioxide Removal.,context,Microsoft's carbon footprint compared to its removals
+normalized_claim_104,We’ve published 33 Transparency Notes since 2019 to provide customers with detailed information about our platform services like Azure OpenAI Service.,verification,Microsoft Transparency Notes since 2019
+normalized_claim_104,We’ve published 33 Transparency Notes since 2019 to provide customers with detailed information about our platform services like Azure OpenAI Service.,contradiction,Microsoft transparency criticism
+normalized_claim_104,We’ve published 33 Transparency Notes since 2019 to provide customers with detailed information about our platform services like Azure OpenAI Service.,criticism,Microsoft Azure OpenAI Service ethics concerns
+normalized_claim_104,We’ve published 33 Transparency Notes since 2019 to provide customers with detailed information about our platform services like Azure OpenAI Service.,methodology,Microsoft Transparency Notes methodology
+normalized_claim_104,We’ve published 33 Transparency Notes since 2019 to provide customers with detailed information about our platform services like Azure OpenAI Service.,context,Microsoft AI ethics controversies
+normalized_claim_104,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_104,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_104,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_104,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_104,,context,Microsoft responsible AI report ethics governance
+normalized_claim_72,"In FY23, we launched a new Seeing AI collaboration with Haleon, empowering consumers in the U.S. and U.K. to read packaging details for over 1500 products.",verification,Microsoft Seeing AI Haleon collaboration launch FY23 verification
+normalized_claim_72,"In FY23, we launched a new Seeing AI collaboration with Haleon, empowering consumers in the U.S. and U.K. to read packaging details for over 1500 products.",contradiction,Microsoft Seeing AI accessibility criticism
+normalized_claim_72,"In FY23, we launched a new Seeing AI collaboration with Haleon, empowering consumers in the U.S. and U.K. to read packaging details for over 1500 products.",criticism,Microsoft Seeing AI Haleon collaboration limitations
+normalized_claim_72,"In FY23, we launched a new Seeing AI collaboration with Haleon, empowering consumers in the U.S. and U.K. to read packaging details for over 1500 products.",methodology,Microsoft Seeing AI product recognition methodology
+normalized_claim_72,"In FY23, we launched a new Seeing AI collaboration with Haleon, empowering consumers in the U.S. and U.K. to read packaging details for over 1500 products.",context,Microsoft Seeing AI accessibility initiatives context
+normalized_claim_75,Microsoft highlights the importance of partnerships in its diversity and inclusion journey.,verification,Microsoft diversity partnerships verification
+normalized_claim_75,Microsoft highlights the importance of partnerships in its diversity and inclusion journey.,contradiction,Microsoft diversity partnerships criticism
+normalized_claim_75,Microsoft highlights the importance of partnerships in its diversity and inclusion journey.,criticism,Microsoft diversity partnerships controversy
+normalized_claim_75,Microsoft highlights the importance of partnerships in its diversity and inclusion journey.,methodology,Microsoft diversity partnerships methodology assessment
+normalized_claim_75,Microsoft highlights the importance of partnerships in its diversity and inclusion journey.,context,Microsoft diversity partnerships implementation evidence
+normalized_claim_75,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_75,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_75,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_75,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_75,,context,Microsoft responsible AI report ethics governance
+normalized_claim_33,"Total land protection funded in Belize: 12,270 acres in FY21 and FY22, 12,270 acres in FY23",verification,Microsoft Belize land protection verification
+normalized_claim_33,"Total land protection funded in Belize: 12,270 acres in FY21 and FY22, 12,270 acres in FY23",contradiction,Microsoft Belize land protection controversy
+normalized_claim_33,"Total land protection funded in Belize: 12,270 acres in FY21 and FY22, 12,270 acres in FY23",criticism,Microsoft environmental claims criticized
+normalized_claim_33,"Total land protection funded in Belize: 12,270 acres in FY21 and FY22, 12,270 acres in FY23",methodology,Microsoft Belize land protection methodology assessment
+normalized_claim_33,"Total land protection funded in Belize: 12,270 acres in FY21 and FY22, 12,270 acres in FY23",context,Microsoft Belize land protection context and impact
+normalized_claim_57,Microsoft has partnered with the Stimson Center to launch Global Perspectives: Responsible AI Fellowship.,verification,Microsoft Stimson Center AI fellowship launch date
+normalized_claim_57,Microsoft has partnered with the Stimson Center to launch Global Perspectives: Responsible AI Fellowship.,contradiction,Microsoft AI ethics controversies
+normalized_claim_57,Microsoft has partnered with the Stimson Center to launch Global Perspectives: Responsible AI Fellowship.,criticism,Critiques of Microsoft's Global Perspectives AI Fellowship
+normalized_claim_57,Microsoft has partnered with the Stimson Center to launch Global Perspectives: Responsible AI Fellowship.,methodology,Stimson Center AI fellowship methodology evaluation
+normalized_claim_57,Microsoft has partnered with the Stimson Center to launch Global Perspectives: Responsible AI Fellowship.,context,Microsoft human rights record before AI fellowship launch
+normalized_claim_57,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_57,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_57,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_57,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_57,,context,Microsoft responsible AI report ethics governance
+normalized_claim_32,"Total land protection funded in the US: 4,998 acres in FY21 and FY22, 5,169 acres in FY23",verification,Microsoft land protection funded US acres verification
+normalized_claim_32,"Total land protection funded in the US: 4,998 acres in FY21 and FY22, 5,169 acres in FY23",contradiction,Microsoft land protection funded US acres controversy
+normalized_claim_32,"Total land protection funded in the US: 4,998 acres in FY21 and FY22, 5,169 acres in FY23",criticism,Microsoft land protection funded US acres criticism
+normalized_claim_32,"Total land protection funded in the US: 4,998 acres in FY21 and FY22, 5,169 acres in FY23",methodology,Microsoft land protection funded US methodology
+normalized_claim_32,"Total land protection funded in the US: 4,998 acres in FY21 and FY22, 5,169 acres in FY23",context,Microsoft land protection funded US context total acres
+normalized_claim_101,We are committed to sharing our learnings early and often and engaging in a robust dialogue around responsible AI practices.,verification,Microsoft AI governance initiatives verification
+normalized_claim_101,We are committed to sharing our learnings early and often and engaging in a robust dialogue around responsible AI practices.,contradiction,Microsoft AI ethics controversies
+normalized_claim_101,We are committed to sharing our learnings early and often and engaging in a robust dialogue around responsible AI practices.,criticism,Critiques of Microsoft's responsible AI practices
+normalized_claim_101,We are committed to sharing our learnings early and often and engaging in a robust dialogue around responsible AI practices.,methodology,Microsoft AI governance methodology assessment
+normalized_claim_101,We are committed to sharing our learnings early and often and engaging in a robust dialogue around responsible AI practices.,context,Microsoft AI ethics initiatives compared to competitors
+normalized_claim_101,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_101,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_101,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_101,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_101,,context,Microsoft responsible AI report ethics governance
+normalized_claim_26,Microsoft's electricity consumption normalized by revenue increased from 75 MWh/$M in FY20 to 122 MWh/$M in FY24.,verification,Microsoft electricity consumption revenue normalized FY20-FY24
+normalized_claim_26,Microsoft's electricity consumption normalized by revenue increased from 75 MWh/$M in FY20 to 122 MWh/$M in FY24.,contradiction,Microsoft energy efficiency decline criticism
+normalized_claim_26,Microsoft's electricity consumption normalized by revenue increased from 75 MWh/$M in FY20 to 122 MWh/$M in FY24.,criticism,Microsoft environmental sustainability report critique
+normalized_claim_26,Microsoft's electricity consumption normalized by revenue increased from 75 MWh/$M in FY20 to 122 MWh/$M in FY24.,methodology,Microsoft electricity consumption normalization methodology
+normalized_claim_26,Microsoft's electricity consumption normalized by revenue increased from 75 MWh/$M in FY20 to 122 MWh/$M in FY24.,context,Microsoft energy consumption industry comparison FY20-FY24
+normalized_claim_86,"Since 1989, Microsoft has been promoting LGBTQIA+ inclusion by offering benefits for same-sex domestic partnerships in employees.",verification,Microsoft LGBTQIA+ benefits since 1989 verification
+normalized_claim_86,"Since 1989, Microsoft has been promoting LGBTQIA+ inclusion by offering benefits for same-sex domestic partnerships in employees.",contradiction,Microsoft LGBTQIA+ benefits controversies or contradictions
+normalized_claim_86,"Since 1989, Microsoft has been promoting LGBTQIA+ inclusion by offering benefits for same-sex domestic partnerships in employees.",criticism,Criticisms of Microsoft's LGBTQIA+ inclusion efforts
+normalized_claim_86,"Since 1989, Microsoft has been promoting LGBTQIA+ inclusion by offering benefits for same-sex domestic partnerships in employees.",methodology,Microsoft LGBTQIA+ benefits implementation methodology
+normalized_claim_86,"Since 1989, Microsoft has been promoting LGBTQIA+ inclusion by offering benefits for same-sex domestic partnerships in employees.",context,Microsoft LGBTQIA+ inclusion efforts compared to industry peers
+normalized_claim_86,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_86,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_86,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_86,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_86,,context,Microsoft responsible AI report ethics governance
+normalized_claim_25,"Microsoft's non-renewable fuel consumption decreased from 449,304 in FY20 to 355,273 in FY24.",verification,Microsoft non-renewable fuel consumption FY20-FY24
+normalized_claim_25,"Microsoft's non-renewable fuel consumption decreased from 449,304 in FY20 to 355,273 in FY24.",contradiction,Microsoft energy use increase criticism
+normalized_claim_25,"Microsoft's non-renewable fuel consumption decreased from 449,304 in FY20 to 355,273 in FY24.",criticism,Microsoft greenwashing energy consumption
+normalized_claim_25,"Microsoft's non-renewable fuel consumption decreased from 449,304 in FY20 to 355,273 in FY24.",methodology,Microsoft non-renewable fuel consumption methodology
+normalized_claim_25,"Microsoft's non-renewable fuel consumption decreased from 449,304 in FY20 to 355,273 in FY24.",context,Microsoft energy use compared industry peers
+normalized_claim_66,"Microsoft commissioned a third-party expert in 2016 to consult with internal and external stakeholders and review international human rights laws, principles, and norms to identify the human rights most at risk of severe negative impact through the company’s activities and business relationships.",verification,Microsoft human rights risk assessment 2016 third-party expert verification
+normalized_claim_66,"Microsoft commissioned a third-party expert in 2016 to consult with internal and external stakeholders and review international human rights laws, principles, and norms to identify the human rights most at risk of severe negative impact through the company’s activities and business relationships.",contradiction,Microsoft human rights criticism despite 2016 assessment
+normalized_claim_66,"Microsoft commissioned a third-party expert in 2016 to consult with internal and external stakeholders and review international human rights laws, principles, and norms to identify the human rights most at risk of severe negative impact through the company’s activities and business relationships.",criticism,Microsoft human rights risk assessment criticisms implementation
+normalized_claim_66,"Microsoft commissioned a third-party expert in 2016 to consult with internal and external stakeholders and review international human rights laws, principles, and norms to identify the human rights most at risk of severe negative impact through the company’s activities and business relationships.",methodology,Microsoft 2016 human rights risk assessment methodology critique
+normalized_claim_66,"Microsoft commissioned a third-party expert in 2016 to consult with internal and external stakeholders and review international human rights laws, principles, and norms to identify the human rights most at risk of severe negative impact through the company’s activities and business relationships.",context,Microsoft human rights risks context industry peers comparison
+normalized_claim_66,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_66,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_66,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_66,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_66,,context,Microsoft responsible AI report ethics governance
+normalized_claim_24,"Microsoft's total energy consumption increased from 11,283,502 MWh in FY20 to 30,207,220 MWh in FY24.",verification,Microsoft energy consumption FY20-FY24 verification
+normalized_claim_24,"Microsoft's total energy consumption increased from 11,283,502 MWh in FY20 to 30,207,220 MWh in FY24.",contradiction,Microsoft energy increase contradiction environmental goals
+normalized_claim_24,"Microsoft's total energy consumption increased from 11,283,502 MWh in FY20 to 30,207,220 MWh in FY24.",criticism,Critics of Microsoft's energy consumption increase
+normalized_claim_24,"Microsoft's total energy consumption increased from 11,283,502 MWh in FY20 to 30,207,220 MWh in FY24.",methodology,Microsoft FY20-FY24 energy calculation methodology
+normalized_claim_24,"Microsoft's total energy consumption increased from 11,283,502 MWh in FY20 to 30,207,220 MWh in FY24.",context,Microsoft's energy consumption increase context industry peers
+normalized_claim_111,risks & safety monitoring in Azure OpenAI Service to detect misuse of generative applications,verification,Microsoft Azure OpenAI Service misuse detection implementation
+normalized_claim_111,risks & safety monitoring in Azure OpenAI Service to detect misuse of generative applications,contradiction,Microsoft AI ethics controversies
+normalized_claim_111,risks & safety monitoring in Azure OpenAI Service to detect misuse of generative applications,criticism,Critiques of Microsoft's generative AI governance
+normalized_claim_111,risks & safety monitoring in Azure OpenAI Service to detect misuse of generative applications,methodology,Microsoft Azure OpenAI Service misuse detection methodology
+normalized_claim_111,risks & safety monitoring in Azure OpenAI Service to detect misuse of generative applications,context,Microsoft's generative AI governance compared to competitors
+normalized_claim_111,,verification,Microsoft responsible AI standard transparency note governance
+normalized_claim_111,,contradiction,Microsoft responsible AI criticism accountability
+normalized_claim_111,,criticism,Microsoft responsible AI concerns external review
+normalized_claim_111,,methodology,Microsoft responsible AI standard NIST AI Risk Management Framework
+normalized_claim_111,,context,Microsoft responsible AI report ethics governance
