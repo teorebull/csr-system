@@ -263,7 +263,6 @@ def main() -> None:
             log_placeholder = st.empty()
             result_box = st.empty()
             queue: Queue[str] = st.session_state.progress_queue
-
             with st.spinner("Running workflow..."):
                 args = [
                     sys.executable,
@@ -288,6 +287,7 @@ def main() -> None:
 
                 env = os.environ.copy()
                 env["PYTHONUNBUFFERED"] = "1"
+                env["COMPANY_NAME"] = company
                 env["AGENT_9_PROVIDER"] = agent_9_provider
                 env["AGENT_9_MODEL"] = agent_9_model
                 if agent_9_provider == "gemini":

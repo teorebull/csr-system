@@ -1,0 +1,28 @@
+{
+  "160a7d047896fdd7c074f4273875f0f6a6c8015734fbeaf8ab9ab43acb4c8740": {
+    "normalized_claim_id": "normalized_claim_43",
+    "claim_text": "Meta collaborated with the Asian American Journalists Association’s Asia Chapter (AAJA-Asia) to survey more than 1,200 journalists in Asia on how DEI is reported in the news — and how diversity impacts newsroom staffing.",
+    "claim_family": "governance_ai",
+    "final_label": "UNVERIFIED",
+    "greenwashing_risk_level": "MEDIUM",
+    "evidence_relevance": "INDIRECT",
+    "justification": "The evidence indicates that Meta has stopped publishing diversity data and may be scaling back on its DEI initiatives, but it does not directly address the specific claim about collaborating with AAJA-Asia to survey journalists in Asia. The evidence is more related to overall company-level actions rather than a specific project.",
+    "risk_reasoning": "The indirect nature of the evidence suggests that there might be context-specific risks regarding Meta's commitment to DEI initiatives, but it does not directly contradict or verify the claim about the journalist survey.",
+    "top_evidence_url": "https://www.wired.com/story/google-microsoft-and-meta-have-stopped-publishing-workforce-diversity-data/",
+    "top_evidence_title": "Google, Microsoft, and Meta Have Stopped Publishing Workforce Diversity Data | WIRED",
+    "supporting_excerpt": "Meta spokesperson Tracy Clayton confirmed the company will not be publishing a diversity report this year. He declined to elaborate on the decision."
+  },
+  "efb96f73cc50afc3d985d4c3703aed9675e07b3f5a0cc6f25c74da0f726b7506": {
+    "normalized_claim_id": "normalized_claim_39",
+    "claim_text": "The company spent more than $306 million with Black-owned businesses and $1.26 billion with U.S. certified diverse companies in 2021 — nearly double the spend the year before.",
+    "claim_family": "environmental",
+    "final_label": "UNVERIFIED",
+    "greenwashing_risk_level": "UNCLEAR",
+    "evidence_relevance": "UNRELATED",
+    "justification": "The evidence provided does not address the company's spending with Black-owned businesses or U.S. certified diverse companies in 2021.",
+    "risk_reasoning": "Since the evidence is unrelated to the claim, it neither supports nor contradicts the statement, and thus the greenwashing risk cannot be assessed beyond being UNCLEAR.",
+    "top_evidence_url": "https://trellis.net/article/amazon-google-meta-and-microsoft-go-nuclear/",
+    "top_evidence_title": "Amazon, Google, Meta and Microsoft go nuclear",
+    "supporting_excerpt": ""
+  }
+}

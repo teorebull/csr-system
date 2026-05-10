@@ -1,0 +1,377 @@
+\section{Materials and Methods}
+
+This chapter presents the prototype developed for CSR disclosure analysis and greenwashing-risk assessment. The implementation is available at \url{https://github.com/teorebull/csr-system}.
+
+At a high level, the system reads corporate disclosure PDFs, extracts the claims that matter most, searches for external evidence, and turns the evidence pattern into a final judgment. The workflow is end to end: from input documents to a structured report.
+
+The design follows a simple principle. The prototype should not only produce an answer, but also show how that answer is obtained. For this reason, every stage stores intermediate outputs that can be inspected separately.
+
+\subsection{System Architecture Overview}
+
+The system is organized as a sequential pipeline. Each stage solves one part of the problem and passes its output to the next stage.
+
+\begin{quote}
+\texttt{PDFs -> claims -> queries -> web search -> evidence fetch -> reranking -> evidence analysis -> final judgment -> report}
+\end{quote}
+
+The problem it addresses is the gap between what a company says in its disclosures and what can be verified externally. CSR reports contain many statements, but only some of them are useful for assessing credibility. The system filters, ranks, and checks those statements against public sources.
+
+Figure~1 should show the overall architecture and the flow between stages.
+
+\subsubsection{High-Level Architecture}
+
+The prototype is built as a modular analysis pipeline. The first part of the workflow deals with the internal documents, the middle part generates and executes external searches, and the last part converts evidence into a claim-level and document-level judgment.
+
+The architecture is intentionally narrow. It focuses on one task: assessing whether the company's sustainability discourse is supported, partially supported, unresolved, or challenged by external evidence.
+
+The workflow is split into nine stages:
+
+\begin{enumerate}
+    \item \textbf{Document Loader:} reads the disclosure PDFs, extracts page text, and stores document metadata and page provenance for later stages. In the current implementation, this step supports multi-document runs from company-specific raw folders and can be limited for smoke tests with document and page caps.
+    \item \textbf{Claim Extractor:} identifies factual, checkable claims from each page and removes statements that are too vague or purely rhetorical. This is one of the slowest stages when the cache is cold, so the implementation persists a claim-extraction cache keyed by document and page information.
+    \item \textbf{Claim Normalizer and Prioritizer:} groups similar claims, removes future-looking material from the main analysis, and selects the most informative claims. The current design caps the final claim set at 15 claims in total and 3 claims per document, so the analysis does not get dominated by a single report section.
+    \item \textbf{Query Generator:} turns each selected claim into one or more search queries designed to find support, contradiction, or context. This stage currently depends on local Ollama availability and uses a local model, so it is part of the reproducible offline path rather than an external API dependency.
+    \item \textbf{Web Search:} retrieves public sources that mention the same topic and filters out low-quality or company-controlled results. The search layer is explicitly designed to avoid company-owned domains and noisy sources such as social media pages when they are not useful as evidence.
+    \item \textbf{Evidence Fetcher:} downloads the selected sources and extracts the relevant text for analysis. The implementation uses article extraction for web pages and PDF parsing for documents, then drops empty or uninformative evidence early.
+    \item \textbf{Reranker:} scores the retrieved passages and keeps the most relevant evidence for each claim. It combines semantic similarity with heuristic signals so the final evidence set is more claim-specific and less noisy.
+    \item \textbf{Evidence Analyzer:} compares each claim with its evidence and assigns a support label, a relevance label, and a short justification. Weak contextual criticism is not treated as direct contradiction, and missing evidence maps to an unresolved state instead of an automatic negative verdict.
+    \item \textbf{Judge and Final Report:} aggregates the claim-level assessments into a final report and produces the overall verdict. The current verdict is based on the environmental claim subset, while governance and AI-transparency claims remain visible but do not drive the final greenwashing conclusion.
+\end{enumerate}
+
+\subsubsection{Workflow Logic}
+
+The pipeline is designed to behave like a fact-checking workflow, but adapted to CSR discourse. It does not try to inspect every sentence equally. Instead, it concentrates on the claims that are most likely to affect the final evaluation.
+
+This is important because sustainability reports mix hard facts, soft claims, future plans, and reputation-building statements. Treating them all the same would make the analysis noisy and less useful.
+
+The system therefore separates the steps of extraction, prioritization, retrieval, and judgment. That separation makes the output easier to explain and easier to audit.
+
+The workflow also has a clear traceability chain. Each main stage writes a separate artifact, so the path from raw PDFs to the final report can be followed through the intermediate files. In practice, the current LangGraph path writes outputs such as \texttt{claims.csv}, \texttt{prioritized\_claims.csv}, \texttt{queries.csv}, \texttt{search\_results.csv}, \texttt{evidence\_candidates.csv}, \texttt{ranked\_evidence.csv}, \texttt{claim\_assessments.csv}, and \texttt{final\_report.json}.
+
+\subsubsection{Pipeline Summary}
+
+Table~1 should summarize the nine stages with three columns: input, output, and purpose.
+
+\subsection{Design Principles}
+
+The system follows several design principles derived from software engineering practice and LLM-based application design.
+
+\begin{enumerate}
+    \item \textbf{Modularity:} each component has a clear responsibility and a defined interface, so it can be tested or replaced independently. This matches the repository structure, where each agent is implemented in a separate pipeline module and wrapped by LangGraph nodes.
+    \item \textbf{Structured outputs:} intermediate data is stored in consistent formats, which reduces ambiguity in downstream stages. The output files are not just logs; they are the actual handoff between agents.
+    \item \textbf{Transparency:} the full evidence chain is preserved, from source documents to final verdict. This is why the pipeline keeps claim, query, search, evidence, and assessment artifacts separately.
+    \item \textbf{Progressive enhancement:} if a stage produces weak output, the pipeline still continues with the best available evidence instead of failing completely. In practice, this means weak evidence becomes unresolved rather than forcing a false contradiction.
+    \item \textbf{Cost-conscious design:} limits on claims, queries, and evidence items keep the workflow manageable. The prioritization caps are part of this, because they prevent a long report from exploding into an unbounded analysis.
+    \item \textbf{Reproducibility:} deterministic settings and cached artifacts reduce variation between runs. The current implementation also supports resuming from later stages, which is important when only one part of the pipeline needs to be rerun.
+    \item \textbf{Separation of concerns:} classical processing handles filtering, ranking, and bookkeeping, while language models are reserved for tasks that require interpretation. This is also why the FAISS-based retrieval sidecar is kept separate from the main external-evidence path.
+\end{enumerate}
+
+These principles are especially relevant in a thesis project, where the goal is not only to obtain results, but also to justify why the results are trustworthy.
+
+\subsection{Technology Stack}
+
+\subsubsection{Core Technologies}
+
+Table~2 presents the core technologies employed in the implementation.
+
+% Table 2: Core technology stack
+% \begin{table}[h]
+% \centering
+% \begin{tabular}{|l|l|l|l|}
+% \hline
+% Category & Technology & Version & Purpose \\
+% \hline
+% Language & Python & 3.12 & Core implementation \\
+% Workflow orchestration & LangGraph & >=0.2.0 & Agent orchestration \\
+% Validation & Pydantic & >=2.0.0 & Schema definitions and runtime validation \\
+% Web interface & Streamlit & >=1.0.0 & Result inspection and execution interface \\
+% Web search & ddgs & current & Public search retrieval \\
+% Content extraction & trafilatura, PyMuPDF & current & Article and PDF text extraction \\
+% Embeddings & sentence-transformers, torch & current & Semantic ranking support \\
+% Vector search & FAISS & current & Local retrieval sidecar \\
+% Data handling & pandas & >=2.3 & Tabular processing \\
+% \hline
+% \end{tabular}
+% \caption{Core technology stack}
+% \end{table}
+
+The implementation is deliberately lightweight. The project does not depend on a heavy external platform to run the main workflow.
+
+The codebase is organized around Python modules for each stage, LangGraph for orchestration, and small utility layers for environment handling, company-specific paths, and artifact management. That structure is important because it keeps the thesis implementation close to the actual execution logic.
+
+\subsubsection{Large Language Models}
+
+The prototype uses local language models for the main pipeline stages. This keeps the system self-contained and avoids dependence on external inference services during the thesis runs.
+
+The codebase also supports configurable providers for the final report layer, but the main experimental workflow is designed to operate locally. That choice is consistent with the goals of reproducibility, cost control, and offline execution.
+
+The local model is used because the task is mostly structured analysis rather than open-ended generation. The model needs to extract claims, rewrite queries, interpret evidence, and synthesize a verdict, but not produce long free-form text at every stage.
+
+The current query generation stage uses \texttt{mistral-nemo:latest} through Ollama. That is a practical choice for the thesis because it keeps the pipeline local, but it also means the workflow depends on Ollama being available when the query stage is executed.
+
+\subsubsection{Latency Optimization Strategies}
+
+The pipeline includes several practical optimizations to keep execution time under control.
+
+\begin{enumerate}
+    \item \textbf{Model selection:} lightweight local models are preferred for most steps because they are sufficient for structured extraction and analysis.
+    \item \textbf{Output constraints:} prompts request concise outputs so the model does not produce unnecessary text.
+    \item \textbf{Content trimming:} fetched web content is reduced to the relevant text before being sent to later stages.
+    \item \textbf{Combined operations:} each stage performs one focused task instead of multiple nested interactions.
+    \item \textbf{Caching:} repeated extraction and analysis steps reuse stored results when possible.
+    \item \textbf{Separation of retrieval layers:} external web evidence is kept separate from internal document recall so the two signals do not contaminate each other.
+    \item \textbf{Resumed execution:} the graph runner can restart from intermediate artifacts instead of recomputing the whole pipeline.
+    \item \textbf{Per-node timing:} the main runner prints stage timing, which makes slow points visible during development and thesis evaluation.
+\end{enumerate}
+
+These strategies reduce latency without changing the basic logic of the workflow.
+
+\subsection{Pipeline Components}
+
+This section describes the nine-stage pipeline used to move from PDF disclosures to a company-level credibility assessment. The document below preserves the architectural decomposition used in the design, and it clarifies the implementation status: the MVP implements the end-to-end flow at a basic level, several stages are already functional in the codebase, and a few components remain under refinement or calibration.
+
+\subsubsection{Stage 1: Document Loader}
+
+The Document Loader reads PDF reports and extracts page-level text, preserving page numbers and basic metadata for provenance and cite-back. It applies simple whitespace cleaning and stores company-specific input folders to keep runs reproducible.
+
+Input: file paths to corporate PDF disclosures.
+
+Output: list of page objects {page_number, cleaned_text, document_metadata}.
+
+Status: fully implemented and stable in the MVP. This stage is the most robust part of the pipeline and is used in all end-to-end runs.
+
+\subsubsection{Stage 2: Claim Extractor}
+
+The Claim Extractor isolates factual, verifiable statements from narrative text. We define a claim as a statement that is specific, externally verifiable, and grounded in present or past information (future targets with firm dates are included but flagged).
+
+Implementation notes: the MVP uses a prompt-based extractor with a small few-shot template and a persistent extraction cache to avoid repeated LLM calls. The component outputs structured claim objects with confidence scores; low-confidence items can be filtered out to prefer precision.
+
+Input: page_text, document_metadata.
+
+Output: List[Claim] (claim_text, claim_type, confidence, page_number).
+
+Status: implemented in the MVP and used in the Microsoft case study. The extraction heuristics and few-shot examples are tuned for precision; further refinement of borderline cases and schema validation is ongoing.
+
+\subsubsection{Stage 3: Claim Normalizer and Prioritizer}
+
+This stage deduplicates semantically similar claims (using embeddings with a high similarity threshold), separates future-oriented targets for separate treatment, and ranks claims by heuristics (specificity, materiality, surprise relative to public perception).
+
+Design choices: the implementation currently caps analysis to a fixed number of prioritized claims per run to control compute cost and focus the thesis evaluation on the most consequential statements.
+
+Status: partially implemented. Deduplication and basic ranking are functional in the MVP; ranking weights and the treatment of long-horizon commitments are being calibrated.
+
+\subsubsection{Stage 4: Query Generator}
+
+The Query Generator creates multiple search formulations per claim to increase retrieval recall: direct keyword queries, paraphrases, and critical/contradictory formulations. The generator extracts entities (company, metric, year) and composes short queries optimized for the chosen search backend.
+
+Status: implemented in a lightweight form in the MVP. Query diversity improves coverage but is a remaining tuning target to balance recall and latency.
+
+\subsubsection{Stage 5: Web Search}
+
+Web Search issues the generated queries to the public web (MVP: ddgs/DuckDuckGo wrapper) and returns ranked search results. The search step includes heuristics to downrank company-owned domains and low-quality sources.
+
+Status: functional in the MVP. Search result quality and API choice affect coverage; the current implementation favors free, reproducible tooling over proprietary APIs.
+
+\subsubsection{Stage 6: Evidence Fetcher}
+
+The Evidence Fetcher downloads candidate URLs and extracts article text (HTML) or page-level PDF text, removing boilerplate to isolate content suitable for analysis. Failed fetches are discarded early.
+
+Status: implemented and used in end-to-end runs; extraction quality varies by source and is an area for incremental improvement.
+
+\subsubsection{Stage 7: Reranker}
+
+The Reranker scores individual passages against the original claim using semantic embeddings and auxiliary signals such as source authority. It returns the top-N passages per claim for detailed analysis.
+
+Status: present in the MVP as a semantic-similarity based filter. The scoring policy is being refined to reduce false positives where topical similarity does not imply verification.
+
+\subsubsection{Stage 8: Evidence Analyzer}
+
+The Evidence Analyzer interprets the top passages and assigns a verdict per claim: Supported, Partially Supported, Unresolved, or Challenged. Each verdict is accompanied by a short justification and a confidence score.
+
+Implementation notes: the MVP uses a few-shot LLM prompt to reason over the claim and selected passages and requires quoted evidence in the justification to reduce hallucination.
+
+Status: available as a prototype in the MVP and applied in the Microsoft run; explanation quality and edge-case handling (mixed or conflicting evidence) are active work items.
+
+\subsubsection{Stage 9: Judge and Final Report}
+
+The Judge aggregates claim-level verdicts into company-level summaries: counts by label, representative examples, and a conservative greenwashing-risk assessment (Low/Moderate/High) derived from the environmental subset of claims.
+
+Status: implemented in the MVP as a deterministic aggregation layer; calibration of thresholds and report formatting is ongoing.
+
+\subsection{Implementation status summary}
+
+The MVP implements the full pipeline at a basic level. The Document Loader, Evidence Fetcher and the end-to-end orchestration are the most stable components. Claim extraction, query generation, reranking and the analyzer are functional but are still being refined for robustness and precision. The Judge aggregates outputs deterministically but its calibration and final textual presentation remain work in progress.
+
+Where the thesis reports an "end-to-end run" (e.g., the Microsoft case study), this indicates the MVP executed the full flow; in these cases, some stages used prototype heuristics or simplified models rather than final, production-grade components.
+
+
+\subsection{Methodology Chosen}
+
+An agent-based workflow was the most suitable choice because the task is not a single prediction problem. It requires document reading, claim selection, evidence retrieval, ranking, interpretation, and synthesis.
+
+The methodology also reflects the structure of the research question. The project asks whether CSR discourse is credible when compared with external sources, so the system must first isolate claims and then verify them in stages.
+
+Claims are prioritized instead of processed equally because the report contains a large number of statements with different importance. The method therefore focuses on the claims that are most likely to influence the final judgment.
+
+This is a more realistic design than a one-shot approach. A single prompt over the entire report would be simpler, but it would hide the path from claim to evidence to verdict. The thesis needs that path to be visible.
+
+\subsection{Alternatives Considered}
+
+Several simpler alternatives were considered.
+
+A manual fact-checking workflow would have been easier to explain, but it would not scale and would not produce a reproducible system.
+
+A single LLM pass over the whole report would have been simpler to implement, but it would be less traceable and harder to debug.
+
+Claim extraction without external evidence would not support a credibility assessment, and web search without claim normalization would produce too much noise.
+
+The chosen design is more complex than these alternatives, but it is better aligned with the goal of producing an explainable end-to-end method.
+
+Another alternative was to fold internal retrieval into the external evidence path, but that made the system less clear. In the current repo, the FAISS-based retrieval layer remains separate on purpose, because the final thesis question depends on external verification, not just internal semantic recall.
+
+\subsection{Data and Materials Used}
+
+The main input data are corporate disclosure PDFs. Microsoft is the principal case study because it produced the most complete and useful end-to-end run.
+
+Other companies were also tested to check whether the pipeline behaves consistently across different document sets. The external evidence came from public web pages, news articles, and public documents that could support, challenge, or contextualize the extracted claims.
+
+The project also includes a local retrieval sidecar based on embeddings and FAISS, but this is kept separate from the external web-evidence workflow.
+
+This separation matters for interpretation. The thesis should not present the internal retrieval sidecar as if it were the main evidence source, because the actual greenwashing judgment depends on external sources.
+
+\subsection{Products Obtained}
+
+The implementation produces the following outputs:
+
+\begin{enumerate}
+    \item extracted claims
+    \item normalized claims
+    \item prioritized claims
+    \item generated queries
+    \item search results
+    \item extracted evidence passages
+    \item reranked evidence
+    \item claim assessments
+    \item final report
+\end{enumerate}
+
+The Streamlit interface is used as a presentation layer to inspect these outputs and execute the pipeline.
+
+The output chain is important because it allows the thesis to show the work product of each stage, not only the final verdict. That is one of the strongest arguments for the quality of the implementation.
+
+\subsection{Ethical and Practical Considerations}
+
+The prototype works with public corporate documents and public external sources. It does not require sensitive personal data for the main case study.
+
+The practical limitation is that the system is not an audit tool. It is a research prototype for assessing discourse credibility, not a legal or regulatory determination.
+
+This should be stated clearly in the thesis because it sets the right expectation. The system can support an evidence-based discussion of credibility, but it does not replace formal compliance review or legal analysis.
+
+\section{Results}
+
+\subsection{Results Overview}
+
+The main results are based on the Microsoft run. This is the clearest example of the pipeline working end to end.
+
+The results section should report how many documents were processed, how many claims were extracted, how many were prioritized, and how many were analyzed in the final report.
+
+\subsection{Quantitative Results}
+
+Insert the main numbers here:
+
+\begin{itemize}
+    \item documents processed
+    \item claims extracted
+    \item claims normalized
+    \item claims prioritized
+    \item claims analyzed
+    \item direct evidence count
+    \item indirect evidence count
+    \item background evidence count
+    \item unrelated evidence count
+\end{itemize}
+
+It is useful to present these values in a table.
+
+\subsection{Qualitative Results}
+
+This subsection should explain what the numbers mean. The main question is whether the company's claims are mostly supported, partly supported, unresolved, or challenged by the external evidence.
+
+The discussion should stay concrete. It should identify which claims are stronger, which are weaker, and what this suggests about the credibility of the company's sustainability discourse.
+
+\subsection{Representative Claims}
+
+Include only a small number of examples.
+
+For each example, write:
+
+\begin{enumerate}
+    \item what the company claims
+    \item what the external evidence shows
+    \item whether the claim is supported, partly supported, or unresolved
+    \item why this matters for the final judgment
+\end{enumerate}
+
+\subsection{Final Verdict}
+
+State the overall verdict clearly. Use one of these patterns, depending on the evidence:
+
+\begin{itemize}
+    \item the evidence suggests greenwashing risk
+    \item the evidence is mixed
+    \item the evidence is broadly supportive
+\end{itemize}
+
+Then explain why that verdict is justified.
+
+\subsection{Comparison Across Runs}
+
+If included, mention briefly that Microsoft was the strongest baseline and that other companies behaved differently depending on the document set and the available external evidence.
+
+\section{Limitations}
+
+The main limitations are the following:
+
+\begin{itemize}
+    \item some claims are repetitive or very metric-heavy
+    \item some claims are difficult to verify externally
+    \item some disclosures are future-oriented
+    \item the result depends strongly on the selected document set
+    \item the prototype is not a full audit tool
+\end{itemize}
+
+This section should stay short and honest.
+
+\section{Discussion and Conclusion}
+
+\subsection{Discussion}
+
+The main contribution of the prototype is the combination of claim extraction, external evidence retrieval, and final judgment in a single workflow.
+
+The Microsoft case is important because it shows that the system can move from raw disclosure PDFs to a defensible evidence-based summary.
+
+\subsection{Conclusion}
+
+End with a direct answer to the research question. State whether the available evidence suggests greenwashing risk, whether the evidence is mixed, or whether the company appears mostly credible.
+
+Add one short sentence about confidence and one short sentence about the main limitation.
+
+\section{Where to Put Figures and Tables}
+
+\subsection{Figure}
+
+Include one pipeline diagram in the methodology section. It should show the full flow from PDFs to final report.
+
+\subsection{Tables}
+
+Include one technology table in the methodology section and one summary table in the results section.
+
+\section{Writing Rules}
+
+\begin{itemize}
+    \item use short paragraphs
+    \item avoid internal IDs in the visible narrative
+    \item avoid overcomplicated wording
+    \item be direct and specific
+    \item explain what the system does and what the results mean
+\end{itemize}

@@ -1,14 +1,12 @@
-# M3 Draft
+# Chapter 3. Materials and Methods
 
-## 3 Materials and Methods
+This chapter presents the prototype developed for CSR disclosure analysis and greenwashing-risk assessment. The implementation is available at `https://github.com/teorebull/csr-system`.
 
-This chapter presents the prototype developed for CSR disclosure analysis and greenwashing-risk assessment. The implementation code is available at `https://github.com/teorebull/csr-system`.
-
-At a high level, the system reads corporate disclosure PDFs, extracts the claims that matter most, searches for external evidence, and turns the evidence pattern into a final judgment. The complete workflow is end-to-end which goes from input documents to a structured report.
+At a high level, the system reads corporate disclosure PDFs, extracts the claims that matter most, searches for external evidence, and turns the evidence pattern into a final judgment. The workflow is end to end: from input documents to a structured report.
 
 The design follows a simple principle. The prototype should not only produce an answer, but also show how that answer is obtained. For that reason, every stage stores intermediate outputs that can be inspected separately.
 
-### 3.1 System Architecture Overview
+## 3.1 System Architecture Overview
 
 The system is organized as a sequential pipeline. Each stage solves one part of the problem and passes its output to the next stage.
 
@@ -18,7 +16,7 @@ The problem it addresses is the gap between what a company says in its disclosur
 
 Figure 1 should show the overall architecture and the flow between stages.
 
-#### 3.1.1 High-Level Architecture
+### 3.1.1 High-Level Architecture
 
 The prototype is built as a modular analysis pipeline. The first part of the workflow deals with the internal documents, the middle part generates and executes external searches, and the last part converts evidence into a claim-level and document-level judgment.
 
@@ -36,19 +34,19 @@ The workflow is split into nine stages:
 8. Evidence Analyzer: compares each claim with its evidence and assigns a support label, a relevance label, and a short justification.
 9. Judge and Final Report: aggregates the claim-level assessments into a final report and produces the overall verdict.
 
-#### 3.1.2 Workflow Logic
+### 3.1.2 Workflow Logic
 
 The pipeline is designed to behave like a fact-checking workflow, but adapted to CSR discourse. It does not try to inspect every sentence equally. Instead, it concentrates on the claims that are most likely to affect the final evaluation.
 
-This is important because sustainability reports mix hard facts, soft claims, strategic language, future plans, and reputation-building statements. Treating them all the same would make the analysis noisy and less useful.
+This is important because sustainability reports mix hard facts, soft claims, future plans, and reputation-building statements. Treating them all the same would make the analysis noisy and less useful.
 
 The system therefore separates the steps of extraction, prioritization, retrieval, and judgment. That separation makes the output easier to explain and easier to audit.
 
-#### 3.1.3 Pipeline Summary
+### 3.1.3 Pipeline Summary
 
 Table 2 should summarize the nine stages with three columns: input, output, and purpose.
 
-### 3.2 Design Principles
+## 3.2 Design Principles
 
 The system follows several design principles derived from software engineering practice and LLM-based application design.
 
@@ -62,13 +60,11 @@ The system follows several design principles derived from software engineering p
 
 These principles are especially relevant in a thesis project, where the goal is not only to obtain results, but also to justify why the results are trustworthy.
 
-### 3.3 Technology Stack
+## 3.3 Technology Stack
 
-#### 3.3.1 Core Technologies
+### 3.3.1 Core Technologies
 
 Table 1 presents the core technologies employed in the implementation.
-
-Table 1: Core technology stack
 
 | Category | Technology | Version | Purpose |
 | --- | --- | --- | --- |
@@ -84,7 +80,7 @@ Table 1: Core technology stack
 
 The implementation is deliberately lightweight. The project does not depend on a heavy external platform to run the main workflow.
 
-#### 3.3.2 Large Language Models
+### 3.3.2 Large Language Models
 
 The prototype uses local language models for the main pipeline stages. This keeps the system self-contained and avoids dependence on external inference services during the thesis runs.
 
@@ -92,7 +88,7 @@ The codebase also supports configurable providers for the final report layer, bu
 
 The local model is used because the task is mostly structured analysis rather than open-ended generation. The model needs to extract claims, rewrite queries, interpret evidence, and synthesize a verdict, but not produce long free-form text at every stage.
 
-#### 3.3.3 Latency Optimization Strategies
+### 3.3.3 Latency Optimization Strategies
 
 The pipeline includes several practical optimizations to keep execution time under control.
 
@@ -105,65 +101,65 @@ The pipeline includes several practical optimizations to keep execution time und
 
 These strategies reduce latency without changing the basic logic of the workflow.
 
-### 3.4 Pipeline Components
+## 3.4 Pipeline Components
 
 The implementation is divided into nine agents. Each one corresponds to a specific stage in the end-to-end process.
 
-#### 3.4.1 Document Loader
+### 3.4.1 Document Loader
 
 The Document Loader reads the corporate disclosure PDFs and extracts page-level text. It also stores document metadata so later stages can preserve provenance.
 
 This component solves the first practical problem in the pipeline: turning static PDF reports into text that can be analyzed systematically.
 
-#### 3.4.2 Claim Extractor
+### 3.4.2 Claim Extractor
 
 The Claim Extractor identifies factual and verifiable statements in the disclosure pages. Its role is not to summarize the document, but to isolate the claims that can later be checked against external evidence.
 
 This component is essential because CSR reports often contain a mix of measurable claims, narrative statements, and future commitments. Only the first category is directly useful for credibility analysis.
 
-#### 3.4.3 Claim Normalizer and Prioritizer
+### 3.4.3 Claim Normalizer and Prioritizer
 
 The Claim Normalizer and Prioritizer groups similar claims, removes duplicates, separates future-oriented claims, and ranks the remaining claims by usefulness.
 
 The purpose is to keep the final analysis focused. A report may contain many repeated sustainability statements, but not all of them deserve equal attention.
 
-#### 3.4.4 Query Generator
+### 3.4.4 Query Generator
 
 The Query Generator transforms each selected claim into a set of search queries. The queries are diversified so that the retrieval step can find direct support, alternative wording, critical context, or contradictory evidence.
 
 This stage makes the pipeline more robust. If one search formulation fails, another can still surface relevant sources.
 
-#### 3.4.5 Web Search
+### 3.4.5 Web Search
 
 The Web Search component retrieves public sources that mention the same topic as the claim. It excludes company-controlled domains and filters weak sources so that the evidence pool is not dominated by self-referential material.
 
 This component provides the external comparison layer needed for the thesis. Without it, the system would only restate the company’s own discourse.
 
-#### 3.4.6 Evidence Fetcher
+### 3.4.6 Evidence Fetcher
 
 The Evidence Fetcher opens the selected sources and extracts the relevant text from each one. It uses article extraction for HTML pages and PDF extraction for documents.
 
 This step converts search results into analyzable evidence. It is the bridge between retrieval and interpretation.
 
-#### 3.4.7 Reranker
+### 3.4.7 Reranker
 
 The Reranker scores the retrieved passages and keeps the most relevant ones for each claim. It combines semantic similarity with additional signals such as source quality and query type.
 
 This reduces noise in the evidence set and increases the chance that the analyzer receives the most useful material.
 
-#### 3.4.8 Evidence Analyzer
+### 3.4.8 Evidence Analyzer
 
 The Evidence Analyzer compares each claim with its supporting or conflicting evidence. It assigns a support label, an evidence relevance label, and a short explanation.
 
 This stage turns retrieval into judgment. It is where the system moves from “what was found” to “what the evidence means.”
 
-#### 3.4.9 Judge and Final Report
+### 3.4.9 Judge and Final Report
 
 The Judge and Final Report component aggregates the claim-level outputs into a final company-level summary. It counts the labels, highlights the most relevant patterns, and produces the final verdict.
 
 This final stage is the thesis-facing output of the system. It is the point where the workflow becomes a readable result rather than a set of intermediate artifacts.
 
-### 3.5 Methodology Chosen
+## 3.5 Methodology Chosen
 
 An agent-based workflow was the most suitable choice because the task is not a single prediction problem. It requires document reading, claim selection, evidence retrieval, ranking, interpretation, and synthesis.
 
@@ -171,7 +167,7 @@ The methodology also reflects the structure of the research question. The projec
 
 Claims are prioritized instead of processed equally because the report contains a large number of statements with different importance. The method therefore focuses on the claims that are most likely to influence the final judgment.
 
-### 3.6 Alternatives Considered
+## 3.6 Alternatives Considered
 
 Several simpler alternatives were considered.
 
@@ -183,7 +179,7 @@ Claim extraction without external evidence would not support a credibility asses
 
 The chosen design is more complex than these alternatives, but it is better aligned with the goal of producing an explainable end-to-end method.
 
-### 3.7 Data and Materials Used
+## 3.7 Data and Materials Used
 
 The main input data are corporate disclosure PDFs. Microsoft is the principal case study because it produced the most complete and useful end-to-end run.
 
@@ -191,7 +187,7 @@ Other companies were also tested to check whether the pipeline behaves consisten
 
 The project also includes a local retrieval sidecar based on embeddings and FAISS, but this is kept separate from the external web-evidence workflow.
 
-### 3.8 Products Obtained
+## 3.8 Products Obtained
 
 The implementation produces the following outputs:
 
@@ -207,7 +203,7 @@ The implementation produces the following outputs:
 
 The Streamlit interface is used as a presentation layer to inspect these outputs and execute the pipeline.
 
-### 3.9 Ethical and Practical Considerations
+## 3.9 Ethical and Practical Considerations
 
 The prototype works with public corporate documents and public external sources. It does not require sensitive personal data for the main case study.
 
