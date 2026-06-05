@@ -104,7 +104,7 @@ This report links each prioritized CSR claim to its original corporate source an
 - Final label: `SUPPORTED`
 - Evidence relevance: `DIRECT`
 - CSR credibility signal / greenwashing-risk level: `LOW`
-- Justification: The evidence directly supports the claim by describing Microsoft’s Responsible AI Standard and its principles.
+- Justification: The evidence provided directly supports the claim that Microsoft's Responsible AI Standard defines requirements for designing, building, and testing AI systems responsibly by providing a detailed overview of its principles and governance framework.
 ### normalized_claim_22
 - Claim ID: `normalized_claim_22`
 - Full claim text: Microsoft procures renewable energy from on-site generation, unbundled EACs, PPAs, and green power products to match 100% of its global electricity consumption.

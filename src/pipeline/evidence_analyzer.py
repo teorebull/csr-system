@@ -10,6 +10,8 @@ from urllib import request
 
 from pydantic import BaseModel
 
+from src.pipeline._io import read_csv_rows, write_csv_rows
+
 
 LOCAL_MODEL = "qwen2.5:14b"
 TOP_K_EVIDENCE = 3
@@ -40,12 +42,7 @@ CONTRADICTION_LABELS = {"PARTIALLY_CONTRADICTED", "CONTRADICTED"}
 def load_csv_rows(csv_path: Path) -> list[dict]:
     """Load evidence or claim rows from disk."""
 
-    rows = []
-    with open(csv_path, "r", encoding="utf-8") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            rows.append(row)
-    return rows
+    return read_csv_rows(csv_path)
 
 
 def build_claim_lookup(claims: list[dict]) -> dict:
@@ -223,14 +220,6 @@ def call_ollama(prompt: str) -> str:
     with request.urlopen(req) as response:
         result = json.loads(response.read().decode("utf-8"))
     return result["response"]
-
-
-def is_ollama_available() -> bool:
-    try:
-        with request.urlopen(OLLAMA_TAGS_URL, timeout=5):
-            return True
-    except Exception:
-        return False
 
 
 def normalize_label(label: str) -> str:
@@ -476,13 +465,8 @@ def analyze_all_claims(claim_lookup: dict, grouped_evidence: dict, cache: dict) 
 
 
 def save_assessments_csv(rows: list[dict], output_path: Path) -> None:
-    output_file = Path(output_path)
-    output_file.parent.mkdir(parents=True, exist_ok=True)
-    with output_file.open("w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(
-            file,
-            fieldnames=["normalized_claim_id", "claim_text", "final_label", "greenwashing_risk_level", "evidence_relevance", "justification", "risk_reasoning", "top_evidence_url", "top_evidence_title", "supporting_excerpt"],
-        )
-        writer.writeheader()
-        for row in rows:
-            writer.writerow(row)
+    write_csv_rows(
+        rows,
+        output_path,
+        fieldnames=["normalized_claim_id", "claim_text", "final_label", "greenwashing_risk_level", "evidence_relevance", "justification", "risk_reasoning", "top_evidence_url", "top_evidence_title", "supporting_excerpt"],
+    )

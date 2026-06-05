@@ -264,6 +264,7 @@ def compute_specificity(claim: dict, evidence: dict) -> tuple[float, str]:
     if scope_note:
         notes.append(scope_note)
 
+    # These groups encode the claim features that matter most for a precise match.
     term_groups = [
         ({"market-based", "market based"}, "market_based"),
         ({"location-based", "location based"}, "location_based"),
@@ -407,6 +408,7 @@ def diversify_ranked_rows(rows: list[dict]) -> list[dict]:
     used_query_types = set()
     used_urls = set()
 
+    # Keep the shortlist varied so one query type or URL does not dominate.
     for row in sorted_rows:
         query_type = row.get("query_type", "")
         url = row.get("url", "")

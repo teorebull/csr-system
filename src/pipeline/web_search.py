@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 
 from ddgs import DDGS
 
+from src.pipeline._io import read_csv_rows
 from src.schemas.query import SearchQuery, SearchResult
 from src.utils.company import company_keywords
 
@@ -152,14 +153,7 @@ def filter_external_results(results: list[dict], company_name: str) -> list[dict
 def load_queries(csv_path: Path) -> list[dict]:
     """Load query rows from disk for search execution."""
 
-    queries = []
-
-    with open(csv_path, "r", encoding="utf-8") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            queries.append(row)
-
-    return queries
+    return read_csv_rows(csv_path)
 
 
 def _query_claim_id(query: dict) -> str:

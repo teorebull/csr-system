@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib import request
 
+from src.pipeline._io import read_csv_rows, read_json_dict, write_csv_rows, write_json_dict
 from src.utils.env import load_local_env
 
 
@@ -71,27 +72,13 @@ RELEVANCE_SCORE = {
 def load_csv_rows(csv_path: Path) -> list[dict]:
     """Load report rows from a CSV artifact."""
 
-    path = Path(csv_path)
-    if not path.exists():
-        return []
-
-    rows = []
-    with path.open("r", encoding="utf-8") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            rows.append(row)
-    return rows
+    return read_csv_rows(csv_path)
 
 
 def load_json_file(json_path: Path):
     """Load a JSON artifact if it exists."""
 
-    if not json_path.exists():
-        return None
-    try:
-        return json.loads(json_path.read_text(encoding="utf-8"))
-    except Exception:
-        return None
+    return read_json_dict(json_path) or None
 
 
 def count_rows(csv_path: Path) -> int:
@@ -280,6 +267,7 @@ def materiality_score(claim: dict) -> float:
 
     text = claim_text_blob(claim)
     score = 0.0
+    # Each keyword family adds weight when the claim touches a core theme.
     for theme_keywords in CORE_MATERIALITY_KEYWORDS.values():
         if any(keyword in text for keyword in theme_keywords):
             score += 0.45
@@ -340,6 +328,7 @@ def build_conclusion(label_counts: dict, risk_counts: dict, total_claims: int, f
 
     if total_claims == 0:
         return "No claims were analyzed, so no overall conclusion can be drawn."
+    # The conclusion prioritizes the strongest adverse signals first.
     if contradicted > 0:
         return f"The analyzed discourse shows mixed credibility. Some claims are supported or partially supported, but at least {contradicted} claim(s) are contradicted by external evidence, which may indicate potential greenwashing risk or inconsistency in the company's sustainability communication."
     if partially_contradicted > 0:
@@ -392,41 +381,34 @@ def enrich_report_rows(report_rows: list[dict], normalized_claim_lookup: dict[st
 
 
 def save_report_csv(rows: list[dict], output_path: Path) -> None:
-    output_file = Path(output_path)
-    output_file.parent.mkdir(parents=True, exist_ok=True)
-    with output_file.open("w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(
-            file,
-            fieldnames=[
-                "normalized_claim_id",
-                "claim_text",
-                "claim_family",
-                "document_id",
-                "document_name",
-                "page_numbers",
-                "source_locations",
-                "source_excerpts",
-                "final_label",
-                "greenwashing_risk_level",
-                "evidence_relevance",
-                "justification",
-                "risk_reasoning",
-                "top_evidence_url",
-                "top_evidence_title",
-                "materiality_score",
-                "judgment_score",
-                "stance",
-            ],
-        )
-        writer.writeheader()
-        for row in rows:
-            writer.writerow(row)
+    write_csv_rows(
+        rows,
+        output_path,
+        fieldnames=[
+            "normalized_claim_id",
+            "claim_text",
+            "claim_family",
+            "document_id",
+            "document_name",
+            "page_numbers",
+            "source_locations",
+            "source_excerpts",
+            "final_label",
+            "greenwashing_risk_level",
+            "evidence_relevance",
+            "justification",
+            "risk_reasoning",
+            "top_evidence_url",
+            "top_evidence_title",
+            "materiality_score",
+            "judgment_score",
+            "stance",
+        ],
+    )
 
 
 def save_report_json(report: dict, output_path: Path) -> None:
-    output_file = Path(output_path)
-    output_file.parent.mkdir(parents=True, exist_ok=True)
-    output_file.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+    write_json_dict(report, output_path)
 
 
 def infer_theme(claim: dict) -> str:

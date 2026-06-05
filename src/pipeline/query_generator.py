@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import csv
 from pathlib import Path
 from typing import Literal
 
@@ -8,11 +7,19 @@ from langchain_core.messages import HumanMessage
 from langchain_ollama import ChatOllama
 from pydantic import BaseModel
 
+from src.pipeline._io import read_csv_rows
 from src.schemas.query import SearchQuery, SearchQueryType
 
 
 LOCAL_MODEL = "mistral-nemo:latest"
 DEFAULT_DOCUMENT_NAME = "Corporate CSR document"
+QUERY_TYPE_MAP = {
+    "verification": SearchQueryType.VERIFICATION,
+    "contradiction": SearchQueryType.CONTROVERSY,
+    "criticism": SearchQueryType.CONTROVERSY,
+    "methodology": SearchQueryType.REGULATORY,
+    "context": SearchQueryType.TEMPORAL,
+}
 
 
 class QueryItem(BaseModel):
@@ -32,14 +39,7 @@ class QueryList(BaseModel):
 def load_claims(csv_path: Path) -> list[dict]:
     """Load normalized claims from disk for query generation."""
 
-    claims = []
-
-    with open(csv_path, "r", encoding="utf-8") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            claims.append(row)
-
-    return claims
+    return read_csv_rows(csv_path)
 
 
 def build_prompt(claim: dict, company_name: str) -> str:
@@ -120,41 +120,39 @@ def is_ai_governance_claim(claim: dict) -> bool:
 def build_supplemental_queries(claim: dict, company_name: str) -> list[dict]:
     """Add hand-crafted fallback queries for weak or broad claims."""
 
+    def _rows(pairs: list[tuple[str, str]]) -> list[dict]:
+        return [
+            {"normalized_claim_id": claim_id, "query_type": query_type, "query_text": query_text}
+            for query_type, query_text in pairs
+        ]
+
     claim_id = claim["normalized_claim_id"]
     claim_text = claim["claim_text"].lower()
     claim_family = str(claim.get("claim_family", "other")).lower().strip()
     company = str(company_name).strip()
 
     if claim_family == "governance_ai" and is_ai_governance_claim(claim):
-        supplemental_queries = [
+        return _rows([
             ("verification", f"{company} responsible AI standard transparency note governance"),
             ("contradiction", f"{company} responsible AI criticism accountability"),
             ("criticism", f"{company} responsible AI concerns external review"),
             ("methodology", f"{company} responsible AI standard NIST AI Risk Management Framework"),
             ("context", f"{company} responsible AI report ethics governance"),
-        ]
-        return [
-            {"normalized_claim_id": claim_id, "query_type": query_type, "query_text": query_text}
-            for query_type, query_text in supplemental_queries
-        ]
+        ])
 
     if claim_family == "other":
-        supplemental_queries = [
+        return _rows([
             ("verification", f"{company} CSR report policy statement commitment"),
             ("contradiction", f"{company} CSR criticism accountability report"),
             ("criticism", f"{company} corporate responsibility concerns external review"),
             ("methodology", f"{company} corporate responsibility disclosure policy report"),
             ("context", f"{company} CSR external analysis report"),
-        ]
-        return [
-            {"normalized_claim_id": claim_id, "query_type": query_type, "query_text": query_text}
-            for query_type, query_text in supplemental_queries
-        ]
+        ])
 
     if "scope 2" not in claim_text:
         return []
 
-    supplemental_queries = [
+    return _rows([
         ("verification", f"{company} Scope 2 location-based market-based emissions data"),
         ("verification", f"{company} greenhouse gas emissions Scope 2 data"),
         ("verification", f"{company} CDP Scope 2 location-based market-based emissions"),
@@ -162,26 +160,13 @@ def build_supplemental_queries(claim: dict, company_name: str) -> list[dict]:
         ("methodology", f"{company} Scope 2 emissions GHG Protocol market-based location-based accounting"),
         ("criticism", f"{company} renewable energy certificates Scope 2 emissions greenwashing criticism"),
         ("context", f"{company} electricity demand Scope 2 emissions location-based"),
-    ]
-
-    return [
-        {"normalized_claim_id": claim_id, "query_type": query_type, "query_text": query_text}
-        for query_type, query_text in supplemental_queries
-    ]
+    ])
 
 
 def _map_query_type(query_type: str) -> SearchQueryType:
     """Map the local query type to the schema enum."""
 
-    if query_type == "verification":
-        return SearchQueryType.VERIFICATION
-    if query_type in {"contradiction", "criticism"}:
-        return SearchQueryType.CONTROVERSY
-    if query_type == "methodology":
-        return SearchQueryType.REGULATORY
-    if query_type == "context":
-        return SearchQueryType.TEMPORAL
-    return SearchQueryType.OTHER
+    return QUERY_TYPE_MAP.get(query_type, SearchQueryType.OTHER)
 
 
 def generate_queries_for_all_claims(claims: list[dict], company_name: str) -> tuple[list[dict], list[SearchQuery]]:

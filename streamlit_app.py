@@ -104,6 +104,17 @@ def normalize_agent_name(agent_name: str) -> str:
     return NODE_ORDER[0]
 
 
+def current_agent_label(progress_lines: list[str]) -> str:
+    """Return the latest visible stage label from the live log."""
+
+    for line in reversed(progress_lines):
+        if line.startswith("[") and "]" in line:
+            tag = line.split("]", 1)[0].strip("[")
+            if tag in NODE_LABELS:
+                return NODE_LABELS[tag]
+    return ""
+
+
 def run_pipeline_command(
     company: str,
     start_at: str,
@@ -192,13 +203,7 @@ def show_progress_panel() -> None:
         st.info("No workflow run started yet.")
         return
 
-    current_agent = ""
-    for line in reversed(st.session_state.progress_lines):
-        if line.startswith("[") and "]" in line:
-            tag = line.split("]", 1)[0].strip("[")
-            if tag in NODE_LABELS:
-                current_agent = NODE_LABELS[tag]
-                break
+    current_agent = current_agent_label(st.session_state.progress_lines)
 
     if current_agent:
         st.success(f"Current stage: {current_agent}")
@@ -213,13 +218,7 @@ def show_progress_panel() -> None:
 
 
 def render_progress_snapshot(progress_placeholder, log_placeholder) -> None:
-    current_agent = ""
-    for line in reversed(st.session_state.progress_lines):
-        if line.startswith("[") and "]" in line:
-            tag = line.split("]", 1)[0].strip("[")
-            if tag in NODE_LABELS:
-                current_agent = NODE_LABELS[tag]
-                break
+    current_agent = current_agent_label(st.session_state.progress_lines)
 
     with progress_placeholder.container():
         if current_agent:

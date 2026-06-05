@@ -519,114 +519,93 @@ The partnership builds on Microsoft's already preeminent position as a carbon cr
 normalized_claim_22,criticism,Criticism of Microsoft's renewable energy claims,5,Google andMicrosoftsign PPAs forrenewableenergyaccess,https://www.theregister.com/2022/11/24/google_microsoft_renewable_energy/,,1.0,high,"Google andMicrosoftadd morerenewableenergyfor datacenters.Google likewiseclaimedthat its new agreements will bring the company closer to its goal of running entirely on carbon-freeenergysources by 2030, across its UK offices and cloud regions.",article,"MOST POPULAR
 EVENTS
 -
-The Hardware Crunch: How Supply Chain Turbulence Is Forcing a New IT Playbook
-Infrastructure teams are facing a perfect storm: extended hardware lead times, rising costs driven by AI demand, and accelerated platform timelines.
+Overcoming the trade-offs in data sovereignty
+What does data sovereignty actually mean for your network, which trade-offs are unavoidable? Learn more.
 -
 From Prompt to Exploit: How LLMs Are Changing API Attacks
 Modern applications are API-driven, interconnected, and often over-permissioned, making them an ideal target for AI-assisted attacks.
 -
-Identity Resilience: The New Mandate for Cyber Survival
-Join Druva experts for a compelling deep dive into what it takes to build an identity-first recovery strategy in this new threat landscape.
+Architecting the Future: Unlocking Enterprise Data Services for Kubernetes
+Join us to discover how to eliminate infrastructure silos and establish a standardized, enterprise-grade cloud-native platform.
 -
-Identity Resilience: The New Mandate for Cyber Survival
-Join Druva experts for a compelling deep dive into what it takes to build an identity-first recovery strategy in this new threat landscape.
+Catch the Advanced Attacks Microsoft 365 Misses with Behavioral AI Security
+Microsoft 365 is the backbone of enterprise communication, and its native security filters out the known and the noisy.
 -
-Unfriendly Followers: The Black Market For Your Identity
-They’ll reveal how attackers use your profile as intel and show you how to make yourself harder to target
+Virtual Cyber Recovery Sim
+Step into the chaos of a live ransomware breach, test your response skills, and team up with other IT and security pros to outsmart cybercriminals
 -
-How Agents are Reshaping AI Security
-AI adoption is accelerating and with it comes a new security challenge.
+Virtual Cyber Recovery Simulation
+Ransomware attacks aren’t slowing down, and neither are we. Druva’s hit event, Escape Ransomware, is now fully virtual.
 -
-How Agents are Reshaping AI Security
-AI adoption is accelerating and with it comes a new security challenge.
+Zero Trust for the Agentic AI Era
+The identity and access models most organizations rely on were built for human users, not non-human identities operating independently.
 -
-AI Found the Problem. Now What?
-AI is transforming the software development lifecycle, helping teams identify and remediate vulnerabilities before they reach production.
+Zero Trust for the Agentic AI Era
+The identity and access models most organizations rely on were built for human users, not non-human identities operating independently.
 -
 Agentic AI at Scale: From Pilot to Production
 Join us to learn how to unlock real ROI by driving adoption of AI at scale.
 AI
 -
-Devops
-Google reimburses Register sources who were victims of API fraud
-But it's holding fast on auto-expanding customers' budgets
+security
+World Food Programme breach exposes data of 600k vulnerable Gazan families
+Those receiving aid in the famine-threatened, war-torn territory told support will remain
 -
-On-prem
-Datacenters slurping up so much juice they boosted prices 75% in largest US energy market
-BYO power for AI bit barns may be the best way to ease the problem, says energy watchdog
+SYSTEMS
+Gigabyte packs 40 Intel Lunar Lake PCs in a pizza box
+Who needs one big CPU when you could have dozens of little ones?
 -
-DevOps
-Git is unprepared for the AI coding tsunami
-An influx of agents is pushing GitHub to the brink
+Personal tech
+Raspberry Pi's profits are up. So is its DRAM bill
+Forecasts earnings well ahead of expectations, even as it taps credit facilities to lock in memory supply
 -
-AI + ML
-AI agents show they can create exploits, not just find vulns
-Mythos and GPT-5.5 muscle out the competition
+Saas
+Capita £370M bid 40% under UK.gov estimate for Oracle HR and finance system project, court case reveals
+Cost model designed to protect against low-cost bid bias, claims rival
 -
-personal tech
-LocalSend puts your sneakernet out of business
-Like AirDrop, minus the Apple lock-in
+Security
+Council in UK's City of York outs hundreds of disabled residents with a single email blunder
+Blue Badge holders exposed to each other after BCC function proves too complex
 Infosec
 -
-Devops
-Google reimburses Register sources who were victims of API fraud
-But it's holding fast on auto-expanding customers' budgets
+security
+World Food Programme breach exposes data of 600k vulnerable Gazan families
+Those receiving aid in the famine-threatened, war-torn territory told support will remain
 -
-On-prem
-Datacenters slurping up so much juice they boosted prices 75% in largest US energy market
-BYO power for AI bit barns may be the best way to ease the problem, says energy watchdog
+SYSTEMS
+Gigabyte packs 40 Intel Lunar Lake PCs in a pizza box
+Who needs one big CPU when you could have dozens of little ones?
 -
-DevOps
-Git is unprepared for the AI coding tsunami
-An influx of agents is pushing GitHub to the brink
+Personal tech
+Raspberry Pi's profits are up. So is its DRAM bill
+Forecasts earnings well ahead of expectations, even as it taps credit facilities to lock in memory supply
 -
-AI + ML
-AI agents show they can create exploits, not just find vulns
-Mythos and GPT-5.5 muscle out the competition
+Saas
+Capita £370M bid 40% under UK.gov estimate for Oracle HR and finance system project, court case reveals
+Cost model designed to protect against low-cost bid bias, claims rival
 -
-personal tech
-LocalSend puts your sneakernet out of business
-Like AirDrop, minus the Apple lock-in
+Security
+Council in UK's City of York outs hundreds of disabled residents with a single email blunder
+Blue Badge holders exposed to each other after BCC function proves too complex
 FOSS
 -
-One in seven Brits swapped their GP for ChatGPT, study finds
-Patients are using chatbots for medical advice, while the NHS is still debating where AI belongs
+Microsoft allows BYOL for Amazon RDS. Repeat, Microsoft allows BYOL for Amazon RDS
+SQL Server licenses can now be consumed in the rival cloud's DBaaS
 -
-Google reimburses Register sources who were victims of API fraud
-But it's holding fast on auto-expanding customers' budgets
+World Food Programme breach exposes data of 600k vulnerable Gazan families
+Those receiving aid in the famine-threatened, war-torn territory told support will remain
 -
-Datacenters slurping up so much juice they boosted prices 75% in largest US energy market
-BYO power for AI bit barns may be the best way to ease the problem, says energy watchdog
+Gigabyte packs 40 Intel Lunar Lake PCs in a pizza box
+Who needs one big CPU when you could have dozens of little ones?
 -
-Git is unprepared for the AI coding tsunami
-An influx of agents is pushing GitHub to the brink
+Raspberry Pi's profits are up. So is its DRAM bill
+Forecasts earnings well ahead of expectations, even as it taps credit facilities to lock in memory supply
 -
-AI agents show they can create exploits, not just find vulns
-Mythos and GPT-5.5 muscle out the competition
+Capita £370M bid 40% under UK.gov estimate for Oracle HR and finance system project, court case reveals
+Cost model designed to protect against low-cost bid bias, claims rival
 -
-LocalSend puts your sneakernet out of business
-Like AirDrop, minus the Apple lock-in
-FEATURES
--
-Nobody believes the 'criminals and scumbags' who hacked Canvas really deleted stolen student data
--
-Europe wants out from under US tech – but first it has to find the exits
--
-GNOME may rule Ubuntu Resolute Raccoon, but X.org isn't roadkill yet
--
-OpenClaw, but in containers: Meet NanoClaw
--
-Open source registries don't have enough money to implement basic security
--
-Contain your Windows apps inside Linux Windows
--
-The Linux mid-life crisis that's an opportunity for Tux-led transformation
--
-Too much AI for some, too little for others: Why AMD can't win with investors
--
-How agentic AI can strain modern memory hierarchies
--
-'Ralph Wiggum' loop prompts Claude to vibe-clone commercial software for $10 an hour",True,article extracted
+Council in UK's City of York outs hundreds of disabled residents with a single email blunder
+Blue Badge holders exposed to each other after BCC function proves too complex",True,article extracted
 normalized_claim_30,criticism,Critics of Microsoft's supplier emissions reporting,7,Microsoft’s supply chain is hooked on fossil fuels | The Verge,https://www.theverge.com/23745933/microsoft-fossil-fuels-suppy-chain-emissions-climate,,1.0,high,"In 14 outof27 cases analyzed,Microsoft’stopsuppliersreported a rise inemissions— which ended up reflecting in the tech giant ...",article,"In early 2020, Microsoft’s CEO Satya Nadella hopped on a relatively small stage to announce big news to the world — the tech giant was determined to reach carbon negativity by removing even more carbon than it emits in just a decade. To do that, it was not only cutting emissions from its direct operations but also across its whole supply chain. Yet that last part was set to be a gargantuan challenge.
 Microsoft’s dirty supply chain is holding back its climate ambitions
 The Verge reviewed dozens of emissions reports from Microsoft’s suppliers and found some of them power their entire operations with fossil fuels.
@@ -924,12 +903,21 @@ Removal of Sam Altman from OpenAI (2023)
 [edit]In late January 2024, sexually explicit AI-generated deepfake images of Taylor Swift were proliferated on X, with one post reported to have been seen over 47 million times before its removal.[48][49] Disinformation research firm Graphika traced the images back to 4chan,[50] while members of a Telegram group had discussed ways to circumvent censorship safeguards of AI image generators to create pornographic images of celebrities.[51] The images prompted responses from anti-sexual assault advocacy groups, US politicians, and Swifties.[52][53] Microsoft CEO Satya Nadella called the incident ""alarming and terrible.""[54] X briefly blocked searches of Swift's name on January 27, 2024,[55] and Microsoft enhanced its text-to-image model safeguards to prevent future abuse.[56] On January 30, US senators Dick Durbin, Lindsey Graham, Amy Klobuchar, and Josh Hawley introduced a bipartisan bill that would allow victims to sue individuals who produced or possessed ""digital forgeries"" with intent to distribute, or those who received the material knowing it was made without consent.[57]
 Google Gemini image generation controversy (2024)
 [edit]In February 2024, social media users reported that Google's Gemini chatbot was generating images that featured people of color and women in historically inaccurate contexts—such as Vikings, Nazi soldiers, and the Founding Fathers—and refusing prompts to generate images of white people. The images were derided on social media, including by conservatives who cited them as evidence of Google's ""wokeness"",[58][59][60] and criticized by Elon Musk, who denounced Google's products as biased and racist.[61][62][63] In response, Google paused Gemini's ability to generate images of people.[64][65][66] Google executive Prabhakar Raghavan released a statement explaining that Gemini had ""overcompensate[d]"" in its efforts to strive for diversity and acknowledging that the images were ""embarrassing and wrong"".[67][68][69] Google CEO Sundar Pichai called the incident offensive and unacceptable in an internal memo, promising structural and technical changes,[70][71][72] and several employees in Google's trust and safety team were laid off days later.[73][74] The market reacted negatively, with Google's stock falling by 4.4 percent,[75] and Pichai faced growing calls to resign.[76][77][78] The image generation feature was relaunched in late August 2024, powered by its new Imagen 3 model.[79][80]
-Since 2025
-[edit]McDonald's AI-generated Christmas advertisement (2025)
+2025
+[edit]Dutch McDonald's AI-generated Christmas advertisement (2025)
 [edit]On December 6, 2025, McDonald's Netherlands released It's the Most Terrible Time of the Year, a 45-second television commercial produced heavily with generative artificial intelligence by Dutch agency TBWA\Neboko and United States-based production studio The Sweetshop, following a trend set by other brands such as Coca-Cola and Toys ""R"" Us.[81][82][83] The commercial depicted various mishaps during the Christmas season, with a modified version of Andy Williams's ""It's the Most Wonderful Time of the Year"" and the tagline to ""hide out in McDonald's till January's here"".[84] The advertisement received negative reception over both its use of generative AI and its cynical depiction of the holiday season,[81][83][85] and was pulled on December 9, 2025.[86] Los Angeles-based directors Mark Potoka and Matt Spicer, initially credited as being involved in the film, had resigned due to being sidelined from the production process.[82]
 Grok sexual deepfake scandal (2025–2026)
 [edit]From 2025 onwards, Grok, the integrated chatbot on X, was used to nonconsensually alter images of individuals, including minors, to depict them in bikinis, transparent clothing, or sexually suggestive contexts, with the chatbot publicly posting the generated images in reply to users' requests. Cases began surfacing in May 2025,[87] and by late December 2025 the practice had become a widespread trend on the platform, attracting significant media attention in early January 2026.[88][89] An analysis conducted over 24 hours from January 5 to 6, 2026, calculated that users had Grok create 6,700 sexually suggestive or nudified images per hour—84 times more than the top five deepfake websites combined.[90][91] Wired reported that far more graphic AI-generated sexual imagery, including content depicting minors, was being created through Grok's standalone website and app.[92]
 The scandal drew widespread condemnation from lawmakers across the world. Indonesia, Malaysia, and the Philippines temporarily blocked access to Grok,[93] while British prime minister Keir Starmer stated that banning X in the United Kingdom was ""on the table"",[94] and California attorney general Rob Bonta announced an investigation into whether xAI had violated state law.[95] In France, prosecutors launched an investigation that expanded to encompass the spread of Holocaust denial and sexual deepfakes, culminating in a raid of X's Paris offices on February 3, 2026, with Elon Musk summoned to a hearing.[96] xAI responded to media requests for comment with the automated reply ""Legacy Media Lies"",[97] and on January 14 Musk stated he was ""not aware of any naked underage images generated by Grok. Literally zero."" before xAI announced that X users would no longer be able to use Grok to alter images of real people to portray them in revealing clothing; however, verified users and users of the standalone Grok app and website were still able to generate such images.[98][99]
+2026
+[edit]Magnifica Humanitas (2026)
+[edit]In May 2026, Pope Leo XIV issued the Magnifica Humanitas, the first encyclical discussing artificial intelligence.[100][101] The document discusses his concerns regarding AI as a challenge to human dignity comparable to the social disruptions of the Industrial Revolution. The document warned that unchecked technological development could make society ""less human"" by undermining the value of human labour, weakening personal responsibility, and concentrating power in the hands of political and corporate elites. Pope Leo argued that technology is never morally neutral and urged policymakers, developers, and religious communities to place human flourishing above efficiency or profit.[102]
+See also
+[edit]- AI safety
+- AI bubble
+- AI warfare
+- Ethics of artificial intelligence
+- Manus (AI agent) § Acquisition by Meta Platforms
 References
 [edit]- ^ Müller, Vincent C. (April 30, 2020). ""Ethics of Artificial Intelligence and Robotics"". Stanford Encyclopedia of Philosophy. Archived from the original on 10 October 2020.
 - ^ Andrew Griffin (March 23, 2016). ""Tay tweets: Microsoft creates bizarre Twitter robot for people to chat to"". The Independent. Archived from the original on 2022-05-26.
@@ -1032,6 +1020,9 @@ References
 - ^ Robins-Early, Nick (2026-01-02). ""Elon Musk's Grok AI generates images of 'minors in minimal clothing'"". The Guardian. ISSN 0261-3077. Retrieved 2026-01-02.
 - ^ Kerr, Dara (January 14, 2026). ""Musk's X to block Grok AI tool from creating sexualized images of real people"". The Guardian. Retrieved January 14, 2026.
 - ^ Lyons, Emmet (26 January 2026). ""X, Grok AI still allow users to digitally undress people without consent, as EU announces investigation - CBS News"". www.cbsnews.com. CBS News. Retrieved 10 February 2026.
+- ^ ""Pope Leo XIV's first encyclical Magnifica humanitas to be published May 25 - Vatican News"". www.vaticannews.va. 2026-05-18. Retrieved 2026-05-31.
+- ^ ""Presentation of Pope Leo XIV's Encyclical Letter ""Magnifica Humanitas"" (25 May 2026)"". press.vatican.va. Retrieved 2026-05-31.
+- ^ ""'Magnifica Humanitas': Pope Leo Invokes Justice to Combat 'Anti-Human Vision' in AI"". NCR. 2026-05-25. Retrieved 2026-05-31.
 Further reading
 [edit]- Nield, David (11 September 2024). ""AI Chatbots Have a Political Bias That Could Unknowingly Influence Society"". ScienceAlert.
 - Mather, Mike (30 September 2025). ""Q&A: How is AI enhancing scams? This UVA expert knows"". UVA Today.
@@ -1100,7 +1091,7 @@ normalized_claim_19,context,Microsoft's CO2 removal efforts compared to other te
 Microsoft Corporation is an American multinational technology company headquartered in Redmond, Washington. The company became influential in the rise of personal computers through software like Windows and has since expanded into areas such as Internet services, cloud computing, artificial intelligence, video gaming, and more. A Big Tech company, Microsoft is the largest software company by revenue, one of the most valuable public companies, and one of the most valuable brands globally.
 Founded in 1975 by Bill Gates and Paul Allen to market BASIC interpreters for the Altair 8800, Microsoft rose to dominate the PC operating system market with MS-DOS in the mid-1980s, followed by Windows. The company's 1986 initial public offering (IPO) and subsequent rise in its share price created three billionaires and an estimated 12,000 millionaires among Microsoft employees. Since the 1990s, it has increasingly diversified its business. Steve Ballmer replaced Gates as CEO in 2000. He oversaw the then-largest of Microsoft's corporate acquisitions in Skype Technologies in 2011, an increased focus on hardware that led to its first in-house PC line—the Surface—in 2012, and the formation of Microsoft Mobile through Nokia. Since Satya Nadella became CEO in 2014, the company has changed focus towards cloud computing and acquired LinkedIn in 2016. Under his direction, the company has expanded its video gaming business to support the Xbox brand, establishing the Microsoft Gaming division in 2022 and acquiring Activision Blizzard in 2023.
 Microsoft has been dominant in the IBM PC–compatible operating system and office software suite markets since the 1990s. Its best-known software products are the Windows line of operating systems and the Microsoft Office and Microsoft 365 suite of productivity applications, which most notably include the Word word processor, Excel spreadsheet editor, and PowerPoint presentation program. Its flagship hardware products are the Surface lineup of PCs and the Xbox brand of video game consoles, the latter including the Xbox network. The company also provides a range of consumer Internet services such as Bing web search, the MSN web portal, the Outlook.com (Hotmail) email service, and the Microsoft Store. In the enterprise and development fields, Microsoft most notably provides the Azure cloud computing platform, Microsoft SQL Server database software, and Visual Studio.
-Microsoft became the third publicly traded U.S. company to be valued at over $1 trillion in April 2019. In 2024, Microsoft released Office 2024, as its prepetual-license productivity suite. It has been criticized for monopolistic practices, and the company's software received criticism for problems with ease of use, robustness, and security. Microsoft has also been criticized for its role in providing services to Israel during the Gaza war.
+Microsoft became the third publicly traded U.S. company to be valued at over $1 trillion in April 2019. It has been criticized for monopolistic practices, and the company's software received criticism for problems with ease of use, robustness, and security. Microsoft has also been criticized for its role in providing services to Israel during the Gaza war.
 History
 1972–1985: Founding
 Childhood friends Bill Gates and Paul Allen sought to make a business using their skills in computer programming.[3] In 1972, they founded Traf-O-Data, which sold a rudimentary computer to track and analyze automobile traffic data.[4]
@@ -1109,13 +1100,13 @@ Microsoft entered the operating system (OS) business in 1980 with its own versio
 1985–1994: Windows and Office
 Microsoft released Windows 1.0 on November 20, 1985, as a graphical extension for MS-DOS,[2]: 242–243, 246 despite having begun jointly developing OS/2 with IBM that August.[13] Microsoft moved its headquarters from Bellevue to Redmond, Washington, on February 26, 1986, and went public with an initial public offering (IPO) at the NASDAQ exchange on March 13,[14] with the resulting rise in stock making an estimated four billionaires and 12,000 millionaires from Microsoft employees.[15] Microsoft released its version of OS/2 to original equipment manufacturers (OEMs) on April 2, 1987.[2] In 1990, the Federal Trade Commission examined Microsoft for possible collusion due to the partnership with IBM, marking the beginning of more than a decade of legal clashes with the government.[16] : 243–244 Meanwhile, the company was at work on Microsoft Windows NT, which was heavily based on its copy of the OS/2 code. It shipped on July 21, 1993, with a new modular kernel and the 32-bit Win32 application programming interface (API), making it easier to port from 16-bit (MS-DOS-based) Windows. Microsoft informed IBM of Windows NT, and the OS/2 partnership deteriorated.[17]
 In 1990, Microsoft introduced the Microsoft Office suite which bundled separate applications such as Microsoft Word and Microsoft Excel.[2]: 301 On May 22, Microsoft launched Windows 3.0, featuring streamlined user interface graphics and improved protected mode capability for the Intel 386 processor,[18] and both Office and Windows became dominant in their respective areas.[19][20]
-On July 27, 1994, the Department of Justice's Antitrust Division filed a competitive impact statement stating that since 1988, Microsoft had increasingly induced OEMs to pay royalties under a per-processor license for microprocessors in their computers regardless of whether or not a Microsoft product was used.[21]
+On July 27, 1994, the Department of Justice's Antitrust Division filed a competitive impact statement stating that since 1988, Microsoft had increasingly induced OEMs to pay royalties under a per-processor license for microprocessors in their computers regardless of whether a Microsoft product was used.[21]
 1995–2007: Foray into the Web, Windows 95, Windows XP, and Xbox
 Following Bill Gates's internal ""Internet Tidal Wave memo"" on May 26, 1995, Microsoft began to redefine its offerings and expand its product line into computer networking and the World Wide Web.[22] With a few exceptions of new companies, like Netscape, Microsoft was the only major and established company that acted fast enough to be a part of the World Wide Web practically from the start. Other companies like Borland, WordPerfect, Novell, IBM and Lotus, being much slower to adapt to the new situation, would give Microsoft market dominance.[23]
 The company released Windows 95 on August 24, 1995, featuring pre-emptive multitasking, a completely new user interface with a novel start button, and 32-bit compatibility; similar to NT, it provided the Win32 API.[24][25]: 20 Windows 95 came bundled with the online service MSN, which was intended to be a competitor to services such as CompuServe and AOL. The web browser Internet Explorer was not bundled with the retail release of Windows 95, and was instead included in the later Microsoft Plus! pack, as well as with OEM releases of Windows 95.[26]
 Backed by a high-profile marketing campaign[27] and what The New York Times called ""the splashiest, most frenzied, most expensive introduction of a computer product in the industry's history,""[28] Windows 95 quickly became a success.[29] Branching out into new markets in 1996, Microsoft and General Electric's NBC unit created a new 24/7 cable news channel, MSNBC.[30] Microsoft created Windows CE 1.0, a new OS designed for devices with low memory and other constraints, such as personal digital assistants.[31] In October 1997, the Justice Department filed a motion in the Federal District Court, stating that Microsoft violated an agreement signed in 1994 and asked the court to stop the bundling of Internet Explorer with Windows.[2]: 323–324
 On January 13, 2000, Bill Gates handed over the CEO position to Steve Ballmer, an old college friend of Gates and employee of the company since 1980, while creating a new position for himself as Chief Software Architect.[2]: 111, 228 [6] Under Ballmer's leadership, the company saw an increased focus on hardware products.[32][33]
-On October 25, 2001, Microsoft released Windows XP, unifying the mainstream and NT lines of OS under the NT codebase.[34] The company released the Xbox later that year, entering the video game console market dominated by Sony and Nintendo.[35] In March 2004 the European Union brought antitrust legal action against the company, citing it abused its dominance with the Windows OS, resulting in a judgment of €497 million ($613 million) and requiring Microsoft to produce new versions of Windows XP without Windows Media Player: Windows XP Home Edition N and Windows XP Professional N.[36][37] In November 2005, the company's second video game console, the Xbox 360, was released.[38]
+On October 25, 2001, Microsoft released Windows XP, unifying the mainstream and NT lines of OS under the NT codebase.[34] The company released the Xbox later that year, entering the video game console market dominated by Sony and Nintendo.[35] In March 2004 the European Union brought antitrust legal action against the company, citing it abused its dominance with the Windows OS, resulting in a judgment of €497 million ($613 million) and requiring Microsoft to produce new versions of Windows XP without Windows Media Player: Windows XP Home Edition N and Windows XP Professional N.[36][37] In November 2005, the company's second and most successful video game console, the Xbox 360, was released.[38]
 Increasingly present in the hardware business following Xbox, Microsoft 2006 released the Zune series of digital media players, a successor of its previous software platform Portable Media Center.
 2007–2011: Microsoft Azure, Windows Vista, Windows 7, and Microsoft Stores
 Released in January 2007, the next version of Windows, Vista, focused on features, security and a redesigned user interface dubbed Aero.[40][41] Microsoft Office 2007, released at the same time, featured a ""Ribbon"" user interface which was a significant departure from its predecessors. Relatively strong sales of both products helped to produce a record profit in 2007.[42] The European Union imposed another fine of €899 million ($1.4 billion) for Microsoft's lack of compliance with the March 2004 judgment on February 27, 2008, saying that the company charged rivals unreasonable prices for key information about its workgroup and backoffice servers.[43] Microsoft stated that it was in compliance and that ""these fines are about the past issues that have been resolved"".[44] Gates retired from his role as Chief Software Architect on June 27, 2008, a decision announced in June 2006, while retaining other positions related to the company in addition to being an advisor for the company on key projects.[45][46] Azure Services Platform, the company's entry into the cloud computing market for Windows, launched on October 27, 2008.[47] On February 12, 2009, Microsoft announced its intent to open a chain of Microsoft-branded retail stores, and on October 22, 2009, the first retail Microsoft Store opened in Scottsdale, Arizona; the same day Windows 7 was officially released to the public.
@@ -1241,7 +1232,7 @@ June 25, 1982 – February 26, 1987: Third Microsoft logo.
 -
 August 23, 2012 – present: Fifth and current Microsoft logo.[284]
 Sponsorship
-The company was the official jersey sponsor of Finland's national basketball team at EuroBasket 2015,[285] a major sponsor of the Toyota Gazoo Racing WRT (2017–2020) and a sponsor of the Renault F1 Team (2016–2020).
+The company was the official jersey sponsor of Finland's national basketball team at EuroBasket 2015,[285] a major sponsor of the Toyota Gazoo Racing WRT (2017–2020) and a sponsor of the Renault F1 Team (2016–2020). Currently, they sponsor the Mercedes AMG Petronas F1 Team (2026)
 Lobbying and political influence
 In 2025, Microsoft was one of the donors who funded the demolition of the East Wing of the White House and planned building of a ballroom.[286]
 Philanthropy
@@ -1260,9 +1251,9 @@ In 2020, Salesforce, the manufacturer of the Slack platform, complained to Europ
 In June 2024, Microsoft faced a potential EU fine after regulators accused it of abusing market power by bundling its Teams video-conferencing app with its Office 365 and Microsoft 365 software. The European Commission issued a statement of objections, alleging Microsoft's practice since 2019 gave Teams an unfair market advantage and limited interoperability with competing software. This action followed a 2019 complaint from Slack, which was later acquired by Salesforce. Microsoft's Teams usage soared during the pandemic, growing from 2 million daily users in 2017 to 300 million in 2023. The company has a history of antitrust battles in the U.S. and Europe, with over €2 billion in EU fines previously imposed for similar abuses.[311]
 In November 2024, the Federal Trade Commission (FTC) launched an investigation into Microsoft, focusing on potential antitrust violations related to its cloud computing, AI, and cybersecurity businesses. The probe scrutinized Microsoft's bundling of cloud services with products like Office and security tools, as well as its growing AI presence through its partnership with OpenAI. This inquiry was part of broader efforts by the U.S. government to enforce guidelines on the power of major tech companies. Concerns were raised about Microsoft's licensing practices potentially locking customers into its services and its AI investments possibly sidestepping regulatory oversight.[312]
 Involvement in the Gaza war
-Microsoft Azure is one of multiple cloud computing services used for data storage by the Israel Defense Forces (IDF). The IDF's usage of Azure intensified during the Gaza war and genocide, doubling its stored data to over 13.6 petabytes from March to July 2024.[313][314] In June 2025, a UN expert's report named Microsoft as being ""central to Israel's surveillance apparatus and the ongoing Gaza destruction.""[315] In late 2025, a non-profit organization filed a complaint within the European Union, raising concerns about Microsoft’s handling of certain data related to Israeli military surveillance. According to the complaint and media reports, Microsoft’s cloud services may have been used to store or process surveillance-related data. The organization requested that European data protection authorities investigate whether this data processing complies with EU law.[316][317] In August 2025 a joint investigation by The Guardian, +972 Magazine, and Local Call reported that Microsoft Azure provides storage for mass-surveilled Palestinian phone calls to identify bombing targets in Gaza.[318] In September, in response to the investigation, Microsoft announced it had ended Azure access for the intelligence-focused Unit 8200 of the IDF.[319][320][321]
-In June 2025 Microsoft helped suspend the email account of Karim Ahmad Khan, a British International Criminal Court (ICC) prosecutor in the Netherlands who was investigating Israel for war crimes. Microsoft was complying with a Trump executive order titled ""Imposing Sanctions on the International Criminal Court"". According to The New York Times, Microsoft's rapid compliance with the order, targeting an allied country, concerned European officials, and was seen as a symptom of the worsening relations between the U.S. and EU.[322][323]
-In October 2024, Microsoft fired two employees, software engineer Hossam Nasr and data scientist Abdo Mohamed, who organized an unauthorized vigil at its Redmond headquarters to honor Palestinians killed in the Gaza war. The employees, part of the group No Azure for Apartheid, sought to address the company's involvement in the Israeli government's use of its technology.[324] In February 2025, the Associated Press reported that the Israeli military was utilizing Microsoft-developed artificial intelligence tools in its military and intelligence operations against the people of Gaza. In May 2025, Microsoft issued an unsigned statement confirming that these services had been made available to Israel, while denying that these tools were employed during the massacre of the people of Gaza.[325] On March 20, 2025, before an event at Seattle's Great Hall with Brad Smith and Steve Ballmer, protestors projected ""Microsoft powers genocide"" on the wall. Subsequently, two employees, software engineers Ibtihal Aboussad and Vaniya Agrawal, interrupted AI executive Mustafa Suleyman at a speaking event on April 4, 2025, in protest at the company's support of Israel.[326][327] After the disruptions at these events, Microsoft contacted the FBI in search of assistance in surveilling its pro-Palestinian employees and their allies.[328] The Boycott, Divestment and Sanctions movement added Microsoft to its list of targets for partnering ""with the apartheid regime of Israel and its prison system"".[329] On August 20, 20 Microsoft employees and their allies were arrested after refusing to disperse from a protest on Microsoft's Redmond, Washington campus.[328]
+Microsoft Azure is one of multiple cloud computing services used for data storage by the Israel Defense Forces (IDF). The IDF's usage of Azure intensified during the Gaza war and genocide, doubling its stored data to over 13.6 petabytes from March to July 2024.[313][314] In June 2025, a UN expert's report named Microsoft as being ""central to Israel's surveillance apparatus and the ongoing Gaza destruction.""[315][316] In late 2025, a non-profit organization filed a complaint within the European Union, raising concerns about Microsoft’s handling of certain data related to Israeli military surveillance. According to the complaint and media reports, Microsoft’s cloud services may have been used to store or process surveillance-related data. The organization requested that European data protection authorities investigate whether this data processing complies with EU law.[317][318] In August 2025 a joint investigation by The Guardian, +972 Magazine, and Local Call reported that Microsoft Azure provides storage for mass-surveilled Palestinian phone calls to identify bombing targets in Gaza.[319] In September, in response to the investigation, Microsoft announced it had ended Azure access for the intelligence-focused Unit 8200 of the IDF.[320][321][322]
+In June 2025 Microsoft helped suspend the email account of Karim Ahmad Khan, a British International Criminal Court (ICC) prosecutor in the Netherlands who was investigating Israel for war crimes. Microsoft was complying with a Trump executive order titled ""Imposing Sanctions on the International Criminal Court"". According to The New York Times, Microsoft's rapid compliance with the order, targeting an allied country, concerned European officials, and was seen as a symptom of the worsening relations between the U.S. and EU.[323][324]
+In October 2024, Microsoft fired two employees, software engineer Hossam Nasr and data scientist Abdo Mohamed, who organized an unauthorized vigil at its Redmond headquarters to honor Palestinians killed in the Gaza war. The employees, part of the group No Azure for Apartheid, sought to address the company's involvement in the Israeli government's use of its technology.[325] In February 2025, the Associated Press reported that the Israeli military was utilizing Microsoft-developed artificial intelligence tools in its military and intelligence operations against the people of Gaza. In May 2025, Microsoft issued an unsigned statement confirming that these services had been made available to Israel, while denying that these tools were employed during the massacre of the people of Gaza.[326] On March 20, 2025, before an event at Seattle's Great Hall with Brad Smith and Steve Ballmer, protestors projected ""Microsoft powers genocide"" on the wall. Subsequently, two employees, software engineers Ibtihal Aboussad and Vaniya Agrawal, interrupted AI executive Mustafa Suleyman at a speaking event on April 4, 2025, in protest at the company's support of Israel.[327][328] After the disruptions at these events, Microsoft contacted the FBI in search of assistance in surveilling its pro-Palestinian employees and their allies.[329] The Boycott, Divestment and Sanctions movement added Microsoft to its list of targets for partnering ""with the apartheid regime of Israel and its prison system"".[330] On August 20, 20 Microsoft employees and their allies were arrested after refusing to disperse from a protest on Microsoft's Redmond, Washington campus.[329]
 See also
 Notes
 - ^ After Apple and Amazon, respectively
@@ -1595,6 +1586,7 @@ As a result of the Merger, a change in control of [Linkedin] occurred and [Linke
 - ^ Pusztaszeri, Aosheng; Harding, Emily (September 16, 2025). ""Technological Evolution on the Battlefield"". Center for Strategic and International Studies.
 - ^ ""How US tech giants supplied Israel with AI models, raising questions about tech's role in warfare"". AP News. February 18, 2025. Retrieved February 24, 2026.
 - ^ Farge, Emma (July 1, 2025). ""'Lucrative' business deals help sustain Israel's Gaza campaign, UN expert says"". Reuters. Retrieved July 1, 2025.
+- ^ Mattei, Clara (2026). Escape from Capitalism: An Intervention. Simon & Schuster. p. 153. ISBN 978-1668085141.
 - ^ ""Irish authorities asked to investigate Microsoft over alleged unlawful data processing by IDF"". www.theguardian.com. December 4, 2025. Retrieved December 16, 2025.
 - ^ ""Microsoft slapped with EU complaint over alleged storage of Israeli surveillance data"". The Times of Israel. Retrieved December 16, 2025.
 - ^ Davies, Harry; Abraham, Yuval (August 6, 2025). ""'A million calls an hour': Israel relying on Microsoft cloud for expansive surveillance of Palestinians"". The Guardian. Retrieved August 14, 2025.
@@ -1652,12 +1644,6 @@ In recent years, the artificial intelligence (AI) landscape has witnessed expone
 The Genesis of the Microsoft-ChatGPT Collaboration
 The roots of Microsoft’s involvement with ChatGPT trace back to their broader strategic commitment to AI innovation. OpenAI, the organization behind ChatGPT, was founded in 2015 with the mission of ensuring that artificial general intelligence (AGI) benefits all of humanity. Over the years, OpenAI has produced a series of transformative models, including GPT-2, GPT-3, and most notably ChatGPT, with the latter revolutionizing the way consumers and enterprises interact with AI.
 Recognizing the transformative potential of these models, Microsoft entered into an exclusive partnership with OpenAI starting around 2019. This collaboration was geared toward integrating OpenAI’s models into Microsoft’s cloud infrastructure, making these advanced AI tools accessible at scale, and aligning their shared vision of democratizing AI technology.
-🏆 #1 Best Overall
-- Clear stereo sound - The wideband digital audio reproduces sound accurately.
-- Noise-canceling microphone - Meetings and conference calls will be more productive as voices clearly cut through even noisy surroundings.
-- Inline volume and microphone controls - Adjust volume or mute on the fly with handy inline controls. The call indicator light lets people know you're ""busy.""
-- Plug and Play Simplicity - No software. Just plug it in and you're in business.
-- All-Day Comfort - Ergonomically influenced earpieces and a 270-degree adjustable microphone provide all-day comfort.
 In 2020, Microsoft announced a significant investment of $1 billion in OpenAI, solidifying their commitment to jointly advancing AI research and deployment. This investment enabled OpenAI to access Microsoft’s Azure cloud platform, which provides the computational power necessary to train and run large models like GPT-3 and ChatGPT.
 By late 2022 and early 2023, the partnership intensified, as Microsoft announced deeper integrations of ChatGPT into its product ecosystem, positioning itself to lead the artificial intelligence revolution in both consumer and enterprise markets.
 Implementing ChatGPT in Microsoft’s Cloud Ecosystem: Azure AI
@@ -1669,11 +1655,6 @@ Investment in Infrastructure
 Supporting these capabilities requires immense computational resources. Microsoft has invested heavily in building and expanding its Azure infrastructure, including deploying thousands of advanced GPUs optimized for AI training and inference. This infrastructure supports the heavy demands of running ChatGPT at scale, enabling real-time interactions with millions of users simultaneously.
 Embedding ChatGPT in Microsoft’s Core Consumer Products
 Microsoft’s strategy revolves around integrating ChatGPT into its flagship consumer and enterprise products to enhance functionality, user experience, and accessibility.
-Rank #2
-- It supplies continuous power to your gadgets
-- 127 W maximum output power for maximum dependability and added productivity
-- Delivers constant 5 V DC for smooth functioning & charging of the device
-- USB Device device supported for better reliance and optimal performance
 Microsoft 365 and Office Suite
 One of the most prominent integrations is within Microsoft 365—formerly Office 365. Microsoft announced that AI features powered by ChatGPT and similar models would be embedded into core applications such as Word, Excel, PowerPoint, and Outlook.
 - Word: ChatGPT’s language understanding abilities can assist in drafting, editing, and refining documents. Users can generate content snippets, summarize lengthy text, or rephrase sentences with a simple command.
@@ -1777,7 +1758,7 @@ The Core Principles of Responsible AI
 Across frameworks published by Microsoft, Google, IBM, UNESCO, and the OECD, several core principles appear consistently. Here’s a detailed breakdown of each.
 1. Fairness
 AI systems must treat all individuals equitably — regardless of race, gender, age, nationality, or socioeconomic background. This requires actively auditing training data for historical biases and continuously testing model outputs across demographic groups.
-In practice, fairness is harder than it sounds. A hiring algorithm trained on historical data May replicate past discrimination. A loan approval model May reflect systemic inequality embedded in historical lending patterns. Fairness in responsible AI means identifying these patterns and correcting them before deployment — not after damage is done.
+In practice, fairness is harder than it sounds. A hiring algorithm trained on historical data June replicate past discrimination. A loan approval model June reflect systemic inequality embedded in historical lending patterns. Fairness in responsible AI means identifying these patterns and correcting them before deployment — not after damage is done.
 Why it matters in certification: Microsoft’s AI-900 exam explicitly includes AI fairness and bias mitigation as a testable domain. Candidates who understand this principle — not just as a concept but in the context of Azure’s Responsible AI dashboard — are better prepared for exam questions on model evaluation.
 2. Transparency
 For AI to be trusted, people need to understand how it works. Transparency means being clear about what data an AI system uses, how it was trained, what decisions it makes, and what its limitations are.
@@ -1811,7 +1792,7 @@ Why Responsible AI Matters in Practice
 It’s easy to treat responsible AI as a compliance checkbox. In reality, the consequences of ignoring these principles are both immediate and far-reaching.
 Reputational risk is perhaps the most visible. When a facial recognition system misidentifies individuals at higher rates for certain demographic groups, or when an automated hiring tool discriminates against women, the damage to trust is severe and often public. Organizations deploying AI in regulated industries — banking, healthcare, insurance — face additional legal exposure.
 Regulatory risk is growing. The EU AI Act, which entered into force in 2024, establishes tiered requirements for AI systems based on their risk level. High-risk applications (credit scoring, biometric identification, critical infrastructure) face strict obligations around transparency, human oversight, and data governance. Non-compliance carries significant financial penalties.
-Operational risk is often underestimated. AI models degrade over time as data distributions shift — a phenomenon called model drift. Without responsible monitoring frameworks, a model that performed well at launch May produce unreliable outputs months later without anyone noticing.
+Operational risk is often underestimated. AI models degrade over time as data distributions shift — a phenomenon called model drift. Without responsible monitoring frameworks, a model that performed well at launch June produce unreliable outputs months later without anyone noticing.
 Organizations that build responsible AI practices early gain a genuine competitive advantage: greater stakeholder trust, smoother regulatory engagement, and more durable model performance over time.
 Responsible AI in IT Certifications: What You Need to Know
 Responsible AI is not just an abstract governance topic — it’s a tested domain in several prominent IT certification exams.
@@ -2167,6 +2148,69 @@ Microsoft’s revenue per employee is estimated at around $1,235,632.
 Experts estimate the 2025 workforce lies between 220,000 and 230,000 employees.
 Conclusion
 Microsoft’s workforce reflects a company in transformation, stable headcount overall, but heavy internal rebalancing toward AI, cloud, and efficiency. The distribution of employees leans heavily toward engineering, with diversity, inclusion, and hybrid work all becoming central to employee experience and recruiting. While compensation and benefits remain competitive, the shift to hybrid/remote policies, stringent return‑to‑office norms, and flattening hierarchies signal a fresh chapter for Microsoft’s talent strategy.",True,article extracted
+normalized_claim_44,verification,Microsoft Responsible AI Standard definition,2,MicrosoftResponsibleAIStandardv2: Governance for Migrations,https://vibgrate.com/best-practices/microsoft/microsoft-responsible-ai-standard-v2/,,0.0,unknown,"Discover theMicrosoftResponsibleAIStandardv2—your framework for effective governance in code, data, and cloud migrations.",article,"Microsoft Responsible AI Standard v2
+Company-wide governance framework translating principles into measurable requirements.
+Microsoft Responsible AI Standard v2: A Best Practice for Migration
+What This Best Practice Entails and Why It Matters
+The Microsoft Responsible AI Standard v2 is a company-wide governance framework designed to translate ethical principles into measurable requirements for AI systems. This standard emphasizes the importance of ethical AI deployment, ensuring that AI technologies are used responsibly, transparently, and fairly across organizations. As businesses increasingly rely on AI to drive decisions and operations, adhering to this standard helps organizations mitigate risks associated with biased algorithms, data privacy issues, and non-compliance with regulatory requirements.
+Key Principles of the Standard:
+- Fairness: Ensuring that AI systems are equitable and do not perpetuate biases.
+- Accountability: Establishing clear roles and responsibilities for AI development and deployment.
+- Transparency: Providing insights into how AI systems make decisions.
+- Privacy: Protecting user data in AI applications.
+- Robustness and Reliability: Ensuring AI systems perform consistently and effectively under various conditions.
+Step-by-Step Implementation Guidance
+Implementing the Microsoft Responsible AI Standard v2 involves several key steps:
+-
+Assess Current Practices:
+- Review existing AI systems and practices within your organization.
+- Identify gaps in compliance with the Responsible AI Standard.
+-
+Develop a Governance Framework:
+- Establish a cross-functional team to oversee AI governance.
+- Define roles, responsibilities, and processes for AI oversight.
+-
+Create Measurable Requirements:
+- Translate ethical principles into specific, measurable criteria for AI projects.
+- Ensure these criteria are integrated into project planning and execution.
+-
+Training and Awareness:
+- Conduct training sessions for all stakeholders involved in AI development.
+- Foster a culture of ethical AI use across the organization.
+-
+Implement Monitoring and Evaluation:
+- Set up processes to regularly assess AI systems against the established criteria.
+- Use metrics to evaluate fairness, transparency, and compliance.
+-
+Iterate and Improve:
+- Continuously refine AI governance practices based on feedback and evolving standards.
+- Stay updated on changes in regulations and best practices in the AI landscape.
+Common Mistakes Teams Make When Ignoring This Practice
+Ignoring the Microsoft Responsible AI Standard v2 can lead to several pitfalls:
+- Increased Risk of Bias: Without proper oversight, AI systems may perpetuate existing biases, leading to unfair outcomes.
+- Legal and Regulatory Issues: Non-compliance can result in fines and reputational damage.
+- Lack of Trust: Stakeholders may lose confidence in AI systems that are not transparent or accountable.
+- Ineffective Decision-Making: Poorly governed AI can lead to misguided business decisions based on flawed data.
+Tools and Techniques That Support This Practice
+Several tools and techniques can help support the implementation of the Responsible AI Standard:
+- AI Fairness Toolkits: Use frameworks like Microsoft's Fairness Insights to evaluate and mitigate bias in AI models.
+- Model Monitoring Solutions: Implement solutions like Azure Machine Learning to monitor your AI systems continuously.
+- Data Privacy Tools: Leverage tools that support data anonymization and encryption to ensure user privacy.
+- Documentation and Reporting Systems: Maintain thorough documentation of AI processes and decisions to enhance transparency.
+How This Practice Applies to Different Migration Types
+The Microsoft Responsible AI Standard v2 is relevant across various migration types:
+- Cloud Migration: Ensure that AI-driven cloud services comply with ethical standards and privacy regulations.
+- Database Migration: Implement data governance practices to safeguard user information during data transfers.
+- SaaS Migration: Evaluate SaaS applications for compliance with the Responsible AI Standard before migration.
+- Codebase Migration: Review AI components in the codebase for adherence to ethical guidelines during updates or transitions.
+Checklist or Summary of Key Actions
+- Assess current AI practices against the Responsible AI Standard.
+- Form a dedicated governance team for AI oversight.
+- Establish measurable requirements based on ethical principles.
+- Conduct training for relevant stakeholders.
+- Implement monitoring and evaluation processes.
+- Continuously iterate on governance frameworks as needed.
+By following these best practices, organizations can harness the power of AI responsibly, ensuring that their migrations lead to positive outcomes for all stakeholders involved.",True,article extracted
 normalized_claim_106,verification,Microsoft diversity inclusion workforce statistics,2,"AtMicrosoft,DiversityandInclusionEqual... - Shortform Books",https://www.shortform.com/blog/microsoft-diversity-and-inclusion/,,0.0,unknown,"Microsoft’sDiverseWorkforce. Nadella believes thatMicrosoft’sdiversityandinclusioncontribute to an innovative workplace. Havingdiverseemployees prevents homogeneous thinking, opening up the company to different values and perspectives that lead to better ideas and products.",article,"This article is an excerpt from the Shortform book guide to ""Hit Refresh"" by Satya Nadella. Shortform has the world's best summaries and analyses of books you should be reading.
 Like this article? Sign up for a free trial here.
 What difference do diversity and inclusion make for Microsoft? What could these values do for your company?
@@ -3072,7 +3116,7 @@ What you need to know
 A Microsoft employee survey, internally dubbed the ""MS Poll,"" was leaked and viewed by Insider. According to Insider, the findings from the survey and associated documents include that almost 132,000 of the 149,000 employees qualified to give feedback participated and that in at least one category, Microsoft achieved a 90% favorable response rate.
 That category would be the ""Inclusion Index."" In one document Insider reviewed, that index is defined as ""authenticity, belonging, belief in the commitment to diversity."" So if Microsoft is pulling 90% favorability there, it's an indicator the company is doing something right in its inclusivity efforts.
 One curious omission in this year's survey was a category containing pay-specific questions. Though we can't know how satisfied or dissatisfied Microsoft employees were with pay in 2021, previous MS Poll results show that in 2017, 65% of employees thought their overall compensation was competitive with jobs at other companies. That number fell to 61% in 2018, then 57% in 2019, then 55% in 2020, indicating why the 2021 MS Poll might not have asked about this topic.
-Article continues belowThere is one category on the MS Poll that is not like the others, in that only high-level employees with the title of ""principal"" or above are provided it. This category is the ""Leadership Excellence Index."" 77% of employees gave positive responses to this category's questions, though Insider was unable to determine what specifically is covered in them.
+There is one category on the MS Poll that is not like the others, in that only high-level employees with the title of ""principal"" or above are provided it. This category is the ""Leadership Excellence Index."" 77% of employees gave positive responses to this category's questions, though Insider was unable to determine what specifically is covered in them.
 The MS Poll leak does not give much in the way of useful granular breakdowns, but it allows for some broad perspective on the mood of employees. Seeing the downward trend in compensation approval and the high 2021 marks in inclusivity, for example, gives an idea of where Microsoft is doing its workers right and where it may be failing them. Time will tell if the MS Poll leaks again in 2022 to keep informing outsiders of Microsoft's efforts to hear its employees.
 All the latest news, reviews, and guides for Windows and Xbox diehards.
 Robert Carnevale was formerly a News Editor for Windows Central. He's a big fan of Kinect (it lives on in his heart), Sonic the Hedgehog, and the legendary intersection of those two titans, Sonic Free Riders. He is the author of Cold War 2395.",True,article extracted

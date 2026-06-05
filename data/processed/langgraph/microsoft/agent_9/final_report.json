@@ -1,7 +1,7 @@
 {
   "company_name": "Microsoft",
   "run_metadata": {
-    "generated_at_utc": "2026-06-05T13:57:22.745863+00:00",
+    "generated_at_utc": "2026-06-05T14:52:49.260949+00:00",
     "pipeline_mode": "normal",
     "company_name": "Microsoft",
     "documents": {
@@ -24,7 +24,7 @@
       "agent_4_query_generator": "mistral-nemo:latest",
       "agent_7_embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
       "agent_8_evidence_analyzer": "qwen2.5:14b",
-      "agent_9_final_analysis": "qwen2.5:14b",
+      "agent_9_final_analysis": "gemini-2.0-pro",
       "agent_9_provider": "ollama"
     },
     "settings": {
@@ -39,15 +39,15 @@
       "future_claims_excluded": 10,
       "queries_generated": 115,
       "search_results": 457,
-      "evidence_candidates": 57,
-      "ranked_evidence_rows": 55,
+      "evidence_candidates": 58,
+      "ranked_evidence_rows": 56,
       "claim_assessments": 15
     },
     "cache": {
       "agent_2_claim_extraction_cache_exists": true,
       "agent_2_cached_pages": 37,
       "agent_8_assessment_cache_exists": true,
-      "agent_8_cached_assessments": 34
+      "agent_8_cached_assessments": 35
     },
     "artifacts": {}
   },
@@ -223,8 +223,8 @@
       "evidence_relevance": "DIRECT",
       "top_evidence_url": "https://passitexams.com/articles/key-principles-of-responsible-ai/",
       "top_evidence_title": "Key Principles Of ResponsibleAI: Complete 2026 Framework",
-      "justification": "The evidence directly supports the claim by describing Microsoft’s Responsible AI Standard and its principles.",
-      "risk_reasoning": "The provided evidence does not raise significant concerns or contradictions about the claim; it is consistent with a low risk of greenwashing.",
+      "justification": "The evidence provided directly supports the claim that Microsoft's Responsible AI Standard defines requirements for designing, building, and testing AI systems responsibly by providing a detailed overview of its principles and governance framework.",
+      "risk_reasoning": "The evidence does not raise any serious concerns or contradictions regarding the specific claims made in the CSR text. The relevance is direct and supportive without significant risks.",
       "materiality_score": 0.0,
       "judgment_score": 3.1,
       "stance": "support"
@@ -525,8 +525,8 @@
       "evidence_relevance": "DIRECT",
       "top_evidence_url": "https://passitexams.com/articles/key-principles-of-responsible-ai/",
       "top_evidence_title": "Key Principles Of ResponsibleAI: Complete 2026 Framework",
-      "justification": "The evidence directly supports the claim by describing Microsoft’s Responsible AI Standard and its principles.",
-      "risk_reasoning": "The provided evidence does not raise significant concerns or contradictions about the claim; it is consistent with a low risk of greenwashing.",
+      "justification": "The evidence provided directly supports the claim that Microsoft's Responsible AI Standard defines requirements for designing, building, and testing AI systems responsibly by providing a detailed overview of its principles and governance framework.",
+      "risk_reasoning": "The evidence does not raise any serious concerns or contradictions regarding the specific claims made in the CSR text. The relevance is direct and supportive without significant risks.",
       "materiality_score": 0.0,
       "judgment_score": 3.1,
       "stance": "support"

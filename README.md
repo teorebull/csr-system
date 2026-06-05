@@ -1,74 +1,74 @@
-# CSR System Notes
+# CSR System
 
-Documents de treball actuals:
+This project checks how credible a company's CSR story is.
 
-- `TFM_CSR_system_structure.md`
-- `TFM_OSS_stack_recommendation.md`
-- `docs/TFM_agent_map_and_project_skeleton.md`
-- `docs/TFM_current_decisions_and_next_steps.md`
-- `docs/TFM_reusable_oss_repositories.md`
-- `docs/TFM_agent_by_agent_execution_plan.md`
-- `docs/LANGGRAPH_REALISTIC_INTEGRATION_PLAN.md`
+It reads company reports, pulls out claims, looks for outside evidence, and builds a final judgment. The goal is simple: see which claims are supported, which are weak, and which raise concern.
 
-Aquest repositori es troba encara en fase de disseny. La documentacio recull:
+The pipeline is split into small agents so each step stays clear and traceable.
 
-- estructura conceptual del TFM
-- seleccio de stack open source reutilitzable
-- mapa d'agents, nodes i esquelet inicial del projecte
+## What it does
 
-## Estructura inicial de codi
+- Reads CSR or sustainability documents
+- Extracts claims from the text
+- Removes duplicates and weak claims
+- Creates web search queries for each claim
+- Finds external evidence
+- Ranks the best sources
+- Compares claims with evidence
+- Produces a final report
 
-- `src/schemas/`: models Pydantic del pipeline
-- `src/agents/`: nodes del workflow
-- `src/graph/`: muntatge del pipeline amb LangGraph
-- `src/retrieval/`: wrappers de cerca i fetch de pagines
-- `src/evaluation/`: score i utilitats d'avaluacio
-- `tests/`: proves base dels schemas i score
+## Agent Overview
 
-## Seguent pas natural
+- Agent 1 loads and cleans the documents.
+- Agent 2 extracts candidate claims from the pages.
+- Agent 3 merges similar claims and keeps the useful ones.
+- Agent 4 writes focused search queries for each claim.
+- Agent 5 searches the web for outside sources.
+- Agent 6 downloads and extracts the source text.
+- Agent 7 ranks the evidence and keeps the best matches.
+- Agent 8 checks each claim against the evidence.
+- Agent 9 combines everything into the final report.
 
-1. Instal lar dependències del projecte
-2. Implementar `document_loader`
-3. Implementar `claim_extractor`
-4. Connectar un primer proveidor LLM amb sortida estructurada
-5. Fer passar un cas minim de punta a punta
+## Purpose Of These Sections
 
-## Proves de l'Agent 1
+- The `agents` section describes what each stage of the pipeline does.
+- The `results` section explains the final labels and shows real outputs from the pipeline.
 
-- `scripts/agent_1/test_pymupdf_loader.py`
-- `scripts/agent_1/test_reportparse_loader.py`
-- `docs/AGENT_1_how_to_run.md`
+## What To Submit
 
-## Agent 2
+- `README.md`: short project overview and structure.
+- `DELIVERY_README.md`: guide to the zip package contents.
+- `memoria`: the full written report.
+- `presentació`: the defense slides.
+- `codi`: the full implementation.
+- `docs/results.md`: real result summary and label guide.
+- `data/processed/langgraph/<company>/agent_9/final_summary.md`: human-readable final outcome.
+- `data/processed/langgraph/<company>/agent_9/final_traceability_report.md`: claim-by-claim traceability.
+- `data/processed/langgraph/<company>/agent_9/final_report.json`: structured final output.
 
-- `scripts/agent_2/extract_claims_with_llm.py`
-- `docs/AGENT_2_claim_extractor_plan.md`
+## Results And Traceability
 
-## Agent 3
+The final summary tells the story in plain language.
+The traceability report shows where every final claim came from.
+The pipeline is not fully deterministic because it still uses LLMs and live web search, so small label changes can happen between reruns. The saved reports capture one stable snapshot, and the overall results stay very close across runs.
 
-- `scripts/agent_3/normalize_claims.py`
-- `docs/AGENT_3_claim_normalizer_plan.md`
+For the final defense, the two most useful files are:
 
-## Agent 4
+- `final_summary.md`
+- `final_traceability_report.md`
 
-- `docs/AGENT_4_query_generator_plan.md`
+## More Detail
 
-## Agent 6
+See `docs/agents.md` for a fuller explanation of every agent.
+See `docs/results.md` for the actual result labels and example outputs.
 
-- `scripts/agent_6/evidence_checker.py`
-- `docs/AGENT_6_evidence_fetcher_plan.md`
+## Project shape
 
-## Agent 7
+- `src/pipeline/` contains the pipeline logic
+- `src/graph/` connects the steps into a workflow
+- `src/schemas/` defines the data shapes
+- `tests/` holds the basic checks
 
-- `scripts/agent_7/reranker.py`
-- `docs/AGENT_7_reranker_plan.md`
+## Goal
 
-## Agent 8
-
-- `scripts/agent_8/evidence_analyzer.py`
-- `docs/AGENT_8_evidence_analyzer_plan.md`
-
-## Agent 9
-
-- `scripts/agent_9/judge_aggregator.py`
-- `docs/AGENT_9_judge_aggregator_plan.md`
+The system is not trying to prove legal wrongdoing. It is trying to give a clear, structured read on whether the company's own claims hold up against outside evidence.

@@ -11,6 +11,8 @@ import pymupdf
 import requests
 import trafilatura
 
+from src.pipeline._io import read_csv_rows, write_csv_rows
+
 
 REQUEST_TIMEOUT = 20
 PIPELINE_MODE = os.environ.get("PIPELINE_MODE", "normal").strip().lower()
@@ -30,6 +32,7 @@ def _claim_terms(text: str) -> list[str]:
 
     lowered = str(text).lower()
     terms = []
+    # Keep the matcher narrow so evidence filtering stays claim-specific.
     for pattern in [
         r"scope\s*1",
         r"scope\s*2",
@@ -62,12 +65,7 @@ def _text_mentions_any(text: str, terms: list[str]) -> bool:
 def load_search_results(csv_path: Path) -> list[dict]:
     """Load search results from a CSV file."""
 
-    results = []
-    with open(csv_path, "r", encoding="utf-8") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            results.append(row)
-    return results
+    return read_csv_rows(csv_path)
 
 
 def parse_source_quality_score(value: str) -> float:
@@ -132,6 +130,7 @@ def select_best_results(results: list[dict]) -> list[dict]:
     max_total_urls = MODE_CONFIG["max_total_urls"]
     max_urls_per_claim = MODE_CONFIG["max_urls_per_claim"]
 
+    # First pass: take the strongest unique URL for each claim.
     for result in sorted_results:
         claim_id = result.get("normalized_claim_id", "")
         url_key = normalize_url(result.get("url", ""))
@@ -148,6 +147,7 @@ def select_best_results(results: list[dict]) -> list[dict]:
         if len(selected_results) >= max_total_urls:
             break
 
+    # Second pass: allow extra coverage per claim if capacity remains.
     for result in sorted_results:
         claim_id = result.get("normalized_claim_id", "")
         url_key = normalize_url(result.get("url", ""))
@@ -221,6 +221,7 @@ def extract_evidence(result: dict) -> dict:
     url = str(result["url"]).strip()
     claim_id = result.get("normalized_claim_id") or result.get("claim_id") or ""
 
+    # PDFs and HTML articles need different extraction paths.
     if is_pdf_url(url):
         content_type = "pdf"
         extracted_text, extraction_success, extraction_notes = fetch_pdf_text(url)
@@ -276,30 +277,23 @@ def extract_all_evidence(results: list[dict]) -> list[dict]:
 
 
 def save_evidence_csv(rows: list[dict], output_path: Path) -> None:
-    output_file = Path(output_path)
-    output_file.parent.mkdir(parents=True, exist_ok=True)
-
-    with output_file.open("w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(
-            file,
-            fieldnames=[
-                "normalized_claim_id",
-                "query_type",
-                "query_text",
-                "result_rank",
-                "title",
-                "url",
-                "source",
-                "source_quality_score",
-                "source_quality_label",
-                "snippet",
-                "content_type",
-                "extracted_text",
-                "extraction_success",
-                "extraction_notes",
-            ],
-        )
-        writer.writeheader()
-
-        for row in rows:
-            writer.writerow(row)
+    write_csv_rows(
+        rows,
+        output_path,
+        fieldnames=[
+            "normalized_claim_id",
+            "query_type",
+            "query_text",
+            "result_rank",
+            "title",
+            "url",
+            "source",
+            "source_quality_score",
+            "source_quality_label",
+            "snippet",
+            "content_type",
+            "extracted_text",
+            "extraction_success",
+            "extraction_notes",
+        ],
+    )

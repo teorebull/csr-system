@@ -76,6 +76,12 @@ def _save_json_dict(data: dict, path: Path) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
+def _rows_to_dicts(items: list[dict]) -> list[dict]:
+    """Convert mixed model/dict rows into plain dictionaries."""
+
+    return [item.model_dump() if hasattr(item, "model_dump") else dict(item) for item in items]
+
+
 def run_document_loader(state: PipelineState) -> PipelineState:
     if not state.document_paths:
         state.logs.append(
@@ -150,7 +156,7 @@ def run_document_loader(state: PipelineState) -> PipelineState:
 def run_claim_normalizer(state: PipelineState) -> PipelineState:
     artifact_root = artifact_root_for_company(state.company_name)
     raw_claims = list(state.claims_candidates) if state.claims_candidates else list(state.claims)
-    claim_rows = [claim.model_dump() if hasattr(claim, "model_dump") else dict(claim) for claim in raw_claims]
+    claim_rows = _rows_to_dicts(raw_claims)
 
     if not claim_rows:
         state.logs.append(
@@ -225,7 +231,7 @@ def run_claim_extractor(state: PipelineState) -> PipelineState:
 
 def run_query_generator(state: PipelineState) -> PipelineState:
     artifact_root = artifact_root_for_company(state.company_name)
-    claim_rows = [claim.model_dump() if hasattr(claim, "model_dump") else dict(claim) for claim in state.claims]
+    claim_rows = _rows_to_dicts(list(state.claims))
 
     if not claim_rows:
         state.logs.append(
@@ -256,7 +262,7 @@ def run_query_generator(state: PipelineState) -> PipelineState:
 
 def run_web_search(state: PipelineState) -> PipelineState:
     artifact_root = artifact_root_for_company(state.company_name)
-    query_rows = [query.model_dump() if hasattr(query, "model_dump") else dict(query) for query in state.search_queries or state.queries]
+    query_rows = _rows_to_dicts(list(state.search_queries or state.queries))
 
     if not query_rows:
         state.logs.append(
@@ -284,7 +290,7 @@ def run_web_search(state: PipelineState) -> PipelineState:
 
 def run_evidence_fetcher(state: PipelineState) -> PipelineState:
     artifact_root = artifact_root_for_company(state.company_name)
-    result_rows = [result.model_dump() if hasattr(result, "model_dump") else dict(result) for result in state.search_results]
+    result_rows = _rows_to_dicts(list(state.search_results))
 
     if not result_rows:
         state.logs.append(
@@ -317,8 +323,8 @@ def run_evidence_fetcher(state: PipelineState) -> PipelineState:
 def run_reranker(state: PipelineState) -> PipelineState:
     artifact_root = artifact_root_for_company(state.company_name)
     claim_source = state.claims or state.normalized_claims or state.claims_candidates
-    claim_rows = [claim.model_dump() if hasattr(claim, "model_dump") else dict(claim) for claim in claim_source]
-    evidence_rows = [evidence.model_dump() if hasattr(evidence, "model_dump") else dict(evidence) for evidence in state.ranked_evidence]
+    claim_rows = _rows_to_dicts(list(claim_source))
+    evidence_rows = _rows_to_dicts(list(state.ranked_evidence))
 
     if not claim_rows or not evidence_rows:
         state.logs.append(
@@ -348,8 +354,8 @@ def run_reranker(state: PipelineState) -> PipelineState:
 def run_evidence_analyzer(state: PipelineState) -> PipelineState:
     artifact_root = artifact_root_for_company(state.company_name)
     claim_source = state.claims or state.normalized_claims or state.claims_candidates
-    claim_rows = [claim.model_dump() if hasattr(claim, "model_dump") else dict(claim) for claim in claim_source]
-    evidence_rows = [row.model_dump() if hasattr(row, "model_dump") else dict(row) for row in state.ranked_evidence]
+    claim_rows = _rows_to_dicts(list(claim_source))
+    evidence_rows = _rows_to_dicts(list(state.ranked_evidence))
 
     if not claim_rows or not evidence_rows:
         state.logs.append(

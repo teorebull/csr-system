@@ -9,15 +9,7 @@ import pymupdf
 def clean_page_text(text: str) -> str:
     """Remove obvious line noise from extracted page text."""
 
-    lines = text.splitlines()
-    cleaned_lines = []
-
-    for line in lines:
-        line = line.strip()
-        if line:
-            cleaned_lines.append(line)
-
-    return "\n".join(cleaned_lines)
+    return "\n".join(line.strip() for line in text.splitlines() if line.strip())
 
 
 def sanitize_document_title(pdf_path: str, raw_title: str) -> str:
@@ -94,15 +86,7 @@ def preprocess_pages(pages: list[dict]) -> tuple[list[dict], set[str], int]:
     low_text_pages = 0
 
     for page in pages:
-        cleaned_lines = []
-
-        for line in page["text"].splitlines():
-            if line in repeated_lines:
-                continue
-
-            cleaned_lines.append(line)
-
-        processed_text = "\n".join(cleaned_lines).strip()
+        processed_text = "\n".join(line for line in page["text"].splitlines() if line not in repeated_lines).strip()
 
         if len(processed_text) < 40:
             low_text_pages += 1
@@ -115,15 +99,11 @@ def preprocess_pages(pages: list[dict]) -> tuple[list[dict], set[str], int]:
 def join_pages(pages: list[dict]) -> str:
     """Join processed pages into one text blob for downstream stages."""
 
-    all_pages_text = []
-
-    for page in pages:
-        if len(page["text"]) < 40:
-            continue
-
-        all_pages_text.append(f"[Page {page['page_number']}]\n{page['text']}")
-
-    return "\n\n".join(all_pages_text)
+    return "\n\n".join(
+        f"[Page {page['page_number']}]\n{page['text']}"
+        for page in pages
+        if len(page["text"]) >= 40
+    )
 
 
 def load_document_pages(pdf_path: str) -> tuple[list[dict], dict, set[str], int, str]:

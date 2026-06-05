@@ -120,39 +120,46 @@ def load_resume_state(start_at: str, company_name: str, user_query: str) -> Pipe
         max_page_chars=0,
     )
 
+    load_state_rows(state, artifact_dir, start_at)
+
+    return state
+
+
+def load_rows(artifact_dir: Path, agent: str, filename: str) -> list[dict]:
+    """Load a CSV artifact from one of the saved agent folders."""
+
+    return load_csv_rows(artifact_dir / agent / filename)
+
+
+def load_state_rows(state: PipelineState, artifact_dir: Path, start_at: str) -> None:
+    """Populate a resume state with the artifacts needed by later nodes."""
+
     if start_at == "normalize_claims":
-        extracted_claims = load_csv_rows(artifact_dir / "agent_2" / "claims.csv")
+        extracted_claims = load_rows(artifact_dir, "agent_2", "claims.csv")
         state.claims_candidates = extracted_claims
         state.claims = extracted_claims
 
     if start_at in {"generate_queries", "search_evidence", "fetch_evidence", "rerank_evidence", "analyze_claims", "aggregate_report"}:
-        prioritized_claims = load_csv_rows(artifact_dir / "agent_3" / "prioritized_claims.csv")
-        environmental_claims = filter_environmental_claims(prioritized_claims)
-        state.claims = environmental_claims
+        prioritized_claims = load_rows(artifact_dir, "agent_3", "prioritized_claims.csv")
+        state.claims = filter_environmental_claims(prioritized_claims)
         state.normalized_claims = prioritized_claims
 
     if start_at in {"search_evidence", "fetch_evidence", "rerank_evidence", "analyze_claims", "aggregate_report"}:
-        queries = load_csv_rows(artifact_dir / "agent_4" / "queries.csv")
+        queries = load_rows(artifact_dir, "agent_4", "queries.csv")
         state.queries = queries
         state.search_queries = queries
 
     if start_at in {"fetch_evidence", "rerank_evidence", "analyze_claims", "aggregate_report"}:
-        search_results = load_csv_rows(artifact_dir / "agent_5" / "search_results.csv")
-        state.search_results = search_results
+        state.search_results = load_rows(artifact_dir, "agent_5", "search_results.csv")
 
     if start_at in {"rerank_evidence", "analyze_claims", "aggregate_report"}:
-        evidence_candidates = load_csv_rows(artifact_dir / "agent_6" / "evidence_candidates.csv")
-        state.ranked_evidence = evidence_candidates
+        state.ranked_evidence = load_rows(artifact_dir, "agent_6", "evidence_candidates.csv")
 
     if start_at in {"analyze_claims", "aggregate_report"}:
-        ranked_evidence = load_csv_rows(artifact_dir / "agent_7" / "ranked_evidence.csv")
-        state.ranked_evidence = ranked_evidence
+        state.ranked_evidence = load_rows(artifact_dir, "agent_7", "ranked_evidence.csv")
 
     if start_at == "aggregate_report":
-        claim_assessments = load_csv_rows(artifact_dir / "agent_8" / "claim_assessments.csv")
-        state.claim_assessments = claim_assessments
-
-    return state
+        state.claim_assessments = load_rows(artifact_dir, "agent_8", "claim_assessments.csv")
 
 
 def cap_pages_in_state(state: PipelineState, max_pages_per_document: int) -> PipelineState:

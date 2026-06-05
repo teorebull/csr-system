@@ -95,14 +95,13 @@ def claim_to_cache_row(claim: Claim) -> dict:
 def load_pages_from_state(pages: list[dict]) -> list[dict]:
     """Select and order the pages that should be sent to the extractor."""
 
-    selected_pages = []
     grouped_pages: dict[str, list[dict]] = {}
 
     for page in pages:
-        document_id = page.get("document_id", DEFAULT_DOCUMENT_ID)
-        grouped_pages.setdefault(document_id, []).append(page)
+        grouped_pages.setdefault(page.get("document_id", DEFAULT_DOCUMENT_ID), []).append(page)
 
-    for document_id, document_pages in grouped_pages.items():
+    selected_pages = []
+    for document_pages in grouped_pages.values():
         sorted_pages = sorted(document_pages, key=lambda row: int(row.get("page_number", 0)))
 
         if SKIP_FIRST_PAGE_PER_DOCUMENT and len(sorted_pages) > 1:
@@ -233,14 +232,10 @@ def extract_claims_from_pages(pages: list[dict], cache: dict | None = None) -> t
             )
             claim_id += 1
 
-    filtered_claims = []
-    for claim in all_claims:
-        if not claim["is_verifiable"]:
-            continue
-        if claim["claim_quality_score"] < 3:
-            continue
-        if claim["is_reporting_claim"]:
-            continue
-        filtered_claims.append(claim)
+    filtered_claims = [
+        claim
+        for claim in all_claims
+        if claim["is_verifiable"] and claim["claim_quality_score"] >= 3 and not claim["is_reporting_claim"]
+    ]
 
     return filtered_claims, cache, {"cache_hits": cache_hits, "cache_misses": cache_misses}

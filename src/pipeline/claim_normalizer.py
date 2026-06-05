@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-import csv
 import os
 import re
 from difflib import SequenceMatcher
 from pathlib import Path
+
+from src.pipeline._io import read_csv_rows
 
 
 SIMILARITY_THRESHOLD = 0.88
@@ -15,14 +16,7 @@ MAX_PRIORITIZED_CLAIMS_PER_DOCUMENT = int(os.environ.get("MAX_PRIORITIZED_CLAIMS
 def load_claims(csv_path: Path) -> list[dict]:
     """Load extracted claim rows from a CSV file."""
 
-    claims = []
-
-    with open(csv_path, "r", encoding="utf-8") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            claims.append(row)
-
-    return claims
+    return read_csv_rows(csv_path)
 
 
 def normalize_text(text: str) -> str:
@@ -56,14 +50,8 @@ def split_future_claims(claims: list[dict]) -> tuple[list[dict], list[dict]]:
 
     current_claims = []
     future_claims = []
-
     for claim in claims:
-        is_future = str(claim["is_future"]).strip().lower() == "true"
-        if is_future:
-            future_claims.append(claim)
-        else:
-            current_claims.append(claim)
-
+        (future_claims if str(claim["is_future"]).strip().lower() == "true" else current_claims).append(claim)
     return current_claims, future_claims
 
 
@@ -113,31 +101,19 @@ def merge_claim_group(group: list[dict], normalized_id: int) -> dict:
     """Collapse a duplicate claim group into one normalized record."""
 
     first_claim = group[0]
-    original_ids = []
-    document_ids = []
-    document_names = []
-    page_numbers = []
-    source_locations = []
-    excerpts = []
-
-    for claim in group:
-        original_ids.append(claim["claim_id"])
-        document_id = claim.get("document_id", "")
-        document_ids.append(document_id)
-        document_names.append(claim.get("document_name", ""))
-        page_numbers.append(str(claim["page_number"]))
-        source_locations.append(f"{document_id}:p{claim['page_number']}" if document_id else f"p{claim['page_number']}")
-        excerpts.append(claim["source_excerpt"])
-
-    unique_page_numbers = sorted(set(page_numbers), key=lambda x: int(x))
-    unique_document_ids = sorted(set(item for item in document_ids if item))
-    unique_document_names = sorted(set(item for item in document_names if item))
+    original_ids = [claim["claim_id"] for claim in group]
+    document_ids = [claim.get("document_id", "") for claim in group]
+    document_names = [claim.get("document_name", "") for claim in group]
+    page_numbers = [str(claim["page_number"]) for claim in group]
+    source_locations = [
+        f"{document_id}:p{claim['page_number']}" if document_id else f"p{claim['page_number']}"
+        for claim, document_id in ((claim, claim.get("document_id", "")) for claim in group)
+    ]
+    unique_page_numbers = sorted(set(page_numbers), key=int)
+    unique_document_ids = sorted({item for item in document_ids if item})
+    unique_document_names = sorted({item for item in document_names if item})
     unique_source_locations = sorted(set(source_locations))
-    unique_excerpts = []
-
-    for excerpt in excerpts:
-        if excerpt not in unique_excerpts:
-            unique_excerpts.append(excerpt)
+    unique_excerpts = list(dict.fromkeys(claim["source_excerpt"] for claim in group))
 
     return {
         "normalized_claim_id": f"normalized_claim_{normalized_id}",

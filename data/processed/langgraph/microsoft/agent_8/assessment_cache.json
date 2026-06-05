@@ -440,5 +440,18 @@
     "top_evidence_url": "https://www.techpolicy.press/responsible-ai-as-a-business-necessity-three-forces-driving-market-adoption/",
     "top_evidence_title": "ResponsibleAIas a Business Necessity: Three... | TechPolicy.Press",
     "supporting_excerpt": "This approach has positioned Microsoft as a trusted provider in highly regulated industries, such as healthcare and finance, where AI adoption heavily depends on assurances of compliance."
+  },
+  "814cfa115bac528d2b3511563b043a44706915f98b21659ba611887b3cc6d7f8": {
+    "normalized_claim_id": "normalized_claim_44",
+    "claim_text": "The Responsible AI Standard defines requirements for designing, building, and testing AI systems responsibly.",
+    "claim_family": "governance_ai",
+    "final_label": "SUPPORTED",
+    "greenwashing_risk_level": "LOW",
+    "evidence_relevance": "DIRECT",
+    "justification": "The evidence provided directly supports the claim that Microsoft's Responsible AI Standard defines requirements for designing, building, and testing AI systems responsibly by providing a detailed overview of its principles and governance framework.",
+    "risk_reasoning": "The evidence does not raise any serious concerns or contradictions regarding the specific claims made in the CSR text. The relevance is direct and supportive without significant risks.",
+    "top_evidence_url": "https://passitexams.com/articles/key-principles-of-responsible-ai/",
+    "top_evidence_title": "Key Principles Of ResponsibleAI: Complete 2026 Framework",
+    "supporting_excerpt": "Microsoft’s Responsible AI Standard consolidates practices across six principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability."
   }
 }
