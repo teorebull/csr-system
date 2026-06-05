@@ -7,5 +7,1991 @@
     "model_name": "qwen2.5:14b",
     "prompt_schema_version": "claim_extractor_v3_multi_document",
     "claims": []
+  },
+  "eaff4133c5d9b756cc23fe5c769d7d054ebfabac0f054ead5b90b7e6ef4c0a06": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft’s commitment to disclose information about its environmental footprint is reflected in the compilation of environmental metrics across greenhouse gas (GHG) emissions, energy, water, waste and circularity, and land.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "As part of Microsoft’s commitment to disclose information about our environmental footprint, the following sections are a compilation of environmental metrics across greenhouse gas (GHG) emissions, energy, water, waste and circularity, and land."
+      },
+      {
+        "claim_text": "Deloitte & Touche LLP performed a review engagement on management’s assertion related to the specified information presented in Section 1 of this Environmental Data Fact Sheet as of and for the fiscal year (FY) ended June 30, 2024 (FY24).",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Deloitte & Touche LLP performed a review engagement on management’s assertion related to the specified information presented in Section 1 of this Environmental Data Fact Sheet as of and for the fiscal year (FY) ended June 30, 2024 (FY24)"
+      },
+      {
+        "claim_text": "Information relating to periods prior to the year ended June 30, 2024 (FY24), and forward-looking statements, goals, and progress against goals were not subject to the review.",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Information relating to i) periods prior to the year ended June 30, 2024 (FY24), and ii) forward-looking statements, goals, and progress against goals were not subject to the review"
+      },
+      {
+        "claim_text": "All reported values represent the best available data at the time of publication.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "All reported values represent the best available data at the time of publication."
+      },
+      {
+        "claim_text": "Microsoft’s structural changes policy is to begin including data associated with a merger and/or acquisition in the year following the close of the transaction.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Microsoft’s structural changes policy is to begin including data associated with a merger and/or acquisition in the year following the close of the transaction."
+      }
+    ]
+  },
+  "54ff3e4c6028a0eb80b619e32a88e245f186d73c91a0b9b66ad48def17d664e5": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft's Scope 1 GHG emissions increased from 118,100 mtCO2e in FY20 to 143,510 mtCO2e in FY24.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Scope 1                                           118,100     123,704      139,413     144,960      143,510"
+      },
+      {
+        "claim_text": "Microsoft's Scope 2 market-based GHG emissions increased from 456,119 mtCO2e in FY20 to 259,090 mtCO2e in FY24.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Market-based                                 456,119     429,405     288,029      393,134     259,090"
+      },
+      {
+        "claim_text": "Microsoft's Scope 3 GHG emissions increased from 11,796,000 mtCO2e in FY20 to 15,140,000 mtCO2e in FY24.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Subtotal emissions (Scope 3)4                11,796,000   13,576,000   15,916,000   16,397,000   15,140,000"
+      },
+      {
+        "claim_text": "Microsoft's total GHG emissions (Scope 1 + 2 + 3) increased from 12,370,000 mtCO2e in FY20 to 15,543,000 mtCO2e in FY24.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Total emissions (Scope 1 + 2 + 3)4            12,370,000   14,129,000  16,343,000   16,935,000  15,543,000"
+      }
+    ]
+  },
+  "f85893b7e9513c4136e2d81238687810b032e66c13551dbc7fd531bcefb38fe8": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft's total emissions (Scope 1 + 2 + 3) for FY24 are projected to be 14,857,000 metric tons of carbon dioxide equivalent.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Total emissions (Scope 1 + 2 + 3) 14,857,000"
+      },
+      {
+        "claim_text": "Microsoft's Scope 1 and 2 emissions for FY24 are projected to be 402,600 metric tons of carbon dioxide equivalent.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Scope 1 + 2 402,600"
+      },
+      {
+        "claim_text": "Microsoft's Scope 2 emissions for FY24 are projected to be 9,904,643 metric tons of carbon dioxide equivalent.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Scope 2 (location-based) (mtCO e) 9,904,643"
+      },
+      {
+        "claim_text": "Microsoft's Scope 1 emissions for FY24 are projected to be 82,872 metric tons of carbon dioxide equivalent.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Scope 1 (mtCO e) 82,872"
+      },
+      {
+        "claim_text": "Microsoft's Scope 2 emissions for FY24 are projected to be 259,090 metric tons of carbon dioxide equivalent.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Scope 2 (market-based) (mtCO e) 259,090"
+      }
+    ]
+  },
+  "894aa55558bfff296dc79b8e4e6970cbb767228e987ab1db8e5935eb3408335e": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft defines carbon neutrality as matching the emissions within the carbon neutrality boundary with an equivalent amount of carbon credits.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Microsoft defines carbon neutrality as matching the emissions within the carbon neutrality boundary with an equivalent amount of carbon credits as shown in this table."
+      },
+      {
+        "claim_text": "Microsoft’s target to be carbon neutral every year since FY13.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "This data supports Microsoft’s target to be carbon neutral every year since FY13."
+      },
+      {
+        "claim_text": "By 2050, Microsoft expects to have removed from the environment all the carbon the company has emitted either directly or by electrical consumption since it was founded in 1975.",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "By 2050 we expect to have removed from the environment all the carbon the company has emitted either directly or by electrical consumption since it was founded in 1975."
+      }
+    ]
+  },
+  "61e405230667afbc9c74caa4278506a1cfb23bfca2c5a5c7eba47fe60dd2f0fa": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "6",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft's total energy consumption increased from 11,283,502 MWh in FY20 to 30,207,220 MWh in FY24.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "energy",
+        "is_future": false,
+        "source_excerpt": "Total energy consumption1               11,283,502    14,133,987   18,644,872   24,007,868   30,207,220"
+      },
+      {
+        "claim_text": "Microsoft's percentage of renewable electricity consumption remained at 100% from FY20 to FY24.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "energy",
+        "is_future": false,
+        "source_excerpt": "Percentage of renewable electricity 100          100          100          100         100"
+      },
+      {
+        "claim_text": "In FY24, Microsoft's total water withdrawals were 10,377 ML and the majority (46%) came from areas with water stress.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "water",
+        "is_future": false,
+        "source_excerpt": "Total water withdrawals 7,936       8,068       10,706        12,951       10,377"
+      },
+      {
+        "claim_text": "In FY24, Microsoft's total water discharges to areas with water stress were 2,323 ML (51% of total water discharges).",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "water",
+        "is_future": false,
+        "source_excerpt": "Total water discharges3,4                      3,740        3,295        4,307         5,107        4,570"
+      },
+      {
+        "claim_text": "Microsoft's total water consumption from areas with water stress was 2,423 ML (42% of total water consumption) in FY24.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "water",
+        "is_future": false,
+        "source_excerpt": "Total water discharges to areas with water stress were 2,323 ML (51% of total water discharges); and total water consumption from areas with water stress was 2,423 ML (42% of total water consumption)."
+      }
+    ]
+  },
+  "c9f542e0cecf271bf0a30660a4bf57a4c0fa6b5c1daa88e270f0cb7f76332f70": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "7",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Percentage of product packaging recyclability is 94.8% in FY24.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "waste",
+        "is_future": false,
+        "source_excerpt": "Percentage of product packaging recyclability                             94.4         93.9        94.8"
+      },
+      {
+        "claim_text": "Microsoft diverted a total of 28,285 metric tons of waste in FY24.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "waste",
+        "is_future": false,
+        "source_excerpt": "Diverted subtotal                               29,153      15,278       17,149     24,663      28,285"
+      },
+      {
+        "claim_text": "Microsoft has identified partnerships with the National Fish and Wildlife Foundation (NFWF) in the United States and The Nature Conservancy (TNC) globally to protect habitat areas.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Since announcing this commitment in April 2020, Microsoft has identified partnerships through two leading land protection organizations, the National Fish and Wildlife Foundation (NFWF) within the United States and The Nature Conservancy (TNC) globally, to partner with on our land protection journey."
+      },
+      {
+        "claim_text": "Microsoft uses a data-informed approach to identify ecosystems most at risk using TNC’s Last Chance Ecosystem Framework and NFWF’s National Landscape Conservation Framework.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "A data-informed approach to identify ecosystems most at risk was used, using TNC’s Last Chance Ecosystem Framework and NFWF’s National Landscape Conservation Framework."
+      }
+    ]
+  },
+  "aa91a6525ab5d564bc6bca885a9a4902e623847dce89d5ba54c672efacf87b79": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "8",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft aims to be carbon negative by 2030 and remove from the atmosphere an equivalent amount of all the carbon dioxide our company has emitted either directly or by our electricity consumption since we were founded in 1975.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": true,
+        "source_excerpt": "Microsoft announced in January 2020 that we aim to be carbon negative by 2030 and that by 2050 we aim to remove from the atmosphere an equivalent amount of all the carbon dioxide our company has emitted either directly or by our electricity consumption since we were founded in 1975."
+      },
+      {
+        "claim_text": "Microsoft plans to reduce its Scope 1 and 2 (market-based) emissions to near zero by increasing energy efficiency, decarbonizing operations, and reaching 100% direct renewable electricity by 2025.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": true,
+        "source_excerpt": "We plan to achieve this commitment by reducing our Scope 1 and 2 (market-based) emissions to near zero by increasing energy efficiency, decarbonizing operations, and reaching 100% direct renewable electricity by 2025"
+      },
+      {
+        "claim_text": "Microsoft aims to reduce its Scope 3 emissions (market-based and management’s criteria) by more than half by 2030.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": true,
+        "source_excerpt": "and reducing Scope 3 emissions (market-based and management’s criteria) by more than half by 2030."
+      }
+    ]
+  },
+  "2777c47376d75d0cb5cb21479d3eb0d5bcca059d198d8ead49ebe37365ed006a": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "9",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft has published the criteria it uses for high-quality carbon dioxide removal: Microsoft Criteria for High-Quality Carbon Dioxide Removal.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "For carbon removal, we have published the criteria we use to help ensure that the carbon removal credits that we contract are high quality: Microsoft Criteria for High-Quality Carbon Dioxide Removal."
+      },
+      {
+        "claim_text": "Microsoft purchases both third-party certified and uncertified tons of carbon removal credits in an effort to develop the market, but only applies certified tons within its carbon neutrality boundary (Scope 1, Scope 2 market-based, and Scope 3 business air travel).",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "We purchase both third-party certified and uncertified tons in an effort to help develop the market, but we only apply the certified tons to the emissions within our carbon neutrality boundary (Scope 1, Scope 2 market-based, and Scope 3 business air travel)."
+      },
+      {
+        "claim_text": "Microsoft's land protection commitment was established in FY20.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Microsoft’s land protection commitment was established in FY20."
+      },
+      {
+        "claim_text": "Microsoft procures renewable energy from on-site generation, unbundled EACs, PPAs, and green power products to match 100% of its global electricity consumption.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Microsoft procures renewable energy from on-site generation, unbundled EACs, PPAs, and green power products. Purchased EACs include renewable energy certificates (RECs) (Green-e certified), guarantees of origin (GOs), renewable energy GOs (REGOs), International RECs (I-RECs), Tradable Instruments for Global Renewables (TIGRs), New Zealand Energy Certificate System (NZECS) certificates, J-Credits, Non-Fossil Fuel Certificates (NFCs), large-scale generation certificates (LGC), Green Electricity Certificates (GECs), Taiwan Renewable Energy Certificates (T-RECs), and PowerPlus."
+      },
+      {
+        "claim_text": "Microsoft aims to have 100% direct renewable electricity by 2025.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Microsoft captures the impact from on-site generation, PPAs, and green power products to support our progress against our target to have 100% direct renewable electricity by 2025."
+      },
+      {
+        "claim_text": "Microsoft’s water inventory includes withdrawal, consumption, and discharge volumes associated with assets under its operational control.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Microsoft’s water inventory includes withdrawal, consumption, and discharge volumes associated with assets under our operational control."
+      },
+      {
+        "claim_text": "Microsoft aims to make fully recyclable product packaging by 2030 and eliminate single-use plastics in product packaging by the end of 2025.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Similarly, these metrics support our product packaging targets: to make fully recyclable product packaging by 2030 and to eliminate single-use plastics in product packaging by the end of 2025."
+      }
+    ]
+  },
+  "f1e56a88ebaefd42eef980212a8f52414d2dbbd937161db3d560539886c8491e": {
+    "document_id": "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf",
+    "document_name": "2025 Microsoft Environmental Data Fact Sheet",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf",
+    "page_number": "10",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft calculates and reports Scope 3 emissions for all relevant categories.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Microsoft calculates and reports Scope 3 emissions for all relevant categories."
+      },
+      {
+        "claim_text": "We use primary data to calculate emissions for both Scope 1 and Scope 2 emissions. Where primary data is not available, we use estimates.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "We use primary data to calculate emissions for both Scope 1 and Scope 2 emissions. Where primary data is not available, we use estimates."
+      },
+      {
+        "claim_text": "Microsoft uses the 100-year Intergovernmental Panel on Climate Change (IPCC) Fourth Assessment Report for global warming potential values.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Microsoft uses the 100-year Intergovernmental Panel on Climate Change (IPCC) Fourth Assessment Report for global warming potential values."
+      },
+      {
+        "claim_text": "In FY23, Microsoft started using LCAs to calculate the emissions associated with the manufacture of devices that we sold during the reporting year.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "In FY23, Microsoft started using LCAs to calculate the emissions associated with the manufacture of devices that we sold during the reporting year"
+      },
+      {
+        "claim_text": "Microsoft used Makersite, a cloud-based tool with AI and third-party datasets, and other internal software engineering systems to automate and scale the modeling of complex electronic products.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Microsoft used Makersite, a cloud-based tool with AI and third-party datasets, and other internal software engineering systems to automate and scale the modeling of complex electronic products."
+      },
+      {
+        "claim_text": "Global warming potentials (GWPs) are from the Intergovernmental Panel on Climate Change (IPCC) Fourth Assessment Report (AR4), 100-year average.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Global warming potentials (GWPs) are from the Intergovernmental Panel on Climate Change (IPCC) Fourth Assessment Report (AR4), 100-year average."
+      },
+      {
+        "claim_text": "Microsoft estimates emissions for suppliers who submitted data by multiplying their response-derived factor by the annual spend with the supplier.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Microsoft estimates emissions for suppliers who submitted data by multiplying their response-derived factor by the annual spend with the supplier."
+      },
+      {
+        "claim_text": "Corporate-wide expense data for all company divisions is obtained from the finance department.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Corporate-wide expense data for all company divisions is obtained from the finance department."
+      }
+    ]
+  },
+  "6cd509c3057a9a1ec11244249a4c641bf0adbd2626a455aada1ea7fc9cd01abe": {
+    "document_id": "doc_2_microsoft-human-rights-report",
+    "document_name": "Microsoft Human Rights Report December 2023",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Microsoft-Human-Rights-Report.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": []
+  },
+  "01331cf2055480534212ad2b16c6b5ff9ed26b88b5da468aa3b6dc65dad03406": {
+    "document_id": "doc_2_microsoft-human-rights-report",
+    "document_name": "Microsoft Human Rights Report December 2023",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Microsoft-Human-Rights-Report.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Today’s global challenges require international cooperation and are beyond the scope of what any single country, government, or company can solve by themselves.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Today’s global challenges require international cooperation and are beyond the scope of what any single country, government, or company can solve by themselves."
+      },
+      {
+        "claim_text": "We remain committed to upholding our obligation to human rights in everything we do.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We remain committed to upholding our obligation to human rights in everything we do."
+      },
+      {
+        "claim_text": "At Microsoft, we are inspired by the vision and values of the Declaration. We remain committed to helping solve societal problems by expanding opportunity, earning trust, advancing sustainability, and protecting fundamental rights.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "At Microsoft, we are inspired by the vision and values of the Declaration. We remain committed to helping solve societal problems by expanding opportunity, earning trust, advancing sustainability, and protecting fundamental rights."
+      }
+    ]
+  },
+  "58536562ccdfae28c345c487b3271371afad312ea4ed38f35a13f0b08fc675da": {
+    "document_id": "doc_2_microsoft-human-rights-report",
+    "document_name": "Microsoft Human Rights Report December 2023",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Microsoft-Human-Rights-Report.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Respect for human rights is embedded in Microsoft’s mission to empower every person and every organization on the planet to achieve more.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Respect for human rights is embedded in Microsoft’s mission to empower every person and every organization on the planet to achieve more."
+      },
+      {
+        "claim_text": "Microsoft looks to the UN Guiding Principles on Business and Human Rights (UNGPs) and international human rights laws, principles, and norms to guide our human rights due diligence.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Microsoft looks to the UN Guiding Principles on Business and Human Rights (UNGPs) and international human rights laws, principles, and norms to guide our human rights due diligence."
+      },
+      {
+        "claim_text": "The Environmental, Social, and Public Policy Committee of Microsoft’s Board of Directors oversees Microsoft’s key non-financial regulatory risks (including human rights concerns) that may have a material impact on the company and its ability to sustain trust with customers, employees, and the public.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "The Environmental, Social, and Public Policy Committee of Microsoft’s Board of Directors oversees Microsoft’s key non-financial regulatory risks (including human rights concerns) that may have a material impact on the company and its ability to sustain trust with customers, employees, and the public."
+      }
+    ]
+  },
+  "e3d98204c263b158920cdd5c359ccc56424afb3b2efcdaf07e18ab4e337c1ee5": {
+    "document_id": "doc_2_microsoft-human-rights-report",
+    "document_name": "Microsoft Human Rights Report December 2023",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Microsoft-Human-Rights-Report.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft created a dedicated human rights team to guide the company’s human rights due diligence and foster engagement with a broad range of stakeholders, including the international human rights community, academics, and civil society organizations.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Microsoft created a dedicated human rights team to guide the company’s human rights due diligence and foster engagement with a broad range of stakeholders, including the international human rights community, academics, and civil society organizations."
+      },
+      {
+        "claim_text": "The Microsoft Global Human Rights Statement outlines our commitment to respecting and advancing human rights.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Microsoft’s Global Human Rights Statement outlines our commitment to respecting and advancing human rights"
+      },
+      {
+        "claim_text": "Our Supply Chain Human Rights Policy Statement sets forth how Microsoft applies risk management measures to operationalize our commitments to human rights and the environment in our corporate, business, and subsidiary supply chains.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Our Supply Chain Human Rights Policy Statement sets forth how Microsoft applies risk management measures to operationalize our commitments to human rights and the environment in our corporate, business, and subsidiary supply chains."
+      }
+    ]
+  },
+  "3bdca427cb3dd6dfd4def032c35bbe1f1a36047ac6ee25d85fd5011e19794667": {
+    "document_id": "doc_2_microsoft-human-rights-report",
+    "document_name": "Microsoft Human Rights Report December 2023",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Microsoft-Human-Rights-Report.pdf",
+    "page_number": "6",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft’s Office of Responsible AI (ORA) was established in 2019.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Microsoft’s Office of Responsible AI (ORA) was established in 2019."
+      },
+      {
+        "claim_text": "ORA manages our sensitive use review program, which is a reporting, review, and guidance framework that is triggered when Microsoft personnel are involved in developing or deploying an AI system.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "ORA manages our sensitive use review program, which is a reporting, review, and guidance framework that is triggered when Microsoft personnel are involved in developing or deploying an AI system"
+      },
+      {
+        "claim_text": "Microsoft published an updated version of the Responsible AI Standard in 2022.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "After receiving feedback from diverse disciplines, we published an updated version of the Responsible AI Standard in 2022."
+      },
+      {
+        "claim_text": "The Responsible AI Standard defines requirements for designing, building, and testing AI systems responsibly.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "The Standard details 17 concrete goals that outline key enablers of responsible AI development, such as impact assessments, data governance, and human oversight and accountability."
+      },
+      {
+        "claim_text": "Microsoft published six Responsible AI principles in 2018: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Microsoft published six Responsible AI principles that continue to guide the development and use of AI at Microsoft today: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability."
+      }
+    ]
+  },
+  "b218bd7c1582fa09cb1819b8f53ec71945dbda66762d80ad67b7d736f18eddc5": {
+    "document_id": "doc_2_microsoft-human-rights-report",
+    "document_name": "Microsoft Human Rights Report December 2023",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Microsoft-Human-Rights-Report.pdf",
+    "page_number": "7",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft developed the Responsible AI Impact Assessment Template and a detailed guidance document to define how teams should assess the impact an AI system may have on people, organizations, and society.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Microsoft developed the Responsible AI Impact Assessment Template and a detailed guidance document to define how teams should assess the impact an AI system may have on people, organizations, and society."
+      },
+      {
+        "claim_text": "Microsoft has partnered with the Stimson Center to launch Global Perspectives: Responsible AI Fellowship.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Microsoft has partnered with the Stimson Center to launch Global Perspectives: Responsible AI Fellowship."
+      },
+      {
+        "claim_text": "Globally, only one ophthalmologist exists for every one million people, and hospitals in the Global South often lack specialized diagnostic equipment.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Globally, only one ophthalmologist exists for every one million people, and hospitals in the Global South often lack specialized diagnostic equipment."
+      },
+      {
+        "claim_text": "Microsoft’s AI for Good Lab has partnered with ophthalmologists in Latin America to develop an AI model to detect RoP that runs on a smartphone app.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Microsoft’s AI for Good Lab has partnered with ophthalmologists in Latin America to develop an AI model to detect RoP that runs on a smartphone app."
+      },
+      {
+        "claim_text": "As 85% of the global population has access to smartphones, this approach is helping to democratize access to vision-saving medical care.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "As 85% of the global population has access to smartphones, this approach is helping to democratize access to vision-saving medical care."
+      },
+      {
+        "claim_text": "Microsoft published Governing AI: A Blueprint for the Future, a five-point proposal that outlines legal and policy recommendations for the governance of AI.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Microsoft published Governing AI: A Blueprint for the Future, a five-point proposal that outlines legal and policy recommendations for the governance of AI."
+      }
+    ]
+  },
+  "cefc9de4c3217febe3756552402c0f391e71f5d5832451441821b0b585de7117": {
+    "document_id": "doc_2_microsoft-human-rights-report",
+    "document_name": "Microsoft Human Rights Report December 2023",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Microsoft-Human-Rights-Report.pdf",
+    "page_number": "8",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft’s AI for Good Lab is collaborating with the United Nations, governments, non-governmental organizations, and the private sector to advance the Early Warnings for All initiative.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Microsoft’s AI for Good Lab is collaborating with the United Nations, governments, non-governmental organizations, and the private sector to advance the Early Warnings for All initiative, which is designed to deliver affordable, accessible, life-saving solutions to communities burdened by the effects of climate change."
+      },
+      {
+        "claim_text": "The AI for Good Lab aims to deliver affordable, accessible, life-saving solutions to communities affected by climate change.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "The AI for Good Lab is collaborating with the United Nations, governments, non-governmental organizations, and the private sector to advance the Early Warnings for All initiative, which is designed to deliver affordable, accessible, life-saving solutions to communities burdened by the effects of climate change."
+      }
+    ]
+  },
+  "d0ed64f4e1812aa423330d0872b48a086cc2fc8060a2ab66276e4aa97ae67af7": {
+    "document_id": "doc_2_microsoft-human-rights-report",
+    "document_name": "Microsoft Human Rights Report December 2023",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Microsoft-Human-Rights-Report.pdf",
+    "page_number": "9",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft is committed to empowering people across the spectrum of disability.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Microsoft is committed to empowering people across the spectrum of disability."
+      },
+      {
+        "claim_text": "We are working to bridge the disability divide through four pillars: Technology, People, Partnership, and Policy.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We’re working to bridge the disability divide through four pillars: Technology, People, Partnership, and Policy."
+      },
+      {
+        "claim_text": "Microsoft’s Accessibility Conformance Reports show our commitment to accessibility.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Microsoft’s Accessibility Conformance Reports show our commitment to accessibility."
+      },
+      {
+        "claim_text": "The five most salient issues identified in the initial study included accessibility, digital safety, freedom of expression, privacy, and responsible sourcing.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "The five most salient issues identified in that initial study included accessibility, digital safety, freedom of expression, privacy, and responsible sourcing."
+      }
+    ]
+  },
+  "1627c2459b9a7f7092fdf353cfe2600ebe00d7a0dd07bd9c29c65c0410233436": {
+    "document_id": "doc_2_microsoft-human-rights-report",
+    "document_name": "Microsoft Human Rights Report December 2023",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Microsoft-Human-Rights-Report.pdf",
+    "page_number": "10",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft’s Inclusive Hiring program provides neurodivergent job candidates and collaboration by using Minecraft in its Neurodiversity Hiring Program.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Microsoft’s Inclusive Hiring program provides neurodivergent job candidates and collaboration by using Minecraft in its Neurodiversity Hiring Program."
+      },
+      {
+        "claim_text": "Microsoft supported the development of the Center for Civic Design’s Disability Voting Index, a centralized tool for searching accessible voting options in all 50 states.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Microsoft supported the development of the Center for Civic Design’s Disability Voting Index, a centralized tool for searching accessible voting options in all 50 states."
+      },
+      {
+        "claim_text": "In FY23, we launched a new Seeing AI collaboration with Haleon, empowering consumers in the U.S. and U.K. to read packaging details for over 1500 products.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "In FY23, we launched a new Seeing AI collaboration with Haleon, empowering consumers in the U.S. and U.K. to read packaging details for over 1500 products."
+      },
+      {
+        "claim_text": "With partner companies, Microsoft launched the Neurodiversity Career Connector, a marketplace for job seekers who are neurodivergent, connecting over 1700 people with an employer.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "With partner companies, Microsoft launched the Neurodiversity Career Connector, a marketplace for job seekers who are neurodivergent, connecting over 1700 people with an employer."
+      }
+    ]
+  },
+  "a0346e1b0f1858d5e364e7c6a0ddf4bdfe0eb70ae2713c249cbfdde3efd0e5f1": {
+    "document_id": "doc_3_microsoftcorp_gdi_report_2024_final",
+    "document_name": "2024 Global Diversity & Inclusion Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\microsoftcorp_gdi_report_2024_final.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft's diversity and inclusion journey is highlighted in the report.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Inside inclusion spotlight: Microsoft’s diversity and inclusion journey"
+      },
+      {
+        "claim_text": "Representation of women by geographic region is analyzed in the report.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Representation of women by geographic region"
+      },
+      {
+        "claim_text": "Microsoft emphasizes the importance of self-identification in its diversity efforts.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Self-identification"
+      },
+      {
+        "claim_text": "Microsoft is committed to indigenous inclusion as part of its diversity initiatives.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Indigenous inclusion"
+      },
+      {
+        "claim_text": "Microsoft’s core business focuses on representation and diversity.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Representation"
+      },
+      {
+        "claim_text": "Microsoft’s broader business ecosystem includes partnerships and collaborations.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Partnerships"
+      }
+    ]
+  },
+  "b0dcfd1c41683024685ab7b0709bc078e9ef537355f9110beaa6e41914514eec": {
+    "document_id": "doc_3_microsoftcorp_gdi_report_2024_final",
+    "document_name": "2024 Global Diversity & Inclusion Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\microsoftcorp_gdi_report_2024_final.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": []
+  },
+  "23f83394790b3155e1ee551e0220afc1058a4994d483e51db0db00b09a8517fc": {
+    "document_id": "doc_3_microsoftcorp_gdi_report_2024_final",
+    "document_name": "2024 Global Diversity & Inclusion Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\microsoftcorp_gdi_report_2024_final.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "For 2022 and subsequent years, Technical and Non-technical role definitions were adjusted to align to our current talent architecture.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "For 2022 and subsequent years, Technical and Non-technical role definitions were adjusted to align to our current talent architecture."
+      },
+      {
+        "claim_text": "In our pay equity and median unadjusted pay analyses, we include all countries/regions with 30 or more employees and at least five men and five women to ensure statistical reliability.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In our pay equity and median unadjusted pay analyses, we include all countries/regions with 30 or more employees and at least five men and five women to ensure statistical reliability."
+      },
+      {
+        "claim_text": "This year, that means we’re reporting on 60 countries/regions including the US; the rewards eligible employee population of these countries/regions represents 99.3% of our core global Microsoft workforce.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "This year, that means we’re reporting on 60 countries/regions including the US; the rewards eligible employee population of these countries/regions represents 99.3% of our core global Microsoft workforce."
+      }
+    ]
+  },
+  "012f6c8cafd2dfc1ea0f2296510f215f60edbc8a425f1d4b9e5bccc663183e78": {
+    "document_id": "doc_3_microsoftcorp_gdi_report_2024_final",
+    "document_name": "2024 Global Diversity & Inclusion Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\microsoftcorp_gdi_report_2024_final.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Representation of women and most racial and ethnic minority groups has increased at all levels over the past five years.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Representation of women and most racial and ethnic minority groups has increased at all levels over the past five years."
+      },
+      {
+        "claim_text": "We maintained or grew representation at the Partner + Executive level for women and US racial and ethnic minority groups year over year.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We maintained or grew representation at the Partner + Executive level for women and US racial and ethnic minority groups year over year."
+      },
+      {
+        "claim_text": "Inclusive hiring remained a priority. Where we did hire, we were able to keep hiring representation greater than or equal to headcount representation for women and nearly all racial and ethnic minority groups.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Inclusive hiring remained a priority. Where we did hire, we were able to keep hiring representation greater than or equal to headcount representation for women and nearly all racial and ethnic minority groups."
+      },
+      {
+        "claim_text": "We’re sharing information on our datacenters to highlight our strategic investments in cloud services.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We’re sharing information on our datacenters to highlight our strategic investments in cloud services."
+      },
+      {
+        "claim_text": "Our innovation has come from our commitment to Diversity and Inclusion (D&I), and our future innovation depends on D&I.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Our innovation has come from our commitment to Diversity and Inclusion (D&I), and our future innovation depends on D&I."
+      },
+      {
+        "claim_text": "As of June 2024, 83.5% of employees agreed or strongly agreed they observed coworkers taking intentional action to demonstrate allyship in the workplace.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "As of June 2024, 83.5% of employees agreed or strongly agreed they observed coworkers taking intentional action to demonstrate allyship in the workplace."
+      },
+      {
+        "claim_text": "Employees who observed allyship behaviors in the workplace reported a higher score for feeling empowered (79 vs. 54 for those who did not observe allyship).",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Employees who observed allyship behaviors in the workplace reported a higher score for feeling empowered (79 vs. 54 for those who did not observe allyship)."
+      }
+    ]
+  },
+  "89b9150bede7d4b5824606f99f1f35e1372c54778606dcc48e17795ab3b5e7a9": {
+    "document_id": "doc_3_microsoftcorp_gdi_report_2024_final",
+    "document_name": "2024 Global Diversity & Inclusion Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\microsoftcorp_gdi_report_2024_final.pdf",
+    "page_number": "6",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Our global core workforce increased 3.1% and our US core workforce increased 3.5%. ",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "This year, our global core workforce increased 3.1% and our US core workforce increased 3.5%. "
+      },
+      {
+        "claim_text": "Representation in Partner + Executive roles grew for all racial and ethnic minority groups year over year except for Native Hawaiian and Pacific Islander, which remained steady.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Representation in Partner + Executive roles grew for all racial and ethnic minority groups year over year except for Native Hawaiian and Pacific Islander, which remained steady."
+      },
+      {
+        "claim_text": "Asian and multiracial representation rose year over year at all leadership levels.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Asian and multiracial representation rose year over year at all leadership levels."
+      },
+      {
+        "claim_text": "Representation of women in the Microsoft workforce worldwide is now 31.6%, up 0.4 percentage points from 31.2% in 2023.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Women now make up 31.6% of the core Microsoft workforce worldwide, up 0.4 percentage points from 31.2% in 2023."
+      },
+      {
+        "claim_text": "The representation of women rose year over year at all leadership levels except Executive, where it decreased by 0.1 percentage point to 29.0%. ",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "The representation of women rose year over year at all leadership levels except Executive, where representation decreased 0.1 percentage point to 29.0% year over year."
+      },
+      {
+        "claim_text": "Representation in technical roles grew for women, Black and African American, Hispanic and Latinx employees.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Representation in technical roles grew for women, Black and African American, Hispanic and Latinx employees"
+      },
+      {
+        "claim_text": "Employees’ sense of inclusion on their team remained constant year over year.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In our Daily Signals survey, we ask employees how they feel about the statement, “At Microsoft, we are diverse inclusive, meaning that we are open to others’ ideas, we value differing perspectives, and we invite them.” In June 2024, 81.2% of employees surveyed agreed or strongly agreed, an increase of 2.3 percentage points from last year."
+      }
+    ]
+  },
+  "bcee60f320ecb5af082730ac5eeb6f8c5eabfc64f4f0081e2299b4a2732498a9": {
+    "document_id": "doc_3_microsoftcorp_gdi_report_2024_final",
+    "document_name": "2024 Global Diversity & Inclusion Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\microsoftcorp_gdi_report_2024_final.pdf",
+    "page_number": "7",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft has been promoting LGBTQIA+ inclusion since 1989, including offering benefits for same-sex domestic partnerships in employees.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Microsoft has been promoting LGBTQIA+ inclusion since 1989, including offering benefits for same-sex domestic partnerships in employees."
+      },
+      {
+        "claim_text": "Became one of the first Fortune 500 companies to expand anti-discrimination policy and benefits to LGBTQIA+ employees.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Became one of the first Fortune 500 companies to expand anti-discrimination policy and benefits to LGBTQIA+ employees."
+      },
+      {
+        "claim_text": "Extended US healthcare benefits to same-sex domestic partners.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "US healthcare benefits extended to same-sex domestic partners"
+      },
+      {
+        "claim_text": "Covered taxes for same-sex domestic partner benefits for over a decade, until the US legalized same-sex marriage.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Covered taxes for same-sex domestic partner benefits for over a decade, until the US legalized same-sex marriage"
+      },
+      {
+        "claim_text": "First time scoring 100 on HRC Foundation's Corporate Equality Index.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "First time scoring 100 on HRC Foundation's Corporate Equality Index"
+      },
+      {
+        "claim_text": "Joined Billion Dollar Roundtable and invested more than $2 billion with diverse suppliers.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Joined Billion Dollar Roundtable and invested more than $2 billion with diverse suppliers"
+      },
+      {
+        "claim_text": "Autism benefit & Applied Behavior Analysis (ABA) therapy included in benefits coverage.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Autism benefit & Applied Behavior Analysis (ABA) therapy included in benefits coverage"
+      },
+      {
+        "claim_text": "First time measuring employee sentiment on inclusive culture.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "First time measuring employee sentiment on inclusive culture"
+      },
+      {
+        "claim_text": "Inclusive Design approach formalized.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Inclusive Design approach formalized"
+      },
+      {
+        "claim_text": "Neurodiversity Hiring Program developed.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Neurodiversity Hiring Program developed"
+      },
+      {
+        "claim_text": "Became one of the first Fortune 500 companies to expand anti-discrimination policy and benefits to LGBTQIA+ employees.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Became one of the first Fortune 500 companies to expand anti-discrimination policy and benefits to LGBTQIA+ employees."
+      },
+      {
+        "claim_text": "First Diversity Director named.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "First Diversity Director named"
+      },
+      {
+        "claim_text": "First Minority Student Day.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "First Minority Student Day"
+      },
+      {
+        "claim_text": "Created a full-time position dedicated to accessibility, ensuring our products, services, and channels meet accessibility standards from procurement to development.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Created a full-time position dedicated to accessibility, ensuring our products, services, and channels meet accessibility standards from procurement to development"
+      },
+      {
+        "claim_text": "Donated over $1 million (including company match) to 220 nonprofits supporting LGBTQIA+ communities worldwide in fiscal year 2024.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Donated over $1 million (including company match) to 220 nonprofits supporting LGBTQIA+ communities worldwide in fiscal year 2024"
+      },
+      {
+        "claim_text": "Added a performance-based component around culture and organizational leadership, which includes progress on D&I representation, to the compensation of every member of the Senior Leadership Team.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Added a performance-based component around culture and organizational leadership, which includes progress on D&I representation, to the compensation of every member of the Senior Leadership Team"
+      }
+    ]
+  },
+  "138210b902159cdf936ad79ee05de26e212c2e9118b999b963b7de6c7f9deab5": {
+    "document_id": "doc_3_microsoftcorp_gdi_report_2024_final",
+    "document_name": "2024 Global Diversity & Inclusion Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\microsoftcorp_gdi_report_2024_final.pdf",
+    "page_number": "8",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Hosted Include 2021, a free global digital event with 75,000 employees, partners, customers, and ecosystem members, to engage and learn from external experts on diversity, inclusion, identity, global perspectives, racial injustice, and more.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Hosted Include 2021, a free global digital event with 75,000 employees, partners, customers, and ecosystem members, to engage and learn from external experts on diversity, inclusion, identity, global perspectives, racial injustice, and more."
+      },
+      {
+        "claim_text": "In June 2020, we outlined a series of multiyear commitments designed to further address the racial injustice and inequality experienced by racial and ethnic minorities in the US, including Black and African American communities.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In June 2020, we outlined a series of multiyear commitments designed to further address the racial injustice and inequality experienced by racial and ethnic minorities in the US, including Black and African American communities."
+      },
+      {
+        "claim_text": "Developed the Allyship at Microsoft learning pathway, a program grounded in neuroscience and growth mindset.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Developed the Allyship at Microsoft learning pathway, a program grounded in neuroscience and growth mindset."
+      },
+      {
+        "claim_text": "Begun reporting median unadjusted pay analysis (pay gap) data for a five-year period.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Begun reporting median unadjusted pay analysis (pay gap) data for a five-year period."
+      },
+      {
+        "claim_text": "Published Microsoft’s 2023 Global Diversity & Inclusion Report, our fifth report and tenth year of publishing workforce demographic data externally.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Published Microsoft’s 2023 Global Diversity & Inclusion Report, our fifth report and tenth year of publishing workforce demographic data externally."
+      },
+      {
+        "claim_text": "Invested in ERG leadership development.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Invested in ERG leadership development."
+      },
+      {
+        "claim_text": "Integrated D&I, Talent Management, and Learning and Skilling to ensure access to career capability-building portfolio.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Integrated D&I, Talent Management, and Learning and Skilling to ensure access to career capability-building portfolio."
+      },
+      {
+        "claim_text": "Global gender-affirming benefits offered to all employees.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Global gender-affirming benefits offered to all employees."
+      },
+      {
+        "claim_text": "Racial Equity Initiative announced.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Racial Equity Initiative announced."
+      },
+      {
+        "claim_text": "Accelerated our companywide commitment to launch immersive simulations, allowing employees to practice crucial D&I skills such as recognizing and addressing bias, responding to microaggressions, and demonstrating effective allyship.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Accelerated our companywide commitment to launch immersive simulations, allowing employees to practice crucial D&I skills such as recognizing and addressing bias, responding to microaggressions, and demonstrating effective allyship."
+      }
+    ]
+  },
+  "6b826a59d0e24f9cb5dab5b2256107520f177001f555e9a07e8f1ee7ff817a1a": {
+    "document_id": "doc_3_microsoftcorp_gdi_report_2024_final",
+    "document_name": "2024 Global Diversity & Inclusion Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\microsoftcorp_gdi_report_2024_final.pdf",
+    "page_number": "9",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Integrating diversity and inclusion into all aspects of our work is necessary for business success.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Integrating diversity and inclusion into all aspects of our work is necessary for business success."
+      },
+      {
+        "claim_text": "Diversity in employee perspectives, skill sets, and lived experiences helps broaden our horizons",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Diversity in employee perspectives, skill sets, and lived experiences helps broaden our horizons"
+      },
+      {
+        "claim_text": "By actively seeking diversity and embracing inclusion, we ensure our workforce represents the planet we serve",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "By actively seeking diversity and embracing inclusion, we ensure our workforce represents the planet we serve"
+      },
+      {
+        "claim_text": "Creating conditions where everyone feels recognized, valued, and heard is only possible with a mutual commitment to our company’s values and mission",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Creating these conditions is only possible when everyone feels recognized, valued, and heard with a mutual commitment to our company’s values and mission"
+      }
+    ]
+  },
+  "941c5e0fcf5b56a54e5e8c7db3320575bfbae8e1ee3555ba9428f8a23036fa34": {
+    "document_id": "doc_3_microsoftcorp_gdi_report_2024_final",
+    "document_name": "2024 Global Diversity & Inclusion Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\microsoftcorp_gdi_report_2024_final.pdf",
+    "page_number": "10",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": []
+  },
+  "92b187e2c788ea6a2a563fd799110331f474d2c67be357e1496bb1db9f260ef9": {
+    "document_id": "doc_4_responsible-ai-transparency-report-2024",
+    "document_name": "Responsible AI Transparency Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Responsible-AI-Transparency-Report-2024.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": []
+  },
+  "154040e7dde7195cdd934a93e6b8bd06e9d8fd2c9b06a6dd765390db08699878": {
+    "document_id": "doc_4_responsible-ai-transparency-report-2024",
+    "document_name": "Responsible AI Transparency Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Responsible-AI-Transparency-Report-2024.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "In 2016, our Chairman and CEO, Satya Nadella, set us on a clear course to adopt a principled and human-centered approach to our AI.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In 2016, our Chairman and CEO, Satya Nadella, set us on a clear course to adopt a principled and human-centered approach to our AI."
+      },
+      {
+        "claim_text": "We committed to publishing an annual report on our responsible AI program in 2023.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In 2023, we committed to publishing an annual report on our responsible AI program"
+      },
+      {
+        "claim_text": "We are committed to sharing our learnings early and often around responsible AI practices.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "we are committed to sharing our learnings early and often and engaging in a robust dialogue around responsible AI practices."
+      },
+      {
+        "claim_text": "We provide insights into how we build applications that use generative AI.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In this inaugural annual report, we provide insight into how we build applications that use generative AI"
+      },
+      {
+        "claim_text": "We are committed to sharing our maturing practices in responsible AI.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "this report enables us to share our maturing practices"
+      }
+    ]
+  },
+  "da9d741f85707fdce9363d51fb8f9a18d26c76e2d290e1e1aeb10859cbea35b6": {
+    "document_id": "doc_4_responsible-ai-transparency-report-2024",
+    "document_name": "Responsible AI Transparency Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Responsible-AI-Transparency-Report-2024.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We created a new approach for governing generative AI releases, which builds on our Responsible AI Standard and the National Institute of Standards and Technology’s AI Risk Management Framework.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "We created a new approach for governing generative AI releases, which builds on our Responsible AI Standard and the National Institute of Standards and Technology’s AI Risk Management Framework."
+      },
+      {
+        "claim_text": "In the second half of 2023, we grew our responsible AI community from 350 members to over 400 members, a 16.6 percent increase.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "In the second half of 2023, we grew our responsible AI community from 350 members to over 400 members, a 16.6 percent increase."
+      },
+      {
+        "claim_text": "We’ve invested in mandatory training for all employees to increase the adoption of responsible AI practices.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We’ve invested in mandatory training for all employees to increase the adoption of responsible AI practices."
+      },
+      {
+        "claim_text": "As of December 31, 2023, 99 percent of employees completed the responsible AI module in our annual Standards of Business Conduct training.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "As of December 31, 2023, 99 percent of employees completed the responsible AI module in our annual Standards of Business Conduct training."
+      }
+    ]
+  },
+  "cdbbe3d6a7214d1da5619d94c977ec95c8c7b6cbfa9c3a85bc7bcafcd6cac83f": {
+    "document_id": "doc_4_responsible-ai-transparency-report-2024",
+    "document_name": "Responsible AI Transparency Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Responsible-AI-Transparency-Report-2024.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Microsoft has released generative AI models and applications at a scale and pace that few others have matched.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Generative AI—artificial intelligence models and applications capable of creating original content, including text, image, and audio—has accelerated this transformation. At Microsoft, we recognize our role in shaping this technology. We have released generative AI models and applications at a scale and pace that few others have matched."
+      },
+      {
+        "claim_text": "Microsoft is committed to sharing learnings from developing generative AI technologies responsibly.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "As always, we are committed to sharing our learnings as quickly as possible, and generative AI is no exception."
+      }
+    ]
+  },
+  "09f7f9df393c18900a1d328e8e6cfbbd955cc7f7bd91009529bcf899b2013d21": {
+    "document_id": "doc_4_responsible-ai-transparency-report-2024",
+    "document_name": "Responsible AI Transparency Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Responsible-AI-Transparency-Report-2024.pdf",
+    "page_number": "6",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "In 2023, we regularly published resources to share best practices for developing generative applications responsibly.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In 2023, we regularly published resources to share best practices for developing generative applications responsibly."
+      },
+      {
+        "claim_text": "We released additional tools our customers can use to develop generative applications more responsibly.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In March 2024, we released additional tools our customers can use to develop generative applications more responsibly."
+      },
+      {
+        "claim_text": "Our Responsible AI Standard formalizes a set of generative AI requirements.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In 2023, we used our Responsible AI Standard to formalize a set of generative AI requirements"
+      },
+      {
+        "claim_text": "Our generative AI requirements align with the core functions of the National Institute for Standards and Technology (NIST) AI Risk Management Framework.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "This includes using technology to reinforce trust in democratic processes and manage generative AI’s impact with the aim of reducing generative AI risks and their associated harms."
+      }
+    ]
+  },
+  "3dd1573f2237e57fdb3010f1d1f939cf1458f051798869b7d17c2504ae86c860": {
+    "document_id": "doc_4_responsible-ai-transparency-report-2024",
+    "document_name": "Responsible AI Transparency Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Responsible-AI-Transparency-Report-2024.pdf",
+    "page_number": "7",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We require teams to map, measure, and manage generative AI risks pre-deployment and throughout their development cycle.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "We require teams to map, measure, and manage generative AI risks pre-deployment and throughout their development cycle."
+      },
+      {
+        "claim_text": "We’ve implemented procedures to measure high-impact uses of generative AI for additional review by experts within the company.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "We’ve implemented procedures to measure high-impact uses of generative AI for additional review by experts within the company."
+      },
+      {
+        "claim_text": "We notify users that AI-generated applications are designed to adhere to company policies, including our responsible AI policies.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "we notify users that the AI-generated applications are designed to adhere to company policies, including our responsible AI policies."
+      },
+      {
+        "claim_text": "We have established metrics to measure identified risks for generative applications.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "We have established metrics to measure identified risks for generative applications."
+      },
+      {
+        "claim_text": "We manage or mitigate identified risks at the platform and application levels.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "We manage or mitigate identified risks at the platform and application levels."
+      },
+      {
+        "claim_text": "Our teams implement processes to monitor performance and collect user feedback.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "Our teams also implement processes to monitor performance and collect user feedback."
+      },
+      {
+        "claim_text": "We use a defense-in-depth approach that puts controls at every layer of the process.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "We use an approach to risk management that puts controls at every layer of the process."
+      },
+      {
+        "claim_text": "We provide transparency materials to customers and users explaining applications to promote user agency.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "We provide transparency materials to customers and users explaining applications to promote user agency."
+      }
+    ]
+  },
+  "2c75119791bbca9d4ada625e28bbf3ff00404fd67980a2e3157b48087e291156": {
+    "document_id": "doc_4_responsible-ai-transparency-report-2024",
+    "document_name": "Responsible AI Transparency Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Responsible-AI-Transparency-Report-2024.pdf",
+    "page_number": "8",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We’ve developed and deployed technology using our state-of-the-art cybersecurity practices for decades.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We’ve developed and deployed technology using our state-of-the-art cybersecurity practices for decades."
+      },
+      {
+        "claim_text": "In our efforts to develop robust and secure AI infrastructure, we build on our extensive cybersecurity experience.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "In our efforts to develop robust and secure AI infrastructure, we build on our extensive cybersecurity experience"
+      },
+      {
+        "claim_text": "We synthesize and organize learnings about AI threats into security frameworks.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We synthesize and organize learnings about AI threats into security frameworks"
+      },
+      {
+        "claim_text": "Our Aether Security Engineering guidance embodies our unified approach to developing and deploying AI responsibly.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Our Aether Security Engineering guidance embodies our unified approach to developing and deploying AI responsibly."
+      },
+      {
+        "claim_text": "We take valuable learnings from these strategies, customer feedback, and external researcher engagement to continuously improve our AI security best practices.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We take valuable learnings from these strategies, customer feedback, and external researcher engagement to continuously improve our AI security best practices."
+      }
+    ]
+  },
+  "70b4e0c4fd29c2d03dcce38585ae740b611807e055c0097d5adb553a2caa6a61": {
+    "document_id": "doc_4_responsible-ai-transparency-report-2024",
+    "document_name": "Responsible AI Transparency Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Responsible-AI-Transparency-Report-2024.pdf",
+    "page_number": "9",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We expanded our red teaming practices to map risks outside of traditional security risks, including those associated with non-adversarial users and the generation of stereotyping content.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "we expanded our red teaming practices to map risks outside of traditional security risks, including those associated with non-adversarial users and the generation of stereotyping content."
+      },
+      {
+        "claim_text": "We established the first dedicated AI Red Team in industry.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We established the first dedicated AI red team in industry."
+      },
+      {
+        "claim_text": "For generative applications we characterize as high-risk, we implement processes to ensure consistent and holistic AI red teaming by experts independent from the product team developing the application.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "For generative applications we characterize as high-risk, we implement processes to ensure consistent and holistic AI red teaming by experts independent from the product team developing the application."
+      }
+    ]
+  },
+  "8ce6813aefe57d74ada32fb0ac96cceabdb72c767f0878af0ef179d2c989a9f5": {
+    "document_id": "doc_4_responsible-ai-transparency-report-2024",
+    "document_name": "Responsible AI Transparency Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\microsoft\\Responsible-AI-Transparency-Report-2024.pdf",
+    "page_number": "10",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We regularly broaden our measurement capabilities.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We regularly broaden our measurement capabilities."
+      },
+      {
+        "claim_text": "We share capabilities and tools that support the development of new metrics.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We share capabilities and tools that support the development of new metrics."
+      },
+      {
+        "claim_text": "Azure AI Studio can use prompt templates to evaluate generative applications.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Azure AI Studio can use prompt templates to evaluate generative applications."
+      },
+      {
+        "claim_text": "We measure an application’s likelihood to generate identified content risks.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We measure an application’s likelihood to generate identified content risks."
+      },
+      {
+        "claim_text": "Azure AI Studio can evaluate generative applications for security risks like jailbreaks.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Azure AI Studio can evaluate generative applications for security risks like jailbreaks."
+      }
+    ]
   }
 }

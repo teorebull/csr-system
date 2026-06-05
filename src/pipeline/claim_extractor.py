@@ -15,8 +15,8 @@ PROMPT_SCHEMA_VERSION = "claim_extractor_v3_multi_document"
 OLLAMA_TAGS_URL = "http://localhost:11434/api/tags"
 MAX_PAGES_PER_DOCUMENT = 9
 SKIP_FIRST_PAGE_PER_DOCUMENT = True
-DOCUMENT_NAME = "Microsoft Environmental Sustainability Report"
-DEFAULT_DOCUMENT_ID = "doc_1_2025-microsoft-environmental-data-fact-sheet-pdf"
+DOCUMENT_NAME = "Corporate CSR document"
+DEFAULT_DOCUMENT_ID = "doc_1_corporate_csr_document"
 
 
 class Claim(BaseModel):

@@ -1,0 +1,152 @@
+{
+  "4fe62328d87bceacbfa4ee12d072a12c66c99c2df280a72225faae3580dd7c30": {
+    "document_id": "doc_1_global-human-rights-principles",
+    "document_name": "Amazon Global Human Rights Principles 2025",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\amazon\\global-human-rights-principles.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "At Amazon, we are committed to providing products and services that are produced or supplied in a way that respects human rights and the environment and protects the fundamental dignity of workers.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "At Amazon, we are committed to providing products and services that are produced or supplied in a way that respects human rights and the environment and protects the fundamental dignity of workers."
+      },
+      {
+        "claim_text": "We require all suppliers of goods and services for Amazon to respect human rights, including providers, vendors, selling partners, contractors, and subcontractors.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "We require all suppliers of goods and services for Amazon to respect human rights, including providers, vendors, selling partners, contractors, and subcontractors."
+      },
+      {
+        "claim_text": "Amazon’s Supply Chain Standards set forth requirements governing labor standards and working conditions.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Amazon’s Supply Chain Standards set forth requirements governing labor standards and working conditions."
+      },
+      {
+        "claim_text": "We are continuously working to improve our approach to understanding and addressing human rights-related risks where we do business.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We are continuously working to improve our approach to understanding and addressing human rights-related risks where we do business."
+      },
+      {
+        "claim_text": "Our approach to deliver on these commitments is aligned to the UNGPs and has five pillars.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Our approach to deliver on these commitments is aligned to the UNGPs and has five pillars:"
+      },
+      {
+        "claim_text": "We develop policies through an established process that involves engaging with internal and external stakeholders, assessing human rights risks, and monitoring evolving international and human rights standards, regulations, and industry best practices.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We develop policies through an established process that involves engaging with internal and external stakeholders, assessing human rights risks, and monitoring evolving international and human rights standards, regulations, and industry best practices."
+      },
+      {
+        "claim_text": "Our human rights officer directs a central team that works across the company to conduct human rights due diligence and integrate respect for human rights into business decisions.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Our human rights officer directs a central team that works across the company to conduct human rights due diligence and integrate respect for human rights into business decisions."
+      },
+      {
+        "claim_text": "We’re committed to identifying, assessing, prioritizing, and addressing adverse human rights impacts connected to our business.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We’re committed to identifying, assessing, prioritizing, and addressing adverse human rights impacts connected to our business."
+      },
+      {
+        "claim_text": "Within Amazon’s own operations, we deploy a variety of mechanisms to conduct due diligence, assessing and responding to risks across the company.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Within Amazon’s own operations, we deploy a variety of mechanisms to conduct due diligence, assessing and responding to risks across the company."
+      },
+      {
+        "claim_text": "We assess and respond to risk by leveraging internal and external data and guidance from stakeholders, including industry experts, civil society groups, and nongovernmental organizations.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We assess and respond to risk by leveraging internal and external data and guidance from stakeholders, including industry experts, civil society groups, and nongovernmental organizations."
+      }
+    ]
+  },
+  "c2dc34191c08cd988220e3adfc4ae9ce6bd23fc0752767e38fd9b4debc8594ee": {
+    "document_id": "doc_1_global-human-rights-principles",
+    "document_name": "Amazon Global Human Rights Principles 2025",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\amazon\\global-human-rights-principles.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We work with suppliers on appropriate remediation measures and offer partnerships and programs to help them address risks and invest in worker well-being.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "We work with suppliers on appropriate remediation measures and offer partnerships and programs to help them address risks and invest in worker well-being."
+      },
+      {
+        "claim_text": "Engagement with a range of external stakeholders (e.g., public, private, and civil society) is important to identifying positive outcomes for people across our business and key to our human rights due diligence approach.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Engagement with a range of external stakeholders (e.g., public, private, and civil society) is important to identifying positive outcomes for people across our business and key to our human rights due diligence approach."
+      },
+      {
+        "claim_text": "We are committed to establishing effective grievance mechanisms and remediation procedures to promote respect for human rights and expect every supplier in our supply chain to provide their workers access to effective grievance mechanisms.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We are committed to establishing effective grievance mechanisms and remediation procedures to promote respect for human rights and expect every supplier in our supply chain to provide their workers access to effective grievance mechanisms."
+      }
+    ]
+  }
+}

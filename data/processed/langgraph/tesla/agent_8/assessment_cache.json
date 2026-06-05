@@ -1,0 +1,67 @@
+{
+  "d21b7b0c40a5ca732cfe327dbd910b94530cea5288a46ee510c6f13d4b115208": {
+    "normalized_claim_id": "normalized_claim_40",
+    "claim_text": "Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain.",
+    "claim_family": "environmental",
+    "final_label": "UNVERIFIED",
+    "greenwashing_risk_level": "MEDIUM",
+    "evidence_relevance": "INDIRECT",
+    "justification": "The evidence does not directly address Tesla's Human Rights and Conflict Minerals Policy or its implementation in the supply chain. It mentions that Tesla did not comment on allegations presented by International Rights Advocates Group, but it does not provide information about Tesla's policy effectiveness.",
+    "risk_reasoning": "There is a medium risk of greenwashing because the claim makes a strong statement about the company’s commitment to human rights and conflict minerals, while the evidence shows reluctance in addressing specific allegations. This raises contextual concerns without directly contradicting the claim.",
+    "top_evidence_url": "https://en.wikipedia.org/wiki/International_Rights_Advocates_v._Apple,_Microsoft,_Dell,_Tesla",
+    "top_evidence_title": "International Rights Advocates v. Apple, Microsoft, Dell, Tesla - Wikipedia",
+    "supporting_excerpt": "Google has responded by saying that they have been working with industry and supply groups to eliminate the problem. Microsoft and Tesla did not comment on the allegations presented by the International Rights Advocates Group."
+  },
+  "b3755934473a4901b352e621e8ba207a333388a55d79f98180b734eae0a5d936": {
+    "normalized_claim_id": "normalized_claim_48",
+    "claim_text": "Tesla disciplines contractors and appropriate parties who fail to meet the requirements of our Supplier Code of Conduct and Human Rights and Conflict Minerals Policy.",
+    "claim_family": "environmental",
+    "final_label": "UNVERIFIED",
+    "greenwashing_risk_level": "MEDIUM",
+    "evidence_relevance": "INDIRECT",
+    "justification": "The evidence suggests that Tesla is involved in a lawsuit regarding the use of cobalt mined by child labor, which contradicts the claim about disciplining contractors and suppliers for non-compliance with human rights policies.",
+    "risk_reasoning": "The evidence raises serious concerns about Tesla's adherence to its own human rights policies, indicating potential systemic issues that could suggest greenwashing practices if not properly addressed.",
+    "top_evidence_url": "https://abcnews.com/International/apple-google-microsoft-dell-tesla-named-lawsuit-deaths/story?id=67795965",
+    "top_evidence_title": "Apple, Google, Microsoft, Dell, Tesla sued over deaths of child miners",
+    "supporting_excerpt": "Five of the world's largest tech companies are being sued over the deaths and injuries of Congolese children mining for cobalt. The lawsuit accuses Apple, Dell, Google, Microsoft and Tesla of 'knowingly benefiting from and aiding and abetting the cruel and brutal use of young children in the Democratic Republic of Congo to mine cobalt.'"
+  },
+  "6583ea048bf16de8ff6a004039ea0ef465724e94faa1b29b4d729e350c5b4885": {
+    "normalized_claim_id": "normalized_claim_72",
+    "claim_text": "Tesla solar panels have generated more electricity than has been consumed by our vehicles and factories between 2012 and 2021.",
+    "claim_family": "environmental",
+    "final_label": "UNVERIFIED",
+    "greenwashing_risk_level": "UNCLEAR",
+    "evidence_relevance": "UNRELATED",
+    "justification": "The evidence does not provide information related to the claim about Tesla's solar panels generating more electricity than consumed by their vehicles and factories.",
+    "risk_reasoning": "The provided evidence is unrelated to the specific environmental impact or energy production claims made in the CSR statement. Therefore, no greenwashing risk can be assessed.",
+    "top_evidence_url": "",
+    "top_evidence_title": "",
+    "supporting_excerpt": ""
+  },
+  "d3a3fb9701194d06d48588a7ec465ecf9e6655f525f444a6312b038561aa0ab4": {
+    "normalized_claim_id": "normalized_claim_40",
+    "claim_text": "Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain.",
+    "claim_family": "environmental",
+    "final_label": "PARTIALLY_CONTRADICTED",
+    "greenwashing_risk_level": "HIGH",
+    "evidence_relevance": "DIRECT",
+    "justification": "The evidence shows that Tesla's policy on human rights and conflict minerals may not be as robust or effectively implemented as claimed, given the poor scores in the Corporate Human Rights Benchmark and legal issues related to child labor.",
+    "risk_reasoning": "Evidence about specific instances of human rights violations and low performance scores suggest that Tesla’s policies might not adequately address these critical issues across its supply chain, raising concerns about greenwashing.",
+    "top_evidence_url": "https://assets.worldbenchmarkingalliance.org/app/uploads/2022/11/Tesla-CHRB-scorecard-2022.pdf",
+    "top_evidence_title": "Corporate Human Rights Benchmark 2022 Company Scoresheet Company Name Tesla",
+    "supporting_excerpt": "[Page 1] Corporate Human Rights Benchmark 2022 Company Scoresheet Company Name Tesla Industry Automotive (Own Operations and Supply Chain) Overall Score 7.3 out of 100"
+  },
+  "3eaa6be60f4b9ae123f0c6520fe900522923fcbaf1b667ab69a289f106f552df": {
+    "normalized_claim_id": "normalized_claim_46",
+    "claim_text": "Tesla is committed to continuously evaluating our supply chain to address any risks related to conflict minerals, modern slavery, child labour and human trafficking.",
+    "claim_family": "environmental",
+    "final_label": "PARTIALLY_CONTRADICTED",
+    "greenwashing_risk_level": "HIGH",
+    "evidence_relevance": "DIRECT",
+    "justification": "The evidence shows that Glencore, a supplier of Tesla's battery materials, has been flagged for numerous human rights abuses. This directly contradicts Tesla's claim of evaluating their supply chain to address such risks.",
+    "risk_reasoning": "Evidence suggesting that one of Tesla's suppliers is involved in significant human rights violations raises serious concerns about the company's commitment and effectiveness in addressing these issues within its supply chain, indicating a high risk of greenwashing.",
+    "top_evidence_url": "https://www.scribd.com/document/847420998/Tesla-Battery-Material-Supplier-Tops-List-of-Human-Rights-Abuses-for-Second-Year-in-a-Row-the-Verg",
+    "top_evidence_title": "Tesla's Supplier Glencore Faces Abuse Allegations | PDF",
+    "supporting_excerpt": "Despite both companies asserting their commitment to address these issues, the report highlights the need for greater accountability in the mining sector to prevent repeating past harms associated with extractive industries."
+  }
+}

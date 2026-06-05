@@ -7,6 +7,7 @@ from urllib.parse import urlparse
 from ddgs import DDGS
 
 from src.schemas.query import SearchQuery, SearchResult
+from src.utils.company import company_keywords
 
 
 MAX_RESULTS = 8
@@ -64,19 +65,6 @@ LOW_QUALITY_DOMAIN_HINTS = {
 }
 
 
-def normalize_company_name(company_name: str) -> list[str]:
-    company_name = company_name.lower().strip().replace("&", " and ").replace("-", " ")
-    parts = company_name.split()
-    ignored_words = {"inc", "inc.", "corp", "corp.", "corporation", "company", "co", "co.", "ltd", "ltd.", "llc", "plc", "group", "holdings", "ag", "sa", "nv", "the"}
-    keywords = []
-
-    for part in parts:
-        if part and part not in ignored_words and len(part) >= 3:
-            keywords.append(part)
-
-    return keywords
-
-
 def get_domain(url: str) -> str:
     try:
         return urlparse(url).netloc.lower()
@@ -124,24 +112,27 @@ def mentions_company(result: dict, company_keywords: list[str]) -> bool:
     url = result.get("href", "").lower()
     combined_text = f"{title} {snippet} {url}"
 
-    if "microsoft word" in title and "microsoft" not in snippet and "microsoft" not in url:
+    if (title.startswith("microsoft word") or title.startswith("word -")) and not any(keyword in combined_text for keyword in company_keywords):
         return False
 
-    if "microsoft" not in combined_text:
+    if not company_keywords:
+        return True
+
+    if not any(keyword in combined_text for keyword in company_keywords):
         return False
 
-    return any(keyword in combined_text for keyword in company_keywords)
+    return True
 
 
 def filter_external_results(results: list[dict], company_name: str) -> list[dict]:
-    company_keywords = normalize_company_name(company_name)
+    normalized_keywords = company_keywords(company_name)
     filtered_results = []
 
     for result in results:
         url = result.get("href", "")
-        if is_company_owned_domain(url, company_keywords):
+        if is_company_owned_domain(url, normalized_keywords):
             continue
-        if not mentions_company(result, company_keywords):
+        if not mentions_company(result, normalized_keywords):
             continue
         filtered_results.append(result)
 

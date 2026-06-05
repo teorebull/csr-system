@@ -12,7 +12,7 @@ from src.schemas.query import SearchQuery, SearchQueryType
 
 
 LOCAL_MODEL = "mistral-nemo:latest"
-DOCUMENT_NAME = "Microsoft Environmental Sustainability Report"
+DEFAULT_DOCUMENT_NAME = "Corporate CSR document"
 
 
 class QueryItem(BaseModel):
@@ -36,7 +36,8 @@ def load_claims(csv_path: Path) -> list[dict]:
     return claims
 
 
-def build_prompt(claim: dict) -> str:
+def build_prompt(claim: dict, company_name: str) -> str:
+    document_name = str(claim.get("document_name", "")).strip() or DEFAULT_DOCUMENT_NAME
     return f"""
 You are generating web search queries for greenwashing-risk analysis.
 
@@ -64,8 +65,9 @@ Rules:
 - return the result in structured format
 
 Claim information:
+- company_name: {company_name}
 - normalized_claim_id: {claim['normalized_claim_id']}
-- document_name: {DOCUMENT_NAME}
+- document_name: {document_name}
 - claim_family: {claim.get('claim_family', 'other')}
 - claim_text: {claim['claim_text']}
 - claim_type: {claim['claim_type']}
@@ -73,25 +75,49 @@ Claim information:
 """.strip()
 
 
-def generate_queries_for_claim(llm, claim: dict) -> list[QueryItem]:
+def generate_queries_for_claim(llm, claim: dict, company_name: str) -> list[QueryItem]:
     structured_llm = llm.with_structured_output(QueryList)
-    prompt = build_prompt(claim)
+    prompt = build_prompt(claim, company_name)
     response = structured_llm.invoke([HumanMessage(content=prompt)])
     return response.queries
 
 
-def build_supplemental_queries(claim: dict) -> list[dict]:
+def is_ai_governance_claim(claim: dict) -> bool:
+    text = " ".join(
+        [
+            str(claim.get("claim_text", "")),
+            str(claim.get("document_name", "")),
+            str(claim.get("topic", "")),
+        ]
+    ).lower()
+    markers = {
+        "responsible ai",
+        "artificial intelligence",
+        "generative ai",
+        "ai system",
+        "ai systems",
+        "machine learning",
+        "ai governance",
+        "frontier model",
+        "ai safety",
+        "ai transparency",
+    }
+    return any(marker in text for marker in markers)
+
+
+def build_supplemental_queries(claim: dict, company_name: str) -> list[dict]:
     claim_id = claim["normalized_claim_id"]
     claim_text = claim["claim_text"].lower()
     claim_family = str(claim.get("claim_family", "other")).lower().strip()
+    company = str(company_name).strip()
 
-    if claim_family == "governance_ai":
+    if claim_family == "governance_ai" and is_ai_governance_claim(claim):
         supplemental_queries = [
-            ("verification", "Microsoft responsible AI standard transparency note governance"),
-            ("contradiction", "Microsoft responsible AI criticism accountability"),
-            ("criticism", "Microsoft responsible AI concerns external review"),
-            ("methodology", "Microsoft responsible AI standard NIST AI Risk Management Framework"),
-            ("context", "Microsoft responsible AI report ethics governance"),
+            ("verification", f"{company} responsible AI standard transparency note governance"),
+            ("contradiction", f"{company} responsible AI criticism accountability"),
+            ("criticism", f"{company} responsible AI concerns external review"),
+            ("methodology", f"{company} responsible AI standard NIST AI Risk Management Framework"),
+            ("context", f"{company} responsible AI report ethics governance"),
         ]
         return [
             {"normalized_claim_id": claim_id, "query_type": query_type, "query_text": query_text}
@@ -100,11 +126,11 @@ def build_supplemental_queries(claim: dict) -> list[dict]:
 
     if claim_family == "other":
         supplemental_queries = [
-            ("verification", "Microsoft CSR report policy statement commitment"),
-            ("contradiction", "Microsoft CSR criticism accountability report"),
-            ("criticism", "Microsoft corporate responsibility concerns external review"),
-            ("methodology", "Microsoft corporate responsibility disclosure policy report"),
-            ("context", "Microsoft CSR external analysis report"),
+            ("verification", f"{company} CSR report policy statement commitment"),
+            ("contradiction", f"{company} CSR criticism accountability report"),
+            ("criticism", f"{company} corporate responsibility concerns external review"),
+            ("methodology", f"{company} corporate responsibility disclosure policy report"),
+            ("context", f"{company} CSR external analysis report"),
         ]
         return [
             {"normalized_claim_id": claim_id, "query_type": query_type, "query_text": query_text}
@@ -115,13 +141,13 @@ def build_supplemental_queries(claim: dict) -> list[dict]:
         return []
 
     supplemental_queries = [
-        ("verification", "Microsoft Scope 2 location-based market-based emissions FY20 FY24 data"),
-        ("verification", "Microsoft greenhouse gas emissions Scope 2 data Tracenable"),
-        ("verification", "Microsoft CDP Scope 2 location-based market-based emissions"),
-        ("methodology", "Microsoft Scope 2 market-based location-based emissions renewable energy certificates RECs"),
-        ("methodology", "Microsoft Scope 2 emissions GHG Protocol market-based location-based accounting"),
-        ("criticism", "Microsoft renewable energy certificates Scope 2 emissions greenwashing criticism"),
-        ("context", "Microsoft data centers electricity demand Scope 2 emissions location-based"),
+        ("verification", f"{company} Scope 2 location-based market-based emissions data"),
+        ("verification", f"{company} greenhouse gas emissions Scope 2 data"),
+        ("verification", f"{company} CDP Scope 2 location-based market-based emissions"),
+        ("methodology", f"{company} Scope 2 market-based location-based emissions renewable energy certificates RECs"),
+        ("methodology", f"{company} Scope 2 emissions GHG Protocol market-based location-based accounting"),
+        ("criticism", f"{company} renewable energy certificates Scope 2 emissions greenwashing criticism"),
+        ("context", f"{company} electricity demand Scope 2 emissions location-based"),
     ]
 
     return [
@@ -142,7 +168,7 @@ def _map_query_type(query_type: str) -> SearchQueryType:
     return SearchQueryType.OTHER
 
 
-def generate_queries_for_all_claims(claims: list[dict]) -> tuple[list[dict], list[SearchQuery]]:
+def generate_queries_for_all_claims(claims: list[dict], company_name: str) -> tuple[list[dict], list[SearchQuery]]:
     llm = ChatOllama(model=LOCAL_MODEL, temperature=0.0)
     all_queries = []
     search_queries = []
@@ -155,7 +181,7 @@ def generate_queries_for_all_claims(claims: list[dict]) -> tuple[list[dict], lis
             continue
 
         try:
-            queries = generate_queries_for_claim(llm, claim)
+            queries = generate_queries_for_claim(llm, claim, company_name)
         except Exception:
             continue
 
@@ -178,7 +204,7 @@ def generate_queries_for_all_claims(claims: list[dict]) -> tuple[list[dict], lis
                 )
             )
 
-        supplemental_rows = build_supplemental_queries(claim)
+        supplemental_rows = build_supplemental_queries(claim, company_name)
         all_queries.extend(supplemental_rows)
 
         for index, row in enumerate(supplemental_rows, start=len(queries) + 1):

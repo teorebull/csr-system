@@ -21,6 +21,8 @@ try:
 except ImportError:
     CrossEncoder = None
 
+from src.utils.company import COMPANY_ALIASES, company_aliases, company_keywords
+
 
 MIN_TEXT_LENGTH = 80
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
@@ -113,6 +115,19 @@ def combined_evidence_text(evidence: dict) -> str:
     return f"{title} {snippet} {query_text} {extracted_text}".lower()
 
 
+def claim_company_keywords(claim: dict) -> list[str]:
+    sources = [
+        str(claim.get("claim_text", "")),
+        str(claim.get("document_name", "")),
+        str(claim.get("source_excerpts", "")),
+    ]
+    text = " ".join(sources).lower()
+    for canonical_name, aliases in COMPANY_ALIASES.items():
+        if any(alias in text for alias in aliases + company_aliases(canonical_name)):
+            return company_keywords(canonical_name)
+    return []
+
+
 def extract_fiscal_year_terms(text: str) -> set[str]:
     terms = set()
     for match in re.findall(r"\bfy\s?(\d{2})\b", text.lower()):
@@ -171,11 +186,11 @@ def compute_specificity(claim: dict, evidence: dict) -> tuple[float, str]:
     notes = []
 
     if claim.get("claim_family", "other") in {"environmental", "governance_ai"}:
-        claim_company_terms = {"microsoft"}
-        if any(term in evidence_text for term in claim_company_terms):
+        company_terms = claim_company_keywords(claim)
+        if company_terms and any(term in evidence_text for term in company_terms):
             adjustment += 0.03
             notes.append("matched_company")
-        else:
+        elif company_terms:
             adjustment -= 0.08
             notes.append("missing_company")
 

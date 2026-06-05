@@ -21,7 +21,7 @@ from src.pipeline.reranker import filter_usable_evidence, rerank_evidence
 from src.pipeline.web_search import search_all_queries
 from src.pipeline.vector_retrieval import retrieve_chunks_for_claims
 from src.schemas.state import DocumentRecord, PipelineState, RunLogEntry
-from src.utils.company import artifact_root_for_company
+from src.utils.company import artifact_root_for_company, company_keywords
 
 
 def _filter_environmental_claims(rows: list[dict]) -> list[dict]:
@@ -37,20 +37,9 @@ def _build_document_id(document_path: str, index: int) -> str:
     return f"doc_{index}_{safe_stem}"
 
 
-def _company_keywords(company_name: str) -> list[str]:
-    ignored_words = {"inc", "inc.", "corp", "corp.", "corporation", "company", "co", "co.", "ltd", "ltd.", "llc", "plc", "group", "holdings", "ag", "sa", "nv", "the"}
-    normalized = company_name.lower().replace("&", " and ").replace("-", " ")
-    keywords = []
-    for part in normalized.split():
-        part = part.strip()
-        if len(part) >= 3 and part not in ignored_words:
-            keywords.append(part)
-    return keywords
-
-
 def _document_matches_company(company_name: str, document_name: str, full_text: str) -> bool:
     haystack = f"{document_name} {full_text[:5000]}".lower()
-    keywords = _company_keywords(company_name)
+    keywords = company_keywords(company_name)
     if not keywords:
         return True
     return any(keyword in haystack for keyword in keywords)
@@ -249,7 +238,7 @@ def run_query_generator(state: PipelineState) -> PipelineState:
         )
         return state
 
-    query_rows, _search_queries = generate_queries_for_all_claims(claim_rows)
+    query_rows, _search_queries = generate_queries_for_all_claims(claim_rows, state.company_name)
     state.queries = query_rows
     state.search_queries = query_rows
     _save_csv(query_rows, artifact_root / "agent_4" / "queries.csv")
@@ -433,7 +422,7 @@ def run_judge(state: PipelineState) -> PipelineState:
         )
         return state
 
-    final_report = build_final_report(artifact_root, state.claim_assessments)
+    final_report = build_final_report(artifact_root, state.claim_assessments, state.company_name)
     state.final_report = final_report
     save_final_report_artifacts(artifact_root, final_report)
     state.logs.append(

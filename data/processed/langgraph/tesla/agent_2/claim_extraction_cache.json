@@ -1,0 +1,1382 @@
+{
+  "7a94e133fd28f1ac0b3504318d1fd8fcce9d86f05d6f608e7e3659488c039215": {
+    "document_id": "doc_1_2020-dei-impact-report",
+    "document_name": "2020 DEI impact report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-DEI-impact-report.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Tesla is on a mission to accelerate the world’s transition to sustainable energy.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Tesla is on a mission to accelerate the world’s transition to sustainable energy."
+      },
+      {
+        "claim_text": "We focus relentlessly on innovation and rely on teamwork and collaboration to help achieve this goal.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "We focus relentlessly on innovation and rely on teamwork and collaboration to help achieve this goal."
+      },
+      {
+        "claim_text": "Along the way, we are continuing to build a culture that is safe, respectful, fair and inclusive for all of our employees.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Along the way, we are continuing to build a culture that is safe, respectful, fair and inclusive for all of our employees."
+      },
+      {
+        "claim_text": "We reaffirm our commitment to Diversity, Equity and Inclusion (DEI).",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We reaffirm our commitment to Diversity, Equity and Inclusion (DEI)."
+      },
+      {
+        "claim_text": "Tesla values individuality as much as we value collaboration.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Tesla values individuality as much as we value collaboration."
+      }
+    ]
+  },
+  "f812876bf4fbf25c38d369a95beca3a6e817752aa000335a0b3d760374a36ad6": {
+    "document_id": "doc_1_2020-dei-impact-report",
+    "document_name": "2020 DEI impact report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-DEI-impact-report.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We insist on equitable practices not just because it’s the right thing to do, but because fair processes allow our team members to bring their whole selves to work.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We insist on equitable practices not just because it’s the right thing to do, but because fair processes allow our team members to bring their whole selves to work."
+      },
+      {
+        "claim_text": "We value and include underrepresented communities at all levels of our company.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We value and include underrepresented communities at all levels of our company."
+      },
+      {
+        "claim_text": "We do the work required to ensure that our culture is as diverse and inclusive as it is collaborative and driven.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We do the work required to ensure that our culture is as diverse and inclusive as it is collaborative and driven."
+      },
+      {
+        "claim_text": "We leverage our differences to build the most innovative products in the world",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "We leverage our differences to build the most innovative products in the world"
+      },
+      {
+        "claim_text": "Our shared mission to accelerate the world’s transition to sustainable energy unites us in our commitment to creating a future that is good for all humanity.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Our shared mission to accelerate the world’s transition to sustainable energy unites us in our commitment to creating a future that is good for all humanity."
+      }
+    ]
+  },
+  "7e3352c06027600f3156ae92ac5d7d8cc606a49373766ff822655f0ac07da2a5": {
+    "document_id": "doc_1_2020-dei-impact-report",
+    "document_name": "2020 DEI impact report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-DEI-impact-report.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Provide transparency in our DEI programs and results to set goals, measure our progress, identify areas of improvement and celebrate successes.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "Provide transparency in our DEI programs and results to set goals, measure our progress, identify areas of improvement and celebrate successes."
+      },
+      {
+        "claim_text": "Integrate accountability measures for organizational, team and individual progress and results into our business operations.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "Integrate accountability measures for organizational, team and individual progress and results into our business operations."
+      },
+      {
+        "claim_text": "Focus on sustainable solutions that solve problems at the root cause and reimagine new programs with diversity, equity and inclusion principles embedded in the design.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Focus on sustainable solutions that solve problems at the root cause and reimagine new programs with diversity, equity and inclusion principles embedded in the design."
+      },
+      {
+        "claim_text": "Share knowledge to aid in personal and professional learning and development.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 2,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "Share knowledge to aid in personal and professional learning and development."
+      }
+    ]
+  },
+  "28bd29937e085134babaef0cf8f075c44c0d6718b46829b47ec0ff0cdd650b61": {
+    "document_id": "doc_1_2020-dei-impact-report",
+    "document_name": "2020 DEI impact report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-DEI-impact-report.pdf",
+    "page_number": "6",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "We are expanding our team and adding company-wide talent development and learning programs to embed DEI principles in everything we do.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We are backing up our commitment to DEI by expanding our team, adding company-wide talent development and learning programs to our function and embedding DEI principles in everything that we do."
+      },
+      {
+        "claim_text": "Tesla is investing in communities like Reno, Nevada, Buffalo, New York, and Austin, Texas, to support the acceleration of robotics, STEAM and sustainability programming within the education systems.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "We are investing in communities like Reno, Nevada, Buffalo, New York, and Austin, Texas, to support the acceleration of robotics, STEAM and sustainability programming within the education systems"
+      },
+      {
+        "claim_text": "Tesla offers first-in-line employment opportunities to program participants.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "and we offer first-in-line employment opportunities to program participants."
+      },
+      {
+        "claim_text": "Tesla is committed to bringing a bias for excellence to Diversity, Equity and Inclusion.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "We set high standards for everything we do and we are committed to bringing that same bias for excellence to Diversity, Equity and Inclusion at Tesla."
+      }
+    ]
+  },
+  "2930b5037f4d133f58c421d6dcc43d23da040383e7f3a5840aef502c75a971e7": {
+    "document_id": "doc_1_2020-dei-impact-report",
+    "document_name": "2020 DEI impact report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-DEI-impact-report.pdf",
+    "page_number": "8",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Underrepresented communities collectively represent 60% of our workforce.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Underrepresented Communities in the U.S. are typically underrepresented in the U.S. This group collectively represents 60% of our workforce."
+      },
+      {
+        "claim_text": "33% of our Directors and Vice Presidents are from underrepresented communities.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Currently, 33% of our Directors and Vice Presidents and are from underrepresented communities."
+      },
+      {
+        "claim_text": "68% of all new hires in the year were from underrepresented communities.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Finally, 68% of all new hires and 65% of this year’s promotions were from underrepresented communities."
+      },
+      {
+        "claim_text": "Black and African American employees are 10% of our U.S. workforce.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Black and African American employees are 10% of our U.S. workforce."
+      },
+      {
+        "claim_text": "Asian employees are 21% of our U.S. workforce.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Asian employees are 21% of our U.S. workforce and have also seen an upward trend in representation in management."
+      },
+      {
+        "claim_text": "Hispanic and Latinx employees are 22% of our U.S. workforce.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Hispanic and Latinx employees are 22% of our U.S. workforce, and while they currently represent only 4% of our Director level and above employees"
+      }
+    ]
+  },
+  "8f29cf583070d53f7c68ab67c5e7a125f8d3fc1f65e04158d28919f62e8ce8da": {
+    "document_id": "doc_1_2020-dei-impact-report",
+    "document_name": "2020 DEI impact report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-DEI-impact-report.pdf",
+    "page_number": "9",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Women represent 21% of our overall U.S. workforce.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Women represent 21% of our overall U.S. workforce and 23% of all promotions – a 5% increase from last year."
+      },
+      {
+        "claim_text": "Women represent 23% of all promotions, which is a 5% increase from the previous year.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Women represent 21% of our overall U.S. workforce and 23% of all promotions – a 5% increase from last year."
+      },
+      {
+        "claim_text": "Women represent 17% of Directors and Vice Presidents in the U.S.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "They represent 17% of our Directors and Vice Presidents."
+      },
+      {
+        "claim_text": "Nearly 25% of all U.S. hires in 2020 were women.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "In 2020, nearly 25% of all U.S. hires have been women."
+      },
+      {
+        "claim_text": "Increasing women’s representation at all levels, especially in leadership, is a top priority for the company.",
+        "claim_type": "commitment",
+        "is_verifiable": false,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": true,
+        "source_excerpt": "Increasing women’s representation at all levels, especially in leadership, is a top priority in 2021."
+      }
+    ]
+  },
+  "88f7a73e1edb0fdbc4f26b1878e9c8cb049db003711f8591e081343d55bdb9a1": {
+    "document_id": "doc_1_2020-dei-impact-report",
+    "document_name": "2020 DEI impact report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-DEI-impact-report.pdf",
+    "page_number": "10",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Many of our executives started at Tesla as individual contributors and are now leading some of our most innovative teams.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Many of our executives started at Tesla as individual contributors and are now leading some of our most innovative teams."
+      },
+      {
+        "claim_text": "Valerie Workman was promoted from Associate General Counsel, Compliance to the Head of Human Resources for all of North America, EMEA and the Asian Pacific (excluding China) in less than two years.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Valerie Workman was hired in 2018. In less than two years she was promoted from Associate General Counsel, Compliance, to the Head of Human Resources for all of North America, EMEA and the Asian Pacific (excluding China)"
+      },
+      {
+        "claim_text": "Valerie Workman was promoted again to become Tesla’s Vice President of People just eight months after her previous promotion.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Just eight months later in July 2020 Valerie was promoted again to become Tesla’s Vice President of People."
+      },
+      {
+        "claim_text": "Valerie Workman leads Tesla’s Human Resources, Recruiting, Workplace, Benefits, Diversity Equity & Inclusion and Employee Relations programs.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Reporting directly to the CEO, Valerie plays a critical role as part of the executive leadership team and leads Tesla’s Human Resources, Recruiting, Workplace, Benefits, Diversity Equity & Inclusion and Employee Relations programs."
+      },
+      {
+        "claim_text": "Valerie Workman led the teams that developed innovative, employee-focused programs in response to the pandemic.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "As a member of Tesla’s COVID-19 CORE TEAM, Valerie led the teams that developed innovative, employee-focused programs in response to the pandemic."
+      },
+      {
+        "claim_text": "At Tesla, excellence is seen as the core competency for any role and this perspective gives leadership the flexibility to provide employees with new opportunities.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "At Tesla, excellence is seen as the core competency for any role and this perspective gives leadership the flexibility to provide employees with new opportunities to plug into the areas where their talents are needed."
+      },
+      {
+        "claim_text": "Tesla does not believe in hierarchy; anyone, anywhere in the company is empowered to connect with everyone, including Elon Musk.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "We don’t believe in hierarchy. We believe in getting things done."
+      }
+    ]
+  },
+  "d7caeac324ed03db1e0781cd20c57d68fbace57ec04dc75267cf1987ccc08bf8": {
+    "document_id": "doc_2_2020-uk-modern-slavery-act-transparency-statement",
+    "document_name": "Microsoft Word - FY20 UK Modern Slavery Act Transparency Statement - Final.docx",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-uk-modern-slavery-act-transparency-statement.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Tesla is committed to creating safe and secure workplaces and working environments.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "We are committed to creating safe and secure workplaces and working environments."
+      },
+      {
+        "claim_text": "Tesla is committed to diversity, equity and inclusion (“DEI”) for our employees in our workplaces throughout the world.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Tesla is also committed to diversity, equity and inclusion (“DEI”) for our employees in our workplaces throughout the world."
+      },
+      {
+        "claim_text": "All of our recruitment procedures comply with the relevant local regulations and standards.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "All of our recruitment procedures comply with the relevant local regulations and standards;"
+      },
+      {
+        "claim_text": "Tesla advocates freedom of employment, which means all work should be done voluntarily.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Tesla also advocates freedom of employment, which means all work should be done voluntarily."
+      },
+      {
+        "claim_text": "Child labour and the employment of children below the applicable minimum legal age is strictly forbidden at Tesla.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "human_rights",
+        "is_future": false,
+        "source_excerpt": "Child labour and the employment of children below the applicable minimum legal age is strictly forbidden at Tesla."
+      },
+      {
+        "claim_text": "Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain."
+      },
+      {
+        "claim_text": "All of our suppliers are required to adhere to our Human Rights and Conflict Minerals Policy and Supplier Code of Conduct.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "all of our suppliers are required to adhere to our Human Rights and Conflict Minerals Policy and Supplier Code of Conduct"
+      },
+      {
+        "claim_text": "Tesla publicly files with the SEC a Conflict Minerals Report annually.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Annually, we publicly file with the SEC a Conflict Minerals Report"
+      },
+      {
+        "claim_text": "Tesla conducts audits to observe principles in action related to social and environmental responsibility.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla, along with our partners and independent third parties, conduct audits to observe these principles in action."
+      }
+    ]
+  },
+  "797a729a0d7cb30493f5958636a95ec72a80faa893aa0d64c8a462511f574646": {
+    "document_id": "doc_2_2020-uk-modern-slavery-act-transparency-statement",
+    "document_name": "Microsoft Word - FY20 UK Modern Slavery Act Transparency Statement - Final.docx",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-uk-modern-slavery-act-transparency-statement.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Tesla believes that there is minimal risk of, and we have found no evidence of Tesla causing, contributing to or being linked to modern slavery, child labour or human trafficking in our supply chain.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla believes that there is minimal risk of, and we have found no evidence of Tesla causing, contributing to or being linked to modern slavery, child labour or human trafficking in our supply chain."
+      },
+      {
+        "claim_text": "Tesla uses a combination of factors to prioritize reducing these risks based on external assessments, feedback from industry groups, as well as our own experience with suppliers.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla uses a combination of factors to prioritize reducing these risks based on external assessments, feedback from industry groups, as well as our own experience with suppliers."
+      },
+      {
+        "claim_text": "Tesla is committed to continuously evaluating our supply chain to address any risks related to conflict minerals, modern slavery, child labour and human trafficking.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Continuously evaluating our supply chain to address any risks related to conflict minerals, modern slavery, child labour and human trafficking;"
+      },
+      {
+        "claim_text": "Tesla requires its Tier 1 suppliers to certify that their materials incorporated into Tesla products comply with the applicable laws related to conflict minerals, modern slavery, child labour and human trafficking.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Requiring our Tier 1 suppliers to certify that their materials incorporated into Tesla products comply with the applicable laws related to conflict minerals, modern slavery, child labour and human trafficking of the country or countries in which they are doing business;"
+      },
+      {
+        "claim_text": "Tesla disciplines contractors and appropriate parties who fail to meet the requirements of our Supplier Code of Conduct and Human Rights and Conflict Minerals Policy.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Disciplining contractors and appropriate parties who fail to meet the requirements of our Supplier Code of Conduct and Human Rights and Conflict Minerals Policy, including potential termination of contract;"
+      },
+      {
+        "claim_text": "Tesla investigates if there is a reasonable basis to believe that a supplier may be engaging in modern slavery, child labour, human trafficking or use of conflict minerals.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Investigating if Tesla has a reasonable basis to believe that a supplier may be engaging in modern slavery, child labour, human trafficking or use of conflict minerals;"
+      },
+      {
+        "claim_text": "Tesla transitions away from purchasing goods or services from any supplier that is believed to be engaging in modern slavery, child labour, human trafficking or use of conflict minerals if the supplier does not take corrective actions.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Transitioning away from purchasing goods or services from any supplier that is believed to be engaging in modern slavery, child labour, human trafficking or use of conflict minerals if the supplier does not take corrective actions."
+      },
+      {
+        "claim_text": "Tesla has implemented similar measures for other materials that may present a risk of modern slavery in our supply chain.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla has implemented similar measures for other materials that may present a risk of modern slavery in our supply chain."
+      }
+    ]
+  },
+  "6c5006dd02dd30ad7bce8480c693c07af9058e625e8581d0f124eb67a0c77a1b": {
+    "document_id": "doc_2_2020-uk-modern-slavery-act-transparency-statement",
+    "document_name": "Microsoft Word - FY20 UK Modern Slavery Act Transparency Statement - Final.docx",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-uk-modern-slavery-act-transparency-statement.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Tesla expanded the scope of its responsible sourcing team to better understand the potential risks of their sourcing decisions.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "During fiscal year 2020, Tesla expanded the scope of its responsible sourcing team to take a closer look at how we are sourcing our materials and to better understand the potential risks of those sourcing decisions."
+      },
+      {
+        "claim_text": "Tesla's employee onboarding process includes an overview about our values and key programs, such as our commitment to DEI and human rights.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Tesla’s employee onboarding process includes an overview about our values and key programs, such as our commitment to DEI and human rights."
+      },
+      {
+        "claim_text": "Tesla continues to audit its suppliers on a range of environmental, social and governance issues including their policies on forced labour.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Continue to audit our suppliers on a range of environmental, social and governance issues including their policies on forced labour;"
+      },
+      {
+        "claim_text": "Tesla encourages its suppliers to conduct responsible sourcing and reduce the risk of modern slavery in their own supply chains.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Encourage suppliers to conduct responsible sourcing and reduce the risk of modern slavery in their own supply chains;"
+      },
+      {
+        "claim_text": "Tesla maintains a specialized team within its global supply chain organization to lead due diligence efforts with respect to conflict minerals and modern slavery.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla maintains a specialized team within the company’s global supply chain organization to lead our due diligence efforts with respect to conflict minerals and modern slavery."
+      }
+    ]
+  },
+  "ae443c472c912e6bff9590c9e7aa44a43cf06d664cf1d823bbc29961558bb39e": {
+    "document_id": "doc_2_2020-uk-modern-slavery-act-transparency-statement",
+    "document_name": "Microsoft Word - FY20 UK Modern Slavery Act Transparency Statement - Final.docx",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-uk-modern-slavery-act-transparency-statement.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "This statement sets out our evaluation of risks of modern slavery in our business and the actions taken during the financial year to address these risks and prevent modern slavery and human trafficking in our operations and supply chains.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "This statement sets out our evaluation of risks of modern slavery in our business and the actions taken during the financial year to address these risks and prevent modern slavery and human trafficking in our operations and supply chains."
+      }
+    ]
+  },
+  "981b79778958623aa55275394bf19b4401e350315e23e7e447cbdc5dca141ec0": {
+    "document_id": "doc_3_2021-tesla-impact-report",
+    "document_name": "Tesla 2021 Impact Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2021-tesla-impact-report.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Current environmental, social and governance (ESG) reporting does not measure the scope of positive impact on the world.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Current environmental, social and governance (ESG) reporting does not measure the scope of positive impact on the world."
+      },
+      {
+        "claim_text": "We need to create a system that measures and scrutinizes actual positive impact on our planet.",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "We need to create a system that measures and scrutinizes actual positive impact on our planet"
+      },
+      {
+        "claim_text": "An obvious example of this is measuring the impact of the automotive industry.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "An obvious example of this is measuring the impact of the automotive industry."
+      },
+      {
+        "claim_text": "Vehicle use-phase emissions, which represent 80-90% of total automotive emissions (included in Scope 3 of ESG reporting), tend to be misreported due to the use of unrealistic assumptions or not reported at all.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Vehicle use-phase emissions, which represent 80-90% of total automotive emissions (included in Scope 3 of ESG reporting), tend to be misreported due to the use of unrealistic assumptions or not reported at all."
+      },
+      {
+        "claim_text": "It is essential that a company’s employees are treated well, with a system in place to prevent discrimination of any kind.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "it is essential that they’re treated well, with a system in place to prevent discrimination of any kind"
+      },
+      {
+        "claim_text": "Many ESG ratings evaluate: “Does this ESG issue impact the profitability of the company?” We need a system that evaluates: “Does the growth of this company have a positive impact on the world?”",
+        "claim_type": "statement",
+        "is_verifiable": false,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Many ESG ratings evaluate: “Does this ESG issue impact the profitability of the company?” We need a system that evaluates: “Does the growth of this company have a positive impact on the world?”"
+      }
+    ]
+  },
+  "d2225f1b640caed6129cfff36e75059345c24164889674c1dd2e8fae1727cc48": {
+    "document_id": "doc_3_2021-tesla-impact-report",
+    "document_name": "Tesla 2021 Impact Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2021-tesla-impact-report.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "In 2021, the global fleet of Tesla vehicles, energy storage and solar panels enabled our customers to avoid emitting 8.4 million metric tons of CO2e.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "In 2021, the global fleet of Tesla vehicles, energy storage and solar panels enabled our customers to avoid emitting 8.4 million metric tons of CO2e"
+      },
+      {
+        "claim_text": "The 6.8 million metric tons of vehicle CO2e savings estimate is based on the net CO2e savings during the use-phase of a Tesla vehicle compared to an ICE vehicle with a real-world fuel economy of ~24 mpg (of which 0.9 million metric tons was avoided through annual renewables matching for the global Supercharger network and home charging in California).",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "The 6.8 million metric tons of vehicle CO2e savings estimate is based on the net CO2e savings during the use-phase of a Tesla vehicle compared to an ICE vehicle with a real-world fuel economy of ~24 mpg (of which 0.9 million metric tons was avoided through annual renewables matching for the global Supercharger network and home charging in California)"
+      },
+      {
+        "claim_text": "The 1.6 million metric tons of solar + storage CO2e savings estimate is based on CO2e avoided through generation of zero-emission electricity from Tesla solar panels, including energy stored and later dispatched from our energy storage products.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "The 1.6 million metric tons of solar + storage CO2e savings estimate is based on CO2e avoided through generation of zero-emission electricity from Tesla solar panels, including energy stored and later dispatched from our energy storage products"
+      }
+    ]
+  },
+  "f9d7b9218fff38ba9a1d757278e0538397d26c2cc7f311bb1e7f8797ec9495df": {
+    "document_id": "doc_3_2021-tesla-impact-report",
+    "document_name": "Tesla 2021 Impact Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2021-tesla-impact-report.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "30,000 litres (~8,000 U.S. Gallons) of fuel burned per car",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "30,000 litres (~8,000 U.S. Gallons) of fuel burned per car"
+      },
+      {
+        "claim_text": "70 tons of CO2e released into the atmosphere",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "70 tons of CO2e released into the atmosphere"
+      },
+      {
+        "claim_text": "Burned fossil fuel is extremely difficult to decarbonize as carbon capture is not economically viable today",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Burned fossil fuel is extremely difficult to decarbonize as carbon capture is not economically viable today"
+      },
+      {
+        "claim_text": "70 MWh of electricity charged per car",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "70 MWh of electricity charged per car"
+      },
+      {
+        "claim_text": "30 tons of CO2 released, assuming current global grid mix",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "30 tons of CO2 released, assuming current global grid mix"
+      },
+      {
+        "claim_text": "Production and lifetime use of EVs is possible to decarbonize using well-established technologies",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Production and lifetime use of EVs is possible to decarbonize using well-established technologies"
+      },
+      {
+        "claim_text": "Battery pack is recycled at the end-of-life and used to build a brand-new battery pack, over and over again.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Battery pack is recycled at the end-of-life and used to build a brand-new battery pack, over and over again."
+      }
+    ]
+  },
+  "d08fcc3fbef2983fa46b2b952301a269ff82068051b2f5963a15b4c491c9af69": {
+    "document_id": "doc_3_2021-tesla-impact-report",
+    "document_name": "Tesla 2021 Impact Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2021-tesla-impact-report.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Tesla solar panels have generated more electricity than has been consumed by our vehicles and factories between 2012 and 2021.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Tesla solar panels have generated more electricity than has been consumed by our vehicles and factories between 2012 and 2021"
+      }
+    ]
+  },
+  "87a5a1e77c1dbe6a5643d47dbd3da8b6a73c824573099f52e2d5781118e4e747": {
+    "document_id": "doc_3_2021-tesla-impact-report",
+    "document_name": "Tesla 2021 Impact Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2021-tesla-impact-report.pdf",
+    "page_number": "6",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Tesla aims to reduce carbon footprint even further.",
+        "claim_type": "result",
+        "is_verifiable": false,
+        "claim_quality_score": 1,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "Reducing Carbon Footprint Even Further"
+      },
+      {
+        "claim_text": "Tesla has a Responsible Sourcing and Supplier Audit Program.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Responsible Sourcing and Supplier Audit Program"
+      },
+      {
+        "claim_text": "Tesla conducts lifecycle analysis of EVs vs. ICE vehicles.",
+        "claim_type": "result",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Lifecycle Analysis of EVs vs. ICE Vehicles"
+      }
+    ]
+  },
+  "67db6dab9c0cbec642f3a20d73fb82ac1f50c3edf9c7215482bfb5b1e545b2bb": {
+    "document_id": "doc_3_2021-tesla-impact-report",
+    "document_name": "Tesla 2021 Impact Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2021-tesla-impact-report.pdf",
+    "page_number": "7",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "By 2030 we are aiming to sell 20 million electric vehicles per year (compared to 0.94 million in 2021).",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": true,
+        "source_excerpt": "by 2030 we are aiming to sell 20 million electric vehicles per year (compared to 0.94 million in 2021)"
+      },
+      {
+        "claim_text": "By 2030, deploy 1,500 GWh of energy storage per year (compared to 4 GWh in 2021).",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": true,
+        "source_excerpt": "deploy 1,500 GWh of energy storage per year (compared to 4 GWh in 2021)"
+      },
+      {
+        "claim_text": "Each product we make must be continuously improved at each step of its lifecycle: from manufacturing to consumer use to recycling.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "Each product we make must be continuously improved at each step of its lifecycle: from manufacturing to consumer use to recycling."
+      }
+    ]
+  },
+  "3f4fb0ef3e2c6b733701bfd1ff0e45564841fdf000aa86a7f019308b5feb9500": {
+    "document_id": "doc_3_2021-tesla-impact-report",
+    "document_name": "Tesla 2021 Impact Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2021-tesla-impact-report.pdf",
+    "page_number": "8",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Sustainability drives our values and mission as a company, and it is at the core of everything we do.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "ethics",
+        "is_future": false,
+        "source_excerpt": "Sustainability drives us. And not just our products — it drives our values and mission as a company. It's at the core of everything we do and is what motivates us in our work."
+      },
+      {
+        "claim_text": "Our products and services are focused on transportation, energy production and storage.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": false,
+        "source_excerpt": "Our products and services are focused on transportation, energy production and storage — each of which have traditionally been some of the biggest polluters both in the U.S. and globally."
+      },
+      {
+        "claim_text": "To achieve a zero-emissions future, we continue to implement programs and initiatives at our global manufacturing facilities and in our local communities.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "environment",
+        "is_future": true,
+        "source_excerpt": "To achieve a zero-emissions future, we continue to implement programs and initiatives at our global manufacturing facilities and in our local communities."
+      }
+    ]
+  },
+  "bbee260fa48a73d9bb9d625a011c4442d68705b8e1e6ab88221549aef0178d1a": {
+    "document_id": "doc_3_2021-tesla-impact-report",
+    "document_name": "Tesla 2021 Impact Report",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2021-tesla-impact-report.pdf",
+    "page_number": "9",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Climate change is reaching alarming levels globally due in large part to emissions from burning fossil fuels for transportation and electricity generation.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "Climate change is reaching alarming levels globally due in large part to emissions from burning fossil fuels for transportation and electricity generation."
+      },
+      {
+        "claim_text": "The world cannot reduce GHG emissions without addressing both energy generation and consumption.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "climate",
+        "is_future": false,
+        "source_excerpt": "The world cannot reduce GHG emissions without addressing both energy generation and consumption."
+      },
+      {
+        "claim_text": "We are designing and manufacturing a complete energy and transportation ecosystem.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "We are designing and manufacturing a complete energy and transportation ecosystem."
+      },
+      {
+        "claim_text": "We both develop the technology behind this ecosystem and focus on the affordability of the products that comprise it.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "We both develop the technology behind this ecosystem and focus on the affordability of the products that comprise it."
+      },
+      {
+        "claim_text": "We seek to achieve this through our R&D and software development efforts as well as through our continuous drive to develop advanced manufacturing capabilities.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "social_impact",
+        "is_future": false,
+        "source_excerpt": "We seek to achieve this through our R&D and software development efforts as well as through our continuous drive to develop advanced manufacturing capabilities."
+      }
+    ]
+  },
+  "6bed3bcd6bce688bc2b0892f7da95e2bcf5d7c07933b4cae8190d49e56687770": {
+    "document_id": "doc_2_2020-uk-modern-slavery-act-transparency-statement",
+    "document_name": "2020 uk modern slavery act transparency statement",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-uk-modern-slavery-act-transparency-statement.pdf",
+    "page_number": "2",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Tesla is committed to creating safe and secure workplaces and working environments.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Tesla is also committed to diversity, equity and inclusion (“DEI”) for our employees in our workplaces throughout the world."
+      },
+      {
+        "claim_text": "All of our recruitment procedures comply with the relevant local regulations and standards.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "All of our recruitment procedures comply with the relevant local regulations and standards;"
+      },
+      {
+        "claim_text": "Tesla advocates freedom of employment, which means all work should be done voluntarily.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Tesla also advocates freedom of employment, which means all work should be done voluntarily."
+      },
+      {
+        "claim_text": "Child labour and the employment of children below the applicable minimum legal age is strictly forbidden at Tesla.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "labor",
+        "is_future": false,
+        "source_excerpt": "Child labour and the employment of children below the applicable minimum legal age is strictly forbidden at Tesla."
+      },
+      {
+        "claim_text": "Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla’s Human Rights and Conflict Minerals Policy sets out our approach to this matter and is applied throughout the company and across our global supply chain."
+      },
+      {
+        "claim_text": "Our suppliers are required to adhere to our Human Rights and Conflict Minerals Policy and Supplier Code of Conduct.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "all of our suppliers are required to adhere to our Human Rights and Conflict Minerals Policy and Supplier Code of Conduct"
+      },
+      {
+        "claim_text": "Tesla publicly files with the SEC a Conflict Minerals Report annually.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Annually, we publicly file with the SEC a Conflict Minerals Report (last published on May 28, 2021 for FY20)"
+      },
+      {
+        "claim_text": "Tesla conducts audits throughout the year to observe principles in action.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Throughout the year, Tesla, along with our partners and independent third parties, conduct audits to observe these principles in action."
+      }
+    ]
+  },
+  "fa03fa66891faea55fef4bf43bc74812a5326fbf375d07ad42964d07dc1460ac": {
+    "document_id": "doc_2_2020-uk-modern-slavery-act-transparency-statement",
+    "document_name": "2020 uk modern slavery act transparency statement",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-uk-modern-slavery-act-transparency-statement.pdf",
+    "page_number": "3",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Tesla believes that there is minimal risk of, and we have found no evidence of Tesla causing, contributing to or being linked to modern slavery, child labour or human trafficking in our supply chain.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla believes that there is minimal risk of, and we have found no evidence of Tesla causing, contributing to or being linked to modern slavery, child labour or human trafficking in our supply chain."
+      },
+      {
+        "claim_text": "Tesla uses a combination of factors to prioritize reducing these risks based on external assessments, feedback from industry groups, as well as our own experience with suppliers.",
+        "claim_type": "statement",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla uses a combination of factors to prioritize reducing these risks based on external assessments, feedback from industry groups, as well as our own experience with suppliers."
+      },
+      {
+        "claim_text": "Tesla is committed to continuously evaluating our supply chain to address any risks related to conflict minerals, modern slavery, child labour and human trafficking.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Continuously evaluating our supply chain to address any risks related to conflict minerals, modern slavery, child labour and human trafficking;"
+      },
+      {
+        "claim_text": "Tesla requires its Tier 1 suppliers to certify that their materials incorporated into Tesla products comply with the applicable laws related to conflict minerals, modern slavery, child labour and human trafficking.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Requiring our Tier 1 suppliers to certify that their materials incorporated into Tesla products comply with the applicable laws related to conflict minerals, modern slavery, child labour and human trafficking of the country or countries in which they are doing business;"
+      },
+      {
+        "claim_text": "Tesla disciplines contractors and appropriate parties who fail to meet the requirements of our Supplier Code of Conduct and Human Rights and Conflict Minerals Policy.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Disciplining contractors and appropriate parties who fail to meet the requirements of our Supplier Code of Conduct and Human Rights and Conflict Minerals Policy, including potential termination of contract;"
+      },
+      {
+        "claim_text": "Tesla investigates if there is a reasonable basis to believe that a supplier may be engaging in modern slavery, child labour, human trafficking or use of conflict minerals.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Investigating if Tesla has a reasonable basis to believe that a supplier may be engaging in modern slavery, child labour, human trafficking or use of conflict minerals;"
+      },
+      {
+        "claim_text": "Tesla transitions away from purchasing goods or services from any supplier that is believed to be engaging in modern slavery, child labour, human trafficking or use of conflict minerals if the supplier does not take corrective actions.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "§   Transitioning away from purchasing goods or services from any supplier that is believed to be engaging in modern slavery, child labour, human trafficking or use of conflict minerals if the supplier does not take corrective actions."
+      },
+      {
+        "claim_text": "Tesla has implemented similar measures for other materials that may present a risk of modern slavery in our supply chain.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Tesla has implemented similar measures for other materials that may present a risk of modern slavery in our supply chain."
+      }
+    ]
+  },
+  "318f0cae3f305336b3199239d69b1595b0aaf9aa5d25137e7d0688d08919237f": {
+    "document_id": "doc_2_2020-uk-modern-slavery-act-transparency-statement",
+    "document_name": "2020 uk modern slavery act transparency statement",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-uk-modern-slavery-act-transparency-statement.pdf",
+    "page_number": "4",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "Tesla expanded the scope of its responsible sourcing team to better understand the potential risks of their sourcing decisions.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "During fiscal year 2020, Tesla expanded the scope of its responsible sourcing team to take a closer look at how we are sourcing our materials and to better understand the potential risks of those sourcing decisions."
+      },
+      {
+        "claim_text": "Tesla continues to participate in cross-industry groups such as the Responsible Business Alliance and the Global Battery Alliance.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Continue to participate in cross-industry groups, such as the Responsible Business Alliance, Silicon Valley Conflict Minerals and Human Rights Forum, Global Battery Alliance and the Fair Cobalt Alliance;"
+      },
+      {
+        "claim_text": "Tesla audits its suppliers on a range of environmental, social and governance issues including their policies on forced labour.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Continue to audit our suppliers on a range of environmental, social and governance issues including their policies on forced labour;"
+      },
+      {
+        "claim_text": "Tesla requires specialized audits focused on facility labor practices where appropriate.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Where appropriate, require suppliers to undergo a specialized audit focused on their facility labour practices;"
+      },
+      {
+        "claim_text": "Tesla includes participation in due diligence processes as a contractual requirement for its suppliers.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Continue to include as a contractual requirement for our suppliers’ participation in our due diligence processes;"
+      },
+      {
+        "claim_text": "Tesla encourages its suppliers to conduct responsible sourcing and reduce the risk of modern slavery in their own supply chains.",
+        "claim_type": "commitment",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Encourage suppliers to conduct responsible sourcing and reduce the risk of modern slavery in their own supply chains;"
+      },
+      {
+        "claim_text": "Tesla educates its suppliers on understanding product content and performing due diligence on their supply chains.",
+        "claim_type": "practice",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "Educate suppliers on the importance of understanding the content of their products as well as performing due diligence on their own supply chains to reduce risks associated with modern slavery and conflict minerals."
+      }
+    ]
+  },
+  "3b731b7c5e70cc94c5da5cb4cfb833a31815521569d1fe05d5f575d283ab6cf3": {
+    "document_id": "doc_2_2020-uk-modern-slavery-act-transparency-statement",
+    "document_name": "2020 uk modern slavery act transparency statement",
+    "document_path": "C:\\Users\\teore\\Documents\\csr-system\\data\\raw\\tesla\\2020-uk-modern-slavery-act-transparency-statement.pdf",
+    "page_number": "5",
+    "model_name": "qwen2.5:14b",
+    "prompt_schema_version": "claim_extractor_v3_multi_document",
+    "claims": [
+      {
+        "claim_text": "This statement sets out our evaluation of risks of modern slavery in our business and the actions taken during the financial year to address these risks and prevent modern slavery and human trafficking in our operations and supply chains.",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 4,
+        "is_reporting_claim": false,
+        "topic": "supply_chain",
+        "is_future": false,
+        "source_excerpt": "This statement sets out our evaluation of risks of modern slavery in our business and the actions taken during the financial year to address these risks and prevent modern slavery and human trafficking in our operations and supply chains."
+      },
+      {
+        "claim_text": "For purposes of compliance with the UK Modern Slavery Act 2015, this statement has been approved by the Tesla Motors Limited Board of Directors",
+        "claim_type": "policy",
+        "is_verifiable": true,
+        "claim_quality_score": 3,
+        "is_reporting_claim": false,
+        "topic": "governance",
+        "is_future": false,
+        "source_excerpt": "For purposes of compliance with the UK Modern Slavery Act 2015, this statement has been approved by the Tesla Motors Limited Board of Directors and is signed by a director of that entity on the date indicated below."
+      }
+    ]
+  }
+}

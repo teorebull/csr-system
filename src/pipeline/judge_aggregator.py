@@ -13,7 +13,6 @@ from src.utils.env import load_local_env
 
 load_local_env()
 
-COMPANY_NAME = os.environ.get("COMPANY_NAME", "Microsoft")
 LOCAL_MODEL = os.environ.get("AGENT_9_MODEL", "qwen2.5:14b")
 AGENT_9_PROVIDER = os.environ.get("AGENT_9_PROVIDER", "ollama").strip().lower()
 OLLAMA_URL = "http://localhost:11434/api/generate"
@@ -108,7 +107,37 @@ def filter_claims_by_family(rows: list[dict], claim_family: str) -> list[dict]:
     return [row for row in rows if str(row.get("claim_family", "")).strip().lower() == claim_family]
 
 
-def build_run_metadata(claims: list[dict], normalized_claims: list[dict], prioritized_claims: list[dict], excluded_claims: list[dict], future_claims: list[dict], assessments: list[dict], project_root: Path) -> dict:
+NON_ENVIRONMENTAL_OVERRIDE_MARKERS = {
+    "seeing ai",
+    "haleon",
+    "accessibility",
+    "blind",
+    "visually impaired",
+    "partially sighted",
+    "responsible ai",
+    "ai for good",
+}
+
+
+def normalize_report_claim_family(row: dict) -> dict:
+    normalized = dict(row)
+    text_parts = [
+        str(row.get("claim_text", "")),
+        str(row.get("justification", "")),
+        str(row.get("risk_reasoning", "")),
+        str(row.get("document_name", "")),
+    ]
+    text_blob = " ".join(text_parts).lower()
+    claim_family = str(row.get("claim_family", "other")).strip().lower() or "other"
+
+    if any(marker in text_blob for marker in NON_ENVIRONMENTAL_OVERRIDE_MARKERS):
+        claim_family = "governance_ai"
+
+    normalized["claim_family"] = claim_family
+    return normalized
+
+
+def build_run_metadata(company_name: str, claims: list[dict], normalized_claims: list[dict], prioritized_claims: list[dict], excluded_claims: list[dict], future_claims: list[dict], assessments: list[dict], project_root: Path) -> dict:
     agent_2_cache = load_json_file(project_root / "agent_2" / "claim_extraction_cache.json")
     agent_8_cache = load_json_file(project_root / "agent_8" / "assessment_cache.json")
     document_ids = unique_values(claims, "document_id") or unique_values(normalized_claims, "document_id")
@@ -117,7 +146,7 @@ def build_run_metadata(claims: list[dict], normalized_claims: list[dict], priori
     return {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "pipeline_mode": PIPELINE_MODE,
-        "company_name": COMPANY_NAME,
+        "company_name": company_name,
         "documents": {
             "document_count": len(document_ids) if document_ids else len(document_names),
             "document_ids": document_ids,
@@ -173,6 +202,10 @@ def count_risk_levels(assessments: list[dict]) -> dict:
         if risk_level in counts:
             counts[risk_level] += 1
     return counts
+
+
+def count_credibility_signal_levels(assessments: list[dict]) -> dict:
+    return count_risk_levels(assessments)
 
 
 def count_evidence_relevance(assessments: list[dict]) -> dict:
@@ -411,45 +444,54 @@ def summarize_source(row: dict) -> str:
 def build_report_context_paragraph(report: dict) -> str:
     company = report["company_name"]
     doc_count = report["run_metadata"]["documents"]["document_count"]
+    document_names = report.get("run_metadata", {}).get("documents", {}).get("document_names", [])
+    if document_names:
+        disclosure_scope = f"The selected disclosure set spans {', '.join(document_names[:3])}"
+        if len(document_names) > 3:
+            disclosure_scope += f", and {len(document_names) - 3} additional document(s)"
+        disclosure_scope += "."
+    else:
+        disclosure_scope = "The selected disclosure set spans the processed company reports and statements."
     return (
-        f"{company} is presented in the disclosure set as a broad technology company with environmental, social, and governance ambitions that span data centers, energy use, responsible AI, human rights, and inclusion. "
-        f"This matters because a CSR report from a company of this kind is not just a list of targets; it is also a narrative about how the company wants its environmental footprint and social responsibilities to be understood. "
-        f"In this run, {doc_count} document(s) were processed, which means the final judgment should be read as a structured reading of the selected disclosure set rather than a complete external audit of everything the company has ever said."
+        f"{company}'s CSR narrative in this run is derived only from the selected company disclosure set. {disclosure_scope} "
+        f"That matters because the report is evaluating how the company's own selected claims hold up against outside evidence, not attempting a sector-wide benchmark or a complete ESG audit. "
+        f"In this run, {doc_count} document(s) were processed, so the final judgment should be read as a structured reading of the selected disclosure set rather than a complete external audit of everything the company has ever said."
     )
 
 
 def build_stronger_thesis_paragraph(report: dict) -> str:
     verdict_label = report.get("verdict_label", "Mixed Evidence")
+    company = report["company_name"]
     if verdict_label == "Broadly Supported":
         return (
-            "The clearest reading of this evidence set is that Microsoft’s environmental disclosure is substantively credible. "
+            f"The clearest reading of this evidence set is that {company}'s CSR disclosure is substantively credible. "
             "The strongest claims are directly corroborated, and the remaining unresolved items do not overturn the overall picture."
         )
     if verdict_label == "Mostly Credible":
         return (
-            "The clearest reading of this evidence set is that Microsoft’s environmental disclosure is mostly credible. "
+            f"The clearest reading of this evidence set is that {company}'s CSR disclosure is mostly credible. "
             "The report shows real support for the company’s main claims, with a smaller set of unresolved items that look more like gaps in external coverage than signs of a misleading story."
         )
     if verdict_label == "Questionable":
         return (
-            "The clearest reading of this evidence set is that Microsoft’s environmental disclosure is questionable. "
+            f"The clearest reading of this evidence set is that {company}'s CSR disclosure is questionable. "
             "The evidence introduces enough tension around material claims that the company’s preferred narrative should not be taken at face value."
         )
     if verdict_label == "High Greenwashing Risk":
         return (
-            "The clearest reading of this evidence set is that Microsoft’s environmental disclosure carries high greenwashing risk. "
-            "The evidence does not merely leave gaps; it points to material contradictions that weaken confidence in the company’s sustainability framing."
+            f"The clearest reading of this evidence set is that {company}'s CSR disclosure carries material credibility concerns, including elevated greenwashing-related risk in the environmental subset. "
+            "The evidence does not merely leave gaps; it points to material contradictions that weaken confidence in the company’s CSR framing."
         )
     return (
-        "The clearest reading of this evidence set is that Microsoft’s environmental disclosure is mixed but leaning supportive. "
+        f"The clearest reading of this evidence set is that {company}'s CSR disclosure is mixed but leaning supportive. "
         "The report has enough direct support to be taken seriously, and the unresolved pieces should be treated as coverage gaps unless they materially change the balance of evidence."
     )
 
 
 def build_greenwashing_definition_paragraph() -> str:
     return (
-        "In this project, greenwashing means more than an outright false statement. It includes cases where a company presents a sustainability story that is technically true in parts but incomplete, selectively framed, or difficult to substantiate when checked against external evidence. "
-        "That is why the report distinguishes between supported claims, partially supported claims, unverified claims, and claims that raise real contradiction or concern signals."
+        "In this project, CSR claim assessment is broader than environmental greenwashing alone. Environmental claims are reviewed for greenwashing-related risk, while non-environmental claims such as responsible AI, accessibility, human rights, diversity, and governance are assessed as broader CSR credibility issues. "
+        "That is why the report distinguishes between supported claims, partially supported claims, unverified claims, and claims that raise contradiction or concern signals."
     )
 
 
@@ -531,9 +573,9 @@ def build_narrative_packet(report: dict) -> dict:
         "greenwashing_definition": build_greenwashing_definition_paragraph(),
         "metrics": {
             "total_claims_analyzed": report.get("total_claims_analyzed", 0),
-            "label_counts": report.get("label_counts", {}),
-            "risk_counts": report.get("greenwashing_risk_counts", {}),
-            "relevance_counts": report.get("evidence_relevance_counts", {}),
+            "label_counts": report.get("csr_label_counts", report.get("label_counts", {})),
+            "risk_counts": report.get("csr_credibility_signal_counts", report.get("greenwashing_risk_counts", {})),
+            "relevance_counts": report.get("csr_evidence_relevance_counts", report.get("evidence_relevance_counts", {})),
             "verdict_label": report.get("verdict_label", "Mixed Evidence"),
             "verdict_reason": report.get("verdict_reason", ""),
         },
@@ -638,15 +680,16 @@ def build_public_report_prompt(report: dict) -> str:
     claim_briefs = build_public_claim_briefs(report)
     verdict_label, verdict_reason = infer_balanced_verdict(report)
     return f"""
-You are writing a plain-language report for a non-expert reader who wants to know whether this company is greenwashing or not.
+You are writing a plain-language report for a non-expert reader who wants a CSR claim assessment with a separate environmental greenwashing-risk sub-assessment.
 
 Write a clear, human report in simple language. Do not mention internal IDs, theme labels, model names, or technical audit language.
 
 Required sections:
 ## Title
 ## Short Context
-## What Greenwashing Means
-## What the Company Claims
+## What CSR Claim Assessment Means
+## What the Company Claims Across CSR Topics
+## Environmental Greenwashing-Risk Sub-Assessment
 ## What External Sources Say
 ## Overall Assessment
 ## Why This Matters
@@ -656,7 +699,8 @@ Required sections:
 Rules:
 - Use short paragraphs.
 - Explain the company, the claims, and the outside evidence in a way a non-expert can follow.
-- Be direct about whether the evidence suggests greenwashing risk, does not suggest it, or is mixed.
+- Be direct about whether the broader CSR evidence is supportive, mixed, or concerning.
+- Explain that greenwashing-risk language applies only to the environmental subset.
 - Use the verdict target as guidance, but write naturally.
 - Mention only a few representative claims.
 - Do not expose internal IDs or theme names.
@@ -669,16 +713,25 @@ Verdict rationale: {verdict_reason}
 Public claim briefs:
 {json.dumps(claim_briefs, indent=2, ensure_ascii=False)}
 
+Environmental subassessment counts:
+{json.dumps({
+    'total_environmental_claims_assessed': report.get('total_environmental_claims_assessed', 0),
+    'environmental_label_counts': report.get('environmental_label_counts', {}),
+    'environmental_greenwashing_risk_counts': report.get('environmental_greenwashing_risk_counts', {}),
+    'environmental_evidence_relevance_counts': report.get('environmental_evidence_relevance_counts', {}),
+}, indent=2, ensure_ascii=False)}
+
 Context:
 {build_report_context_paragraph(report)}
 
-Greenwashing definition:
+CSR assessment framing:
 {build_greenwashing_definition_paragraph()}
 
 Important:
 - If a claim is supported, say it plainly.
 - If a claim is unverified, say the outside evidence did not fully confirm it.
 - If a claim raises concern, say that the outside evidence weakens confidence in the company’s framing.
+- Do not describe responsible-AI, accessibility, diversity, governance, or human-rights claims as greenwashing.
 - Connect the claims to the final verdict in a way that feels like a short report, not a checklist.
 
 Write the full report as Markdown only.
@@ -695,6 +748,114 @@ def select_claim_examples(claims: list[dict]) -> dict:
         "top_positive_examples": [claim for claim in ordered if claim.get("judgment_score", 0.0) > 0][:4],
         "top_negative_examples": [claim for claim in concern_ordered if claim.get("judgment_score", 0.0) < 0][:4],
     }
+
+
+def format_claim_reference(claim: dict) -> str:
+    claim_id = claim.get("normalized_claim_id", "unknown_claim")
+    claim_text = truncate_markdown_text(claim.get("claim_text", ""), 120) or "claim text unavailable"
+    return f"**{claim_id}** ({claim_text})"
+
+
+def format_claim_references(claims: list[dict], limit: int = 3) -> str:
+    selected = [format_claim_reference(claim) for claim in claims[:limit]]
+    if not selected:
+        return "no specific claim examples"
+    if len(selected) == 1:
+        return selected[0]
+    if len(selected) == 2:
+        return f"{selected[0]} and {selected[1]}"
+    return f"{', '.join(selected[:-1])}, and {selected[-1]}"
+
+
+def determine_confidence_label(report: dict) -> str:
+    total_claims = max(int(report.get("total_claims_analyzed", 0)), 1)
+    relevance_counts = report.get("evidence_relevance_counts", {})
+    direct_share = relevance_counts.get("DIRECT", 0) / total_claims
+    weak_share = (relevance_counts.get("BACKGROUND", 0) + relevance_counts.get("UNRELATED", 0)) / total_claims
+    if direct_share >= 0.5:
+        return "moderate-to-high"
+    if direct_share >= 0.25 and weak_share <= 0.5:
+        return "moderate"
+    return "low-to-moderate"
+
+
+def build_dynamic_verdict_reason(report: dict) -> str:
+    verdict_label, verdict_reason = infer_balanced_verdict(report)
+    counts = report.get("label_counts", {})
+    supported = counts.get("SUPPORTED", 0)
+    partial = counts.get("PARTIALLY_SUPPORTED", 0)
+    unverified = counts.get("UNVERIFIED", 0)
+    partial_contradicted = counts.get("PARTIALLY_CONTRADICTED", 0)
+    contradicted = counts.get("CONTRADICTED", 0)
+    total = max(int(report.get("total_claims_analyzed", 0)), 1)
+    relevance_counts = report.get("evidence_relevance_counts", {})
+    direct = relevance_counts.get("DIRECT", 0)
+    weak = relevance_counts.get("BACKGROUND", 0) + relevance_counts.get("UNRELATED", 0)
+    return (
+        f"The verdict is {verdict_label} because {supported + partial} of {total} prioritized claim(s) are supported or partially supported, "
+        f"{unverified} remain unverified, and {partial_contradicted + contradicted} show contradiction-level concern. "
+        f"The evidence base includes {direct} direct-evidence claim(s), while {weak} claim(s) depend on weak or unrelated external support. "
+        f"{verdict_reason}"
+    )
+
+
+def build_dynamic_final_conclusion(report: dict) -> str:
+    company = report.get("company_name", "The company")
+    verdict_label, verdict_reason = infer_balanced_verdict(report)
+    counts = report.get("label_counts", {})
+    supported = counts.get("SUPPORTED", 0)
+    partial = counts.get("PARTIALLY_SUPPORTED", 0)
+    unverified = counts.get("UNVERIFIED", 0)
+    partial_contradicted = counts.get("PARTIALLY_CONTRADICTED", 0)
+    contradicted = counts.get("CONTRADICTED", 0)
+    return (
+        f"The system cannot make a company-wide audit judgment, but it can assess the selected claims for {company}. "
+        f"Across the prioritized set, {supported} claim(s) are supported, {partial} are partially supported, {unverified} remain unverified, "
+        f"and {partial_contradicted + contradicted} raise contradiction-level concern. "
+        f"The overall verdict is {verdict_label}. {verdict_reason}"
+    )
+
+
+def build_dynamic_verdict_rationale(report: dict) -> str:
+    company = report.get("company_name", "The company")
+    counts = report.get("label_counts", {})
+    relevance_counts = report.get("evidence_relevance_counts", {})
+    examples = select_claim_examples(report.get("claims", []))
+    top_support = examples.get("top_positive_examples", [])
+    top_concern = examples.get("top_negative_examples", []) or examples.get("high_risk_examples", [])
+    confidence = determine_confidence_label(report)
+    verdict_label, verdict_reason = infer_balanced_verdict(report)
+
+    support_text = format_claim_references(top_support, limit=3)
+    concern_text = format_claim_references(top_concern, limit=2)
+
+    return "\n\n".join(
+        [
+            (
+                "### Evidence Pattern\n"
+                f"Observed evidence shows a mixed claim-level pattern across {report.get('total_claims_analyzed', 0)} prioritized CSR claim(s). "
+                f"{counts.get('SUPPORTED', 0)} claim(s) are supported, {counts.get('PARTIALLY_SUPPORTED', 0)} are partially supported, "
+                f"{counts.get('UNVERIFIED', 0)} remain unverified, {counts.get('PARTIALLY_CONTRADICTED', 0)} are partially contradicted, "
+                f"and {counts.get('CONTRADICTED', 0)} are contradicted."
+            ),
+            (
+                "### Interpretive Weight\n"
+                f"The claims do not carry equal interpretive weight. The strongest supportive examples in this run are {support_text}. "
+                f"The strongest concern-side examples are {concern_text}. This means the final reading should emphasize claim materiality and evidence strength rather than raw counts alone."
+            ),
+            (
+                "### Claim-Type Pattern\n"
+                f"Support tends to be strongest where external evidence can directly confirm a published policy, report, metric, or formal process. "
+                f"Unverified claims are better read as coverage gaps unless stronger contradiction appears, especially where the available sources are indirect, background-only, or unrelated to the exact statement."
+            ),
+            (
+                "### Scoped Conclusion\n"
+                f"System inference should therefore be scoped. The evidence does not justify a blanket statement about {company}'s overall CSR performance, but it does support the verdict {verdict_label} for the selected claim set. "
+                f"Confidence is {confidence} because the report combines {relevance_counts.get('DIRECT', 0)} direct-evidence claim(s), {relevance_counts.get('INDIRECT', 0)} indirect-evidence claim(s), "
+                f"and {relevance_counts.get('BACKGROUND', 0) + relevance_counts.get('UNRELATED', 0)} weak-evidence claim(s). {verdict_reason}"
+            ),
+        ]
+    )
 
 
 def infer_balanced_verdict(report: dict) -> tuple[str, str]:
@@ -767,17 +928,17 @@ def build_balanced_conclusion(report: dict) -> str:
     future_claims_count = report.get("future_claims_excluded", 0)
 
     if verdict_label == "High Greenwashing Risk":
-        conclusion = "The analyzed discourse shows high greenwashing risk. The available evidence contains direct contradiction or repeatedly material concern signals strong enough to suggest that parts of the sustainability narrative may be incomplete or selectively framed."
+        conclusion = "The analyzed discourse shows material CSR credibility concerns. The available evidence contains direct contradiction or repeatedly material concern signals strong enough to suggest that parts of the company's CSR narrative may be incomplete or selectively framed."
     elif verdict_label == "Questionable":
-        conclusion = "The analyzed discourse is questionable. The evidence contains repeated concern signals or direct contradiction that materially weaken confidence in the sustainability narrative."
+        conclusion = "The analyzed discourse is questionable as a CSR claim set. The evidence contains repeated concern signals or direct contradiction that materially weaken confidence in the company's CSR narrative."
     elif verdict_label == "Broadly Supported":
-        conclusion = "The analyzed discourse is broadly supported. The strongest claims are directly corroborated, and the remaining unverified items look more like coverage gaps than evidence of misleading disclosure."
+        conclusion = "The analyzed discourse is broadly supported as a CSR claim set. The strongest claims are directly corroborated, and the remaining unverified items look more like coverage gaps than evidence of misleading disclosure."
     elif verdict_label == "Credible":
-        conclusion = "The analyzed discourse appears credible. The strongest claims are directly supported by the available evidence, and the unresolved gaps are limited enough not to overturn the overall picture."
+        conclusion = "The analyzed discourse appears credible as a CSR claim set. The strongest claims are directly supported by the available evidence, and the unresolved gaps are limited enough not to overturn the overall picture."
     elif verdict_label == "Mostly Credible":
-        conclusion = "The analyzed discourse appears mostly credible. The strongest claims are supported by the available evidence, although some material statements remain only partially verified or unresolved."
+        conclusion = "The analyzed discourse appears mostly credible as a CSR claim set. The strongest claims are supported by the available evidence, although some material statements remain only partially verified or unresolved."
     else:
-        conclusion = "The analyzed discourse shows mixed evidence. Some claims are supported or partially supported, while others remain unresolved because external coverage is incomplete. This suggests caution rather than a definitive greenwashing finding."
+        conclusion = "The analyzed discourse shows mixed CSR evidence. Some claims are supported or partially supported, while others remain unresolved because external coverage is incomplete. This suggests caution rather than a definitive credibility finding."
 
     if verdict_reason:
         conclusion += f" {verdict_reason}"
@@ -790,7 +951,7 @@ def build_llm_analysis_prompt(report: dict) -> str:
     narrative_packet = build_narrative_packet(report)
     verdict_label, verdict_reason = infer_balanced_verdict(report)
     return f"""
-You are writing the Verdict Rationale section of a formal greenwashing-risk report.
+You are writing the Verdict Rationale section of a formal CSR claim-assessment report with a separate environmental greenwashing-risk sub-assessment.
 
 Use only the structured results below. Do not add outside facts.
 
@@ -801,6 +962,7 @@ Write a concise but detailed rationale that explains:
 - why some unresolved claims do or do not change the verdict
 - how direct versus indirect evidence affects confidence
 - the main limitation of the automated judgment
+- distinguish broader CSR credibility concerns from environmental greenwashing-related risk
 - connect the claims into a smooth narrative instead of repeating the same template for each claim
 - compare themes to one another when useful
 - use transitions such as "that same pattern", "by contrast", "taken together", and "in the more cautious cases"
@@ -817,6 +979,7 @@ Rules:
 - Do not invent facts.
 - Do not overstate weak indirect evidence.
 - Keep the language clear and specific, not promotional.
+- Do not describe non-environmental claims as greenwashing.
 - Prefer paragraphs over bullet lists.
 - Avoid repeating the sentence pattern "A strong example of direct support is...".
 - Use one paragraph per theme bundle, then a short synthesis paragraph.
@@ -825,9 +988,12 @@ Company: {report['company_name']}
 Total claims analyzed: {report['total_claims_analyzed']}
 Future claims excluded: {report['future_claims_excluded']}
 Claims excluded from main analysis: {report['claims_excluded_from_main_analysis']}
-Label counts: {json.dumps(report['label_counts'], ensure_ascii=False)}
-Risk counts: {json.dumps(report['greenwashing_risk_counts'], ensure_ascii=False)}
-Evidence relevance counts: {json.dumps(report['evidence_relevance_counts'], ensure_ascii=False)}
+CSR label counts: {json.dumps(report['csr_label_counts'], ensure_ascii=False)}
+CSR credibility signal counts: {json.dumps(report['csr_credibility_signal_counts'], ensure_ascii=False)}
+CSR evidence relevance counts: {json.dumps(report['csr_evidence_relevance_counts'], ensure_ascii=False)}
+Environmental label counts: {json.dumps(report['environmental_label_counts'], ensure_ascii=False)}
+Environmental greenwashing-risk counts: {json.dumps(report['environmental_greenwashing_risk_counts'], ensure_ascii=False)}
+Environmental evidence relevance counts: {json.dumps(report['environmental_evidence_relevance_counts'], ensure_ascii=False)}
 Rule-based conclusion: {report['final_conclusion']}
 Balanced verdict target: {verdict_label}
 Balanced verdict rationale: {verdict_reason}
@@ -848,7 +1014,7 @@ def build_gemini_prompt(report: dict) -> str:
     narrative_packet = build_narrative_packet(report)
     verdict_label, verdict_reason = infer_balanced_verdict(report)
     return f"""
-You are writing the final narrative verdict for a CSR / greenwashing-risk report.
+You are writing the final narrative verdict for a CSR claim-assessment report with a separate environmental greenwashing-risk sub-assessment.
 
 Write a human, connected, paragraph-based analysis. Do not write one paragraph per claim in a repetitive template. Group related claims together, compare them, and connect them with transitions.
 
@@ -861,6 +1027,7 @@ Required tone:
 - source-backed
 - not promotional
 - not repetitive
+- careful not to label non-environmental claims as greenwashing
 
 Required structure:
 ### Company Context
@@ -1093,20 +1260,22 @@ def build_fallback_public_report(report: dict) -> str:
 
     return "\n\n".join(
         [
-            f"# Is {report['company_name']} Greenwashing?",
+            f"# {report['company_name']} CSR Claim Assessment",
             "## Short Context",
             context,
-            "## What Greenwashing Means",
+            "## What CSR Claim Assessment Means",
             greenwashing,
-            "## What the Company Claims",
-            "The report looks at a small set of representative claims from the company’s disclosures. These include claims that are clearly supported, claims that are only partly supported, and claims that are not fully confirmed by the external evidence.",
+            "## What the Company Claims Across CSR Topics",
+            "The report looks across the assessed CSR claims, including environmental, governance, responsible-AI, accessibility, human-rights, diversity, and social-impact statements. These include claims that are clearly supported, claims that are only partly supported, and claims that are not fully confirmed by the external evidence.",
             "\n".join(selected_text[:3]),
+            "## Environmental Greenwashing-Risk Sub-Assessment",
+            f"The environmental subset contains {report.get('total_environmental_claims_assessed', 0)} claim(s). Those claims are separately assessed for greenwashing-related risk, while non-environmental claims are treated as broader CSR credibility questions.",
             "## What External Sources Say",
             "The external evidence supports some of the company’s claims directly, while other claims are only partially confirmed or remain unresolved. In a few places, the outside sources raise concern because they weaken confidence in the company’s framing rather than simply repeating it.",
             "## Overall Assessment",
             f"The evidence points to {verdict_label.lower()}. {verdict_reason}",
             "## Why This Matters",
-            "This matters because a company’s sustainability story should be judged by how well its strongest claims hold up when checked against outside information. If the best-supported claims are credible and the weak ones are limited, the report leans more positive. If the outside evidence repeatedly weakens confidence in the company’s framing, the greenwashing risk is higher.",
+            "This matters because a company’s CSR story should be judged by how well its strongest claims hold up when checked against outside information. Environmental claims can raise greenwashing-related risk, while governance, responsible-AI, accessibility, diversity, and human-rights claims raise broader credibility questions if the evidence is weak or contradictory.",
             "## Limitations",
             "The report is based on the available external evidence, so some claims may remain unresolved if outside sources are limited or not specific enough.",
             "## Conclusion",
@@ -1116,39 +1285,385 @@ def build_fallback_public_report(report: dict) -> str:
 
 
 def build_summary_markdown(report: dict) -> str:
-    return build_public_report(report)
+    return build_analytical_summary_markdown(report)
 
 
-def build_final_report(project_root: Path, assessments: list[dict]) -> dict:
+def bold_claim_ids_in_text(text: str) -> str:
+    return re.sub(r"\b(normalized_claim_\d+)\b", r"**\1**", str(text or ""))
+
+
+def truncate_markdown_text(text: str, max_length: int) -> str:
+    value = re.sub(r"\s+", " ", str(text or "")).strip()
+    if len(value) <= max_length:
+        return value
+    return f"{value[:max_length]}..."
+
+
+def truncate_source_title(text: str, max_length: int = 60) -> str:
+    value = re.sub(r"\s+", " ", str(text or "")).strip()
+    if not value:
+        return "No selected source"
+    if len(value) <= max_length:
+        return value
+    return f"{value[:max_length]}..."
+
+
+def build_summary_source_link(title: str, url: str) -> str:
+    clean_url = str(url or "").strip()
+    if not clean_url:
+        return "No selected source"
+    return f"[{markdown_escape_cell(truncate_source_title(title))}]({clean_url})"
+
+
+def build_claim_level_summary_rows(claims: list[dict], environmental: bool = False) -> list[str]:
+    rows: list[str] = []
+    for claim in claims:
+        claim_id = markdown_escape_cell(claim.get("normalized_claim_id", ""))
+        preview = markdown_escape_cell(truncate_markdown_text(claim.get("claim_text", ""), 90) or "N/A")
+        label = markdown_escape_cell(claim.get("final_label", ""))
+        signal = markdown_escape_cell(claim.get("greenwashing_risk_level", ""))
+        evidence = markdown_escape_cell(claim.get("evidence_relevance", ""))
+        source = build_summary_source_link(claim.get("top_evidence_title", ""), claim.get("top_evidence_url", ""))
+        if environmental:
+            rows.append(f"| {claim_id} | {preview} | {label} | {signal} | {evidence} | {source} |")
+        else:
+            domain = markdown_escape_cell(claim.get("claim_family", ""))
+            rows.append(f"| {claim_id} | {preview} | {domain} | {label} | {signal} | {evidence} | {source} |")
+    return rows
+
+
+def build_required_verdict_reason(report: dict) -> str:
+    return build_dynamic_verdict_reason(report)
+
+
+def build_required_final_conclusion(report: dict) -> str:
+    return build_dynamic_final_conclusion(report)
+
+
+def build_required_verdict_rationale(report: dict) -> str:
+    return build_dynamic_verdict_rationale(report)
+
+
+def build_analytical_summary_markdown(report: dict) -> str:
+    claims = list(report.get("claims", []))
+    environmental_claims = list(report.get("environmental_claims", []))
+    company = report.get("company_name", "Company")
+    counts = report.get("label_counts", {})
+    relevance_counts = report.get("evidence_relevance_counts", {})
+    environmental_counts = report.get("environmental_label_counts", {})
+    verdict_label, verdict_reason = infer_balanced_verdict(report)
+    confidence = determine_confidence_label(report)
+    examples = select_claim_examples(claims)
+    top_support = examples.get("top_positive_examples", [])
+    top_concern = examples.get("top_negative_examples", []) or examples.get("high_risk_examples", [])
+    top_unverified = examples.get("unverified_examples", [])
+
+    support_refs = format_claim_references(top_support, limit=3)
+    concern_refs = format_claim_references(top_concern, limit=2)
+    unverified_refs = format_claim_references(top_unverified, limit=3)
+
+    supported_total = counts.get("SUPPORTED", 0) + counts.get("PARTIALLY_SUPPORTED", 0)
+    weak_total = relevance_counts.get("BACKGROUND", 0) + relevance_counts.get("UNRELATED", 0)
+    environmental_total = report.get("total_environmental_claims_assessed", 0)
+    environmental_supported = environmental_counts.get("SUPPORTED", 0) + environmental_counts.get("PARTIALLY_SUPPORTED", 0)
+    environmental_concern = environmental_counts.get("PARTIALLY_CONTRADICTED", 0) + environmental_counts.get("CONTRADICTED", 0)
+
+    claim_table = [
+        "| Claim ID | Claim preview | Domain | Label | Signal | Evidence | Source |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
+        *build_claim_level_summary_rows(claims, environmental=False),
+    ]
+    environmental_table = [
+        "| Claim ID | Claim preview | Label | Greenwashing-risk | Evidence | Source |",
+        "| --- | --- | --- | --- | --- | --- |",
+        *build_claim_level_summary_rows(environmental_claims, environmental=True),
+    ]
+
+    summary = "\n".join(
+        [
+            f"# {company} CSR Claim Assessment",
+            "",
+            "## Executive Interpretation",
+            "",
+            f"Observed evidence across the {report.get('total_claims_analyzed', 0)} prioritized CSR claim(s) shows a {verdict_label.lower()} pattern rather than a simple pattern of broad falsification or blanket support. {counts.get('SUPPORTED', 0)} claim(s) are supported and {counts.get('PARTIALLY_SUPPORTED', 0)} are partially supported, which means the system found real external support for {supported_total} claim(s) in the selected set.",
+            "",
+            f"System inference is therefore scoped and claim-level. At claim level, the selected {company} CSR discourse is best read as {verdict_label.lower()}. {counts.get('UNVERIFIED', 0)} claim(s) remain unverified because the selected external evidence is not specific enough to confirm the exact statement, while {counts.get('PARTIALLY_CONTRADICTED', 0) + counts.get('CONTRADICTED', 0)} claim(s) raise contradiction-level concern. The system inference is not a blanket statement about whether {company}'s CSR discourse is broadly true or false; it is a weighted interpretation of the selected claims and selected outside evidence.",
+            "",
+            f"Confidence is {confidence} at claim level because the evidence pattern includes {relevance_counts.get('DIRECT', 0)} DIRECT case(s), {relevance_counts.get('INDIRECT', 0)} INDIRECT case(s), {relevance_counts.get('BACKGROUND', 0)} BACKGROUND case(s), and {relevance_counts.get('UNRELATED', 0)} UNRELATED case(s). That is enough to support interpretation, comparison, and prioritization, but not enough to collapse all claims into a single simple verdict where weak-evidence coverage remains high.",
+            "",
+            f"The limits of the conclusion are important but not disabling. The system cannot determine {company}'s overall CSR performance as a company, cannot produce a full audit verdict, and cannot prove intent or deception. It can, however, interpret the selected claims, identify which claim types are better supported, identify where evidence remains weak, and highlight the claims that most shape the final CSR credibility interpretation.",
+            "",
+            "## Evidence Balance",
+            "",
+            "| Category | Count | Interpretation |",
+            "|---|---:|---|",
+            f"| CSR claims assessed | {report.get('total_claims_analyzed', 0)} | Selected prioritized claims evaluated with external evidence |",
+            f"| Supported | {counts.get('SUPPORTED', 0)} | Claims with external evidence supporting the statement |",
+            f"| Partially supported | {counts.get('PARTIALLY_SUPPORTED', 0)} | Claim(s) with some support but important qualifications |",
+            f"| Unverified | {counts.get('UNVERIFIED', 0)} | Evidence insufficiently specific; not evidence of falsehood |",
+            f"| Partially contradicted | {counts.get('PARTIALLY_CONTRADICTED', 0)} | Stronger concern signal requiring scrutiny |",
+            f"| Contradicted | {counts.get('CONTRADICTED', 0)} | Claim(s) fully contradicted by selected evidence |",
+            "",
+            f"The counts matter because {supported_total} supported or partially supported claim(s) show where the system found real external support, while {counts.get('UNVERIFIED', 0)} unverified claim(s) and {counts.get('PARTIALLY_CONTRADICTED', 0) + counts.get('CONTRADICTED', 0)} contradiction-level claim(s) show where the narrative is weaker or more exposed to challenge.",
+            "",
+            f"The {counts.get('UNVERIFIED', 0)} unverified claim(s) should not be read automatically as falsehoods. They indicate that the selected external evidence was not specific enough to verify the exact metric, operational detail, or year-specific claim. This is especially important where the available sources are only indirect or where claim language is broader than the evidence base.",
+            "",
+            f"The contradiction-side claims matter disproportionately when they are paired with direct evidence and high materiality. At the same time, the report should avoid claiming broad falsification unless contradiction is repeated and well-supported across the set.",
+            "",
+            "## Claim-Level Summary Table",
+            "",
+            *claim_table,
+            "",
+            "## Environmental Sub-Assessment Table",
+            "",
+            *environmental_table,
+            "",
+            "## Claim Influence and Interpretive Weight",
+            "",
+            "Not all claims have equal interpretive weight. Claim influence depends on materiality, whether the claim is impact-related or mainly procedural, the relevance of the selected evidence, the final label, and whether the claim materially changes the final CSR credibility interpretation.",
+            "",
+            f"Higher-influence support-side examples in this run include {support_refs}. These claims matter because they provide the strongest available support for the company's selected CSR framing, especially where the evidence is direct or tied to formal documentation.",
+            "",
+            f"Higher-influence concern-side examples include {concern_refs}. These claims matter because they carry the most pressure against the company's narrative in this run, especially when the evidence is direct, the claim is environmental or operationally material, or the claim language is broader than the available corroboration.",
+            "",
+            f"A separate set of lower-confidence claims remains unresolved, including {unverified_refs}. These entries should generally be read as verification gaps unless stronger contradiction appears, because the selected evidence does not tightly confirm the exact wording or metric.",
+            "",
+            f"Taken together, this means the final interpretation should weight evidence quality and claim materiality more heavily than the presence of generic supporting language or weak contextual sources. {verdict_reason}",
+            "",
+            "## Supported Claim Patterns",
+            "",
+            f"Supported claims are usually the ones that the external evidence can confirm most directly. In this run, that pattern appears most clearly in {support_refs}. These claims tend to concern published policies, documented commitments, disclosed metrics, or visible governance artifacts rather than broad outcome claims that would require deeper audit evidence.",
+            "",
+            "Observed support should still be interpreted carefully. A supported disclosure claim does not automatically prove strong real-world outcomes; in many cases it confirms that a document, process, or statement exists and is externally recognizable.",
+            "",
+            "## Unverified Claim Patterns",
+            "",
+            f"Unverified claims are clustered where the selected evidence is too general, too weak, or too distant from the exact statement to confirm it confidently. In this run, that includes {unverified_refs}. Those gaps should not be treated as proof of falsehood, but they do limit how strongly the system can endorse the broader narrative.",
+            "",
+            f"This is also where the {weak_total} weak-evidence claim(s) matter most: when a claim is paired mainly with background or unrelated material, the report should remain cautious even if the claim sounds plausible on its face.",
+            "",
+            "## Main Environmental Concern",
+            "",
+            f"The environmental subset contains {environmental_total} claim(s), of which {environmental_supported} are supported or partially supported and {environmental_concern} raise contradiction-level concern. Environmental concern is most important when a material operational or impact-related claim is weakened by direct outside evidence rather than by mere lack of coverage.",
+            "",
+            f"Where environmental claims remain only weakly supported, the sub-assessment should be read as targeted greenwashing-related risk analysis rather than a blanket greenwashing accusation. The system is assessing whether the selected claim framing is stronger than the corroboration behind it.",
+            "",
+            "## Environmental Greenwashing-Risk Sub-Assessment",
+            "",
+            f"The environmental subset is mixed. It contains {environmental_total} claim(s): {environmental_counts.get('SUPPORTED', 0)} supported, {environmental_counts.get('PARTIALLY_SUPPORTED', 0)} partially supported, {environmental_counts.get('UNVERIFIED', 0)} unverified, {environmental_counts.get('PARTIALLY_CONTRADICTED', 0)} partially contradicted, and {environmental_counts.get('CONTRADICTED', 0)} contradicted. This means the environmental subset should be read claim by claim rather than collapsed into a single undifferentiated signal.",
+            "",
+            f"System inference is therefore specific: the environmental sub-assessment suggests targeted greenwashing-related risk only where evidence quality, materiality, and contradiction justify it. Otherwise, weaker environmental claims remain verification gaps rather than firm adverse findings.",
+            "",
+            "## Non-Environmental CSR Credibility Assessment",
+            "",
+            "Non-environmental claims in this report should not be interpreted as greenwashing by default. They are better read as governance, responsible-AI, diversity, labor, inclusion, human-rights, or social-impact credibility claims depending on the claim family involved.",
+            "",
+            f"Observed evidence is usually stronger for non-environmental claims when the claim concerns the existence of a policy, process, or documented artifact, and weaker when the claim implies broader cultural impact or operational outcomes that the selected sources do not directly verify.",
+            "",
+            "## Final Interpretation",
+            "",
+            f"Based on the selected prioritized claims, {company}'s CSR discourse is best read as {verdict_label.lower()}. The strongest supported areas are the claims with the best direct corroboration, while the weakest areas are the claims that remain unverified or carry contradiction-level concern. {verdict_reason}",
+            "",
+            f"The system cannot make a company-wide audit judgment, but it can conclude that the selected CSR discourse for {company} is unevenly supported and should be interpreted with attention to evidence strength, claim materiality, and the difference between documented process claims and outcome claims.",
+            "",
+            "## Scope Note",
+            "",
+            "This report provides a claim-level interpretation of the selected CSR disclosure set. It should not be read as a complete CSR audit, a company-wide ESG rating, or evidence of intentional deception.",
+        ]
+    )
+    return bold_claim_ids_in_text(summary)
+
+
+def claim_preview(text: str, max_length: int = 120) -> str:
+    value = str(text or "").strip()
+    if len(value) <= max_length:
+        return value
+    return f"{value[:max_length]}..."
+
+
+def markdown_link(label: str, url: str) -> str:
+    clean_label = str(label or "").strip()
+    clean_url = str(url or "").strip()
+    if not clean_url:
+        return "No selected external source"
+    if not clean_label:
+        clean_label = clean_url
+    return f"[{clean_label}]({clean_url})"
+
+
+def markdown_escape_cell(value: str) -> str:
+    text = str(value or "").replace("\n", " ").replace("\r", " ").strip()
+    text = re.sub(r"\s+", " ", text)
+    return text.replace("|", "\\|")
+
+
+def format_counts_inline(counts: dict) -> str:
+    return ", ".join(f"{key}: {value}" for key, value in counts.items())
+
+
+def build_traceability_table_rows(claims: list[dict], environmental: bool = False) -> list[str]:
+    rows = []
+    for claim in claims:
+        page_numbers = str(claim.get("page_numbers", "")).strip() or "N/A"
+        evidence_title = str(claim.get("top_evidence_title", "")).strip()
+        evidence_url = str(claim.get("top_evidence_url", "")).strip()
+        source_name = str(claim.get("document_name", "")).strip() or "N/A"
+        preview = claim_preview(claim.get("claim_text", "")) or "N/A"
+        if environmental:
+            rows.append(
+                "| "
+                + " | ".join(
+                    [
+                        markdown_escape_cell(claim.get("normalized_claim_id", "")),
+                        markdown_escape_cell(preview),
+                        markdown_escape_cell(claim.get("final_label", "")),
+                        markdown_escape_cell(claim.get("greenwashing_risk_level", "")),
+                        markdown_escape_cell(source_name),
+                        markdown_escape_cell(page_numbers),
+                        markdown_escape_cell(evidence_title or "No selected external source"),
+                        markdown_escape_cell(evidence_url or "No selected external source"),
+                        markdown_escape_cell(claim.get("evidence_relevance", "")),
+                    ]
+                )
+                + " |"
+            )
+        else:
+            rows.append(
+                "| "
+                + " | ".join(
+                    [
+                        markdown_escape_cell(claim.get("normalized_claim_id", "")),
+                        markdown_escape_cell(preview),
+                        markdown_escape_cell(claim.get("claim_family", "")),
+                        markdown_escape_cell(claim.get("final_label", "")),
+                        markdown_escape_cell(claim.get("greenwashing_risk_level", "")),
+                        markdown_escape_cell(source_name),
+                        markdown_escape_cell(page_numbers),
+                        markdown_escape_cell(evidence_title or "No selected external source"),
+                        markdown_escape_cell(evidence_url or "No selected external source"),
+                        markdown_escape_cell(claim.get("evidence_relevance", "")),
+                    ]
+                )
+                + " |"
+            )
+    return rows
+
+
+def build_detailed_claim_notes(claims: list[dict]) -> list[str]:
+    sections = []
+    for claim in claims:
+        claim_id = str(claim.get("normalized_claim_id", "")).strip() or "N/A"
+        claim_text = str(claim.get("claim_text", "")).strip() or "N/A"
+        domain = str(claim.get("claim_family", "")).strip() or "N/A"
+        document_name = str(claim.get("document_name", "")).strip() or "N/A"
+        page_numbers = str(claim.get("page_numbers", "")).strip() or "N/A"
+        source_excerpt = str(claim.get("source_excerpts", "")).strip() or "N/A"
+        evidence_title = str(claim.get("top_evidence_title", "")).strip()
+        evidence_url = str(claim.get("top_evidence_url", "")).strip()
+        final_label = str(claim.get("final_label", "")).strip() or "N/A"
+        relevance = str(claim.get("evidence_relevance", "")).strip() or "N/A"
+        signal = str(claim.get("greenwashing_risk_level", "")).strip() or "N/A"
+        justification = clean_generated_text(claim.get("justification", "")) or "N/A"
+
+        sections.append(
+            "\n".join(
+                [
+                    f"### {claim_id}",
+                    f"- Claim ID: `{claim_id}`",
+                    f"- Full claim text: {claim_text}",
+                    f"- Domain: `{domain}`",
+                    f"- Corporate source and page: {document_name} | p. {page_numbers}",
+                    f"- Corporate excerpt: {source_excerpt}",
+                    f"- External source title and URL: {markdown_link(evidence_title or 'External source', evidence_url)}",
+                    f"- Final label: `{final_label}`",
+                    f"- Evidence relevance: `{relevance}`",
+                    f"- CSR credibility signal / greenwashing-risk level: `{signal}`",
+                    f"- Justification: {justification}",
+                ]
+            )
+        )
+    return sections
+
+
+def build_traceability_report_markdown(report: dict) -> str:
+    csr_claims = list(report.get("claims", []))
+    environmental_claims = list(report.get("environmental_claims", []))
+
+    csr_table = [
+        "| Claim ID | Claim preview | Domain | Label | CSR credibility signal | Corporate source | Page | External evidence title | External evidence URL | Evidence relevance |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+        *build_traceability_table_rows(csr_claims, environmental=False),
+    ]
+    environmental_table = [
+        "| Claim ID | Claim preview | Label | Greenwashing-risk level | Corporate source | Page | External evidence title | External evidence URL | Evidence relevance |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+        *build_traceability_table_rows(environmental_claims, environmental=True),
+    ]
+
+    lines = [
+        f"# {report['company_name']} CSR Claim Assessment: Traceability Report",
+        "",
+        "This report links each prioritized CSR claim to its original corporate source and selected external evidence. It is designed to support traceability and auditability of the final system output, but it is not a definitive CSR audit.",
+        "",
+        "## Overall CSR Assessment Summary",
+        "",
+        f"- Total CSR claims assessed: {report.get('total_csr_claims_assessed', 0)}",
+        f"- CSR label counts: {format_counts_inline(report.get('csr_label_counts', {}))}",
+        f"- CSR evidence relevance counts: {format_counts_inline(report.get('csr_evidence_relevance_counts', {}))}",
+        f"- CSR credibility signal counts: {format_counts_inline(report.get('csr_credibility_signal_counts', {}))}",
+        "",
+        "## Overall CSR Claim Traceability Table",
+        "",
+        *csr_table,
+        "",
+        "## Environmental Greenwashing-Risk Sub-Assessment Summary",
+        "",
+        f"- Total environmental claims assessed: {report.get('total_environmental_claims_assessed', 0)}",
+        f"- Environmental label counts: {format_counts_inline(report.get('environmental_label_counts', {}))}",
+        f"- Environmental greenwashing-risk counts: {format_counts_inline(report.get('environmental_greenwashing_risk_counts', {}))}",
+        f"- Environmental evidence relevance counts: {format_counts_inline(report.get('environmental_evidence_relevance_counts', {}))}",
+        "",
+        "## Environmental Claim Traceability Table",
+        "",
+        *environmental_table,
+        "",
+        "## Detailed Claim Notes",
+        "",
+        *build_detailed_claim_notes(csr_claims),
+    ]
+    return "\n".join(lines)
+
+
+def build_final_report(project_root: Path, assessments: list[dict], company_name: str) -> dict:
     claims = load_csv_rows(project_root / "agent_2" / "claims.csv")
     normalized_claims = load_csv_rows(project_root / "agent_3" / "normalized_claims.csv")
     prioritized_claims = load_csv_rows(project_root / "agent_3" / "prioritized_claims.csv")
     excluded_claims = load_csv_rows(project_root / "agent_3" / "excluded_claims.csv")
     future_claims = load_csv_rows(project_root / "agent_3" / "future_claims.csv")
 
-    report_rows = build_report_rows(assessments)
+    report_rows = [normalize_report_claim_family(row) for row in build_report_rows(assessments)]
     environmental_claims = filter_claims_by_family(report_rows, "environmental")
-    primary_claim_rows = environmental_claims or report_rows
+    primary_claim_rows = report_rows
     normalized_claim_lookup = build_normalized_claim_lookup(normalized_claims)
     primary_claim_rows = enrich_report_rows(primary_claim_rows, normalized_claim_lookup)
+    environmental_claim_rows = enrich_report_rows(environmental_claims, normalized_claim_lookup)
 
-    label_counts = count_labels(primary_claim_rows)
-    risk_counts = count_risk_levels(primary_claim_rows)
-    relevance_counts = count_evidence_relevance(primary_claim_rows)
+    csr_label_counts = count_labels(primary_claim_rows)
+    csr_credibility_signal_counts = count_credibility_signal_levels(primary_claim_rows)
+    csr_evidence_relevance_counts = count_evidence_relevance(primary_claim_rows)
+    environmental_label_counts = count_labels(environmental_claim_rows)
+    environmental_greenwashing_risk_counts = count_risk_levels(environmental_claim_rows)
+    environmental_evidence_relevance_counts = count_evidence_relevance(environmental_claim_rows)
     total_claims = len(primary_claim_rows)
+    total_environmental_claims = len(environmental_claim_rows)
     future_claims_count = len(future_claims)
-    run_metadata = build_run_metadata(claims, normalized_claims, prioritized_claims, excluded_claims, future_claims, primary_claim_rows, project_root)
-    verdict_label, verdict_reason = infer_balanced_verdict({
-        "claims": primary_claim_rows,
-        "label_counts": label_counts,
-        "greenwashing_risk_counts": risk_counts,
-        "evidence_relevance_counts": relevance_counts,
-        "total_claims_analyzed": total_claims,
-    })
+    run_metadata = build_run_metadata(company_name, claims, normalized_claims, prioritized_claims, excluded_claims, future_claims, primary_claim_rows, project_root)
+    verdict_label = "Mixed Evidence with Specific Concern Signals"
+    verdict_reason = ""
     weighted_net = round(sum(claim.get("judgment_score", 0.0) for claim in primary_claim_rows) / max(total_claims, 1), 3)
-    weak_evidence_share = round((relevance_counts["BACKGROUND"] + relevance_counts["UNRELATED"]) / max(total_claims, 1), 3)
-    support_share = round((label_counts["SUPPORTED"] + label_counts["PARTIALLY_SUPPORTED"]) / max(total_claims, 1), 3)
-    concern_share = round((label_counts["PARTIALLY_CONTRADICTED"] + label_counts["CONTRADICTED"]) / max(total_claims, 1), 3)
+    weak_evidence_share = round((csr_evidence_relevance_counts["BACKGROUND"] + csr_evidence_relevance_counts["UNRELATED"]) / max(total_claims, 1), 3)
+    support_share = round((csr_label_counts["SUPPORTED"] + csr_label_counts["PARTIALLY_SUPPORTED"]) / max(total_claims, 1), 3)
+    concern_share = round((csr_label_counts["PARTIALLY_CONTRADICTED"] + csr_label_counts["CONTRADICTED"]) / max(total_claims, 1), 3)
 
     support_claims = sorted([claim for claim in primary_claim_rows if claim.get("judgment_score", 0.0) > 0], key=lambda claim: claim.get("judgment_score", 0.0), reverse=True)
     concern_claims = sorted([claim for claim in primary_claim_rows if claim.get("judgment_score", 0.0) < 0], key=lambda claim: claim.get("judgment_score", 0.0))
@@ -1162,14 +1677,22 @@ def build_final_report(project_root: Path, assessments: list[dict]) -> dict:
         key_findings.append(f"Concern: [{claim['normalized_claim_id']}] {claim['claim_text']} Source: {source}")
 
     final_report = {
-        "company_name": COMPANY_NAME,
+        "company_name": company_name,
         "run_metadata": run_metadata,
         "total_claims_analyzed": total_claims,
+        "total_csr_claims_assessed": total_claims,
+        "total_environmental_claims_assessed": total_environmental_claims,
         "claims_excluded_from_main_analysis": len(excluded_claims),
         "future_claims_excluded": future_claims_count,
-        "label_counts": label_counts,
-        "greenwashing_risk_counts": risk_counts,
-        "evidence_relevance_counts": relevance_counts,
+        "csr_label_counts": csr_label_counts,
+        "csr_evidence_relevance_counts": csr_evidence_relevance_counts,
+        "csr_credibility_signal_counts": csr_credibility_signal_counts,
+        "environmental_label_counts": environmental_label_counts,
+        "environmental_greenwashing_risk_counts": environmental_greenwashing_risk_counts,
+        "environmental_evidence_relevance_counts": environmental_evidence_relevance_counts,
+        "label_counts": csr_label_counts,
+        "greenwashing_risk_counts": csr_credibility_signal_counts,
+        "evidence_relevance_counts": csr_evidence_relevance_counts,
         "final_conclusion": "",
         "verdict_label": verdict_label,
         "verdict_reason": verdict_reason,
@@ -1181,17 +1704,23 @@ def build_final_report(project_root: Path, assessments: list[dict]) -> dict:
         },
         "key_findings": key_findings,
         "claims": primary_claim_rows,
-        "all_claims": report_rows,
+        "all_claims": primary_claim_rows,
+        "environmental_claims": environmental_claim_rows,
         "excluded_claims": excluded_claims,
         "normalized_claim_lookup_size": len(normalized_claim_lookup),
     }
-    final_report["final_conclusion"] = build_balanced_conclusion(final_report)
-    final_report["verdict_rationale"] = build_deep_analysis(final_report)
+    final_report["verdict_label"], verdict_reason = infer_balanced_verdict(final_report)
+    final_report["verdict_reason"] = build_required_verdict_reason(final_report)
+    final_report["final_conclusion"] = build_required_final_conclusion(final_report)
+    final_report["verdict_rationale"] = build_required_verdict_rationale(final_report)
     return final_report
 
 
 def save_final_report_artifacts(project_root: Path, report: dict) -> None:
     output_dir = project_root / "agent_9"
     save_report_csv(report["claims"], output_dir / "final_report.csv")
+    save_report_csv(report["claims"], output_dir / "final_csr_assessment.csv")
+    save_report_csv(report.get("environmental_claims", []), output_dir / "final_environmental_subassessment.csv")
     save_report_json(report, output_dir / "final_report.json")
     (output_dir / "final_summary.md").write_text(build_summary_markdown(report), encoding="utf-8")
+    (output_dir / "final_traceability_report.md").write_text(build_traceability_report_markdown(report), encoding="utf-8")

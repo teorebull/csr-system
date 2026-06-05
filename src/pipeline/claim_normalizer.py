@@ -65,6 +65,15 @@ def classify_claim_family(claim: dict) -> str:
     claim_text = str(claim.get("claim_text", "")).lower()
 
     governance_topics = {"ethics", "governance", "labor", "human_rights", "social_impact"}
+    social_impact_markers = {
+        "accessibility",
+        "blind",
+        "visually impaired",
+        "partially sighted",
+        "ai for good",
+        "community impact",
+        "digital inclusion",
+    }
     governance_markers = {
         "responsible ai",
         "generative ai",
@@ -79,7 +88,9 @@ def classify_claim_family(claim: dict) -> str:
 
     if topic in governance_topics:
         return "governance_ai"
-    if "responsible ai" in document_name or "ai transparency" in document_name:
+    if any(marker in document_name for marker in {"responsible ai", "ai transparency", "ethics", "human rights", "diversity", "inclusion"}):
+        return "governance_ai"
+    if any(marker in claim_text for marker in social_impact_markers):
         return "governance_ai"
     if any(marker in claim_text for marker in governance_markers):
         return "governance_ai"
@@ -164,6 +175,11 @@ def count_numbers(text: str) -> int:
     return len(re.findall(r"\d+(?:[,.]\d+)*", text))
 
 
+def starts_with_company_reporting_phrase(text: str) -> bool:
+    normalized = normalize_text(text)
+    return bool(re.match(r"^[a-z0-9]{3,}(?:\s+[a-z0-9]{3,})?\s+reports\b", normalized))
+
+
 def score_analytical_value(claim: dict) -> tuple[int, str]:
     claim_text = claim.get("claim_text", "")
     lowered = claim_text.lower()
@@ -229,11 +245,11 @@ def score_analytical_value(claim: dict) -> tuple[int, str]:
         score -= 20
         reasons.append("table_style_claim")
 
-    if lowered.startswith("microsoft reports") and count_numbers(claim_text) >= 4:
+    if starts_with_company_reporting_phrase(claim_text) and count_numbers(claim_text) >= 4:
         score -= 15
         reasons.append("internal_reporting_numbers")
 
-    if "microsoft reports that its total water" in lowered:
+    if "reports that its total water" in lowered:
         score -= 20
         reasons.append("internal_water_metric")
 

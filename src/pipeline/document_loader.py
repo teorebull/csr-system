@@ -18,6 +18,23 @@ def clean_page_text(text: str) -> str:
     return "\n".join(cleaned_lines)
 
 
+def sanitize_document_title(pdf_path: str, raw_title: str) -> str:
+    title = " ".join(str(raw_title or "").split()).strip()
+    fallback = Path(pdf_path).stem.replace("-", " ").replace("_", " ").strip()
+
+    if not title:
+        return fallback
+
+    lowered = title.lower()
+    if lowered.startswith("microsoft word -") or lowered.endswith(".docx") or lowered.endswith(".doc"):
+        return fallback
+
+    if len(title) < 5:
+        return fallback
+
+    return title
+
+
 def extract_pdf_pages(pdf_path: str) -> tuple[list[dict], dict]:
     pages = []
 
@@ -31,7 +48,7 @@ def extract_pdf_pages(pdf_path: str) -> tuple[list[dict], dict]:
             pages.append({"page_number": page.number + 1, "text": text})
 
         pdf_metadata = {
-            "title": metadata.get("title", ""),
+            "title": sanitize_document_title(pdf_path, metadata.get("title", "")),
             "author": metadata.get("author", ""),
             "subject": metadata.get("subject", ""),
             "creation_date": metadata.get("creationDate", ""),

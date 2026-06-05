@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import csv
 import json
 import os
+import re
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -50,6 +52,42 @@ def load_json(path: Path) -> dict:
         return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return {}
+
+
+def load_csv_rows(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open("r", encoding="utf-8", newline="") as file:
+        return list(csv.DictReader(file))
+
+
+def claim_preview(text: str, max_length: int = 100) -> str:
+    value = re.sub(r"\s+", " ", str(text or "")).strip()
+    if len(value) <= max_length:
+        return value
+    return f"{value[:max_length]}..."
+
+
+def evidence_link(title: str, url: str) -> str:
+    clean_title = re.sub(r"\s+", " ", str(title or "")).strip() or "External evidence"
+    clean_url = str(url or "").strip()
+    if not clean_url:
+        return "No selected source"
+    return f"[{clean_title}]({clean_url})"
+
+
+def set_query_param(name: str, value: str) -> None:
+    if value:
+        st.query_params[name] = value
+    elif name in st.query_params:
+        del st.query_params[name]
+
+
+def get_query_param(name: str) -> str:
+    value = st.query_params.get(name, "")
+    if isinstance(value, list):
+        return str(value[0]) if value else ""
+    return str(value)
 
 
 def available_companies() -> list[str]:
@@ -200,15 +238,14 @@ def show_report(company: str) -> None:
     artifact_root = artifact_root_for_company(company)
     summary_path = artifact_root / "agent_9" / "final_summary.md"
     report_path = artifact_root / "agent_9" / "final_report.json"
+    csr_path = artifact_root / "agent_9" / "final_csr_assessment.csv"
+    environmental_path = artifact_root / "agent_9" / "final_environmental_subassessment.csv"
     summary_text = load_text(summary_path)
     report = load_json(report_path)
+    csr_rows = load_csv_rows(csr_path)
+    environmental_rows = load_csv_rows(environmental_path)
 
     st.subheader("Latest Report")
-    if summary_text:
-        st.markdown(summary_text)
-    else:
-        st.warning("No report found yet for this company.")
-
     if report:
         cols = st.columns(5)
         cols[0].metric("Claims", report.get("total_claims_analyzed", 0))
@@ -217,8 +254,126 @@ def show_report(company: str) -> None:
         cols[3].metric("Direct", report.get("evidence_relevance_counts", {}).get("DIRECT", 0))
         cols[4].metric("Indirect", report.get("evidence_relevance_counts", {}).get("INDIRECT", 0))
 
-        with st.expander("Raw JSON"):
+    summary_tab, claims_tab, environmental_tab, raw_tab = st.tabs([
+        "Final Summary",
+        "Claim Explorer",
+        "Environmental Claim Explorer",
+        "Raw JSON",
+    ])
+
+    with summary_tab:
+        if summary_text:
+            st.markdown(summary_text)
+            st.caption("To inspect any claim in detail, open the Claim Explorer and select the Claim ID.")
+        else:
+            st.warning("No report found yet for this company.")
+
+    with claims_tab:
+        render_claim_explorer(
+            title="Claims Reference",
+            description="Click or select a Claim ID to inspect the full claim metadata, source passage, external evidence, and assessment rationale.",
+            rows=csr_rows,
+            query_param_name="claim_id",
+            show_environmental_context=False,
+        )
+
+    with environmental_tab:
+        st.caption("Environmental greenwashing-risk sub-assessment only. Non-environmental claims are excluded from this view.")
+        render_claim_explorer(
+            title="Environmental Claims Reference",
+            description="Click or select a Claim ID to inspect the full claim metadata, source passage, external evidence, and assessment rationale.",
+            rows=environmental_rows,
+            query_param_name="env_claim_id",
+            show_environmental_context=True,
+        )
+
+    with raw_tab:
+        if report:
             st.json(report)
+        else:
+            st.info("No raw report JSON found yet.")
+
+
+def render_claim_explorer(
+    title: str,
+    description: str,
+    rows: list[dict[str, str]],
+    query_param_name: str,
+    show_environmental_context: bool,
+) -> None:
+    st.markdown(f"### {title}")
+    st.write(description)
+
+    if not rows:
+        st.warning("No claim assessment rows found for this view.")
+        return
+
+    table_rows = []
+    for row in rows:
+        table_rows.append(
+            {
+                "normalized_claim_id": row.get("normalized_claim_id", ""),
+                "claim_preview": claim_preview(row.get("claim_text", ""), 100),
+                "claim_family": row.get("claim_family", ""),
+                "final_label": row.get("final_label", ""),
+                "greenwashing_risk_level": row.get("greenwashing_risk_level", ""),
+                "evidence_relevance": row.get("evidence_relevance", ""),
+                "document_name": row.get("document_name", ""),
+                "page_numbers": row.get("page_numbers", ""),
+                "top_evidence_title": row.get("top_evidence_title", ""),
+            }
+        )
+
+    st.dataframe(table_rows, use_container_width=True, hide_index=True)
+
+    claim_ids = [row.get("normalized_claim_id", "") for row in rows if row.get("normalized_claim_id")]
+    requested_claim_id = get_query_param(query_param_name)
+    default_claim_id = requested_claim_id if requested_claim_id in claim_ids else claim_ids[0]
+    selected_claim_id = st.selectbox(
+        "Select a Claim ID",
+        claim_ids,
+        index=claim_ids.index(default_claim_id),
+        key=f"select_{query_param_name}",
+    )
+    set_query_param(query_param_name, selected_claim_id)
+
+    selected_row = next((row for row in rows if row.get("normalized_claim_id") == selected_claim_id), rows[0])
+    render_claim_detail_card(selected_row, show_environmental_context=show_environmental_context)
+
+
+def render_claim_detail_card(row: dict[str, str], show_environmental_context: bool) -> None:
+    st.markdown(f"#### Claim Card: `{row.get('normalized_claim_id', 'N/A')}`")
+
+    left, right = st.columns([1, 1])
+    with left:
+        st.markdown(f"**Claim ID:** `{row.get('normalized_claim_id', 'N/A')}`")
+        st.markdown(f"**Domain:** `{row.get('claim_family', 'N/A') or 'N/A'}`")
+        st.markdown(f"**Corporate source:** {row.get('document_name', 'N/A') or 'N/A'}")
+        st.markdown(f"**Document ID:** `{row.get('document_id', 'N/A') or 'N/A'}`")
+        st.markdown(f"**Page numbers:** `{row.get('page_numbers', 'N/A') or 'N/A'}`")
+        st.markdown(f"**Source locations:** `{row.get('source_locations', 'N/A') or 'N/A'}`")
+    with right:
+        st.markdown(f"**Final label:** `{row.get('final_label', 'N/A') or 'N/A'}`")
+        signal_label = "Greenwashing-risk level" if show_environmental_context else "CSR credibility signal"
+        st.markdown(f"**{signal_label}:** `{row.get('greenwashing_risk_level', 'N/A') or 'N/A'}`")
+        st.markdown(f"**Evidence relevance:** `{row.get('evidence_relevance', 'N/A') or 'N/A'}`")
+        st.markdown(f"**Stance:** `{row.get('stance', 'N/A') or 'N/A'}`")
+        st.markdown(f"**Materiality score:** `{row.get('materiality_score', 'N/A') or 'N/A'}`")
+        st.markdown(f"**Judgment score:** `{row.get('judgment_score', 'N/A') or 'N/A'}`")
+
+    st.markdown(f"**Full claim text:** {row.get('claim_text', 'N/A') or 'N/A'}")
+    st.markdown(f"**External evidence:** {evidence_link(row.get('top_evidence_title', ''), row.get('top_evidence_url', ''))}")
+
+    with st.expander("Source excerpt", expanded=True):
+        st.write(row.get("source_excerpts", "N/A") or "N/A")
+
+    with st.expander("Justification", expanded=True):
+        st.write(row.get("justification", "N/A") or "N/A")
+
+    risk_reasoning = str(row.get("risk_reasoning", "")).strip()
+    if risk_reasoning:
+        with st.expander("Risk reasoning", expanded=False):
+            st.write(risk_reasoning)
 
 
 def main() -> None:
