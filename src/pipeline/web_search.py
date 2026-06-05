@@ -66,6 +66,8 @@ LOW_QUALITY_DOMAIN_HINTS = {
 
 
 def get_domain(url: str) -> str:
+    """Extract the domain name from a URL."""
+
     try:
         return urlparse(url).netloc.lower()
     except Exception:
@@ -73,6 +75,8 @@ def get_domain(url: str) -> str:
 
 
 def score_source_quality(url: str) -> tuple[float, str]:
+    """Assign a rough source-quality score from the domain."""
+
     domain = get_domain(url).removeprefix("www.")
 
     if not domain:
@@ -95,6 +99,8 @@ def score_source_quality(url: str) -> tuple[float, str]:
 
 
 def is_company_owned_domain(url: str, company_keywords: list[str]) -> bool:
+    """Filter out company-owned or obvious self-published domains."""
+
     domain = get_domain(url)
 
     if not domain:
@@ -107,6 +113,8 @@ def is_company_owned_domain(url: str, company_keywords: list[str]) -> bool:
 
 
 def mentions_company(result: dict, company_keywords: list[str]) -> bool:
+    """Check whether a search result is likely about the target company."""
+
     title = result.get("title", "").lower()
     snippet = result.get("body", "").lower()
     url = result.get("href", "").lower()
@@ -125,6 +133,8 @@ def mentions_company(result: dict, company_keywords: list[str]) -> bool:
 
 
 def filter_external_results(results: list[dict], company_name: str) -> list[dict]:
+    """Drop self-owned or off-topic search results."""
+
     normalized_keywords = company_keywords(company_name)
     filtered_results = []
 
@@ -140,6 +150,8 @@ def filter_external_results(results: list[dict], company_name: str) -> list[dict
 
 
 def load_queries(csv_path: Path) -> list[dict]:
+    """Load query rows from disk for search execution."""
+
     queries = []
 
     with open(csv_path, "r", encoding="utf-8") as file:
@@ -151,10 +163,14 @@ def load_queries(csv_path: Path) -> list[dict]:
 
 
 def _query_claim_id(query: dict) -> str:
+    """Return the claim identifier associated with a query row."""
+
     return query.get("normalized_claim_id") or query.get("claim_id") or ""
 
 
 def search_query(query: dict, ddgs_client: DDGS, company_name: str) -> list[dict]:
+    """Run one search query and format the results for downstream stages."""
+
     query_text = query["query_text"].strip()
     if not query_text:
         return []
@@ -189,6 +205,8 @@ def search_query(query: dict, ddgs_client: DDGS, company_name: str) -> list[dict
 
 
 def search_all_queries(queries: list[dict], company_name: str) -> tuple[list[dict], list[SearchResult]]:
+    """Run the search backend for every query row."""
+
     all_results = []
     result_models: list[SearchResult] = []
     ddgs_client = DDGS()

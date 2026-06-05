@@ -6,6 +6,8 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 class SearchQueryType(str, Enum):
+    """Query intent used by search and ranking stages."""
+
     DIRECT = "direct"
     VERIFICATION = "verification"
     CONTROVERSY = "controversy"
@@ -15,6 +17,8 @@ class SearchQueryType(str, Enum):
 
 
 class SearchQuery(BaseModel):
+    """Search query produced from a claim."""
+
     query_id: str = Field(..., description="Unique identifier for the query.")
     claim_id: str = Field(..., description="Identifier of the claim this query belongs to.")
     query_text: str = Field(..., description="Search query text.")
@@ -23,6 +27,8 @@ class SearchQuery(BaseModel):
 
 
 class SearchResult(BaseModel):
+    """Search result returned by the web search stage."""
+
     result_id: str = Field(..., description="Unique identifier for the search result.")
     query_id: str = Field(..., description="Identifier of the originating query.")
     claim_id: str = Field(..., description="Identifier of the related claim.")

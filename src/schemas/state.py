@@ -11,6 +11,8 @@ from .report import FinalReport
 
 
 class DocumentRecord(BaseModel):
+    """Metadata for one source document in the pipeline state."""
+
     document_id: str = Field(..., description="Unique identifier for the source document.")
     company: str = Field(..., description="Company the document belongs to.")
     path: str = Field(..., description="Local path or external location.")
@@ -20,12 +22,16 @@ class DocumentRecord(BaseModel):
 
 
 class RunLogEntry(BaseModel):
+    """Compact event record written by each graph node."""
+
     node_name: str = Field(..., description="Graph node that produced the event.")
     status: str = Field(..., description="Event status such as started, completed, or failed.")
     message: str = Field(..., description="Short log message.")
 
 
 class PipelineState(BaseModel):
+    """Shared mutable state passed between LangGraph nodes."""
+
     user_query: str = Field(..., description="Natural language request provided by the user.")
     company_name: str = Field(..., description="Target company for the analysis.")
     document_paths: list[str] = Field(default_factory=list)

@@ -6,6 +6,8 @@ from pydantic import BaseModel, Field
 
 
 class SupportLabel(str, Enum):
+    """Final support label assigned to a claim."""
+
     SUPPORTED = "supported"
     PARTIALLY_SUPPORTED = "partially_supported"
     UNSUPPORTED = "unsupported"
@@ -13,12 +15,16 @@ class SupportLabel(str, Enum):
 
 
 class GreenwashingRiskLevel(str, Enum):
+    """Coarse greenwashing risk level used in the report."""
+
     LOW = "low"
     MODERATE = "moderate"
     HIGH = "high"
 
 
 class ClaimAssessment(BaseModel):
+    """Final assessment row stored in the report."""
+
     claim_id: str = Field(..., description="Identifier of the evaluated claim.")
     final_stance: SupportLabel
     justification: str = Field(..., description="Structured textual justification for the final stance.")
@@ -29,6 +35,8 @@ class ClaimAssessment(BaseModel):
 
 
 class FinalReport(BaseModel):
+    """Top-level report written by the final aggregation stage."""
+
     company: str = Field(..., description="Company evaluated by the pipeline.")
     total_claims: int = Field(..., ge=0)
     supported: int = Field(default=0, ge=0)

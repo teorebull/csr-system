@@ -16,16 +16,22 @@ DEFAULT_DOCUMENT_NAME = "Corporate CSR document"
 
 
 class QueryItem(BaseModel):
+    """Single model-generated search query suggestion."""
+
     normalized_claim_id: str
     query_type: Literal["verification", "contradiction", "criticism", "methodology", "context"]
     query_text: str
 
 
 class QueryList(BaseModel):
+    """Structured query bundle returned by the LLM."""
+
     queries: list[QueryItem]
 
 
 def load_claims(csv_path: Path) -> list[dict]:
+    """Load normalized claims from disk for query generation."""
+
     claims = []
 
     with open(csv_path, "r", encoding="utf-8") as file:
@@ -37,6 +43,8 @@ def load_claims(csv_path: Path) -> list[dict]:
 
 
 def build_prompt(claim: dict, company_name: str) -> str:
+    """Build the query-generation prompt for one claim."""
+
     document_name = str(claim.get("document_name", "")).strip() or DEFAULT_DOCUMENT_NAME
     return f"""
 You are generating web search queries for greenwashing-risk analysis.
@@ -76,6 +84,8 @@ Claim information:
 
 
 def generate_queries_for_claim(llm, claim: dict, company_name: str) -> list[QueryItem]:
+    """Ask the model for the five core searches for one claim."""
+
     structured_llm = llm.with_structured_output(QueryList)
     prompt = build_prompt(claim, company_name)
     response = structured_llm.invoke([HumanMessage(content=prompt)])
@@ -83,6 +93,8 @@ def generate_queries_for_claim(llm, claim: dict, company_name: str) -> list[Quer
 
 
 def is_ai_governance_claim(claim: dict) -> bool:
+    """Detect claims that should be treated as AI governance related."""
+
     text = " ".join(
         [
             str(claim.get("claim_text", "")),
@@ -106,6 +118,8 @@ def is_ai_governance_claim(claim: dict) -> bool:
 
 
 def build_supplemental_queries(claim: dict, company_name: str) -> list[dict]:
+    """Add hand-crafted fallback queries for weak or broad claims."""
+
     claim_id = claim["normalized_claim_id"]
     claim_text = claim["claim_text"].lower()
     claim_family = str(claim.get("claim_family", "other")).lower().strip()
@@ -157,6 +171,8 @@ def build_supplemental_queries(claim: dict, company_name: str) -> list[dict]:
 
 
 def _map_query_type(query_type: str) -> SearchQueryType:
+    """Map the local query type to the schema enum."""
+
     if query_type == "verification":
         return SearchQueryType.VERIFICATION
     if query_type in {"contradiction", "criticism"}:
@@ -169,6 +185,8 @@ def _map_query_type(query_type: str) -> SearchQueryType:
 
 
 def generate_queries_for_all_claims(claims: list[dict], company_name: str) -> tuple[list[dict], list[SearchQuery]]:
+    """Generate search queries for every prioritized claim."""
+
     llm = ChatOllama(model=LOCAL_MODEL, temperature=0.0)
     all_queries = []
     search_queries = []

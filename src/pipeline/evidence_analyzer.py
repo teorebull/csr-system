@@ -18,6 +18,8 @@ OLLAMA_TAGS_URL = "http://localhost:11434/api/tags"
 
 
 class ClaimAssessment(BaseModel):
+    """Structured judgment for one claim/evidence bundle."""
+
     normalized_claim_id: str
     final_label: Literal["SUPPORTED", "PARTIALLY_SUPPORTED", "UNVERIFIED", "PARTIALLY_CONTRADICTED", "CONTRADICTED"]
     greenwashing_risk_level: Literal["LOW", "MEDIUM", "HIGH", "UNCLEAR"]
@@ -36,6 +38,8 @@ CONTRADICTION_LABELS = {"PARTIALLY_CONTRADICTED", "CONTRADICTED"}
 
 
 def load_csv_rows(csv_path: Path) -> list[dict]:
+    """Load evidence or claim rows from disk."""
+
     rows = []
     with open(csv_path, "r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
@@ -45,10 +49,14 @@ def load_csv_rows(csv_path: Path) -> list[dict]:
 
 
 def build_claim_lookup(claims: list[dict]) -> dict:
+    """Index normalized claims by claim id."""
+
     return {claim["normalized_claim_id"]: claim for claim in claims}
 
 
 def group_top_evidence(rows: list[dict], top_k: int) -> dict:
+    """Keep the top evidence rows for each claim."""
+
     grouped = {}
     for row in rows:
         claim_id = row["normalized_claim_id"]
@@ -62,6 +70,8 @@ def group_top_evidence(rows: list[dict], top_k: int) -> dict:
 
 
 def build_evidence_block(evidence_rows: list[dict]) -> str:
+    """Format evidence rows into the prompt payload."""
+
     blocks = []
     for index, row in enumerate(evidence_rows, start=1):
         extracted_text = row.get("extracted_text", "").strip()
@@ -85,6 +95,8 @@ Extracted text:
 
 
 def build_cache_key(claim: dict, evidence_rows: list[dict]) -> str:
+    """Create a stable cache key for one assessment."""
+
     key_payload = {
         "schema_version": "priority_labels_v1",
         "claim_text": claim.get("claim_text", ""),
@@ -106,6 +118,8 @@ def build_cache_key(claim: dict, evidence_rows: list[dict]) -> str:
 
 
 def load_assessment_cache(cache_path: Path) -> dict:
+    """Load cached claim assessments from disk."""
+
     if not cache_path.exists():
         return {}
     try:
@@ -115,11 +129,15 @@ def load_assessment_cache(cache_path: Path) -> dict:
 
 
 def save_assessment_cache(cache: dict, cache_path: Path) -> None:
+    """Persist the assessment cache to disk."""
+
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     cache_path.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def is_ollama_available() -> bool:
+    """Check whether the local Ollama service is available."""
+
     try:
         with request.urlopen(OLLAMA_TAGS_URL, timeout=5):
             return True
@@ -128,6 +146,8 @@ def is_ollama_available() -> bool:
 
 
 def build_prompt(claim: dict, evidence_rows: list[dict]) -> str:
+    """Build the assessment prompt for one claim."""
+
     evidence_block = build_evidence_block(evidence_rows)
     return f"""
 You are analyzing a corporate CSR claim against external evidence.
@@ -195,6 +215,8 @@ Evidence:
 
 
 def call_ollama(prompt: str) -> str:
+    """Send the assessment prompt to the local model."""
+
     payload = {"model": LOCAL_MODEL, "prompt": prompt, "stream": False, "format": "json"}
     data = json.dumps(payload).encode("utf-8")
     req = request.Request(OLLAMA_URL, data=data, headers={"Content-Type": "application/json"})
@@ -212,6 +234,8 @@ def is_ollama_available() -> bool:
 
 
 def normalize_label(label: str) -> str:
+    """Normalize model output into one of the supported labels."""
+
     label = str(label).strip().upper()
     label = re.sub(r"\s+", "_", label)
     replacements = {
@@ -235,6 +259,8 @@ def normalize_label(label: str) -> str:
 
 
 def normalize_risk_level(risk_level: str) -> str:
+    """Normalize the risk label into the supported scale."""
+
     risk_level = str(risk_level).strip().upper()
     risk_level = re.sub(r"\s+", "_", risk_level)
     replacements = {"LOW_RISK": "LOW", "MEDIUM_RISK": "MEDIUM", "MODERATE": "MEDIUM", "MODERATE_RISK": "MEDIUM", "HIGH_RISK": "HIGH", "UNKNOWN": "UNCLEAR", "INSUFFICIENT": "UNCLEAR", "INSUFFICIENT_EVIDENCE": "UNCLEAR"}
@@ -242,6 +268,8 @@ def normalize_risk_level(risk_level: str) -> str:
 
 
 def normalize_evidence_relevance(evidence_relevance: str) -> str:
+    """Normalize evidence relevance into the supported scale."""
+
     evidence_relevance = str(evidence_relevance).strip().upper()
     evidence_relevance = re.sub(r"\s+", "_", evidence_relevance)
     replacements = {"DIRECTLY_RELEVANT": "DIRECT", "PARTLY_DIRECT": "INDIRECT", "PARTIAL": "INDIRECT", "PARTIALLY_RELEVANT": "INDIRECT", "CONTEXT": "BACKGROUND", "CONTEXTUAL": "BACKGROUND", "GENERAL_BACKGROUND": "BACKGROUND", "NOT_RELEVANT": "UNRELATED", "IRRELEVANT": "UNRELATED", "NO_RELEVANCE": "UNRELATED"}
@@ -249,6 +277,8 @@ def normalize_evidence_relevance(evidence_relevance: str) -> str:
 
 
 def enforce_risk_relevance_rules(data: dict) -> dict:
+    """Clamp risk labels when the relevance signal is weak."""
+
     relevance = normalize_evidence_relevance(data.get("evidence_relevance", "UNRELATED"))
     risk_level = normalize_risk_level(data.get("greenwashing_risk_level", "UNCLEAR"))
     if relevance not in VALID_EVIDENCE_RELEVANCE:
@@ -269,6 +299,8 @@ def enforce_risk_relevance_rules(data: dict) -> dict:
 
 
 def is_methodology_claim_text(claim_text: str) -> bool:
+    """Detect methodology-style claims that need stricter handling."""
+
     lowered = str(claim_text).lower()
     markers = [
         "defines",
@@ -286,6 +318,8 @@ def is_methodology_claim_text(claim_text: str) -> bool:
 
 
 def enforce_label_relevance_rules(data: dict, claim_text: str) -> dict:
+    """Prevent contradiction labels when the evidence is too indirect."""
+
     label = normalize_label(data.get("final_label", "UNVERIFIED"))
     relevance = normalize_evidence_relevance(data.get("evidence_relevance", "UNRELATED"))
     supporting_excerpt = clean_supporting_excerpt(data.get("supporting_excerpt", ""))
@@ -307,6 +341,8 @@ def enforce_label_relevance_rules(data: dict, claim_text: str) -> dict:
 
 
 def coerce_model_output(data: dict, claim_text: str) -> dict:
+    """Clean and validate the raw model response."""
+
     data["final_label"] = normalize_label(data.get("final_label", "UNVERIFIED"))
     if data["final_label"] not in VALID_LABELS:
         data["final_label"] = "UNVERIFIED"
@@ -319,6 +355,8 @@ def coerce_model_output(data: dict, claim_text: str) -> dict:
 
 
 def clean_supporting_excerpt(text: str) -> str:
+    """Trim and sanitize the excerpt copied into the report."""
+
     text = str(text).strip()
     if not text or "<system-reminder>" in text.lower():
         return ""
@@ -328,6 +366,8 @@ def clean_supporting_excerpt(text: str) -> str:
 
 
 def clean_generated_text(text: str, max_length: int | None = None) -> str:
+    """Remove markup and extra noise from generated prose."""
+
     text = str(text).strip()
     if not text:
         return ""

@@ -69,6 +69,8 @@ RELEVANCE_SCORE = {
 
 
 def load_csv_rows(csv_path: Path) -> list[dict]:
+    """Load report rows from a CSV artifact."""
+
     path = Path(csv_path)
     if not path.exists():
         return []
@@ -82,6 +84,8 @@ def load_csv_rows(csv_path: Path) -> list[dict]:
 
 
 def load_json_file(json_path: Path):
+    """Load a JSON artifact if it exists."""
+
     if not json_path.exists():
         return None
     try:
@@ -91,10 +95,14 @@ def load_json_file(json_path: Path):
 
 
 def count_rows(csv_path: Path) -> int:
+    """Count how many rows are present in a CSV artifact."""
+
     return len(load_csv_rows(csv_path))
 
 
 def unique_values(rows: list[dict], field_name: str) -> list[str]:
+    """Collect the unique values for one field."""
+
     values = set()
     for row in rows:
         value = row.get(field_name, "")
@@ -104,6 +112,8 @@ def unique_values(rows: list[dict], field_name: str) -> list[str]:
 
 
 def filter_claims_by_family(rows: list[dict], claim_family: str) -> list[dict]:
+    """Keep only claims that belong to one family."""
+
     return [row for row in rows if str(row.get("claim_family", "")).strip().lower() == claim_family]
 
 
@@ -120,6 +130,8 @@ NON_ENVIRONMENTAL_OVERRIDE_MARKERS = {
 
 
 def normalize_report_claim_family(row: dict) -> dict:
+    """Fix claim-family labels when the final report needs an override."""
+
     normalized = dict(row)
     text_parts = [
         str(row.get("claim_text", "")),
@@ -138,6 +150,8 @@ def normalize_report_claim_family(row: dict) -> dict:
 
 
 def build_run_metadata(company_name: str, claims: list[dict], normalized_claims: list[dict], prioritized_claims: list[dict], excluded_claims: list[dict], future_claims: list[dict], assessments: list[dict], project_root: Path) -> dict:
+    """Assemble the metadata block that ships with the final report."""
+
     agent_2_cache = load_json_file(project_root / "agent_2" / "claim_extraction_cache.json")
     agent_8_cache = load_json_file(project_root / "agent_8" / "assessment_cache.json")
     document_ids = unique_values(claims, "document_id") or unique_values(normalized_claims, "document_id")
@@ -187,6 +201,8 @@ def build_run_metadata(company_name: str, claims: list[dict], normalized_claims:
 
 
 def count_labels(assessments: list[dict]) -> dict:
+    """Count the final labels in the claim assessments."""
+
     counts = {"SUPPORTED": 0, "PARTIALLY_SUPPORTED": 0, "UNVERIFIED": 0, "PARTIALLY_CONTRADICTED": 0, "CONTRADICTED": 0}
     for row in assessments:
         label = row.get("final_label", "").strip().upper()
@@ -196,6 +212,8 @@ def count_labels(assessments: list[dict]) -> dict:
 
 
 def count_risk_levels(assessments: list[dict]) -> dict:
+    """Count the risk levels in the claim assessments."""
+
     counts = {"LOW": 0, "MEDIUM": 0, "HIGH": 0, "UNCLEAR": 0}
     for row in assessments:
         risk_level = row.get("greenwashing_risk_level", "").strip().upper()
@@ -205,10 +223,14 @@ def count_risk_levels(assessments: list[dict]) -> dict:
 
 
 def count_credibility_signal_levels(assessments: list[dict]) -> dict:
+    """Alias for the risk-level histogram used in the report."""
+
     return count_risk_levels(assessments)
 
 
 def count_evidence_relevance(assessments: list[dict]) -> dict:
+    """Count evidence relevance labels across all assessments."""
+
     counts = {"DIRECT": 0, "INDIRECT": 0, "BACKGROUND": 0, "UNRELATED": 0}
     for row in assessments:
         relevance = row.get("evidence_relevance", "").strip().upper()
@@ -218,6 +240,8 @@ def count_evidence_relevance(assessments: list[dict]) -> dict:
 
 
 def clean_generated_text(text: str) -> str:
+    """Strip markup and spacing from generated prose."""
+
     text = str(text).strip()
     if not text:
         return ""
@@ -228,6 +252,8 @@ def clean_generated_text(text: str) -> str:
 
 
 def clean_generated_markdown(text: str) -> str:
+    """Clean generated markdown before writing it to disk."""
+
     text = str(text).strip()
     if not text:
         return ""
@@ -238,6 +264,8 @@ def clean_generated_markdown(text: str) -> str:
 
 
 def claim_text_blob(claim: dict) -> str:
+    """Build the text blob used for report scoring."""
+
     parts = [
         str(claim.get("claim_text", "")),
         str(claim.get("risk_reasoning", "")),
@@ -248,6 +276,8 @@ def claim_text_blob(claim: dict) -> str:
 
 
 def materiality_score(claim: dict) -> float:
+    """Estimate how central a claim is to the environmental verdict."""
+
     text = claim_text_blob(claim)
     score = 0.0
     for theme_keywords in CORE_MATERIALITY_KEYWORDS.values():

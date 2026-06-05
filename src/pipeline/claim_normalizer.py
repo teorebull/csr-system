@@ -13,6 +13,8 @@ MAX_PRIORITIZED_CLAIMS_PER_DOCUMENT = int(os.environ.get("MAX_PRIORITIZED_CLAIMS
 
 
 def load_claims(csv_path: Path) -> list[dict]:
+    """Load extracted claim rows from a CSV file."""
+
     claims = []
 
     with open(csv_path, "r", encoding="utf-8") as file:
@@ -24,6 +26,8 @@ def load_claims(csv_path: Path) -> list[dict]:
 
 
 def normalize_text(text: str) -> str:
+    """Normalize claim text for duplicate detection."""
+
     text = text.lower().strip()
     text = re.sub(r"\s+", " ", text)
     text = re.sub(r"[“”\"'`´]", "", text)
@@ -33,6 +37,8 @@ def normalize_text(text: str) -> str:
 
 
 def are_similar_claims(claim_a: dict, claim_b: dict) -> bool:
+    """Check whether two claims are close enough to merge."""
+
     if claim_a["topic"] != claim_b["topic"]:
         return False
 
@@ -46,6 +52,8 @@ def are_similar_claims(claim_a: dict, claim_b: dict) -> bool:
 
 
 def split_future_claims(claims: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Separate present-tense claims from future-oriented ones."""
+
     current_claims = []
     future_claims = []
 
@@ -60,6 +68,8 @@ def split_future_claims(claims: list[dict]) -> tuple[list[dict], list[dict]]:
 
 
 def classify_claim_family(claim: dict) -> str:
+    """Assign a broad claim family for downstream filtering."""
+
     topic = str(claim.get("topic", "")).lower().strip()
     document_name = str(claim.get("document_name", "")).lower()
     claim_text = str(claim.get("claim_text", "")).lower()
@@ -100,6 +110,8 @@ def classify_claim_family(claim: dict) -> str:
 
 
 def merge_claim_group(group: list[dict], normalized_id: int) -> dict:
+    """Collapse a duplicate claim group into one normalized record."""
+
     first_claim = group[0]
     original_ids = []
     document_ids = []
@@ -144,6 +156,8 @@ def merge_claim_group(group: list[dict], normalized_id: int) -> dict:
 
 
 def normalize_claims(claims: list[dict]) -> list[dict]:
+    """Merge near-duplicate claims into canonical normalized claims."""
+
     normalized_claims = []
     used_indices = set()
     normalized_id = 1
@@ -172,15 +186,21 @@ def normalize_claims(claims: list[dict]) -> list[dict]:
 
 
 def count_numbers(text: str) -> int:
+    """Count numeric fragments in a claim text."""
+
     return len(re.findall(r"\d+(?:[,.]\d+)*", text))
 
 
 def starts_with_company_reporting_phrase(text: str) -> bool:
+    """Detect claims that read like internal reporting language."""
+
     normalized = normalize_text(text)
     return bool(re.match(r"^[a-z0-9]{3,}(?:\s+[a-z0-9]{3,})?\s+reports\b", normalized))
 
 
 def score_analytical_value(claim: dict) -> tuple[int, str]:
+    """Score how useful a claim is for the main analysis."""
+
     claim_text = claim.get("claim_text", "")
     lowered = claim_text.lower()
     score = 0
@@ -312,6 +332,8 @@ def score_analytical_value(claim: dict) -> tuple[int, str]:
 
 
 def prioritize_claim(claim: dict, max_prioritized_claims_total: int | None = None) -> dict:
+    """Attach prioritization metadata to one normalized claim."""
+
     claim_text = claim.get("claim_text", "")
     lowered = claim_text.lower()
     topic = claim.get("topic", "").lower()

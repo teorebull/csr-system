@@ -6,6 +6,8 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 class EvidenceSourceType(str, Enum):
+    """Broad source category for an evidence item."""
+
     REGULATOR = "regulator"
     NGO = "ngo"
     NEWS = "news"
@@ -17,6 +19,8 @@ class EvidenceSourceType(str, Enum):
 
 
 class EvidenceDocument(BaseModel):
+    """Fetched source document used as evidence."""
+
     evidence_id: str = Field(..., description="Unique identifier for the evidence document.")
     claim_id: str = Field(..., description="Claim the evidence is associated with.")
     url: HttpUrl
@@ -29,6 +33,8 @@ class EvidenceDocument(BaseModel):
 
 
 class EvidenceSnippet(BaseModel):
+    """Relevant excerpt pulled from an evidence document."""
+
     snippet_id: str = Field(..., description="Unique identifier for the evidence snippet.")
     evidence_id: str = Field(..., description="Parent evidence document identifier.")
     claim_id: str = Field(..., description="Claim the snippet is associated with.")

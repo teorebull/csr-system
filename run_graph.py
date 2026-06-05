@@ -111,6 +111,7 @@ def filter_environmental_claims(rows: list[dict]) -> list[dict]:
 
 def load_resume_state(start_at: str, company_name: str, user_query: str) -> PipelineState:
     artifact_dir = resolve_artifact_dir(company_name)
+    # Resume runs rebuild only the pieces that downstream nodes depend on.
     state = PipelineState(
         user_query=user_query,
         company_name=company_name,
@@ -172,6 +173,7 @@ def cap_pages_in_state(state: PipelineState, max_pages_per_document: int) -> Pip
 
 
 def build_workflow(start_at: str, stop_at: str):
+    # The graph is rebuilt on each run so start/stop points stay flexible.
     graph = StateGraph(PipelineState)
 
     for node_name, node_fn in NODE_SEQUENCE:

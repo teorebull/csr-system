@@ -7,6 +7,8 @@ import pymupdf
 
 
 def clean_page_text(text: str) -> str:
+    """Remove obvious line noise from extracted page text."""
+
     lines = text.splitlines()
     cleaned_lines = []
 
@@ -19,6 +21,8 @@ def clean_page_text(text: str) -> str:
 
 
 def sanitize_document_title(pdf_path: str, raw_title: str) -> str:
+    """Pick a usable document title or fall back to the filename."""
+
     title = " ".join(str(raw_title or "").split()).strip()
     fallback = Path(pdf_path).stem.replace("-", " ").replace("_", " ").strip()
 
@@ -36,6 +40,8 @@ def sanitize_document_title(pdf_path: str, raw_title: str) -> str:
 
 
 def extract_pdf_pages(pdf_path: str) -> tuple[list[dict], dict]:
+    """Extract page text and basic metadata from a PDF."""
+
     pages = []
 
     with pymupdf.open(pdf_path) as document:
@@ -59,6 +65,8 @@ def extract_pdf_pages(pdf_path: str) -> tuple[list[dict], dict]:
 
 
 def find_repeated_lines(pages: list[dict]) -> set[str]:
+    """Find header/footer lines that repeat across multiple pages."""
+
     line_counts: dict[str, int] = {}
 
     for page in pages:
@@ -79,6 +87,8 @@ def find_repeated_lines(pages: list[dict]) -> set[str]:
 
 
 def preprocess_pages(pages: list[dict]) -> tuple[list[dict], set[str], int]:
+    """Remove repeated lines and flag pages with little remaining text."""
+
     repeated_lines = find_repeated_lines(pages)
     processed_pages = []
     low_text_pages = 0
@@ -103,6 +113,8 @@ def preprocess_pages(pages: list[dict]) -> tuple[list[dict], set[str], int]:
 
 
 def join_pages(pages: list[dict]) -> str:
+    """Join processed pages into one text blob for downstream stages."""
+
     all_pages_text = []
 
     for page in pages:
@@ -115,6 +127,8 @@ def join_pages(pages: list[dict]) -> str:
 
 
 def load_document_pages(pdf_path: str) -> tuple[list[dict], dict, set[str], int, str]:
+    """Load, clean, and flatten a document into page and text outputs."""
+
     pages, metadata = extract_pdf_pages(pdf_path)
     processed_pages, repeated_lines, low_text_pages = preprocess_pages(pages)
     full_text = join_pages(processed_pages)

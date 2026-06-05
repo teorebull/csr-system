@@ -388,5 +388,57 @@
     "top_evidence_url": "https://www.techpolicy.press/responsible-ai-as-a-business-necessity-three-forces-driving-market-adoption/",
     "top_evidence_title": "ResponsibleAIas a Business Necessity: Three... | TechPolicy.Press",
     "supporting_excerpt": "Microsoft has proactively aligned its AI development principles with emerging regulations across different markets, enabling the company to rapidly adapt to new requirements, such as those outlined in the EU AI Act."
+  },
+  "0377508520276802360544d68a516081022a48707ddea16f62e263badfe0e082": {
+    "normalized_claim_id": "normalized_claim_121",
+    "claim_text": "Our Responsible AI Standard formalizes a set of generative AI requirements.",
+    "claim_family": "governance_ai",
+    "final_label": "PARTIALLY_SUPPORTED",
+    "greenwashing_risk_level": "HIGH",
+    "evidence_relevance": "DIRECT",
+    "justification": "The evidence indicates that Microsoft's Responsible AI Standard formalizes certain requirements, but it also raises significant concerns about the effectiveness and intent behind these standards.",
+    "risk_reasoning": "There is skepticism around whether retiring capabilities such as emotion profiling in Azure Face services actually addresses broader issues of responsible AI usage. Additionally, past controversies suggest a need for caution regarding Microsoft's commitments to ethical AI practices.",
+    "top_evidence_url": "https://emotionalai.org/news/2022/6/23/statement-about-microsofts-new-responsible-ai-standard",
+    "top_evidence_title": "Statement about Microsoft's new \"Responsible AI Standard\"",
+    "supporting_excerpt": "First is that their statement refers to ‘provision of open-ended API access to technology that can scan people’s faces and purport to infer their emotional states based on their facial expressions or movements.’ Second is that the statement about retirement of inference of emotional states applies only to their Azure Face services. Third is that ‘need to carefully analyse all AI systems that purport to infer people’s emotional states’ is a much weaker statement of intent than “we have stopped all emotional AI development.”"
+  },
+  "394186c790860c1b41611341cac5e133a12ace6c04ae992f57d6e0a1e124316b": {
+    "normalized_claim_id": "normalized_claim_106",
+    "claim_text": "By actively seeking diversity and embracing inclusion, we ensure our workforce represents the planet we serve",
+    "claim_family": "governance_ai",
+    "final_label": "SUPPORTED",
+    "greenwashing_risk_level": "LOW",
+    "evidence_relevance": "DIRECT",
+    "justification": "Evidence supports the claim as it shows Microsoft actively working on diversity and inclusion, aligning with their commitment to having a diverse workforce.",
+    "risk_reasoning": "The evidence does not raise significant concerns about greenwashing but rather reinforces Microsoft's efforts in this area.",
+    "top_evidence_url": "https://www.shortform.com/blog/microsoft-diversity-and-inclusion/",
+    "top_evidence_title": "AtMicrosoft,DiversityandInclusionEqual... - Shortform Books",
+    "supporting_excerpt": "Nadella believes that Microsoft’s diversity and inclusion contribute to an innovative workplace. Having diverse employees prevents homogeneous thinking, opening up the company to different values and perspectives that lead to better ideas and products."
+  },
+  "f40e994ea8d991284d253fd3021010454fee340ad2f213a344cea5f09b0aa55e": {
+    "normalized_claim_id": "normalized_claim_109",
+    "claim_text": "We committed to publishing an annual report on our responsible AI program in 2023.",
+    "claim_family": "governance_ai",
+    "final_label": "SUPPORTED",
+    "greenwashing_risk_level": "LOW",
+    "evidence_relevance": "DIRECT",
+    "justification": "The evidence directly supports the claim that Microsoft committed to publishing an annual report on their responsible AI program in 2023, as it mentions a second annual Responsible AI Transparency Report published in 2025.",
+    "risk_reasoning": "No concerns or caveats are raised by the evidence. The evidence is clear and directly relevant to the claim.",
+    "top_evidence_url": "https://websitecyber.com/microsoft-responsible-ai-news/",
+    "top_evidence_title": "MicrosoftResponsibleAINews | Website Cyber Security",
+    "supporting_excerpt": "Their insights have informed this second annual Responsible AI Transparency Report, which underscores our continued commitment to buildingA..."
+  },
+  "bf7578bfd10b04ab2e5a6f032fdb78fe0fcd9d3f691f3dad04b67adfb24ee32e": {
+    "normalized_claim_id": "normalized_claim_112",
+    "claim_text": "We are committed to sharing our maturing practices in responsible AI.",
+    "claim_family": "governance_ai",
+    "final_label": "SUPPORTED",
+    "greenwashing_risk_level": "LOW",
+    "evidence_relevance": "INDIRECT",
+    "justification": "The evidence highlights Microsoft's proactive approach to aligning AI practices with regulatory requirements and ethical standards, supporting the claim of commitment to responsible AI practices.",
+    "risk_reasoning": "There is no evidence suggesting that Microsoft's actions are inconsistent or insincere regarding their responsible AI practices. The tone and context indicate a genuine effort towards compliance and ethics without any conflicting reports.",
+    "top_evidence_url": "https://www.techpolicy.press/responsible-ai-as-a-business-necessity-three-forces-driving-market-adoption/",
+    "top_evidence_title": "ResponsibleAIas a Business Necessity: Three... | TechPolicy.Press",
+    "supporting_excerpt": "This approach has positioned Microsoft as a trusted provider in highly regulated industries, such as healthcare and finance, where AI adoption heavily depends on assurances of compliance."
   }
 }

@@ -19,7 +19,6 @@ from src.pipeline.judge_aggregator import build_final_report, save_final_report_
 from src.pipeline.query_generator import generate_queries_for_all_claims
 from src.pipeline.reranker import filter_usable_evidence, rerank_evidence
 from src.pipeline.web_search import search_all_queries
-from src.pipeline.vector_retrieval import retrieve_chunks_for_claims
 from src.schemas.state import DocumentRecord, PipelineState, RunLogEntry
 from src.utils.company import artifact_root_for_company, company_keywords
 
@@ -278,34 +277,6 @@ def run_web_search(state: PipelineState) -> PipelineState:
             node_name="web_search",
             status="completed",
             message=f"Collected {len(results)} search result row(s) from {len(query_rows)} query item(s).",
-        )
-    )
-    return state
-
-
-def run_vector_retrieval(state: PipelineState) -> PipelineState:
-    artifact_root = artifact_root_for_company(state.company_name)
-    claim_rows = [claim.model_dump() if hasattr(claim, "model_dump") else dict(claim) for claim in state.claims]
-    page_rows = list(state.pages)
-
-    if not claim_rows or not page_rows:
-        state.logs.append(
-            RunLogEntry(
-                node_name="vector_retrieval",
-                status="skipped",
-                message="Claims or pages were unavailable for vector retrieval.",
-            )
-        )
-        return state
-
-    retrieved_rows = retrieve_chunks_for_claims(claim_rows, page_rows, artifact_root / "agent_5b" / "vector_index")
-    state.vector_chunks = retrieved_rows
-    _save_csv(retrieved_rows, artifact_root / "agent_5b" / "vector_retrieval.csv")
-    state.logs.append(
-        RunLogEntry(
-            node_name="vector_retrieval",
-            status="completed",
-            message=f"Retrieved {len(retrieved_rows)} vector chunk row(s) from {len(page_rows)} page row(s).",
         )
     )
     return state

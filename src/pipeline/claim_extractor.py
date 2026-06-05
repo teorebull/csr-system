@@ -20,6 +20,8 @@ DEFAULT_DOCUMENT_ID = "doc_1_corporate_csr_document"
 
 
 class Claim(BaseModel):
+    """Structured claim extracted from a source page."""
+
     claim_text: str
     claim_type: Literal["result", "policy", "practice", "commitment", "statement"]
     topic: Literal[
@@ -45,10 +47,14 @@ class Claim(BaseModel):
 
 
 class ClaimList(BaseModel):
+    """Batch of claims returned by the model for one page."""
+
     claims: list[Claim]
 
 
 def is_ollama_available() -> bool:
+    """Check whether the local Ollama endpoint is reachable."""
+
     try:
         with request.urlopen(OLLAMA_TAGS_URL, timeout=5):
             return True
@@ -57,6 +63,8 @@ def is_ollama_available() -> bool:
 
 
 def build_cache_key(document_id: str, document_name: str, page_number: str | int, page_text: str) -> str:
+    """Create a stable cache key for one page extraction request."""
+
     payload = {
         "document_id": document_id,
         "document_name": document_name,
@@ -70,6 +78,8 @@ def build_cache_key(document_id: str, document_name: str, page_number: str | int
 
 
 def claim_to_cache_row(claim: Claim) -> dict:
+    """Convert a structured claim into a cache-friendly row."""
+
     return {
         "claim_text": claim.claim_text,
         "claim_type": claim.claim_type,
@@ -83,6 +93,8 @@ def claim_to_cache_row(claim: Claim) -> dict:
 
 
 def load_pages_from_state(pages: list[dict]) -> list[dict]:
+    """Select and order the pages that should be sent to the extractor."""
+
     selected_pages = []
     grouped_pages: dict[str, list[dict]] = {}
 
@@ -105,6 +117,8 @@ def load_pages_from_state(pages: list[dict]) -> list[dict]:
 
 
 def build_prompt(document_name: str, page_number: str | int, page_text: str) -> str:
+    """Build the extraction prompt for a single document page."""
+
     return f"""
 You are extracting CSR claims from an official corporate document.
 Document: {document_name}
@@ -145,6 +159,8 @@ Page text:
 
 
 def extract_claims_from_page(llm, document_name: str, page_number: str | int, page_text: str) -> list[Claim]:
+    """Run the model on one page and return structured claims."""
+
     structured_llm = llm.with_structured_output(ClaimList)
     prompt = build_prompt(document_name, page_number, page_text)
     response = structured_llm.invoke([HumanMessage(content=prompt)])
@@ -152,6 +168,8 @@ def extract_claims_from_page(llm, document_name: str, page_number: str | int, pa
 
 
 def extract_claims_from_pages(pages: list[dict], cache: dict | None = None) -> tuple[list[dict], dict, dict[str, int]]:
+    """Extract claims from all eligible pages, reusing cached results when possible."""
+
     cache = cache or {}
     llm = None
     model_name = MODEL_NAME

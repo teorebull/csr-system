@@ -26,6 +26,8 @@ QUERY_TYPE_PRIORITY = {"verification": 1.0, "methodology": 0.95, "criticism": 0.
 
 
 def _claim_terms(text: str) -> list[str]:
+    """Extract a small set of topic terms from a claim text."""
+
     lowered = str(text).lower()
     terms = []
     for pattern in [
@@ -51,11 +53,15 @@ def _claim_terms(text: str) -> list[str]:
 
 
 def _text_mentions_any(text: str, terms: list[str]) -> bool:
+    """Check whether any of the selected claim terms appear in text."""
+
     lowered = str(text).lower()
     return any(term.replace("\\", "") in lowered for term in terms)
 
 
 def load_search_results(csv_path: Path) -> list[dict]:
+    """Load search results from a CSV file."""
+
     results = []
     with open(csv_path, "r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
@@ -65,6 +71,8 @@ def load_search_results(csv_path: Path) -> list[dict]:
 
 
 def parse_source_quality_score(value: str) -> float:
+    """Convert a stored source-quality value into a float."""
+
     try:
         return float(value)
     except (TypeError, ValueError):
@@ -72,6 +80,8 @@ def parse_source_quality_score(value: str) -> float:
 
 
 def filter_low_quality_sources(results: list[dict]) -> list[dict]:
+    """Remove results that do not meet the minimum quality threshold."""
+
     filtered_results = []
     min_source_quality_score = MODE_CONFIG["min_source_quality_score"]
 
@@ -85,6 +95,8 @@ def filter_low_quality_sources(results: list[dict]) -> list[dict]:
 
 
 def normalize_url(url: str) -> str:
+    """Normalize a URL so duplicates can be compared reliably."""
+
     parsed = urlparse(str(url).strip())
     scheme = parsed.scheme.lower() or "https"
     netloc = parsed.netloc.lower().removeprefix("www.")
@@ -93,6 +105,8 @@ def normalize_url(url: str) -> str:
 
 
 def parse_result_rank(value: str) -> int:
+    """Parse a search rank, falling back to a low-priority default."""
+
     try:
         return int(value)
     except (TypeError, ValueError):
@@ -100,6 +114,8 @@ def parse_result_rank(value: str) -> int:
 
 
 def selection_score(result: dict) -> tuple[float, float, int]:
+    """Score a search result before the final selection pass."""
+
     source_quality_score = parse_source_quality_score(result.get("source_quality_score", "0"))
     query_priority = QUERY_TYPE_PRIORITY.get(result.get("query_type", ""), 0.5)
     rank = parse_result_rank(result.get("result_rank", ""))
@@ -107,6 +123,8 @@ def selection_score(result: dict) -> tuple[float, float, int]:
 
 
 def select_best_results(results: list[dict]) -> list[dict]:
+    """Keep the best non-duplicate results for each claim."""
+
     sorted_results = sorted(results, key=selection_score, reverse=True)
     selected_results = []
     seen_urls = set()
@@ -150,10 +168,14 @@ def select_best_results(results: list[dict]) -> list[dict]:
 
 
 def is_pdf_url(url: str) -> bool:
+    """Check whether a URL appears to point to a PDF."""
+
     return urlparse(url).path.lower().endswith(".pdf")
 
 
 def fetch_article_text(url: str) -> tuple[str, bool, str]:
+    """Download and extract text from an HTML article."""
+
     try:
         downloaded = trafilatura.fetch_url(url)
         if not downloaded:
@@ -169,6 +191,8 @@ def fetch_article_text(url: str) -> tuple[str, bool, str]:
 
 
 def fetch_pdf_text(url: str) -> tuple[str, bool, str]:
+    """Download and extract text from a remote PDF."""
+
     try:
         response = requests.get(url, timeout=REQUEST_TIMEOUT)
         response.raise_for_status()
@@ -192,6 +216,8 @@ def fetch_pdf_text(url: str) -> tuple[str, bool, str]:
 
 
 def extract_evidence(result: dict) -> dict:
+    """Fetch the full text for one search result."""
+
     url = str(result["url"]).strip()
     claim_id = result.get("normalized_claim_id") or result.get("claim_id") or ""
 
@@ -221,6 +247,8 @@ def extract_evidence(result: dict) -> dict:
 
 
 def keep_result_for_claim(result: dict) -> bool:
+    """Drop evidence that clearly does not match the claim topic."""
+
     claim_text = str(result.get("claim_text", result.get("query_text", "")))
     claim_terms = _claim_terms(claim_text)
     if not claim_terms:
@@ -231,6 +259,8 @@ def keep_result_for_claim(result: dict) -> bool:
 
 
 def extract_all_evidence(results: list[dict]) -> list[dict]:
+    """Fetch and filter evidence for all selected results."""
+
     all_evidence = []
 
     for result in results:

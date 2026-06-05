@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "C:\Users\teore\Documents\csr-system\scripts\agent_4\query_generator.py", line 7, in <module>
-    from src.pipeline.query_generator import generate_queries_for_all_claims, load_claims
-ModuleNotFoundError: No module named 'src'

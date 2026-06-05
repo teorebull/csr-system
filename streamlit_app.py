@@ -115,6 +115,7 @@ def run_pipeline_command(
     agent_9_provider: str,
     agent_9_model: str,
 ) -> RunResult:
+    # Streamlit stays responsive by delegating the actual workflow to the CLI runner.
     args = [
         sys.executable,
         str(RUN_GRAPH),
@@ -236,6 +237,7 @@ def render_progress_snapshot(progress_placeholder, log_placeholder) -> None:
 
 def show_report(company: str) -> None:
     artifact_root = artifact_root_for_company(company)
+    # The dashboard reads the latest saved artifacts instead of recomputing anything here.
     summary_path = artifact_root / "agent_9" / "final_summary.md"
     report_path = artifact_root / "agent_9" / "final_report.json"
     csr_path = artifact_root / "agent_9" / "final_csr_assessment.csv"

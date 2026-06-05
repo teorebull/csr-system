@@ -45,6 +45,8 @@ STOPWORDS = {
 
 
 def load_csv_rows(csv_path: Path) -> list[dict]:
+    """Load CSV rows used for reranking evidence."""
+
     rows = []
     with open(csv_path, "r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
@@ -54,10 +56,14 @@ def load_csv_rows(csv_path: Path) -> list[dict]:
 
 
 def build_claim_lookup(claims: list[dict]) -> dict:
+    """Index claims by normalized claim id."""
+
     return {claim["normalized_claim_id"]: claim for claim in claims}
 
 
 def normalize_text(text: str) -> str:
+    """Normalize text for token overlap scoring."""
+
     text = text.lower().strip()
     text = re.sub(r"[^a-z0-9\s]", " ", text)
     text = re.sub(r"\s+", " ", text)
@@ -65,6 +71,8 @@ def normalize_text(text: str) -> str:
 
 
 def tokenize(text: str) -> set[str]:
+    """Split text into the tokens used for heuristic scoring."""
+
     normalized = normalize_text(text)
     tokens = set()
     for word in normalized.split():
@@ -75,6 +83,8 @@ def tokenize(text: str) -> set[str]:
 
 
 def overlap_score(claim_text: str, evidence_text: str) -> float:
+    """Measure how much evidence text overlaps the claim text."""
+
     claim_tokens = tokenize(claim_text)
     evidence_tokens = tokenize(evidence_text)
     if not claim_tokens or not evidence_tokens:
@@ -83,6 +93,8 @@ def overlap_score(claim_text: str, evidence_text: str) -> float:
 
 
 def rank_bonus(result_rank: str) -> float:
+    """Reward evidence that surfaced early in search results."""
+
     try:
         rank = int(result_rank)
     except ValueError:
@@ -91,10 +103,14 @@ def rank_bonus(result_rank: str) -> float:
 
 
 def query_type_bonus(query_type: str) -> float:
+    """Add a small bonus for more useful query types."""
+
     return {"verification": 0.08, "contradiction": 0.10, "criticism": 0.10, "methodology": 0.07, "context": 0.06}.get(query_type, 0.0)
 
 
 def source_quality_bonus(source_quality_score: str) -> float:
+    """Convert a source-quality score into a reranking bonus."""
+
     try:
         return float(source_quality_score) * 0.12
     except ValueError:
@@ -102,12 +118,16 @@ def source_quality_bonus(source_quality_score: str) -> float:
 
 
 def greenwashing_signal_score(evidence: dict) -> float:
+    """Reward evidence that touches the project's greenwashing themes."""
+
     text = f"{evidence.get('title', '')} {evidence.get('snippet', '')} {evidence.get('query_text', '')}"
     matched_terms = tokenize(text).intersection(GREENWASHING_TERMS)
     return min(len(matched_terms) * 0.02, 0.12)
 
 
 def combined_evidence_text(evidence: dict) -> str:
+    """Build the text blob used by the reranker heuristics."""
+
     title = evidence.get("title", "")
     snippet = evidence.get("snippet", "")
     query_text = evidence.get("query_text", "")
@@ -116,6 +136,8 @@ def combined_evidence_text(evidence: dict) -> str:
 
 
 def claim_company_keywords(claim: dict) -> list[str]:
+    """Infer company-specific keywords from the claim itself."""
+
     sources = [
         str(claim.get("claim_text", "")),
         str(claim.get("document_name", "")),
@@ -129,6 +151,8 @@ def claim_company_keywords(claim: dict) -> list[str]:
 
 
 def extract_fiscal_year_terms(text: str) -> set[str]:
+    """Extract year tokens that matter for claim-specific matching."""
+
     terms = set()
     for match in re.findall(r"\bfy\s?(\d{2})\b", text.lower()):
         terms.add(f"fy{match}")
@@ -139,10 +163,14 @@ def extract_fiscal_year_terms(text: str) -> set[str]:
 
 
 def extract_percentages(text: str) -> set[str]:
+    """Pull percentage strings from text for exact matching."""
+
     return set(re.findall(r"\b\d+(?:\.\d+)?\s?%", text.lower()))
 
 
 def text_contains_any(text: str, terms: set[str]) -> bool:
+    """Check whether any exact term appears in the text."""
+
     for term in terms:
         pattern = rf"(?<![a-z0-9]){re.escape(term.lower())}(?![a-z0-9])"
         if re.search(pattern, text):
@@ -151,6 +179,8 @@ def text_contains_any(text: str, terms: set[str]) -> bool:
 
 
 def matched_terms(text: str, terms: set[str]) -> set[str]:
+    """Return the subset of terms that appear in the text."""
+
     matches = set()
     for term in terms:
         pattern = rf"(?<![a-z0-9]){re.escape(term.lower())}(?![a-z0-9])"
@@ -160,6 +190,8 @@ def matched_terms(text: str, terms: set[str]) -> set[str]:
 
 
 def check_required_term_group(claim_text: str, evidence_text: str, terms: set[str], label: str) -> tuple[float, str | None]:
+    """Score whether a required topic group is present in the evidence."""
+
     if not text_contains_any(claim_text, terms):
         return 0.0, None
     if text_contains_any(evidence_text, terms):
@@ -168,6 +200,8 @@ def check_required_term_group(claim_text: str, evidence_text: str, terms: set[st
 
 
 def check_exclusive_topic_terms(claim_text: str, evidence_text: str, terms: set[str], label: str) -> tuple[float, str | None]:
+    """Score whether a claim-specific topic term is preserved in evidence."""
+
     claim_terms = matched_terms(claim_text, terms)
     if not claim_terms:
         return 0.0, None
@@ -180,6 +214,8 @@ def check_exclusive_topic_terms(claim_text: str, evidence_text: str, terms: set[
 
 
 def compute_specificity(claim: dict, evidence: dict) -> tuple[float, str]:
+    """Estimate how specifically the evidence matches the claim."""
+
     claim_text = claim.get("claim_text", "").lower()
     evidence_text = combined_evidence_text(evidence)
     adjustment = 0.0
